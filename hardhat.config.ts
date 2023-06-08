@@ -135,7 +135,8 @@ const config: HardhatUserConfig = {
   docgen: {
     outputDir: "./docs",
     pages: "files",
-    theme: "common",
+    // theme: "markdown",
+    pageExtension: ".md",
     templates: "docgen-templates",
   },
 };

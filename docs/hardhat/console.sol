@@ -1,2 +1,0 @@
-# hardhat/console.sol
-
