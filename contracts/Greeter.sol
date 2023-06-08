@@ -5,6 +5,7 @@ import { console } from "hardhat/console.sol";
 
 error GreeterError();
 
+/// @title Greeter Smart Contract
 contract Greeter {
     string public greeting;
 

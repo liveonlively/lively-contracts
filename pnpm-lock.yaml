@@ -137,8 +137,8 @@ devDependencies:
     specifier: ^0.8.2
     version: 0.8.2(hardhat@2.12.2)
   solidity-docgen:
-    specifier: 0.6.0-beta.35
-    version: 0.6.0-beta.35(hardhat@2.12.2)
+    specifier: 0.6.0-beta.10
+    version: 0.6.0-beta.10(hardhat@2.12.2)
   ts-generator:
     specifier: ^0.1.1
     version: 0.1.1
@@ -6034,8 +6034,8 @@ packages:
       - supports-color
     dev: true
 
-  /solidity-docgen@0.6.0-beta.35(hardhat@2.12.2):
-    resolution: {integrity: sha512-9QdwK1THk/MWIdq1PEW/6dvtND0pUqpFTsbKwwU9YQIMYuRhH1lek9SsgnsGGYtdJ0VTrXXcVT30q20a8Y610A==}
+  /solidity-docgen@0.6.0-beta.10(hardhat@2.12.2):
+    resolution: {integrity: sha512-TrLw0vXffpIopAECveqH96S56mXyGjcQIkYLjYizzlvAXQ361Ach/XwRHqxvrncKCiEcOxosv+pIPWd0MrM2ug==}
     peerDependencies:
       hardhat: ^2.8.0
     dependencies:

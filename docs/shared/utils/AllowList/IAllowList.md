@@ -1,4 +1,2 @@
-# Solidity API
-
-## IAllowList
+# shared/utils/AllowList/IAllowList.md
 
