@@ -14,11 +14,7 @@ library PriceConsumer {
     uint256 constant mumbaiId = 80001;
 
     // Returns the appropriate oracle address for the given network id.
-    function getPriceFeedAddress()
-        internal
-        view
-        returns (address priceFeedAddress)
-    {
+    function getPriceFeedAddress() internal view returns (address priceFeedAddress) {
         uint256 chainId = block.chainid;
 
         if (chainId == ethereumId || chainId == localId) {
@@ -53,9 +49,7 @@ library PriceConsumer {
      * @return Price Feed address
      */
     function getPriceFeed() internal view returns (AggregatorV3Interface) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(
-            getPriceFeedAddress()
-        );
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(getPriceFeedAddress());
 
         return priceFeed;
     }

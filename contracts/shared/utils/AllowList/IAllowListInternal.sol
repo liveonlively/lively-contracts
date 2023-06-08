@@ -19,11 +19,7 @@ interface IAllowListInternal {
 
     event AllowListStatus(uint256 tokenId, bool status);
     event AllowListAdded(uint256 tokenId, address account, uint256 allowance);
-    event AllowListAdded(
-        uint256 tokenId,
-        address[] accounts,
-        uint256 allowance
-    );
+    event AllowListAdded(uint256 tokenId, address[] accounts, uint256 allowance);
     event AllowListRemoved(uint256 tokenId, address account);
     event AllowListRemoved(uint256 tokenId, address[] accounts);
 }

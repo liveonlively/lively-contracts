@@ -1,5 +1,7 @@
 # Hardhat Template [![Open in Gitpod][gitpod-badge]][gitpod] [![Github Actions][gha-badge]][gha] [![Hardhat][hardhat-badge]][hardhat] [![License: MIT][license-badge]][license]
 
+NOTE (JSH): Good template for a new Hardhat Project.
+
 [gitpod]: https://gitpod.io/#https://github.com/paulrberg/hardhat-template
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
 [gha]: https://github.com/paulrberg/hardhat-template/actions

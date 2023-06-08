@@ -7,8 +7,8 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
-import {PaymentSplitterStorage} from "./PaymentSplitterStorage.sol";
-import {IPaymentSplitterInternal} from "./IPaymentSplitterInternal.sol";
+import { PaymentSplitterStorage } from "./PaymentSplitterStorage.sol";
+import { IPaymentSplitterInternal } from "./IPaymentSplitterInternal.sol";
 
 abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
     string private constant CONTRACT_VERSION = "0.0.1";
@@ -54,9 +54,7 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      * contract.
      */
     // Public
-    function _totalReleased(
-        IERC20 token
-    ) internal view returns (uint256 result) {
+    function _totalReleased(IERC20 token) internal view returns (uint256 result) {
         result = PaymentSplitterStorage.layout().erc20TotalReleased[token];
     }
 
@@ -72,9 +70,7 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      * @dev Getter for the amount of Ether already released to a payee.
      */
     // Public
-    function _released(
-        address account
-    ) internal view returns (uint256 releasedAmount) {
+    function _released(address account) internal view returns (uint256 releasedAmount) {
         releasedAmount = PaymentSplitterStorage.layout().released[account];
     }
 
@@ -83,22 +79,15 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      * IERC20 contract.
      */
     // Public
-    function _released(
-        IERC20 token,
-        address account
-    ) internal view returns (uint256 releasedAmount) {
-        releasedAmount = PaymentSplitterStorage.layout().erc20Released[token][
-            account
-        ];
+    function _released(IERC20 token, address account) internal view returns (uint256 releasedAmount) {
+        releasedAmount = PaymentSplitterStorage.layout().erc20Released[token][account];
     }
 
     /**
      * @dev Getter for the address of the payee number `index`.
      */
     // Public
-    function _payee(
-        uint256 index
-    ) internal view returns (address payeeAddress) {
+    function _payee(uint256 index) internal view returns (address payeeAddress) {
         payeeAddress = PaymentSplitterStorage.layout().payees[index];
     }
 
@@ -106,15 +95,9 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      * @dev Getter for the amount of payee's releasable Ether.
      */
     // Public
-    function _releasable(
-        address account
-    ) internal view returns (uint256 releasable) {
+    function _releasable(address account) internal view returns (uint256 releasable) {
         uint256 totalReceived = address(this).balance + _totalReleased();
-        releasable = _pendingPayment(
-            account,
-            totalReceived,
-            _released(account)
-        );
+        releasable = _pendingPayment(account, totalReceived, _released(account));
     }
 
     /**
@@ -122,17 +105,9 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      * IERC20 contract.
      */
     // Public
-    function _releasable(
-        IERC20 token,
-        address account
-    ) internal view returns (uint256 releasable) {
-        uint256 totalReceived = token.balanceOf(address(this)) +
-            _totalReleased(token);
-        releasable = _pendingPayment(
-            account,
-            totalReceived,
-            _released(token, account)
-        );
+    function _releasable(IERC20 token, address account) internal view returns (uint256 releasable) {
+        uint256 totalReceived = token.balanceOf(address(this)) + _totalReleased(token);
+        releasable = _pendingPayment(account, totalReceived, _released(token, account));
     }
 
     /**
@@ -141,8 +116,7 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      */
     // Public
     function _release(address payable account) internal virtual {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         if (pss.shares[account] == 0) revert PaymentSplitterZeroShares();
 
@@ -168,8 +142,7 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
      */
     // Public
     function _release(IERC20 token, address account) internal virtual {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         if (pss.shares[account] == 0) revert PaymentSplitterZeroShares();
 
@@ -198,13 +171,9 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
         uint256 totalReceived,
         uint256 alreadyReleased
     ) internal view returns (uint256 pendingPayment) {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
-        pendingPayment =
-            (totalReceived * pss.shares[account]) /
-            pss.totalShares -
-            alreadyReleased;
+        pendingPayment = (totalReceived * pss.shares[account]) / pss.totalShares - alreadyReleased;
     }
 
     /**
@@ -216,8 +185,7 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
         if (account == address(0)) revert PaymentSplitterZeroAddress();
         if (shares_ == 0) revert PaymentSplitterZeroShares();
 
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         if (pss.shares[account] > 0) revert PaymentSplitterAlreadyHasShares();
 

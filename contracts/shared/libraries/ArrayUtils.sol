@@ -5,10 +5,7 @@ library ArrayUtils {
     string private constant CONTRACT_VERSION = "0.0.1";
 
     // Check to see if array includes given address
-    function includes(
-        address[] memory _array,
-        address _address
-    ) internal pure returns (bool) {
+    function includes(address[] memory _array, address _address) internal pure returns (bool) {
         unchecked {
             uint256 i = 0;
             uint256 arrayLength = _array.length;
@@ -24,10 +21,7 @@ library ArrayUtils {
     }
 
     // Check to see if array includes given uint256
-    function includes(
-        uint256[] memory _array,
-        uint256 _tokenIndex
-    ) internal pure returns (bool) {
+    function includes(uint256[] memory _array, uint256 _tokenIndex) internal pure returns (bool) {
         //
         uint256 i = 0;
         uint256 arrayLength = _array.length;
@@ -43,10 +37,7 @@ library ArrayUtils {
     }
 
     // Append item to array for uint256
-    function append(
-        uint256[] memory _array,
-        uint256 _tokenIndex
-    ) internal pure returns (uint256[] memory) {
+    function append(uint256[] memory _array, uint256 _tokenIndex) internal pure returns (uint256[] memory) {
         unchecked {
             uint256 arrayLength = _array.length;
             uint256[] memory newArray = new uint256[](arrayLength + 1);
@@ -61,10 +52,7 @@ library ArrayUtils {
     }
 
     // Append item to array for address
-    function append(
-        address[] memory _array,
-        address _address
-    ) internal pure returns (address[] memory) {
+    function append(address[] memory _array, address _address) internal pure returns (address[] memory) {
         unchecked {
             uint256 arrayLength = _array.length;
             address[] memory newArray = new address[](arrayLength + 1);

@@ -30,13 +30,11 @@ interface IPaymentSplitterInternal {
     error PaymentSplitterZeroAddress();
     error PaymentSplitterAlreadyHasShares();
     error PaymentSplitterZeroFundsDue();
+    error InvalidPayee();
+    error PayeeNotSender();
 
     event PayeeAdded(address account, uint256 shares);
     event PaymentReceived(address from, uint256 amount);
     event PaymentReleased(address to, uint256 amount);
-    event ERC20PaymentReleased(
-        IERC20 indexed token,
-        address to,
-        uint256 amount
-    );
+    event ERC20PaymentReleased(IERC20 indexed token, address to, uint256 amount);
 }

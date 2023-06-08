@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {LibDiamond} from "./LibDiamond.sol";
-import {IWETH9} from "../interfaces/IWETH9.sol";
+import { LibDiamond } from "./LibDiamond.sol";
+import { IWETH9 } from "../interfaces/IWETH9.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
 
@@ -15,15 +15,10 @@ library CoinSwapper {
     uint256 constant polygonId = 137;
     uint256 constant mumbaiId = 80001;
 
-    ISwapRouter public constant swapRouter =
-        ISwapRouter(0xE592427A0AEce92De3Edee1F18E0157C05861564); // Same on all Nets SwapRouter address
+    ISwapRouter public constant swapRouter = ISwapRouter(0xE592427A0AEce92De3Edee1F18E0157C05861564); // Same on all Nets SwapRouter address
 
     // Returns the appropriate WETH9 token address for the given network id.
-    function getWETH9Address()
-        internal
-        view
-        returns (address priceFeedAddress)
-    {
+    function getWETH9Address() internal view returns (address priceFeedAddress) {
         if (block.chainid == ethereumId || block.chainid == localId) {
             return 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
         } else if (block.chainid == polygonId) {
@@ -57,13 +52,13 @@ library CoinSwapper {
     /** @dev Wraps the entire balance of the contract in WETH9 */
     function wrapEth() internal {
         address WETH9 = getWETH9Address();
-        IWETH9(WETH9).deposit{value: address(this).balance}();
+        IWETH9(WETH9).deposit{ value: address(this).balance }();
     }
 
     /** @dev Wraps the entire balance of the contract in WETH9 */
     function wrapMsgEth() internal {
         address WETH9 = getWETH9Address();
-        IWETH9(WETH9).deposit{value: msg.value}();
+        IWETH9(WETH9).deposit{ value: msg.value }();
     }
 
     /** @dev Converts all WETH owned by contract to USDC */
@@ -75,26 +70,20 @@ library CoinSwapper {
         // For this example, we will set the pool fee to 0.3%.
         uint24 poolFee = 3000;
 
-        TransferHelper.safeTransferFrom(
-            WETH9,
-            address(this),
-            address(this),
-            currentBlance
-        );
+        TransferHelper.safeTransferFrom(WETH9, address(this), address(this), currentBlance);
 
         TransferHelper.safeApprove(WETH9, address(swapRouter), currentBlance);
 
-        ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
-            .ExactInputSingleParams({
-                tokenIn: WETH9,
-                tokenOut: USDC,
-                fee: poolFee,
-                recipient: address(this),
-                deadline: block.timestamp,
-                amountIn: currentBlance,
-                amountOutMinimum: 0,
-                sqrtPriceLimitX96: 0
-            });
+        ISwapRouter.ExactInputSingleParams memory params = ISwapRouter.ExactInputSingleParams({
+            tokenIn: WETH9,
+            tokenOut: USDC,
+            fee: poolFee,
+            recipient: address(this),
+            deadline: block.timestamp,
+            amountIn: currentBlance,
+            amountOutMinimum: 0,
+            sqrtPriceLimitX96: 0
+        });
 
         swapRouter.exactInputSingle(params);
     }
