@@ -4,6 +4,7 @@ import "hardhat-deploy";
 import type { HardhatUserConfig } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
+import "solidity-docgen";
 
 import "./tasks/accounts";
 import "./tasks/greet";
@@ -130,6 +131,10 @@ const config: HardhatUserConfig = {
   typechain: {
     outDir: "types",
     target: "ethers-v5",
+  },
+  docgen: {
+    outputDir: "./docs",
+    pages: "files",
   },
 };
 
