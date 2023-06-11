@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["es6"],
+    "lib": ["ESNext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -14,9 +14,9 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6"
+    "target": "ESNext"
   },
   "exclude": ["node_modules"],
-  "files": ["./hardhat.config.ts"],
-  "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*"]
+  "files": ["./hardhat.config.ts", "optimizationEnabled.ts"],
+  "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*", "scripts/**/*"]
 }

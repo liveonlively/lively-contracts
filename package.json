@@ -3,8 +3,8 @@
   "description": "",
   "version": "0.0.1",
   "author": {
-    "name": "jhubbardsf",
-    "url": "https://github.com/jhubbardsf"
+    "name": "Josh Hubbard && Lively Team",
+    "url": "https://github.com/liveonlively/lively-contracts"
   },
   "devDependencies": {
     "@chainlink/contracts": "^0.6.1",
@@ -21,6 +21,7 @@
     "@openzeppelin/contracts": "^4.9.1",
     "@openzeppelin/contracts-upgradeable": "^4.9.1",
     "@solidstate/contracts": "^0.0.57",
+    "@solidstate/spec": "^0.0.57",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@typechain/ethers-v5": "^10.1.1",
     "@typechain/hardhat": "^6.1.4",
@@ -42,6 +43,7 @@
     "fs-extra": "^10.1.0",
     "hardhat": "^2.12.2",
     "hardhat-deploy": "^0.11.29",
+    "hardhat-diamond-abi": "^3.0.1",
     "hardhat-gas-reporter": "^1.0.9",
     "lodash": "^4.17.21",
     "mocha": "^10.1.0",
@@ -83,6 +85,7 @@
     "init-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint": "pnpm lint:sol && pnpm lint:ts && pnpm prettier:check",
     "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
+    "generate:dummy": "hh run ./scripts/runGenerateDummy.ts && prettier --plugin-search-dir ./node_modules --plugin=prettier-plugin-solidity --write contracts/dummy/**/*",
     "generate:documents": "hardhat docgen",
     "lint:ts": "eslint --ignore-path ./.eslintignore --ext .js,.ts .",
     "postinstall": "DOTENV_CONFIG_PATH=./.env.example pnpm typechain",

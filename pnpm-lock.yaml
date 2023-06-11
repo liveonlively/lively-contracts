@@ -43,6 +43,9 @@ devDependencies:
   '@solidstate/contracts':
     specifier: ^0.0.57
     version: 0.0.57
+  '@solidstate/spec':
+    specifier: ^0.0.57
+    version: 0.0.57
   '@trivago/prettier-plugin-sort-imports':
     specifier: ^4.0.0
     version: 4.0.0(@vue/compiler-sfc@3.3.4)(prettier@2.8.4)
@@ -106,6 +109,9 @@ devDependencies:
   hardhat-deploy:
     specifier: ^0.11.29
     version: 0.11.29
+  hardhat-diamond-abi:
+    specifier: ^3.0.1
+    version: 3.0.1(hardhat@2.12.2)
   hardhat-gas-reporter:
     specifier: ^1.0.9
     version: 1.0.9(hardhat@2.12.2)
@@ -470,6 +476,17 @@ packages:
       '@ethersproject/web': 5.7.1
       bufio: 1.2.0
       chai: 4.3.7
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: true
+
+  /@ethereum-waffle/mock-contract@3.4.4:
+    resolution: {integrity: sha512-Mp0iB2YNWYGUV+VMl5tjPsaXKbKo8MDH9wSJ702l9EBjdxFf/vBvnMBAC1Fub1lLtmD0JHtp1pq+mWzg/xlLnA==}
+    engines: {node: '>=10.0'}
+    dependencies:
+      '@ethersproject/abi': 5.7.0
+      ethers: 5.7.2
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -1389,6 +1406,22 @@ packages:
 
   /@solidstate/contracts@0.0.57:
     resolution: {integrity: sha512-eDH8gVrbt2eayVYL9aqqOYbsAaXv2MNECNwiLOBuahtacTVsaArFE9bAKRAL3gDc6Gc3RuOQqWTm3OA6e7YAPw==}
+    dev: true
+
+  /@solidstate/library@0.0.57:
+    resolution: {integrity: sha512-mJIkfNbCDQ7kRoXUkA07Z7qo5eD3ijyP+uTym1d4GioYc/tjAZJUEwLvNoRYnDiVrrfdD6PeLHhbmJ+ADQgZOQ==}
+    dependencies:
+      eth-permit: 0.1.10
+    dev: true
+
+  /@solidstate/spec@0.0.57:
+    resolution: {integrity: sha512-dSS0dS5n2W9NiitLlhS0ryhK/S/axBn4UOmuN/q/xNgYUaajgWAvW2cAti5d08DKVqyaNvwNsloh+YoNPAzEfg==}
+    dependencies:
+      '@ethereum-waffle/mock-contract': 3.4.4
+      '@solidstate/library': 0.0.57
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
     dev: true
 
   /@trivago/prettier-plugin-sort-imports@4.0.0(@vue/compiler-sfc@3.3.4)(prettier@2.8.4):
@@ -3234,6 +3267,12 @@ packages:
       sync-request: 6.1.0
     dev: true
 
+  /eth-permit@0.1.10:
+    resolution: {integrity: sha512-cMAjWvGEaCQoWSlKWBqkBMQvhCtXzVlkTCnYBxGRsCxznbBZSiYuOsHpTAb4EerRwQJkRgwd3vPvcZh3OA7Siw==}
+    dependencies:
+      utf8: 3.0.0
+    dev: true
+
   /ethereum-bloom-filters@1.0.10:
     resolution: {integrity: sha512-rxJ5OFN3RwjQxDcFP2Z5+Q9ho4eIdEmSc2ht0fCu8Se9nbXjZ7/031uXoUYJ87KHCOdVeiUuwSnoS7hmYAGVHA==}
     dependencies:
@@ -3961,6 +4000,21 @@ packages:
       murmur-128: 0.2.1
       qs: 6.11.2
       zksync-web3: 0.14.3(ethers@5.7.2)
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
+  /hardhat-diamond-abi@3.0.1(hardhat@2.12.2):
+    resolution: {integrity: sha512-t+skBGX8lK3qH/YQB8L/QJVIINyuji/2r4q9JcZQ0rX9oEZzgfJMka2ttZ4gyuNcYRT95KyfDSuCCwSQX1cVDA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      hardhat: ^2.0.0
+    dependencies:
+      debug: 4.3.4(supports-color@8.1.1)
+      ethers: 5.7.2
+      hardhat: 2.12.2(ts-node@10.9.1)(typescript@4.9.3)
     transitivePeerDependencies:
       - bufferutil
       - supports-color

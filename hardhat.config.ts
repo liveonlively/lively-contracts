@@ -6,7 +6,9 @@ import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
 
+import { erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
+import "./tasks/generators";
 import "./tasks/greet";
 import "./tasks/taskDeploy";
 
@@ -138,6 +140,13 @@ const config: HardhatUserConfig = {
     pageExtension: ".md",
     templates: "docgen-templates",
   },
+  // diamondAbi: [
+  //   {
+  //     name: "Lively1155DiamondABI",
+  //     include: [...erc1155Facets, ...sharedFacets],
+  //     strict: false,
+  //   },
+  // ],
 };
 
 export default config;

@@ -1,6 +1,8 @@
 # Hardhat Template [![Open in Gitpod][gitpod-badge]][gitpod] [![Github Actions][gha-badge]][gha] [![Hardhat][hardhat-badge]][hardhat] [![License: MIT][license-badge]][license]
 
-NOTE (JSH): Good template for a new Hardhat Project.
+NOTE (JSH): Good template for a new Hardhat Project. If you log into https://app.gitbook.com/ you (anyone with a
+@golive.ly email) should see a gitbook for this repo. Going to try and tweak the generator to make some of the contracts
+more user friendly/dev.
 
 [gitpod]: https://gitpod.io/#https://github.com/paulrberg/hardhat-template
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
