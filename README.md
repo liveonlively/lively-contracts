@@ -1,22 +1,28 @@
-# 👋 Welcome to A Product
+---
+description: >-
+  These docs will show you how to use the Lively Diamond NFT Smart Contract
+  ecosystem to mint, airdrop, token gate, and more.
+---
 
-{% hint style="info" %}
-**GitBook tip:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
+# 💎 Welcome to LivelyDiamond
 
-## Overview
+## LivelyDiamond's Goal
 
-Here are a couple of example overviews from products with really great docs:
+Here is where we explain why we started creating our contracts. We wanted there to be an easy, affordable, modular way for artists to use NFTs to engage with their fans. This can be as technical or light as needed.
 
-> Loom is a video messaging tool that helps you get your message across through instantly shareable videos.
->
-> With Loom, you can record your camera, microphone, and desktop simultaneously. Your video is then instantly available to share through Loom's patented technology.
->
-> — From the [Loom Docs](https://support.loom.com/hc/en-us/articles/360002158057-What-is-Loom-)
+Minim veniam exercitation ut nostrud do in consequat pariatur non eiusmod exercitation aliqua et. Do ea veniam magna id. Magna eiusmod ut duis aute voluptate adipisicing adipisicing adipisicing elit. Nisi Lorem in aliqua nostrud ut nulla proident irure excepteur esse anim officia.
 
-> The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
->
-> — From the [Mailchimp Marketing API docs](https://mailchimp.com/developer/marketing/docs/fundamentals/)
+## LivelyDiamond's Overview
+
+The LivelyDiamond ecosystem is a collection of on chain smart contracts and web development SDKs to make interacting with them as easy as possible. The smart contracts were built modularly using the [ERC-2535: Diamonds, Multi-Facet Proxy](https://eips.ethereum.org/EIPS/eip-2535) standard. This allows you to only use the features you want, upgrade your contract in the future to use more features, and keep costs down for you as a deployer. We handle all the heavy lifting.
+
+## LivelyDiamond's Features
+
+Here's a list of some of the features that LivelyContracts will be using.
+
+1. Feature 1...
+2. 2....
+3. 3....
 
 ## Quick links
 

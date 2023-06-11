@@ -1,6 +1,6 @@
 # Table of contents
 
-* [👋 Welcome to A Product](README.md)
+* [💎 Welcome to LivelyDiamond](README.md)
 
 ## Overview
 
