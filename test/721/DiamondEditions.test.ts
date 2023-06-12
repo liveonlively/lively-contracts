@@ -2,8 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
-import { valueToEther } from "../shared/index";
+import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
@@ -19,7 +18,7 @@ describe(`DiamondEditions Test`, function () {
     const edition1MaxSupply = 10;
     const edition1Price = defaultPrice;
     const edition2MaxSupply = 20;
-    const edition2Price = defaultPrice.div(2);
+    const edition2Price = defaultPrice / 2n;
 
     defaultArgs._price = defaultPrice;
     defaultArgs._baseTokenUri = "https://golive.ly/web3/meta/random-guid/";
@@ -50,7 +49,7 @@ describe(`DiamondEditions Test`, function () {
 
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     return {
       owner,
@@ -130,19 +129,19 @@ describe(`DiamondEditions Test`, function () {
       contract.connect(addr1);
 
       await contract["mint(address,uint256,uint256)"](addr1.address, 2, 1, {
-        value: edition2Price.mul(2),
+        value: edition2Price * 2n,
       });
       expect(await contract.tokenURI(0)).to.equal(baseTokenUri + "0/1");
       expect(await contract.tokenURI(1)).to.equal(baseTokenUri + "1/1");
 
       await contract["mint(address,uint256,uint256)"](addr1.address, 2, 0, {
-        value: edition1Price.mul(2),
+        value: edition1Price * 2n,
       });
       expect(await contract.tokenURI(2)).to.equal(baseTokenUri + "2/0");
       expect(await contract.tokenURI(3)).to.equal(baseTokenUri + "3/0");
 
       await contract["mint(address,uint256,uint256)"](owner.address, 5, 1, {
-        value: edition2Price.mul(5),
+        value: edition2Price * 5n,
       });
       expect(await contract.tokenURI(4)).to.equal(baseTokenUri + "4/1");
       expect(await contract.tokenURI(5)).to.equal(baseTokenUri + "5/1");
@@ -159,19 +158,19 @@ describe(`DiamondEditions Test`, function () {
       );
 
       await contract.connect(addr1)["mint(address,uint256,uint256)"](addr1.address, 2, 1, {
-        value: edition2Price.mul(2),
+        value: edition2Price * 2n,
       });
       expect(await contract.tokenURI(0)).to.equal(baseTokenUri + "0/1");
       expect(await contract.tokenURI(1)).to.equal(baseTokenUri + "1/1");
 
       await contract.connect(addr1)["mint(address,uint256,uint256)"](addr1.address, 2, 0, {
-        value: edition1Price.mul(2),
+        value: edition1Price * 2n,
       });
       expect(await contract.tokenURI(2)).to.equal(baseTokenUri + "2/0");
       expect(await contract.tokenURI(3)).to.equal(baseTokenUri + "3/0");
 
       await contract.connect(owner)["mint(address,uint256,uint256)"](owner.address, 5, 1, {
-        value: edition2Price.mul(5),
+        value: edition2Price * 5n,
       });
       expect(await contract.tokenURI(4)).to.equal(baseTokenUri + "4/1");
       expect(await contract.tokenURI(5)).to.equal(baseTokenUri + "5/1");
@@ -197,7 +196,7 @@ describe(`DiamondEditions Test`, function () {
       // Fail to mint a token
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
-          value: edition1Price.div(2),
+          value: edition1Price / 2n,
         }),
       ).to.be.reverted;
 
@@ -211,7 +210,7 @@ describe(`DiamondEditions Test`, function () {
       // Fail to mint a token
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
-          value: edition2Price.div(2),
+          value: edition2Price / 2n,
         }),
       ).to.be.reverted;
 
@@ -328,7 +327,7 @@ describe(`DiamondEditions Test`, function () {
       const { contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
 
       expect(await contract["maxSupply()"]()).to.not.equal(maxSupply);
@@ -339,7 +338,7 @@ describe(`DiamondEditions Test`, function () {
       const { addr1, contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await expect(contract.connect(addr1)["setMaxSupply(uint256)"](newMaxSupply)).to.be.reverted;
 
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
@@ -347,7 +346,7 @@ describe(`DiamondEditions Test`, function () {
     });
 
     it("Should not allow owner to mint more than the max supply", async () => {
-      const { addr1, defaultPrice, contract, edition1MaxSupply } = await loadFixture(deployTokenFixture);
+      const { addr1, defaultPrice, contract, maxSupply, edition1MaxSupply } = await loadFixture(deployTokenFixture);
       // Mint a token
       for (let i = 0; i < edition1MaxSupply; i++) {
         await contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
@@ -395,7 +394,7 @@ describe(`DiamondEditions Test`, function () {
       const [royaltyAddress, amountDue] = await contract.royaltyInfo(0, 100);
 
       expect(royaltyAddress).to.equal(addr2.address);
-      expect(amountDue).to.equal(BigNumber.from(5));
+      expect(amountDue).to.equal(5n);
     });
   });
 });

@@ -1,4 +1,4 @@
-import "@nomiclabs/hardhat-ethers";
+import "@nomicfoundation/hardhat-ethers";
 import { writeFile } from "fs/promises";
 import { task } from "hardhat/config";
 import { join } from "path";

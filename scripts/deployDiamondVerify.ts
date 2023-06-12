@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ethers, hardhatArguments, run } from "hardhat";
-
-import { logger } from "../scripts/1155/deploy";
-import { LivelyDiamond } from "../types";
 import { getSelectors } from "./libraries/diamond";
+import { LivelyDiamond } from "../types";
+import { logger } from "../scripts/1155/deploy";
 
 export const FacetCutAction = { Add: 0, Replace: 1, Remove: 2 };
 
@@ -33,7 +32,7 @@ export const defaultArgs: LivelyDiamond.DiamondArgsStruct = {
   _secondaryPayee: "0x208731e5331799D88B8B39E1A1182e90b05d94BA",
   _secondaryPoints: "500", // 5%
   _contractURI: "http://contract.uri",
-  // _price: ethers.utils.parseUnits("0.01", "ether"),
+  // _price: ethers.parseUnits("0.01", "ether"),
   _price: 7500, // $75.00
   _maxSupply: 100,
   _baseTokenUri: "https://soon.golive.ly/web3/meta/5af73739-e234-4b1d-b468-fb3461ed1de9/",
@@ -56,16 +55,18 @@ export const deploy = async (args = defaultArgs, opts = defaultOpts): Promise<st
   const cut = [];
   for (const FacetName of FacetNames) {
     const Facet = await ethers.getContractFactory(FacetName);
-    const facet = await Facet.deploy();
-    await facet.deployed();
-    logger(`${FacetName} deployed: ${facet.address}`);
+    const transactionResponse = await Facet.deploy();
+    const deploymentTransaction = transactionResponse.deploymentTransaction();
+    const facet = await transactionResponse.waitForDeployment();
+
+    logger(`${FacetName} deployed: ${await facet.getAddress()}`);
     if (hardhatArguments.network !== "localhost" && opts.verify) {
       try {
         logger("Verifying...");
         await delay(5);
-        await facet.deployTransaction.wait(5);
+        await deploymentTransaction?.wait(5);
         await run("verify:verify", {
-          address: facet.address,
+          address: await facet.getAddress(),
           contract: FacetName,
         });
       } catch (e) {
@@ -75,28 +76,31 @@ export const deploy = async (args = defaultArgs, opts = defaultOpts): Promise<st
 
     const facetsToRemove = FacetsWithExtra165.includes(FacetName) ? ["supportsInterface(bytes4)"] : [];
     cut.push({
-      facetAddress: facet.address,
+      facetAddress: await facet.getAddress(),
       action: FacetCutAction.Add,
-      functionSelectors: getSelectors(facet).remove(facetsToRemove),
+      functionSelectors: getSelectors(Facet).remove(facetsToRemove),
     });
   }
 
+  // const Diamond = await ethers.getContractFactory("LivelyDiamond");
+  // const diamond = await Diamond.deploy(cut, args);
+
   const Diamond = await ethers.getContractFactory("LivelyDiamond");
-  const diamond = await Diamond.deploy(cut, args);
+  const transactionResponse = await Diamond.deploy(cut, args);
+  const deploymentTransaction = transactionResponse.deploymentTransaction();
+  const diamond = await transactionResponse.waitForDeployment();
 
   logger("Cuts: ", JSON.stringify(cut, null, 2));
-
-  await diamond.deployed();
-  logger(`Diamond deployed: ${diamond.address}`);
+  logger(`Diamond deployed: ${await diamond.getAddress()}`);
   if (hardhatArguments.network !== "localhost" && opts.verify)
     try {
       logger("Verifying...");
       logger("Cuts: ", JSON.stringify(cut, null, 2));
       logger("Args: ", JSON.stringify(args, null, 2));
       await delay(5);
-      diamond.deployTransaction.wait(5);
+      await deploymentTransaction?.wait(5);
       await run("verify:verify", {
-        address: diamond.address,
+        address: await diamond.getAddress(),
         contract: `contracts/ERC721-Diamond/LivelyDiamond.sol:LivelyDiamond`,
         constructorArguments: [cut, args],
       });
@@ -104,7 +108,7 @@ export const deploy = async (args = defaultArgs, opts = defaultOpts): Promise<st
       logger("Verification failed: ", JSON.stringify(e, null, 2));
     }
 
-  return diamond.address;
+  return await diamond.getAddress();
 };
 
 // We recommend this pattern to be able to use async/await everywhere

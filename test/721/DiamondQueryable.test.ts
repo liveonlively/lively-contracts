@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber, Wallet } from "ethers";
-import { valueToEther } from "../shared/index";
+import { Wallet } from "ethers";
+import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
@@ -41,7 +41,7 @@ describe(`DiamondQueryable Test`, function () {
     const contractAddress = await deploy(defaultArgs, { verify: false });
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     return {
       owner,
@@ -171,16 +171,12 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId: BigNumber) =>
-        tokenId.toNumber(),
-      );
+      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId) => tokenId);
 
-      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId: BigNumber) =>
-        tokenId.toNumber(),
-      );
+      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId) => tokenId);
 
-      expect(tokenIdsAddr1).to.deep.equal([0, 1, 5, 6]);
-      expect(tokenIdsOwner).to.deep.equal([2, 3, 4]);
+      expect(tokenIdsAddr1).to.deep.equal([0n, 1n, 5n, 6n]);
+      expect(tokenIdsOwner).to.deep.equal([2n, 3n, 4n]);
     });
 
     it("Should get tokens by owner regardless of edition version 2", async () => {
@@ -198,16 +194,12 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId: BigNumber) =>
-        tokenId.toNumber(),
-      );
+      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId) => tokenId);
 
-      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId: BigNumber) =>
-        tokenId.toNumber(),
-      );
+      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId) => tokenId);
 
-      expect(tokenIdsAddr1).to.deep.equal([0, 1, 5, 6]);
-      expect(tokenIdsOwner).to.deep.equal([2, 3, 4]);
+      expect(tokenIdsAddr1).to.deep.equal([0n, 1n, 5n, 6n]);
+      expect(tokenIdsOwner).to.deep.equal([2n, 3n, 4n]);
     });
 
     it("Should get tokens by owner for a specific edition", async () => {
@@ -226,27 +218,27 @@ describe(`DiamondQueryable Test`, function () {
       });
 
       const tokenIdsAddr1For0 = (await contract["getTokensByOwner(address,uint256)"](addr1.address, 0)).map(
-        (tokenId: BigNumber) => tokenId.toNumber(),
+        (tokenId) => tokenId,
       );
       const tokenIdsOwnerFor0 = (await contract["getTokensByOwner(address,uint256)"](owner.address, 0)).map(
-        (tokenId: BigNumber) => tokenId.toNumber(),
+        (tokenId) => tokenId,
       );
 
       const tokenIdsAddr1For1 = (await contract["getTokensByOwner(address,uint256)"](addr1.address, 1)).map(
-        (tokenId: BigNumber) => tokenId.toNumber(),
+        (tokenId) => tokenId,
       );
 
       const tokenIdsOwnerFor1 = (await contract["getTokensByOwner(address,uint256)"](owner.address, 1)).map(
-        (tokenId: BigNumber) => tokenId.toNumber(),
+        (tokenId) => tokenId,
       );
 
       // Check edition 0 results
-      expect(tokenIdsAddr1For0).to.deep.equal([0, 1]);
-      expect(tokenIdsOwnerFor0).to.deep.equal([]);
+      expect(tokenIdsAddr1For0).to.deep.equal([0n, 1n]);
+      expect(tokenIdsOwnerFor0).to.deep.equal([0n]);
 
       // Check edition 1 results
-      expect(tokenIdsAddr1For1).to.deep.equal([5, 6]);
-      expect(tokenIdsOwnerFor1).to.deep.equal([2, 3, 4]);
+      expect(tokenIdsAddr1For1).to.deep.equal([5n, 6n]);
+      expect(tokenIdsOwnerFor1).to.deep.equal([2n, 3n, 4n]);
     });
 
     it("Should get the correct edtions owned by each person", async () => {
@@ -264,15 +256,15 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const addr1EditionsOwned = [...new Set(await contract.getEditionsByOwner(addr1.address))].map((edition) =>
-        edition.toNumber(),
+      const addr1EditionsOwned = [...new Set(await contract.getEditionsByOwner(addr1.address))].map(
+        (edition) => edition,
       );
-      const ownerEditionsOwned = [...new Set(await contract.getEditionsByOwner(owner.address))].map((edition) =>
-        edition.toNumber(),
+      const ownerEditionsOwned = [...new Set(await contract.getEditionsByOwner(owner.address))].map(
+        (edition) => edition,
       );
 
-      expect(addr1EditionsOwned).to.deep.equal([0, 1]);
-      expect(ownerEditionsOwned).to.deep.equal([1]);
+      expect(addr1EditionsOwned).to.deep.equal([0n, 1n]);
+      expect(ownerEditionsOwned).to.deep.equal([1n]);
     });
 
     it("Should return true/false based on ownership", async () => {

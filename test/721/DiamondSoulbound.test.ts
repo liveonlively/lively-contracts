@@ -1,7 +1,6 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
-import { valueToEther } from "../shared/index";
+import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
@@ -29,7 +28,7 @@ describe(`DiamondSoulbound Test`, function () {
 
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     return {
       owner,

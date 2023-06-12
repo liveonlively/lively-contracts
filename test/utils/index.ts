@@ -1,6 +1,8 @@
 import { Contract } from "ethers";
 import { ethers } from "hardhat";
 
+// TODO: Remove this file if it's not needed
+
 export async function setupUsers<T extends { [contractName: string]: Contract }>(
   addresses: string[],
   contracts: T,

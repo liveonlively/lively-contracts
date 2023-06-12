@@ -2,17 +2,17 @@
 /* eslint-disable no-unused-vars */
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
-import { fullArgs, valueToEther } from "../shared/index";
+import { fullArgs, valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
+import { DummyDiamond721Implementation } from "../../types";
 
 describe(`DiamondSale Test`, function () {
   async function deployTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners(); // ...addrs
 
-    const defaultPrice = valueToEther("0.5");
-    const incorrectPrice = valueToEther("0.001");
+    const defaultPrice = BigInt(valueToEther("0.5"));
+    const incorrectPrice = BigInt(valueToEther("0.001"));
 
     defaultArgs._price = defaultPrice;
     defaultArgs._baseTokenUri = "https://golive.ly/tokenuri/";
@@ -28,7 +28,8 @@ describe(`DiamondSale Test`, function () {
 
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
+    console.log({ maxSupply });
     // const DEFAULT_ADMIN_ROLE = await contract.DEFAULT_ADMIN_ROLE();
     // const OWNER_ROLE = await contract.OWNER_ROLE();
 
@@ -88,10 +89,13 @@ describe(`DiamondSale Test`, function () {
     it("Should allow non-owners to mint", async () => {
       const { addr1, defaultPrice, contract } = await loadFixture(deployTokenFixture);
       // Non-owner mints
-      await contract.connect(addr1);
-      contract["mint(address)"](addr1.address, { value: defaultPrice });
+      // await contract.connect(addr1);
+      const price = await contract["price()"]();
+      console.log({ price, defaultPrice });
 
-      expect(await contract["totalSupply()"]()).to.equal(1);
+      await contract.connect(addr1)["mint(address)"](addr1.address, { value: defaultPrice });
+
+      expect(await contract["totalSupply()"]()).to.equal(1n);
     });
 
     it("Should not mint I send less than the required price", async () => {
@@ -218,7 +222,7 @@ describe(`DiamondSale Test`, function () {
       const { contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
 
       expect(await contract["maxSupply()"]()).to.not.equal(maxSupply);
@@ -229,7 +233,7 @@ describe(`DiamondSale Test`, function () {
       const { addr1, contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await expect(contract.connect(addr1)["setMaxSupply(uint256)"](newMaxSupply)).to.be.reverted;
 
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
@@ -293,7 +297,7 @@ describe(`DiamondSale Test`, function () {
       const [royaltyAddress, amountDue] = await contract.royaltyInfo(0, 100);
 
       expect(royaltyAddress).to.equal(addr2.address);
-      expect(amountDue).to.equal(BigNumber.from(5));
+      expect(amountDue).to.equal(5n);
     });
   });
 });

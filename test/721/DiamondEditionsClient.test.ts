@@ -2,8 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
-import { valueToEther } from "../shared/index";
+import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
@@ -16,7 +15,7 @@ describe(`DiamondEditionsClient Test`, function () {
     const edition1MaxSupply = 10;
     const edition1Price = defaultPrice;
     const edition2MaxSupply = 20;
-    const edition2Price = defaultPrice.div(2);
+    const edition2Price = defaultPrice / 2n;
 
     defaultArgs._price = defaultPrice;
     defaultArgs._baseTokenUri = "https://golive.ly/web3/meta/random-guid/";
@@ -48,7 +47,7 @@ describe(`DiamondEditionsClient Test`, function () {
 
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     return {
       owner,
@@ -86,7 +85,7 @@ describe(`DiamondEditionsClient Test`, function () {
     it("Should not allow non-owner role to change contract price", async () => {
       const { addr1, defaultPrice, contract } = await loadFixture(deployTokenFixture);
       // Set new price
-      const newPrice = valueToEther("0.01");
+      const newPrice = BigInt(valueToEther("0.01"));
       await expect(contract.connect(addr1)["setPrice(uint256)"](newPrice)).to.be.reverted;
 
       // Check price is still default
@@ -111,12 +110,12 @@ describe(`DiamondEditionsClient Test`, function () {
     it("Should allow non-owners to mint", async () => {
       const { addr1, defaultPrice, contract } = await loadFixture(deployTokenFixture);
       // Non-owner mints
-      await contract.connect(addr1);
-      contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
+
+      await contract.connect(addr1)["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
         value: defaultPrice,
       });
 
-      expect(await contract["totalSupply()"]()).to.equal(1);
+      expect(await contract["totalSupply()"]()).to.equal(1n);
     });
 
     it("Should not mint I send less than the required price", async () => {
@@ -254,7 +253,7 @@ describe(`DiamondEditionsClient Test`, function () {
       const { contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
 
       expect(await contract["maxSupply()"]()).to.not.equal(maxSupply);
@@ -265,7 +264,7 @@ describe(`DiamondEditionsClient Test`, function () {
       const { addr1, contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await expect(contract.connect(addr1)["setMaxSupply(uint256)"](newMaxSupply)).to.be.reverted;
 
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
@@ -273,7 +272,7 @@ describe(`DiamondEditionsClient Test`, function () {
     });
 
     it("Should not allow owner to mint more than the max supply", async () => {
-      const { addr1, defaultPrice, contract, edition1MaxSupply } = await loadFixture(deployTokenFixture);
+      const { addr1, defaultPrice, contract, maxSupply, edition1MaxSupply } = await loadFixture(deployTokenFixture);
       // Mint a token
       for (let i = 0; i < edition1MaxSupply; i++) {
         await contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
@@ -337,7 +336,7 @@ describe(`DiamondEditionsClient Test`, function () {
       const [royaltyAddress, amountDue] = await contract.royaltyInfo(0, 100);
 
       expect(royaltyAddress).to.equal(addr2.address);
-      expect(amountDue).to.equal(BigNumber.from(5));
+      expect(amountDue).to.equal(5n);
     });
   });
 });

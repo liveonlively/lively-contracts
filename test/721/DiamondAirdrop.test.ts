@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber, Contract, ContractFactory } from "ethers";
-import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
+import { Contract, ContractFactory } from "ethers";
+import type { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
+import { DummyDiamond721Implementation } from "../../types";
 
 export interface ERC721BaseContext {
   Contract: ContractFactory;
@@ -32,9 +33,13 @@ describe(`DiamondAirdrop Test`, function () {
 
     const contractAddress = await deploy(defaultArgs, { verify: false });
 
-    const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
+    const contract = (await ethers.getContractAt(
+      "DummyDiamond721Implementation",
+      contractAddress,
+      owner,
+    )) as unknown as DummyDiamond721Implementation;
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     return {
       owner,
@@ -52,7 +57,7 @@ describe(`DiamondAirdrop Test`, function () {
       await expect(contract.connect(addr1)["mint(address)"](addr1.address)).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 1
-      expect(await contract["balanceOf(address)"](addr1.address)).to.equal(0);
+      expect(await contract.balanceOf(addr1.address)).to.equal(0);
       expect(await contract["totalSupply()"]()).to.equal(0);
     });
   });
@@ -61,7 +66,7 @@ describe(`DiamondAirdrop Test`, function () {
       const { contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
 
       expect(await contract["maxSupply()"]()).to.not.equal(maxSupply);
@@ -71,7 +76,7 @@ describe(`DiamondAirdrop Test`, function () {
       const { addr1, contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await expect(contract.connect(addr1)["setMaxSupply(uint256)"](newMaxSupply)).to.be.reverted;
 
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
@@ -86,7 +91,7 @@ describe(`DiamondAirdrop Test`, function () {
       }
 
       // Total supply/balance of for address 1 should be maxSupply
-      expect(await contract["balanceOf(address)"](addr1.address)).to.equal(maxSupply);
+      expect(await contract.balanceOf(addr1.address)).to.equal(maxSupply);
       expect(await contract["totalSupply()"]()).to.equal(maxSupply);
 
       // Fail to mint a token
@@ -117,7 +122,7 @@ describe(`DiamondAirdrop Test`, function () {
       const [royaltyAddress, amountDue] = await contract.royaltyInfo(0, 100);
 
       expect(royaltyAddress).to.equal(addr2.address);
-      expect(amountDue).to.equal(BigNumber.from(5));
+      expect(amountDue).to.equal(5n);
     });
   });
 });

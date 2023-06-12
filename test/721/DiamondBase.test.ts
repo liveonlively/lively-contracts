@@ -2,9 +2,8 @@
 /* eslint-disable no-unused-vars */
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
-import { valueToEther } from "../shared/index";
+import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 
 // TODO: Add non owner should not be able to mint test for airdrop
@@ -13,8 +12,8 @@ describe(`DiamondBase Test`, function () {
   async function deployTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners(); // ...addrs
 
-    const defaultPrice = valueToEther("0.005");
-    const incorrectPrice = valueToEther("0.001");
+    const defaultPrice = BigInt(valueToEther("0.005"));
+    const incorrectPrice = BigInt(valueToEther("0.001"));
 
     defaultArgs._price = defaultPrice;
     defaultArgs._baseTokenUri = "https://golive.ly/tokenuri/";
@@ -29,7 +28,7 @@ describe(`DiamondBase Test`, function () {
 
     const contract = await ethers.getContractAt("DummyDiamond721Implementation", contractAddress, owner);
 
-    const maxSupply = (await contract["maxSupply()"]()).toNumber();
+    const maxSupply = await contract["maxSupply()"]();
 
     // const DEFAULT_ADMIN_ROLE = await contract.DEFAULT_ADMIN_ROLE();
     // const OWNER_ROLE = await contract.OWNER_ROLE();
@@ -76,7 +75,7 @@ describe(`DiamondBase Test`, function () {
       const { contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
 
       expect(await contract["maxSupply()"]()).to.not.equal(maxSupply);
@@ -86,7 +85,7 @@ describe(`DiamondBase Test`, function () {
       const { addr1, contract, maxSupply } = await loadFixture(deployTokenFixture);
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
 
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await expect(contract.connect(addr1)["setMaxSupply(uint256)"](newMaxSupply)).to.be.reverted;
 
       expect(await contract["maxSupply()"]()).to.equal(maxSupply);
@@ -118,7 +117,7 @@ describe(`DiamondBase Test`, function () {
       expect(await contract["totalSupply()"]()).to.equal(maxSupply);
 
       // Double max supply
-      const newMaxSupply = maxSupply * 2;
+      const newMaxSupply = maxSupply * 2n;
       await contract["setMaxSupply(uint256)"](newMaxSupply);
       await contract.setMaxMintPerAddress(newMaxSupply);
 
@@ -138,9 +137,10 @@ describe(`DiamondBase Test`, function () {
     it("Should equate 0 with the maximum number of supply uint256 can allow", async function () {
       const { contract } = await loadFixture(deployTokenFixture);
 
-      await contract["setMaxSupply(uint256)"](0);
+      await contract["setMaxSupply(uint256)"](0n);
 
-      expect(await contract["maxSupply()"]()).to.equal(BigNumber.from(2).pow(256).sub(1));
+      // BigNumber.from(2).pow(256).sub(1)
+      expect(await contract["maxSupply()"]()).to.equal(2n ** 256n - 1n);
     });
   });
   describe("SupportInterface", function () {
@@ -167,7 +167,7 @@ describe(`DiamondBase Test`, function () {
       const [royaltyAddress, amountDue] = await contract.royaltyInfo(0, 100);
 
       expect(royaltyAddress).to.equal(owner.address);
-      expect(amountDue).to.equal(BigNumber.from(5));
+      expect(amountDue).to.equal(5n);
     });
   });
 
