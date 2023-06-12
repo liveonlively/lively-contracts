@@ -1,30 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
-import {OwnableStorage} from "@solidstate/contracts/access/ownable/Ownable.sol";
-import {ERC721AStorage} from "../utils/ERC721A/ERC721AStorage.sol";
-import {
-    PaymentSplitterStorage
-} from "../../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
-import {EditionsStorage, Edition} from "../utils/Editions/EditionsStorage.sol";
+import { LibDiamond } from "../../shared/libraries/LibDiamond.sol";
+import { OwnableStorage } from "@solidstate/contracts/access/ownable/OwnableStorage.sol"; // TODO: Double check this is the best way to do this
+import { ERC721AStorage } from "../utils/ERC721A/ERC721AStorage.sol";
+import { PaymentSplitterStorage } from "../../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
+import { EditionsStorage, Edition } from "../utils/Editions/EditionsStorage.sol";
 
 library Shared {
     string private constant CONTRACT_VERSION = "0.0.1";
 
     event PayeeAdded(address account, uint256 shares);
     event PaymentReceived(address from, uint256 amount);
-    event RoleGranted(
-        bytes32 indexed role,
-        address indexed account,
-        address indexed sender
-    );
-    event EditionCreate(
-        uint256 editionIndex,
-        string name,
-        uint256 price,
-        uint256 maxSupply
-    );
+    event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender);
+    event EditionCreate(uint256 editionIndex, string name, uint256 price, uint256 maxSupply);
 
     error PaymentSplitterAccountAddressZero();
     error PaymentSplitterSharesZero();
@@ -38,13 +27,9 @@ library Shared {
      * @param _shares The number of shares owned by the payee.
      */
     function _addPayee(address account, uint256 _shares) internal {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
-        require(
-            OwnableStorage.layout().owner == msg.sender,
-            "Only owner can add payee"
-        );
+        require(OwnableStorage.layout().owner == msg.sender, "Only owner can add payee");
 
         if (account == address(0)) {
             revert PaymentSplitterAccountAddressZero();
@@ -98,30 +83,18 @@ library Shared {
     //     return s.roles[role].members[account];
     // }
 
-    function createEdition(
-        string memory _name,
-        uint256 _maxSupply,
-        uint256 _price
-    ) internal {
+    function createEdition(string memory _name, uint256 _maxSupply, uint256 _price) internal {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         EditionsStorage.Layout storage es = EditionsStorage.layout();
 
-        require(
-            OwnableStorage.layout().owner == msg.sender,
-            "Only owner can createEdition"
-        );
+        require(OwnableStorage.layout().owner == msg.sender, "Only owner can createEdition");
 
         if (!es.editionsEnabled) revert EditionsDisabled();
         if (bytes(_name).length == 0) revert NameRequired();
 
         uint256 index = es.editionsByIndex.length;
 
-        Edition memory _edition = Edition({
-            name: _name,
-            maxSupply: _maxSupply,
-            price: _price,
-            totalSupply: 0
-        });
+        Edition memory _edition = Edition({ name: _name, maxSupply: _maxSupply, price: _price, totalSupply: 0 });
 
         es.editionsByIndex.push(_edition);
         s.maxSupply = s.maxSupply + _maxSupply;

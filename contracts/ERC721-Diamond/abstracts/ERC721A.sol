@@ -4,21 +4,14 @@
 
 pragma solidity ^0.8.18;
 
-import {Shared} from "../libraries/Shared.sol";
-import {
-    PausableInternal
-} from "@solidstate/contracts/security/PausableInternal.sol";
-import {IERC721A} from "../interfaces/IERC721A.sol";
-import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
-import {
-    IERC721Receiver
-} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
-import {ERC721ALib} from "../libraries/ERC721ALib.sol";
-import {
-    ERC721AStorage,
-    TokenApprovalRef
-} from "../utils/ERC721A/ERC721AStorage.sol";
-import {EditionsStorage} from "../utils/Editions/EditionsStorage.sol";
+import { Shared } from "../libraries/Shared.sol";
+import { PausableInternal } from "@solidstate/contracts/security/pausable/PausableInternal.sol";
+import { IERC721A } from "../interfaces/IERC721A.sol";
+import { LibDiamond } from "../../shared/libraries/LibDiamond.sol";
+import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import { ERC721ALib } from "../libraries/ERC721ALib.sol";
+import { ERC721AStorage, TokenApprovalRef } from "../utils/ERC721A/ERC721AStorage.sol";
+import { EditionsStorage } from "../utils/Editions/EditionsStorage.sol";
 
 /**
  * @title ERC721A
@@ -105,13 +98,10 @@ abstract contract ERC721A is IERC721A, PausableInternal {
     /**
      * @dev Returns the number of tokens in `owner`'s account.
      */
-    function balanceOf(
-        address owner
-    ) public view virtual override returns (uint256) {
+    function balanceOf(address owner) public view virtual override returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         if (owner == address(0)) revert BalanceQueryForZeroAddress();
-        return
-            s.packedAddressData[owner] & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
+        return s.packedAddressData[owner] & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
     }
 
     // /**
@@ -120,8 +110,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
     function _numberMinted(address owner) internal view returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         return
-            (s.packedAddressData[owner] >> ERC721ALib._BITPOS_NUMBER_MINTED) &
-            ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
+            (s.packedAddressData[owner] >> ERC721ALib._BITPOS_NUMBER_MINTED) & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
     }
 
     /**
@@ -129,9 +118,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      */
     function _numberBurned(address owner) internal view returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
-        return
-            (s.packedAddressData[owner] >> _BITPOS_NUMBER_BURNED) &
-            ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
+        return (s.packedAddressData[owner] >> _BITPOS_NUMBER_BURNED) & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
     }
 
     // =============================================================
@@ -157,9 +144,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
     /**
      * @dev Returns the Uniform Resource Identifier (URI) for `tokenId` token.
      */
-    function tokenURI(
-        uint256 tokenId
-    ) public view virtual override returns (string memory) {
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         EditionsStorage.Layout storage es = EditionsStorage.layout();
 
         if (!_exists(tokenId)) revert URIQueryForNonexistentToken();
@@ -170,20 +155,10 @@ abstract contract ERC721A is IERC721A, PausableInternal {
 
             return
                 bytes(baseURI).length != 0
-                    ? string(
-                        abi.encodePacked(
-                            baseURI,
-                            _toString(tokenId),
-                            "/",
-                            _toString(editionIndex)
-                        )
-                    )
+                    ? string(abi.encodePacked(baseURI, _toString(tokenId), "/", _toString(editionIndex)))
                     : "";
         } else {
-            return
-                bytes(baseURI).length != 0
-                    ? string(abi.encodePacked(baseURI, _toString(tokenId)))
-                    : "";
+            return bytes(baseURI).length != 0 ? string(abi.encodePacked(baseURI, _toString(tokenId))) : "";
         }
     }
 
@@ -209,21 +184,14 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      * @dev Gas spent here starts off proportional to the maximum mint batch size.
      * It gradually moves to O(1) as tokens get transferred around over time.
      */
-    function _ownershipOf(
-        uint256 tokenId
-    ) internal view virtual returns (ERC721ALib.TokenOwnership memory) {
-        return
-            ERC721ALib._unpackedOwnership(
-                ERC721ALib._packedOwnershipOf(tokenId)
-            );
+    function _ownershipOf(uint256 tokenId) internal view virtual returns (ERC721ALib.TokenOwnership memory) {
+        return ERC721ALib._unpackedOwnership(ERC721ALib._packedOwnershipOf(tokenId));
     }
 
     /**
      * @dev Returns the unpacked `ERC721ALib.TokenOwnership` struct at `index`.
      */
-    function _ownershipAt(
-        uint256 index
-    ) internal view virtual returns (ERC721ALib.TokenOwnership memory) {
+    function _ownershipAt(uint256 index) internal view virtual returns (ERC721ALib.TokenOwnership memory) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         return ERC721ALib._unpackedOwnership(s.packedOwnerships[index]);
     }
@@ -276,9 +244,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      *
      * - `tokenId` must exist.
      */
-    function getApproved(
-        uint256 tokenId
-    ) public view virtual override returns (address) {
+    function getApproved(uint256 tokenId) public view virtual override returns (address) {
         if (!_exists(tokenId)) revert ApprovalQueryForNonexistentToken();
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
@@ -296,10 +262,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      *
      * Emits an {ApprovalForAll} event.
      */
-    function setApprovalForAll(
-        address operator,
-        bool approved
-    ) public virtual override {
+    function setApprovalForAll(address operator, bool approved) public virtual override {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         s.operatorApprovals[_msgSenderERC721A()][operator] = approved;
         emit ApprovalForAll(_msgSenderERC721A(), operator, approved);
@@ -310,10 +273,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      *
      * See {setApprovalForAll}.
      */
-    function isApprovedForAll(
-        address owner,
-        address operator
-    ) public view virtual override returns (bool) {
+    function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         return s.operatorApprovals[owner][operator];
     }
@@ -358,11 +318,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      */
     function _getApprovedSlotAndAddress(
         uint256 tokenId
-    )
-        private
-        view
-        returns (uint256 approvedAddressSlot, address approvedAddress)
-    {
+    ) private view returns (uint256 approvedAddressSlot, address approvedAddress) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         TokenApprovalRef storage tokenApproval = s.tokenApprovals[tokenId];
         // The following is equivalent to `approvedAddress = s.tokenApprovals[tokenId].value`.
@@ -389,31 +345,16 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      *
      * Emits a {Transfer} event.
      */
-    function transferFrom(
-        address from,
-        address to,
-        uint256 tokenId
-    ) public virtual override whenNotPaused {
+    function transferFrom(address from, address to, uint256 tokenId) public virtual override whenNotPaused {
         uint256 prevOwnershipPacked = ERC721ALib._packedOwnershipOf(tokenId);
 
-        if (address(uint160(prevOwnershipPacked)) != from)
-            revert TransferFromIncorrectOwner();
+        if (address(uint160(prevOwnershipPacked)) != from) revert TransferFromIncorrectOwner();
 
-        (
-            uint256 approvedAddressSlot,
-            address approvedAddress
-        ) = _getApprovedSlotAndAddress(tokenId);
+        (uint256 approvedAddressSlot, address approvedAddress) = _getApprovedSlotAndAddress(tokenId);
 
         // The nested ifs save around 20+ gas over a compound boolean condition.
-        if (
-            !_isSenderApprovedOrOwner(
-                approvedAddress,
-                from,
-                _msgSenderERC721A()
-            )
-        )
-            if (!isApprovedForAll(from, _msgSenderERC721A()))
-                revert TransferCallerNotOwnerNorApproved();
+        if (!_isSenderApprovedOrOwner(approvedAddress, from, _msgSenderERC721A()))
+            if (!isApprovedForAll(from, _msgSenderERC721A())) revert TransferCallerNotOwnerNorApproved();
 
         if (to == address(0)) revert TransferToZeroAddress();
 
@@ -443,8 +384,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
             // - `nextInitialized` to `true`.
             s.packedOwnerships[tokenId] = ERC721ALib._packOwnershipData(
                 to,
-                _BITMASK_NEXT_INITIALIZED |
-                    ERC721ALib._nextExtraData(from, to, prevOwnershipPacked)
+                _BITMASK_NEXT_INITIALIZED | ERC721ALib._nextExtraData(from, to, prevOwnershipPacked)
             );
 
             // If the next slot may not have been initialized (i.e. `nextInitialized == false`) .
@@ -468,11 +408,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
     /**
      * @dev Equivalent to `safeTransferFrom(from, to, tokenId, '')`.
      */
-    function safeTransferFrom(
-        address from,
-        address to,
-        uint256 tokenId
-    ) public virtual override whenNotPaused {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public virtual override whenNotPaused {
         safeTransferFrom(from, to, tokenId, "");
     }
 
@@ -520,14 +456,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
         uint256 tokenId,
         bytes memory _data
     ) private returns (bool) {
-        try
-            IERC721Receiver(to).onERC721Received(
-                _msgSenderERC721A(),
-                from,
-                tokenId,
-                _data
-            )
-        returns (bytes4 retval) {
+        try IERC721Receiver(to).onERC721Received(_msgSenderERC721A(), from, tokenId, _data) returns (bytes4 retval) {
             return retval == IERC721Receiver(to).onERC721Received.selector;
         } catch (bytes memory reason) {
             if (reason.length == 0) {
@@ -570,15 +499,9 @@ abstract contract ERC721A is IERC721A, PausableInternal {
         uint256 startTokenId = s.currentIndex;
         if (to == address(0)) revert MintToZeroAddress();
         if (quantity == 0) revert MintZeroQuantity();
-        if (quantity > _MAX_MINT_ERC2309_QUANTITY_LIMIT)
-            revert MintERC2309QuantityExceedsLimit();
+        if (quantity > _MAX_MINT_ERC2309_QUANTITY_LIMIT) revert MintERC2309QuantityExceedsLimit();
 
-        ERC721ALib._beforeTokenTransfers(
-            address(0),
-            to,
-            startTokenId,
-            quantity
-        );
+        ERC721ALib._beforeTokenTransfers(address(0), to, startTokenId, quantity);
 
         // Overflows are unrealistic due to the above check for `quantity` to be below the limit.
         unchecked {
@@ -587,9 +510,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
             // - `numberMinted += quantity`.
             //
             // We can directly add to the `balance` and `numberMinted`.
-            s.packedAddressData[to] +=
-                quantity *
-                ((1 << ERC721ALib._BITPOS_NUMBER_MINTED) | 1);
+            s.packedAddressData[to] += quantity * ((1 << ERC721ALib._BITPOS_NUMBER_MINTED) | 1);
 
             // Updates:
             // - `address` to the owner.
@@ -598,16 +519,10 @@ abstract contract ERC721A is IERC721A, PausableInternal {
             // - `nextInitialized` to `quantity == 1`.
             s.packedOwnerships[startTokenId] = ERC721ALib._packOwnershipData(
                 to,
-                ERC721ALib._nextInitializedFlag(quantity) |
-                    ERC721ALib._nextExtraData(address(0), to, 0)
+                ERC721ALib._nextInitializedFlag(quantity) | ERC721ALib._nextExtraData(address(0), to, 0)
             );
 
-            emit ConsecutiveTransfer(
-                startTokenId,
-                startTokenId + quantity - 1,
-                address(0),
-                to
-            );
+            emit ConsecutiveTransfer(startTokenId, startTokenId + quantity - 1, address(0), to);
 
             s.currentIndex = startTokenId + quantity;
         }
@@ -627,11 +542,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
      *
      * Emits a {Transfer} event for each mint.
      */
-    function _safeMint(
-        address to,
-        uint256 quantity,
-        bytes memory _data
-    ) internal virtual {
+    function _safeMint(address to, uint256 quantity, bytes memory _data) internal virtual {
         ERC721ALib._mint(to, quantity);
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
@@ -640,14 +551,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
                 uint256 end = s.currentIndex;
                 uint256 index = end - quantity;
                 do {
-                    if (
-                        !_checkContractOnERC721Received(
-                            address(0),
-                            to,
-                            index++,
-                            _data
-                        )
-                    ) {
+                    if (!_checkContractOnERC721Received(address(0), to, index++, _data)) {
                         revert TransferToNonERC721ReceiverImplementer();
                     }
                 } while (index < end);
@@ -691,22 +595,12 @@ abstract contract ERC721A is IERC721A, PausableInternal {
 
         address from = address(uint160(prevOwnershipPacked));
 
-        (
-            uint256 approvedAddressSlot,
-            address approvedAddress
-        ) = _getApprovedSlotAndAddress(tokenId);
+        (uint256 approvedAddressSlot, address approvedAddress) = _getApprovedSlotAndAddress(tokenId);
 
         if (approvalCheck) {
             // The nested ifs save around 20+ gas over a compound boolean condition.
-            if (
-                !_isSenderApprovedOrOwner(
-                    approvedAddress,
-                    from,
-                    _msgSenderERC721A()
-                )
-            )
-                if (!isApprovedForAll(from, _msgSenderERC721A()))
-                    revert TransferCallerNotOwnerNorApproved();
+            if (!_isSenderApprovedOrOwner(approvedAddress, from, _msgSenderERC721A()))
+                if (!isApprovedForAll(from, _msgSenderERC721A())) revert TransferCallerNotOwnerNorApproved();
         }
 
         ERC721ALib._beforeTokenTransfers(from, address(0), tokenId, 1);
@@ -739,11 +633,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
             s.packedOwnerships[tokenId] = ERC721ALib._packOwnershipData(
                 from,
                 (ERC721ALib._BITMASK_BURNED | _BITMASK_NEXT_INITIALIZED) |
-                    ERC721ALib._nextExtraData(
-                        from,
-                        address(0),
-                        prevOwnershipPacked
-                    )
+                    ERC721ALib._nextExtraData(from, address(0), prevOwnershipPacked)
             );
 
             // If the next slot may not have been initialized (i.e. `nextInitialized == false`) .
@@ -785,9 +675,7 @@ abstract contract ERC721A is IERC721A, PausableInternal {
     /**
      * @dev Converts a uint256 to its ASCII string decimal representation.
      */
-    function _toString(
-        uint256 value
-    ) internal pure virtual returns (string memory str) {
+    function _toString(uint256 value) internal pure virtual returns (string memory str) {
         assembly {
             // The maximum value of a uint256 contains 78 digits (1 byte per digit),
             // but we allocate 0x80 bytes to keep the free memory pointer 32-byte word aligned.

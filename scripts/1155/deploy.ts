@@ -3,7 +3,7 @@ import { ContractReceipt, Signer } from "ethers";
 import { ethers, hardhatArguments } from "hardhat";
 
 import { Diamond1155Init, Lively1155DiamondABI } from "../../types";
-import { FacetCutAction, SelectorsObj, getSelectors } from "./libraries/diamond";
+import { FacetCutAction, SelectorsObj, getSelectors } from "../libraries/diamond";
 import { verifyDiamondDeploy, verifyFacetDeploy } from "./verificationFns";
 
 export const logger = (...args: unknown[]) => {
@@ -78,7 +78,7 @@ async function deployDiamond(owner?: Signer, livelyDev?: Signer, opts?: Opts): P
     "PausableFacet",
     "PaymentSplitterFacet",
     "RoyaltyFacet",
-    "PaymentUpdateFacet",
+
     "CrossmintFacet",
   ];
 

@@ -101,7 +101,7 @@ export const generateFacetDeploys = async () => {
     { facet: "ERC721AFacet", tags: ["Facets"] }, // ERC721
     { facet: "QueryableFacet", tags: ["Facets"] }, // ERC721
     { facet: "ERC1155Facet", tags: ["Facets"] }, // ERC1155
-    { facet: "PaymentUpdateFacet", tags: ["Facets"] }, // Shared
+
     { facet: "Diamond1155Init", tags: ["Facets", "Init"] }, // ERC1155
     { facet: "DummyDiamond721Implementation", tags: ["Facets", "Dummy"] }, // ERC721
     { facet: "DummyDiamond1155Implementation", tags: ["Facets", "Dummy"] }, // ERC1155

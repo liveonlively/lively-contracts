@@ -1,3 +1,4 @@
+import "hardhat-diamond-abi";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
@@ -6,7 +7,7 @@ import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
 
-import { erc1155Facets, sharedFacets } from "./optimizationEnabled";
+import { erc1155Facets, erc721Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
 import "./tasks/generators";
 import "./tasks/greet";
@@ -140,13 +141,18 @@ const config: HardhatUserConfig = {
     pageExtension: ".md",
     templates: "docgen-templates",
   },
-  // diamondAbi: [
-  //   {
-  //     name: "Lively1155DiamondABI",
-  //     include: [...erc1155Facets, ...sharedFacets],
-  //     strict: false,
-  //   },
-  // ],
+  diamondAbi: [
+    {
+      name: "Lively1155DiamondABI",
+      include: [...erc1155Facets, ...sharedFacets],
+      strict: false,
+    },
+    {
+      name: "LivelyDiamondABI",
+      include: [...erc721Facets, ...sharedFacets],
+      strict: false,
+    },
+  ],
 };
 
 export default config;

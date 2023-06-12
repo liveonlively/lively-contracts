@@ -4,29 +4,20 @@
 
 pragma solidity ^0.8.18;
 
-import {Shared} from "../libraries/Shared.sol";
-import {ERC721A} from "../abstracts/ERC721A.sol";
-import {
-    PausableInternal
-} from "@solidstate/contracts/security/PausableInternal.sol";
-import {AllowList} from "../../shared/utils/AllowList/AllowList.sol";
-import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
-import {ERC721ALib} from "../libraries/ERC721ALib.sol";
-import {CoinSwapper} from "../../shared/libraries/CoinSwapper.sol";
-import {PriceConsumer} from "../../shared/libraries/PriceConsumer.sol";
-import {
-    AllowListInternal,
-    AllowListStorage
-} from "../../shared/utils/AllowList/AllowListInternal.sol";
-import {
-    OwnableStorage,
-    OwnableInternal
-} from "@solidstate/contracts/access/ownable/Ownable.sol";
-import {ERC721AStorage} from "../utils/ERC721A/ERC721AStorage.sol";
-import {EditionsStorage} from "../utils/Editions/EditionsStorage.sol";
-import {
-    PaymentSplitterStorage
-} from "../../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
+import { Shared } from "../libraries/Shared.sol";
+import { ERC721A } from "../abstracts/ERC721A.sol";
+import { PausableInternal } from "@solidstate/contracts/security/pausable/PausableInternal.sol";
+import { AllowList } from "../../shared/utils/AllowList/AllowList.sol";
+import { LibDiamond } from "../../shared/libraries/LibDiamond.sol";
+import { ERC721ALib } from "../libraries/ERC721ALib.sol";
+import { CoinSwapper } from "../../shared/libraries/CoinSwapper.sol";
+import { PriceConsumer } from "../../shared/libraries/PriceConsumer.sol";
+import { AllowListInternal, AllowListStorage } from "../../shared/utils/AllowList/AllowListInternal.sol";
+import { OwnableInternal } from "@solidstate/contracts/access/ownable/Ownable.sol";
+import { OwnableStorage } from "@solidstate/contracts/access/ownable/OwnableStorage.sol";
+import { ERC721AStorage } from "../utils/ERC721A/ERC721AStorage.sol";
+import { EditionsStorage } from "../utils/Editions/EditionsStorage.sol";
+import { PaymentSplitterStorage } from "../../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
 
 /**
  * @title ERC721A
@@ -57,8 +48,7 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
         AllowListStorage.Layout storage als = AllowListStorage.layout();
         EditionsStorage.Layout storage es = EditionsStorage.layout();
 
-        if (als.allowListEnabled[0])
-            require(isAllowListed(0, msg.sender), "Not in allowlist");
+        if (als.allowListEnabled[0]) require(isAllowListed(0, msg.sender), "Not in allowlist");
         if (es.editionsEnabled) revert EditionsEnabled();
 
         _;
@@ -68,18 +58,14 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
         _mintApproved(to, 1);
     }
 
-    function mint(
-        address to,
-        uint256 amount
-    ) external payable mintChecks(to) whenNotPaused {
+    function mint(address to, uint256 amount) external payable mintChecks(to) whenNotPaused {
         _mintApproved(to, amount);
     }
 
     // Minting is allowed, do checks against set limits
     function _mintApproved(address to, uint256 amount) internal whenNotPaused {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         quantityCheck(to, amount);
         s.airdrop ? airdropCheck() : priceCheck(amount);
@@ -101,19 +87,16 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
         unchecked {
-            if ((s.currentIndex + amount) > maxSupply())
-                revert ExceedsMaxSupply();
+            if ((s.currentIndex + amount) > maxSupply()) revert ExceedsMaxSupply();
 
-            if (ERC721ALib._numberMinted(to) + amount > maxMintPerAddress())
-                revert ExceedsMaxMintPerAddress();
+            if (ERC721ALib._numberMinted(to) + amount > maxMintPerAddress()) revert ExceedsMaxMintPerAddress();
 
             if (amount > maxMintPerTx()) revert ExceedsMaxMintPerTx();
         }
     }
 
     function airdropCheck() private view {
-        if (msg.sender != OwnableStorage.layout().owner)
-            revert InvalidAirdropCaller();
+        if (msg.sender != OwnableStorage.layout().owner) revert InvalidAirdropCaller();
     }
 
     function priceCheck(uint256 amount) private {
@@ -149,11 +132,9 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
 
     function price() public view returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
-        return
-            pss.isPriceUSD ? PriceConsumer.convertUSDtoWei(s.price) : s.price;
+        return pss.isPriceUSD ? PriceConsumer.convertUSDtoWei(s.price) : s.price;
     }
 
     function isSoulbound() external view returns (bool) {
@@ -201,9 +182,7 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
         s.maxMintPerTx = _maxMintPerTx;
     }
 
-    function setMaxMintPerAddress(
-        uint256 _maxMintPerAddress
-    ) external onlyOwner {
+    function setMaxMintPerAddress(uint256 _maxMintPerAddress) external onlyOwner {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
         s.maxMintPerAddress = _maxMintPerAddress;
@@ -216,17 +195,13 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
     }
 
     function setIsPriceUSD(bool _isPriceUSD) external onlyOwner {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         pss.isPriceUSD = _isPriceUSD;
     }
 
-    function setAutomaticUSDConversion(
-        bool _automaticUSDConversion
-    ) external onlyOwner {
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+    function setAutomaticUSDConversion(bool _automaticUSDConversion) external onlyOwner {
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         pss.automaticUSDConversion = _automaticUSDConversion;
     }
@@ -254,10 +229,7 @@ contract ERC721AFacet is ERC721A, AllowListInternal, OwnableInternal {
         // get facet address of function
         address facet = address(bytes20(ds.facets[functionSelector]));
 
-        bytes memory myFunctionCall = abi.encodeWithSelector(
-            functionSelector,
-            tokenId
-        );
+        bytes memory myFunctionCall = abi.encodeWithSelector(functionSelector, tokenId);
         (bool success, ) = address(facet).delegatecall(myFunctionCall);
 
         require(success, "myFunction failed");
