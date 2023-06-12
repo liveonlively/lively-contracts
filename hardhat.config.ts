@@ -2,6 +2,7 @@ import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
 import "hardhat-diamond-abi";
+import "hardhat-gas-reporter";
 import type { HardhatUserConfig } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
@@ -81,10 +82,16 @@ const config: HardhatUserConfig = {
     },
   },
   gasReporter: {
+    coinmarketcap: process.env.COINMARKETCAP_API_KEY || "",
     currency: "USD",
     enabled: process.env.REPORT_GAS ? true : false,
-    excludeContracts: [],
+    excludeContracts: ["PriceMock", "DummyDiamond1155Implementation", "DummyDiamond721Implementation"],
     src: "./contracts",
+    gasPrice: 30,
+    token: "ETH",
+    outputFile: "gas-report",
+    showMethodSig: true,
+    noColors: true,
   },
   networks: {
     hardhat: {
