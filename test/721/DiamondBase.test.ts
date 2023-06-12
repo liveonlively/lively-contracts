@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-unused-vars */
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";

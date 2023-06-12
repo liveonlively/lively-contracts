@@ -54,7 +54,7 @@ async function createCut(facets: string[]) {
 
     if (FacetName === "CrossmintFacet") {
       cut.push({
-        facetAddress: facet.address,
+        facetAddress: await facet.getAddress(),
         action: FacetCutAction.Add,
         functionSelectors: getSelectors(facet).get([
           "crossmintMint(address,uint256,uint256)",
@@ -65,7 +65,7 @@ async function createCut(facets: string[]) {
     } else {
       const facetsToRemove = FacetsWithExtra165.includes(FacetName) ? ["supportsInterface(bytes4)"] : [];
       cut.push({
-        facetAddress: facet.address,
+        facetAddress: await facet.getAddress(),
         action: FacetCutAction.Add,
         functionSelectors: getSelectors(facet).remove(facetsToRemove),
       });
