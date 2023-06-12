@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-expressions */
+
 /* eslint-disable no-unused-vars */
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { valueToEther } from "../shared";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
 describe(`DiamondEditions Test`, function () {
   async function deployTokenFixture() {
@@ -346,7 +348,7 @@ describe(`DiamondEditions Test`, function () {
     });
 
     it("Should not allow owner to mint more than the max supply", async () => {
-      const { addr1, defaultPrice, contract, maxSupply, edition1MaxSupply } = await loadFixture(deployTokenFixture);
+      const { addr1, defaultPrice, contract, edition1MaxSupply } = await loadFixture(deployTokenFixture);
       // Mint a token
       for (let i = 0; i < edition1MaxSupply; i++) {
         await contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {

@@ -1,36 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {LibDiamond} from "../shared/libraries/LibDiamond.sol";
-import {IDiamondCut} from "../shared/interfaces/IDiamondCut.sol";
-import {IDiamondLoupe} from "../shared/interfaces/IDiamondLoupe.sol";
-import {Shared} from "./libraries/Shared.sol";
-import {IERC173} from "@solidstate/contracts/interfaces/IERC173.sol";
-import {IERC165} from "@solidstate/contracts/interfaces/IERC165.sol";
-import {IERC721} from "@solidstate/contracts/interfaces/IERC721.sol";
-import {IERC2981} from "@solidstate/contracts/interfaces/IERC2981.sol";
-import {
-    IERC721Metadata
-} from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
-import {
-    IAccessControl
-} from "@openzeppelin/contracts/access/IAccessControl.sol";
-import {LibDiamondEtherscan} from "../shared/libraries/LibDiamondEtherscan.sol";
-import {ILivelyDiamond} from "./interfaces/ILivelyDiamond.sol";
-import {
-    OwnableStorage,
-    OwnableInternal
-} from "@solidstate/contracts/access/ownable/OwnableInternal.sol";
-import {RoyaltiesStorage} from "../shared/utils/Royalties/RoyaltiesStorage.sol";
-import {
-    ERC2981Storage
-} from "@solidstate/contracts/token/common/ERC2981/ERC2981Storage.sol";
-import {ERC721AStorage} from "./utils/ERC721A/ERC721AStorage.sol";
-import {EditionsStorage, Edition} from "./utils/Editions/EditionsStorage.sol";
-import {
-    PaymentSplitterStorage
-} from "../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
-import {AllowListStorage} from "../shared/utils/AllowList/AllowListStorage.sol";
+import { LibDiamond } from "../shared/libraries/LibDiamond.sol";
+import { IDiamondCut } from "../shared/interfaces/IDiamondCut.sol";
+import { IDiamondLoupe } from "../shared/interfaces/IDiamondLoupe.sol";
+import { Shared } from "./libraries/Shared.sol";
+import { IERC173 } from "@solidstate/contracts/interfaces/IERC173.sol";
+import { IERC165 } from "@solidstate/contracts/interfaces/IERC165.sol";
+import { IERC721 } from "@solidstate/contracts/interfaces/IERC721.sol";
+import { IERC2981 } from "@solidstate/contracts/interfaces/IERC2981.sol";
+import { IERC721Metadata } from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
+import { IAccessControl } from "@openzeppelin/contracts/access/IAccessControl.sol";
+import { LibDiamondEtherscan } from "../shared/libraries/LibDiamondEtherscan.sol";
+import { ILivelyDiamond } from "./interfaces/ILivelyDiamond.sol";
+import { OwnableStorage, OwnableInternal } from "@solidstate/contracts/access/ownable/OwnableInternal.sol";
+import { RoyaltiesStorage } from "../shared/utils/Royalties/RoyaltiesStorage.sol";
+import { ERC2981Storage } from "@solidstate/contracts/token/common/ERC2981/ERC2981Storage.sol";
+import { ERC721AStorage } from "./utils/ERC721A/ERC721AStorage.sol";
+import { EditionsStorage, Edition } from "./utils/Editions/EditionsStorage.sol";
+import { PaymentSplitterStorage } from "../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
+import { AllowListStorage } from "../shared/utils/AllowList/AllowListStorage.sol";
 
 /// @custom:security-contact support@golive.ly
 contract LivelyDiamond is ILivelyDiamond {
@@ -58,10 +47,7 @@ contract LivelyDiamond is ILivelyDiamond {
         Edition[] _editions;
     }
 
-    constructor(
-        IDiamondCut.FacetCut[] memory _diamondCut,
-        DiamondArgs memory _args
-    ) payable {
+    constructor(IDiamondCut.FacetCut[] memory _diamondCut, DiamondArgs memory _args) payable {
         uint256 payeesLength;
         uint256 sharesLength = _args._shares.length;
         if (!_args._airdrop) {
@@ -93,8 +79,7 @@ contract LivelyDiamond is ILivelyDiamond {
         AllowListStorage.Layout storage als = AllowListStorage.layout();
         EditionsStorage.Layout storage es = EditionsStorage.layout();
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
-        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage
-            .layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         // Initialize Data
         // s.paused = false; // Defaults to false
@@ -142,11 +127,7 @@ contract LivelyDiamond is ILivelyDiamond {
             for (uint256 i = 0; i < editionsLength; ) {
                 Edition memory _edition = _args._editions[i];
 
-                Shared.createEdition(
-                    _edition.name,
-                    _edition.maxSupply,
-                    _edition.price
-                );
+                Shared.createEdition(_edition.name, _edition.maxSupply, _edition.price);
 
                 unchecked {
                     ++i;
@@ -155,9 +136,7 @@ contract LivelyDiamond is ILivelyDiamond {
         }
 
         // Set implementation slot
-        LibDiamondEtherscan._setDummyImplementation(
-            0xb0591Ec0b42eCBB6d5AA641Af4d87913b57f23D6
-        );
+        LibDiamondEtherscan._setDummyImplementation(0xb0591Ec0b42eCBB6d5AA641Af4d87913b57f23D6);
     }
 
     // Find facet for function that is called and execute the

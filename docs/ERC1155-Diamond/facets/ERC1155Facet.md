@@ -8,15 +8,15 @@
 modifier validValueSent(uint256 _id, uint256 _amount)
 ```
 
-Checks if valid value was sent.
-Checks if the amount sent is greater than or equal to the price of the token. If the sender is the owner, it will bypass this check allowing the owner to mint or airdrop for free.
+Checks if valid value was sent. Checks if the amount sent is greater than or equal to the price of the token. If the
+sender is the owner, it will bypass this check allowing the owner to mint or airdrop for free.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _id | uint256 | The token ID |
-| _amount | uint256 | The amount of tokens being minted |
+| Name     | Type    | Description                       |
+| -------- | ------- | --------------------------------- |
+| \_id     | uint256 | The token ID                      |
+| \_amount | uint256 | The amount of tokens being minted |
 
 ### packMint
 
@@ -68,16 +68,15 @@ function mint(address account, uint256 id, uint256 amount) external payable
 function mint(address[] accounts, uint256 id, uint256 amount) external
 ```
 
-Mint function used by owner for airdrops.
-Mints to multiple accounts at once, used by owner for airdrops.
+Mint function used by owner for airdrops. Mints to multiple accounts at once, used by owner for airdrops.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| accounts | address[] | Array of accounts to send to. |
-| id | uint256 | ID of token to airdrop. |
-| amount | uint256 | The amount of tokens being minted to each account. |
+| Name     | Type      | Description                                        |
+| -------- | --------- | -------------------------------------------------- |
+| accounts | address[] | Array of accounts to send to.                      |
+| id       | uint256   | ID of token to airdrop.                            |
+| amount   | uint256   | The amount of tokens being minted to each account. |
 
 ### uri
 
@@ -109,15 +108,15 @@ _remove onlyOwner if you want third parties to create new tokens on your contrac
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _tokenData | struct ERC1155Storage.TokenStructure | The token data |
+| Name        | Type                                 | Description    |
+| ----------- | ------------------------------------ | -------------- |
+| \_tokenData | struct ERC1155Storage.TokenStructure | The token data |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _id | uint256 | The newly created token ID |
+| Name | Type    | Description                |
+| ---- | ------- | -------------------------- |
+| \_id | uint256 | The newly created token ID |
 
 ### batchCreate
 
@@ -125,22 +124,22 @@ _remove onlyOwner if you want third parties to create new tokens on your contrac
 function batchCreate(uint256 _amount, struct ERC1155Storage.TokenStructure _tokenData) external returns (bool success)
 ```
 
-Creates a new token editions in one transaction. All editions will have the same settings.
-If you need individual settings (diffrent URIs, prices, etc), use the other batchCreate function.
+Creates a new token editions in one transaction. All editions will have the same settings. If you need individual
+settings (diffrent URIs, prices, etc), use the other batchCreate function.
 
 _remove onlyOwner if you want third parties to create new tokens on your contract (which may change your IDs)_
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _amount | uint256 | Amount of new token to create with these settings. |
-| _tokenData | struct ERC1155Storage.TokenStructure | The token data |
+| Name        | Type                                 | Description                                        |
+| ----------- | ------------------------------------ | -------------------------------------------------- |
+| \_amount    | uint256                              | Amount of new token to create with these settings. |
+| \_tokenData | struct ERC1155Storage.TokenStructure | The token data                                     |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name    | Type | Description                                       |
+| ------- | ---- | ------------------------------------------------- |
 | success | bool | Whether or not the batch creation was successful. |
 
 ### batchCreate
@@ -149,22 +148,21 @@ _remove onlyOwner if you want third parties to create new tokens on your contrac
 function batchCreate(struct ERC1155Storage.TokenStructure[] _tokenData) external returns (bool success)
 ```
 
-Creates a set of new editions in one transaction.
-Editions are passed as an array so this is useful if they require very different settings.
-If they're all similar, using the other batchCreate function might be easier.
+Creates a set of new editions in one transaction. Editions are passed as an array so this is useful if they require very
+different settings. If they're all similar, using the other batchCreate function might be easier.
 
 _remove onlyOwner if you want third parties to create new tokens on your contract (which may change your IDs)_
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _tokenData | struct ERC1155Storage.TokenStructure[] | The token data |
+| Name        | Type                                   | Description    |
+| ----------- | -------------------------------------- | -------------- |
+| \_tokenData | struct ERC1155Storage.TokenStructure[] | The token data |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
+| Name    | Type | Description     |
+| ------- | ---- | --------------- |
 | success | bool | Bool of success |
 
 ### exists
@@ -177,17 +175,17 @@ _Returns whether the specified token exists by checking to see if it has a creat
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _tokenId | uint256 | uint256 ID of the token to query the existence of |
+| Name      | Type    | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| \_tokenId | uint256 | uint256 ID of the token to query the existence of |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | bool | bool whether the token exists |
+| Name | Type | Description                   |
+| ---- | ---- | ----------------------------- |
+| [0]  | bool | bool whether the token exists |
 
-### _exists
+### \_exists
 
 ```solidity
 function _exists(uint256 _id) internal view returns (bool)
@@ -199,7 +197,7 @@ function _exists(uint256 _id) internal view returns (bool)
 function burn(address account, uint256 id, uint256 amount) external
 ```
 
-### _beforeTokenTransfer
+### \_beforeTokenTransfer
 
 ```solidity
 function _beforeTokenTransfer(address operator, address from, address to, uint256[] ids, uint256[] amounts, bytes data) internal
@@ -227,7 +225,7 @@ function safeTransferFrom(address from, address to, uint256 id, uint256 amount, 
 function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data) public virtual
 ```
 
-### _toString
+### \_toString
 
 ```solidity
 function _toString(uint256 value) internal pure virtual returns (string str)
@@ -308,4 +306,3 @@ function setTokenData(uint256 _id, struct ERC1155Storage.TokenStructure _tokenDa
 ```
 
 Set tokenData
-

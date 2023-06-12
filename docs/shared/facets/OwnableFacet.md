@@ -2,9 +2,8 @@
 
 ## OwnableFacet
 
-### __transitiveOwner
+### \_\_transitiveOwner
 
 ```solidity
 function __transitiveOwner() external view returns (address)
 ```
-

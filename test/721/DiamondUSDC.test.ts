@@ -1,9 +1,10 @@
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
-import { LivelyDiamondABI, USDCMock } from "../../types";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { deployAndWait } from "../../scripts/utils/deployHelpers";
+import { LivelyDiamondABI, USDCMock } from "../../types";
 
 const USDC_ADDRESS = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48";
 

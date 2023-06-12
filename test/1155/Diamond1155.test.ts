@@ -1,9 +1,9 @@
-import { ethers } from "hardhat";
-import { defaultArgs, deployDiamond, oneHourFromNowInSeconds } from "../../scripts/1155/deploy";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
-import { Wallet, Typed } from "ethers";
-import { ERC1155Facet, Lively1155Diamond, Lively1155DiamondABI } from "../../typechain";
+import { Wallet } from "ethers";
+import { ethers } from "hardhat";
+
+import { defaultArgs, deployDiamond, oneHourFromNowInSeconds } from "../../scripts/1155/deploy";
 
 // TODO: Add non owner should not be able to mint test for airdrop
 
@@ -629,7 +629,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(diamondFacet.connect(signer1)["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2)).to
         .be.reverted;
 
-      const tx = diamondFacet["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2);
+      // const tx = diamondFacet["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2);
 
       // expect(await tx)
       //   .to.emit(diamondFacet, "AllowListAdded(uint256,address,uint256)")

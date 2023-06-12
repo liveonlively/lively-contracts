@@ -1,8 +1,9 @@
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { valueToEther } from "../shared";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 
 // This is the number the oracle returns for USD at the block that is pinned
 const PINNED_USD_PRICE = 134045026073;
@@ -42,9 +43,9 @@ describe(`DiamondSoulbound Test`, function () {
 
   describe("Soulbound checks", function () {
     it("Should mint", async () => {
-      const { owner, contract, addr1 } = await loadFixture(deployTokenFixture);
+      const { contract, addr1 } = await loadFixture(deployTokenFixture);
 
-      const price = await contract["price()"]();
+      await contract["price()"]();
       await contract["mint(address)"](addr1.address, {
         value: valueToEther("0.1"),
       });
@@ -57,7 +58,7 @@ describe(`DiamondSoulbound Test`, function () {
     it("Should not allow to transfer", async () => {
       const { owner, contract, addr1 } = await loadFixture(deployTokenFixture);
 
-      const price = await contract["price()"]();
+      await contract["price()"]();
       await contract["mint(address)"](addr1.address, {
         value: valueToEther("0.1"),
       });
@@ -73,7 +74,7 @@ describe(`DiamondSoulbound Test`, function () {
     it("Should allow owner to change soulbound state and then transfer succeeds", async () => {
       const { owner, contract, addr1 } = await loadFixture(deployTokenFixture);
 
-      const price = await contract["price()"]();
+      await contract["price()"]();
       await contract["mint(address)"](addr1.address, {
         value: valueToEther("0.1"),
       });
@@ -95,14 +96,3 @@ describe(`DiamondSoulbound Test`, function () {
     });
   });
 });
-
-function convertUSDtoWEI(_price: number): BigNumber {
-  const bgPrice = BigNumber.from(_price);
-  const oneEth: BigNumber = BigNumber.from("1000000000000000000");
-  const divisor: BigNumber = BigNumber.from("1000000");
-  const bgPinnedPrice: BigNumber = BigNumber.from(PINNED_USD_PRICE);
-
-  const USDperWEI = oneEth.div(bgPinnedPrice.div(divisor));
-  // const convertedPrice = USDperWEI.mul(_price); // Causes error
-  return USDperWEI.mul(bgPrice);
-}

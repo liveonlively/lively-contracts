@@ -1,9 +1,10 @@
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
-import { LivelyDiamondABI, PriceMock } from "../../types";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { deployAndWait } from "../../scripts/utils/deployHelpers";
+import { LivelyDiamondABI, PriceMock } from "../../types";
 
 describe(`DiamondPrice Test`, function () {
   async function deployTokenFixture() {

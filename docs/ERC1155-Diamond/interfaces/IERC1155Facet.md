@@ -43,4 +43,3 @@ error InvalidMintType()
 ```solidity
 event PaymentReceived(address from, uint256 amount)
 ```
-

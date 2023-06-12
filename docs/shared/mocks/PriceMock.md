@@ -13,4 +13,3 @@ function getLatestPrice() public view returns (uint256)
 ```solidity
 function convertUSDtoWei(uint256 _price) public view returns (uint256)
 ```
-

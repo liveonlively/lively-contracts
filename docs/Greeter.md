@@ -37,4 +37,3 @@ function setGreeting(string _greeting) public
 ```solidity
 function throwError() external pure
 ```
-

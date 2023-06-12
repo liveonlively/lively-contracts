@@ -1,9 +1,10 @@
-import { expect } from "chai";
-import { ethers } from "hardhat";
-import { HDNodeWallet } from "ethers";
-import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
+import { expect } from "chai";
+import { HDNodeWallet } from "ethers";
+import { ethers } from "hardhat";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
+import { valueToEther } from "../shared";
 
 describe(`DiamondQueryable Test`, function () {
   async function deployTokenFixture() {

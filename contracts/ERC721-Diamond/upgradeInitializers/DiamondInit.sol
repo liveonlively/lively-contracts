@@ -8,19 +8,15 @@ pragma solidity ^0.8.18;
 * Implementation of a diamond.
 /******************************************************************************/
 
-import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
-import {IDiamondLoupe} from "../../shared/interfaces/IDiamondLoupe.sol";
-import {IDiamondCut} from "../../shared/interfaces/IDiamondCut.sol";
+import { LibDiamond } from "../../shared/libraries/LibDiamond.sol";
+import { IDiamondLoupe } from "../../shared/interfaces/IDiamondLoupe.sol";
+import { IDiamondCut } from "../../shared/interfaces/IDiamondCut.sol";
 
-import {IERC173} from "@solidstate/contracts/interfaces/IERC173.sol";
-import {IERC165} from "@solidstate/contracts/interfaces/IERC165.sol";
-import {IERC721} from "@solidstate/contracts/interfaces/IERC721.sol";
-import {
-    IERC721Metadata
-} from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
-import {
-    IAccessControl
-} from "@openzeppelin/contracts/access/IAccessControl.sol";
+import { IERC173 } from "@solidstate/contracts/interfaces/IERC173.sol";
+import { IERC165 } from "@solidstate/contracts/interfaces/IERC165.sol";
+import { IERC721 } from "@solidstate/contracts/interfaces/IERC721.sol";
+import { IERC721Metadata } from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
+import { IAccessControl } from "@openzeppelin/contracts/access/IAccessControl.sol";
 
 // It is expected that this contract is customized if you want to deploy your diamond
 // with data from a deployment script. Use the init function to initialize state variables

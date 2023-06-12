@@ -54,43 +54,19 @@ contract DummyDiamond1155Implementation {
         bytes4[] functionSelectors;
     }
 
-    function accountsByToken(
-        uint256 id
-    ) external view returns (address[] memory) {}
+    function accountsByToken(uint256 id) external view returns (address[] memory) {}
 
-    function balanceOf(
-        address account,
-        uint256 id
-    ) external view returns (uint256) {}
+    function balanceOf(address account, uint256 id) external view returns (uint256) {}
 
-    function balanceOfBatch(
-        address[] memory accounts,
-        uint256[] memory ids
-    ) external view returns (uint256[] memory) {}
+    function balanceOfBatch(address[] memory accounts, uint256[] memory ids) external view returns (uint256[] memory) {}
 
-    function crossmintMint(
-        address account,
-        uint256 id,
-        uint256 amount
-    ) external {}
+    function crossmintMint(address account, uint256 id, uint256 amount) external {}
 
-    function crossmintPackMint(
-        address account,
-        uint256 packId,
-        uint256 amount
-    ) external {}
+    function crossmintPackMint(address account, uint256 packId, uint256 amount) external {}
 
-    function isApprovedForAll(
-        address account,
-        address operator
-    ) external view returns (bool) {}
+    function isApprovedForAll(address account, address operator) external view returns (bool) {}
 
-    function mint(
-        address account,
-        uint256 id,
-        uint256 amount,
-        uint8 mintType
-    ) external {}
+    function mint(address account, uint256 id, uint256 amount, uint8 mintType) external {}
 
     function safeBatchTransferFrom(
         address from,
@@ -100,23 +76,13 @@ contract DummyDiamond1155Implementation {
         bytes memory data
     ) external {}
 
-    function safeTransferFrom(
-        address from,
-        address to,
-        uint256 id,
-        uint256 amount,
-        bytes memory data
-    ) external {}
+    function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes memory data) external {}
 
     function setApprovalForAll(address operator, bool status) external {}
 
-    function supportsInterface(
-        bytes4 interfaceId
-    ) external view returns (bool) {}
+    function supportsInterface(bytes4 interfaceId) external view returns (bool) {}
 
-    function tokensByAccount(
-        address account
-    ) external view returns (uint256[] memory) {}
+    function tokensByAccount(address account) external view returns (uint256[] memory) {}
 
     function totalHolders(uint256 id) external view returns (uint256) {}
 
@@ -126,58 +92,33 @@ contract DummyDiamond1155Implementation {
 
     function OPERATOR_FILTER_REGISTRY() external view returns (address) {}
 
-    function batchCreate(
-        uint256 _amount,
-        Tuple800840 memory _tokenData
-    ) external returns (bool success) {}
+    function batchCreate(uint256 _amount, Tuple800840 memory _tokenData) external returns (bool success) {}
 
-    function batchCreate(
-        Tuple2548212[] memory _tokenData
-    ) external returns (bool success) {}
+    function batchCreate(Tuple2548212[] memory _tokenData) external returns (bool success) {}
 
     function burn(address account, uint256 id, uint256 amount) external {}
 
-    function create(
-        Tuple800840 memory _tokenData
-    ) external returns (uint256 _id) {}
+    function create(Tuple800840 memory _tokenData) external returns (uint256 _id) {}
 
     function exists(uint256 _tokenId) external view returns (bool) {}
 
     function maxSupply(uint256 _id) external view returns (uint256) {}
 
-    function mint(
-        address account,
-        uint256 id,
-        uint256 amount
-    ) external payable {}
+    function mint(address account, uint256 id, uint256 amount) external payable {}
 
-    function mint(
-        address[] memory accounts,
-        uint256 id,
-        uint256 amount
-    ) external {}
+    function mint(address[] memory accounts, uint256 id, uint256 amount) external {}
 
     function name() external view returns (string memory) {}
 
-    function packCreate(
-        uint256[] memory _tokenIds,
-        uint256 _price,
-        uint256 _startTime
-    ) external {}
+    function packCreate(uint256[] memory _tokenIds, uint256 _price, uint256 _startTime) external {}
 
-    function packMint(
-        address account,
-        uint256 packId,
-        uint256 amount
-    ) external payable {}
+    function packMint(address account, uint256 packId, uint256 amount) external payable {}
 
     function packPrice(uint256 _packId) external view returns (uint256) {}
 
     function packStartTime(uint256 _packId) external view returns (uint256) {}
 
-    function packTokenIds(
-        uint256 _packId
-    ) external view returns (uint256[] memory) {}
+    function packTokenIds(uint256 _packId) external view returns (uint256[] memory) {}
 
     function price(uint256 _id) external view returns (uint256) {}
 
@@ -191,18 +132,13 @@ contract DummyDiamond1155Implementation {
 
     function setSymbol(string memory _symbol) external {}
 
-    function setTokenData(
-        uint256 _id,
-        Tuple800840 memory _tokenData
-    ) external {}
+    function setTokenData(uint256 _id, Tuple800840 memory _tokenData) external {}
 
     function startTime(uint256 _id) external view returns (uint256) {}
 
     function symbol() external view returns (string memory) {}
 
-    function tokenData(
-        uint256 id
-    ) external view returns (Tuple9790819 memory) {}
+    function tokenData(uint256 id) external view returns (Tuple9790819 memory) {}
 
     function __transitiveOwner() external view returns (address) {}
 
@@ -210,29 +146,13 @@ contract DummyDiamond1155Implementation {
 
     function addToAllowList(uint256 tokenId, address account) external {}
 
-    function addToAllowList(
-        uint256 tokenId,
-        address[] memory accounts,
-        uint256 allowance
-    ) external {}
+    function addToAllowList(uint256 tokenId, address[] memory accounts, uint256 allowance) external {}
 
-    function addToAllowList(
-        uint256 tokenId,
-        address account,
-        uint256 allowance,
-        uint256 allowTime
-    ) external {}
+    function addToAllowList(uint256 tokenId, address account, uint256 allowance, uint256 allowTime) external {}
 
-    function addToAllowList(
-        uint256 tokenId,
-        address[] memory accounts
-    ) external {}
+    function addToAllowList(uint256 tokenId, address[] memory accounts) external {}
 
-    function addToAllowList(
-        uint256 tokenId,
-        address account,
-        uint256 allowance
-    ) external {}
+    function addToAllowList(uint256 tokenId, address account, uint256 allowance) external {}
 
     function addToAllowList(
         uint256 tokenId,
@@ -241,44 +161,25 @@ contract DummyDiamond1155Implementation {
         uint256 allowTime
     ) external {}
 
-    function allowList(
-        uint256 _tokenId
-    ) external view returns (Tuple576603[] memory allowListMap) {}
+    function allowList(uint256 _tokenId) external view returns (Tuple576603[] memory allowListMap) {}
 
-    function allowListContains(
-        uint256 tokenId,
-        address account
-    ) external view returns (bool contains) {}
+    function allowListContains(uint256 tokenId, address account) external view returns (bool contains) {}
 
-    function allowListEnabled(
-        uint256 _tokenId
-    ) external view returns (bool enabled) {}
+    function allowListEnabled(uint256 _tokenId) external view returns (bool enabled) {}
 
     function contractURI() external view returns (string memory) {}
 
-    function diamondCut(
-        Tuple6871229[] memory _diamondCut,
-        address _init,
-        bytes memory _calldata
-    ) external {}
+    function diamondCut(Tuple6871229[] memory _diamondCut, address _init, bytes memory _calldata) external {}
 
     function disableAllowList(uint256 _tokenId) external {}
 
     function enableAllowList(uint256 _tokenId) external {}
 
-    function facetAddress(
-        bytes4 _functionSelector
-    ) external view returns (address facetAddress_) {}
+    function facetAddress(bytes4 _functionSelector) external view returns (address facetAddress_) {}
 
-    function facetAddresses()
-        external
-        view
-        returns (address[] memory facetAddresses_)
-    {}
+    function facetAddresses() external view returns (address[] memory facetAddresses_) {}
 
-    function facetFunctionSelectors(
-        address _facet
-    ) external view returns (bytes4[] memory _facetFunctionSelectors) {}
+    function facetFunctionSelectors(address _facet) external view returns (bytes4[] memory _facetFunctionSelectors) {}
 
     function facets() external view returns (Tuple1236461[] memory facets_) {}
 
@@ -294,38 +195,23 @@ contract DummyDiamond1155Implementation {
 
     function releasable(address account) external view returns (uint256) {}
 
-    function releasable(
-        address token,
-        address account
-    ) external view returns (uint256) {}
+    function releasable(address token, address account) external view returns (uint256) {}
 
     function release(address account) external {}
 
     function release(address token, address account) external {}
 
-    function released(
-        address token,
-        address account
-    ) external view returns (uint256) {}
+    function released(address token, address account) external view returns (uint256) {}
 
     function released(address account) external view returns (uint256) {}
 
     function removeFromAllowList(uint256 tokenId, address account) external {}
 
-    function removeFromAllowList(
-        uint256 tokenId,
-        address[] memory accounts
-    ) external {}
+    function removeFromAllowList(uint256 tokenId, address[] memory accounts) external {}
 
-    function royaltyInfo(
-        uint256 tokenId,
-        uint256 salePrice
-    ) external view returns (address, uint256) {}
+    function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address, uint256) {}
 
-    function setDefaultRoyalty(
-        uint16 _defaultRoyaltyBPS,
-        address _defaultRoyalyReceiver
-    ) external {}
+    function setDefaultRoyalty(uint16 _defaultRoyaltyBPS, address _defaultRoyalyReceiver) external {}
 
     function setDummyImplementation(address _implementation) external {}
 
@@ -341,7 +227,5 @@ contract DummyDiamond1155Implementation {
 
     function unpause() external {}
 
-    function updatePaymentSplitterAddress(
-        address _newPayee
-    ) external returns (bool success) {}
+    function updatePaymentSplitterAddress(address _newPayee) external returns (bool success) {}
 }

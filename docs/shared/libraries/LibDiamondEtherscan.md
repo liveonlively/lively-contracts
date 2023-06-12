@@ -14,18 +14,17 @@ event Upgraded(address implementation)
 bytes32 IMPLEMENTATION_SLOT
 ```
 
-_Storage slot with the address of the current dummy-implementation.
-This is the keccak-256 hash of "eip1967.proxy.implementation" subtracted by 1_
+_Storage slot with the address of the current dummy-implementation. This is the keccak-256 hash of
+"eip1967.proxy.implementation" subtracted by 1_
 
-### _setDummyImplementation
+### \_setDummyImplementation
 
 ```solidity
 function _setDummyImplementation(address implementationAddress) internal
 ```
 
-### _dummyImplementation
+### \_dummyImplementation
 
 ```solidity
 function _dummyImplementation() internal view returns (address)
 ```
-

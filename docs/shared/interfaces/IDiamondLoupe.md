@@ -21,9 +21,9 @@ Gets all facet addresses and their four byte function selectors.
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| facets_ | struct IDiamondLoupe.Facet[] | Facet |
+| Name     | Type                         | Description |
+| -------- | ---------------------------- | ----------- |
+| facets\_ | struct IDiamondLoupe.Facet[] | Facet       |
 
 ### facetFunctionSelectors
 
@@ -35,15 +35,15 @@ Gets all the function selectors supported by a specific facet.
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _facet | address | The facet address. |
+| Name    | Type    | Description        |
+| ------- | ------- | ------------------ |
+| \_facet | address | The facet address. |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| facetFunctionSelectors_ | bytes4[] |  |
+| Name                     | Type     | Description |
+| ------------------------ | -------- | ----------- |
+| facetFunctionSelectors\_ | bytes4[] |             |
 
 ### facetAddresses
 
@@ -55,9 +55,9 @@ Get all the facet addresses used by a diamond.
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| facetAddresses_ | address[] |  |
+| Name             | Type      | Description |
+| ---------------- | --------- | ----------- |
+| facetAddresses\_ | address[] |             |
 
 ### facetAddress
 
@@ -71,13 +71,12 @@ _If facet is not found return address(0)._
 
 #### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| _functionSelector | bytes4 | The function selector. |
+| Name               | Type   | Description            |
+| ------------------ | ------ | ---------------------- |
+| \_functionSelector | bytes4 | The function selector. |
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| facetAddress_ | address | The facet address. |
-
+| Name           | Type    | Description        |
+| -------------- | ------- | ------------------ |
+| facetAddress\_ | address | The facet address. |

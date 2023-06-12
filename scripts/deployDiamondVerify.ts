@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ethers, hardhatArguments, run } from "hardhat";
-import { getSelectors } from "./libraries/diamond";
-import { LivelyDiamond } from "../types";
+
 import { logger } from "../scripts/1155/deploy";
+import { LivelyDiamond } from "../types";
+import { getSelectors } from "./libraries/diamond";
 
 export const FacetCutAction = { Add: 0, Replace: 1, Remove: 2 };
 

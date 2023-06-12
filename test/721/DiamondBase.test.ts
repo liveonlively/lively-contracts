@@ -1,8 +1,9 @@
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { valueToEther } from "../shared";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 
 // TODO: Add non owner should not be able to mint test for airdrop
 

@@ -17,4 +17,3 @@ function implementation() external view returns (address)
 ```
 
 Returns the implementation for EVM scanners.
-

@@ -5,8 +5,8 @@
 pragma solidity ^0.8.18;
 
 import "../interfaces/IERC721AQueryable.sol";
-import {ERC721ALib} from "../libraries/ERC721ALib.sol";
-import {ERC721AStorage} from "../utils/ERC721A/ERC721AStorage.sol";
+import { ERC721ALib } from "../libraries/ERC721ALib.sol";
+import { ERC721AStorage } from "../utils/ERC721A/ERC721AStorage.sol";
 
 /**
  * @title ERC721AQueryable.
@@ -44,9 +44,7 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
      * - `burned = false`
      * - `extraData = <Extra data at start of ownership>`
      */
-    function explicitOwnershipOf(
-        uint256 tokenId
-    ) public view virtual override returns (TokenOwnership memory) {
+    function explicitOwnershipOf(uint256 tokenId) public view virtual override returns (TokenOwnership memory) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         TokenOwnership memory ownership;
         if (tokenId < _startTokenId() || tokenId >= s.currentIndex) {
@@ -62,9 +60,7 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
     /**
      * @dev Returns the unpacked `TokenOwnership` struct at `index`.
      */
-    function _ownershipAt(
-        uint256 index
-    ) internal view virtual returns (TokenOwnership memory) {
+    function _ownershipAt(uint256 index) internal view virtual returns (TokenOwnership memory) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         return _unpackedOwnership(s.packedOwnerships[index]);
     }
@@ -73,18 +69,14 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
      * @dev Gas spent here starts off proportional to the maximum mint batch size.
      * It gradually moves to O(1) as tokens get transferred around over time.
      */
-    function _ownershipOf(
-        uint256 tokenId
-    ) internal view virtual returns (TokenOwnership memory) {
+    function _ownershipOf(uint256 tokenId) internal view virtual returns (TokenOwnership memory) {
         return _unpackedOwnership(_packedOwnershipOf(tokenId));
     }
 
     /**
      * Returns the packed ownership data of `tokenId`.
      */
-    function _packedOwnershipOf(
-        uint256 tokenId
-    ) internal view virtual returns (uint256) {
+    function _packedOwnershipOf(uint256 tokenId) internal view virtual returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
         uint256 curr = tokenId;
 
@@ -116,13 +108,9 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
     /**
      * @dev Returns the unpacked `TokenOwnership` struct from `packed`.
      */
-    function _unpackedOwnership(
-        uint256 packed
-    ) private pure returns (TokenOwnership memory ownership) {
+    function _unpackedOwnership(uint256 packed) private pure returns (TokenOwnership memory ownership) {
         ownership.addr = address(uint160(packed));
-        ownership.startTimestamp = uint64(
-            packed >> ERC721ALib._BITPOS_START_TIMESTAMP
-        );
+        ownership.startTimestamp = uint64(packed >> ERC721ALib._BITPOS_START_TIMESTAMP);
         ownership.burned = packed & ERC721ALib._BITMASK_BURNED != 0;
         ownership.extraData = uint24(packed >> ERC721ALib._BITPOS_EXTRA_DATA);
     }
@@ -136,9 +124,7 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
     ) external view virtual override returns (TokenOwnership[] memory) {
         unchecked {
             uint256 tokenIdsLength = tokenIds.length;
-            TokenOwnership[] memory ownerships = new TokenOwnership[](
-                tokenIdsLength
-            );
+            TokenOwnership[] memory ownerships = new TokenOwnership[](tokenIdsLength);
             for (uint256 i; i != tokenIdsLength; ++i) {
                 ownerships[i] = explicitOwnershipOf(tokenIds[i]);
             }
@@ -200,11 +186,7 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
             if (!ownership.burned) {
                 currOwnershipAddr = ownership.addr;
             }
-            for (
-                uint256 i = start;
-                i != stop && tokenIdsIdx != tokenIdsMaxLength;
-                ++i
-            ) {
+            for (uint256 i = start; i != stop && tokenIdsIdx != tokenIdsMaxLength; ++i) {
                 ownership = _ownershipAt(i);
                 if (ownership.burned) {
                     continue;
@@ -234,20 +216,14 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
      * multiple smaller scans if the collection is large enough to cause
      * an out-of-gas error (10K collections should be fine).
      */
-    function tokensOfOwner(
-        address owner
-    ) public view virtual override returns (uint256[] memory) {
+    function tokensOfOwner(address owner) public view virtual override returns (uint256[] memory) {
         unchecked {
             uint256 tokenIdsIdx;
             address currOwnershipAddr;
             uint256 tokenIdsLength = balanceOf(owner);
             uint256[] memory tokenIds = new uint256[](tokenIdsLength);
             TokenOwnership memory ownership;
-            for (
-                uint256 i = _startTokenId();
-                tokenIdsIdx != tokenIdsLength;
-                ++i
-            ) {
+            for (uint256 i = _startTokenId(); tokenIdsIdx != tokenIdsLength; ++i) {
                 ownership = _ownershipAt(i);
                 if (ownership.burned) {
                     continue;
@@ -269,7 +245,6 @@ abstract contract ERC721AQueryable is IERC721AQueryable {
     function balanceOf(address owner) private view returns (uint256) {
         if (owner == address(0)) revert BalanceQueryForZeroAddress();
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
-        return
-            s.packedAddressData[owner] & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
+        return s.packedAddressData[owner] & ERC721ALib._BITMASK_ADDRESS_DATA_ENTRY;
     }
 }

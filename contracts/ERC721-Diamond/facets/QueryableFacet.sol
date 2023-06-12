@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {ERC721AFacet} from "./ERC721AFacet.sol";
-import {ERC721ALib} from "../libraries/ERC721ALib.sol";
-import {ArrayUtils} from "../../shared/libraries/ArrayUtils.sol";
-import {IQueryableFacet} from "../interfaces/IQueryableFacet.sol";
-import {ERC721AQueryable} from "../abstracts/ERC721AQueryable.sol";
+import { ERC721AFacet } from "./ERC721AFacet.sol";
+import { ERC721ALib } from "../libraries/ERC721ALib.sol";
+import { ArrayUtils } from "../../shared/libraries/ArrayUtils.sol";
+import { IQueryableFacet } from "../interfaces/IQueryableFacet.sol";
+import { ERC721AQueryable } from "../abstracts/ERC721AQueryable.sol";
 
-import {ERC721AStorage} from "../utils/ERC721A/ERC721AStorage.sol";
-import {EditionsStorage} from "../utils/Editions/EditionsStorage.sol";
+import { ERC721AStorage } from "../utils/ERC721A/ERC721AStorage.sol";
+import { EditionsStorage } from "../utils/Editions/EditionsStorage.sol";
 
 /**
  * @dev Queryable facet for Lively diamond contracs.
@@ -75,9 +75,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
      * @param _editionIndex The edition index to check
      * @return Array of addresses
      */
-    function getOwners(
-        uint256 _editionIndex
-    ) external view override returns (address[] memory) {
+    function getOwners(uint256 _editionIndex) external view override returns (address[] memory) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
         address[] memory owners = new address[](s.currentIndex);
@@ -104,9 +102,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
                     while (packed == 0) {
                         packed = s.packedOwnerships[--curr];
                     }
-                    if (
-                        ERC721ALib._ownershipOf(curr).extraData == _editionIndex
-                    ) {
+                    if (ERC721ALib._ownershipOf(curr).extraData == _editionIndex) {
                         owners[i] = address(uint160(packed));
                     }
                 }
@@ -122,9 +118,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
      * @param _owner Address of the owner
      * @return Array of token IDs
      */
-    function getTokensByOwner(
-        address _owner
-    ) external view override returns (uint256[] memory) {
+    function getTokensByOwner(address _owner) external view override returns (uint256[] memory) {
         return tokensOfOwner(_owner);
     }
 
@@ -134,10 +128,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
      * @param _editionIndex Edition index
      * @return Array of token IDs
      */
-    function getTokensByOwner(
-        address _owner,
-        uint256 _editionIndex
-    ) public view override returns (uint256[] memory) {
+    function getTokensByOwner(address _owner, uint256 _editionIndex) public view override returns (uint256[] memory) {
         uint256[] memory allTokensOwned = tokensOfOwner(_owner);
         uint256 tokenIdsLength = allTokensOwned.length;
         uint256[] memory editionTokens;
@@ -145,14 +136,8 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
 
         unchecked {
             for (; i < tokenIdsLength; ) {
-                if (
-                    ERC721ALib._ownershipOf(allTokensOwned[i]).extraData ==
-                    _editionIndex
-                ) {
-                    editionTokens = ArrayUtils.append(
-                        editionTokens,
-                        allTokensOwned[i]
-                    );
+                if (ERC721ALib._ownershipOf(allTokensOwned[i]).extraData == _editionIndex) {
+                    editionTokens = ArrayUtils.append(editionTokens, allTokensOwned[i]);
                 }
                 ++i;
             }
@@ -166,9 +151,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
      * @param _owner Address of the owner
      * @return Array of edition indexes
      */
-    function getEditionsByOwner(
-        address _owner
-    ) external view override returns (uint256[] memory) {
+    function getEditionsByOwner(address _owner) external view override returns (uint256[] memory) {
         uint256[] memory allTokensOwned = tokensOfOwner(_owner);
         uint256[] memory editions = new uint256[](0);
 
@@ -189,10 +172,7 @@ contract QueryableFacet is ERC721AQueryable, IQueryableFacet {
         return editions;
     }
 
-    function ownsEdition(
-        address _owner,
-        uint256 editionIndex
-    ) external view override returns (bool) {
+    function ownsEdition(address _owner, uint256 editionIndex) external view override returns (bool) {
         uint256[] memory ownedEditions = getTokensByOwner(_owner, editionIndex);
         return ownedEditions.length > 0;
     }

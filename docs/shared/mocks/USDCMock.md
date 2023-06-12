@@ -30,9 +30,9 @@ query the total minted token supply
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | uint256 | token supply |
+| Name | Type    | Description  |
+| ---- | ------- | ------------ |
+| [0]  | uint256 | token supply |
 
 ### balanceOf
 
@@ -63,4 +63,3 @@ function transfer(address to, uint256 value) external returns (bool)
 ```solidity
 function transferFrom(address from, address to, uint256 value) external returns (bool)
 ```
-

@@ -34,4 +34,3 @@ function init(struct Diamond1155Init.DiamondArgs _args) external
 ```
 
 _Initialize the 1155 diamond with the data you need_
-

@@ -2,13 +2,13 @@
 
 ## AllowList
 
-### _enableAllowList
+### \_enableAllowList
 
 ```solidity
 function _enableAllowList(uint256 tokenId) internal
 ```
 
-### _disableAllowList
+### \_disableAllowList
 
 ```solidity
 function _disableAllowList(uint256 tokenId) internal
@@ -67,4 +67,3 @@ function removeFromAllowList(uint256 tokenId, address[] accounts) external
 ```solidity
 function allowListContains(uint256 tokenId, address account) external view returns (bool contains)
 ```
-

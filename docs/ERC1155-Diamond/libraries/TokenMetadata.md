@@ -58,4 +58,3 @@ function toString(enum TokenMetadata.TokenType tokenType) internal pure returns 
 ```solidity
 function makeContractURI(string name, string description, string imageURL, string externalLinkURL, uint256 sellerFeeBasisPoints, address feeRecipient) internal pure returns (string)
 ```
-

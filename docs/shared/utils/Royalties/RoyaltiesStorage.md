@@ -21,4 +21,3 @@ bytes32 STORAGE_SLOT
 ```solidity
 function layout() internal pure returns (struct RoyaltiesStorage.Layout l)
 ```
-
