@@ -18,11 +18,20 @@ The LivelyDiamond ecosystem is a collection of on chain smart contracts (LivelyF
 
 ## LivelyDiamond's Features
 
-Here's a list of some of the amazing features you get for free by using the LivelyFacets.
+When you create a LivelyDiamond, you can make it as an ERC-721A collection or an ERC-1155 compliant collection. Both also are [EIP-173 (Ownable)](https://eips.ethereum.org/EIPS/eip-173) compliant and use the [OpenSea Filter Registry](https://github.com/ProjectOpenSea/operator-filter-registry). Along with the base features of 721s and 1155s, you can use a combination of on-chain facets and the SDK to use the following features:
+
+{% hint style="info" %}
+DEV NOTE (JSH): We need to think about how we want to list all our features better. Also, anything we want to be added quickly. There are a few features that are partially finished in other branches we can try to add before publishing.
+{% endhint %}
 
 1. LazyMinting
 2. Dynamic NFTs
 3. Role-Based Security
+4. AllowLists (Contract wide or edition specific)
+5. Pausable
+6. Primary Royalty PaymentSplitter
+7. Secondary Royalty Compliance (EIP-2981 NFT Royalty Standard)
+8.
 
 ## Quick links
 
