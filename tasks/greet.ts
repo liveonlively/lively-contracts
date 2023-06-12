@@ -1,23 +1,25 @@
-import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { task } from "hardhat/config";
-import type { TaskArguments } from "hardhat/types";
+// TODO: Can delete this file from the original template repo.
 
-import type { Greeter } from "../types/Greeter";
-import type { Greeter__factory } from "../types/factories/Greeter__factory";
+// import type { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
+// import { task } from "hardhat/config";
+// import type { TaskArguments } from "hardhat/types";
 
-task("task:setGreeting")
-  .addParam("greeting", "Say hello, be nice")
-  .addParam("account", "Specify which account [0, 9]")
-  .setAction(async function (taskArguments: TaskArguments, hre) {
-    const { ethers, deployments } = hre;
+// import type { Greeter } from "../types/Greeter";
+// import type { Greeter__factory } from "../types/factories/Greeter__factory";
 
-    const Greeter = await deployments.get("Greeter");
+// task("task:setGreeting")
+//   .addParam("greeting", "Say hello, be nice")
+//   .addParam("account", "Specify which account [0, 9]")
+//   .setAction(async function (taskArguments: TaskArguments, hre) {
+//     const { ethers, deployments } = hre;
 
-    const signers: SignerWithAddress[] = await ethers.getSigners();
+//     const Greeter = await deployments.get("Greeter");
 
-    const greeter = <Greeter>await ethers.getContractAt("Greeter", Greeter.address);
+//     const signers: SignerWithAddress[] = await ethers.getSigners();
 
-    await greeter.connect(signers[taskArguments.account]).setGreeting(taskArguments.greeting);
+//     const greeter = <Greeter>await ethers.getContractAt("Greeter", Greeter.address);
 
-    console.log("Greeting set: ", taskArguments.greeting);
-  });
+//     await greeter.connect(signers[taskArguments.account]).setGreeting(taskArguments.greeting);
+
+//     console.log("Greeting set: ", taskArguments.greeting);
+//   });

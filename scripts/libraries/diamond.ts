@@ -1,25 +1,33 @@
-import { Contract, ContractFactory, ethers } from "ethers";
+/* eslint-disable */
+import { BaseContract, ContractTransactionResponse, FunctionFragment, ethers } from "ethers";
 
 type Facets = { facetAddress: string; functionSelectors: string[] }[];
-
+type WeirdContract = BaseContract & {
+  deploymentTransaction(): ContractTransactionResponse;
+} & Omit<BaseContract, keyof BaseContract>;
+type ContractInput = WeirdContract | ethers.Contract;
 export const FacetCutAction = { Add: 0, Replace: 1, Remove: 2 };
 
 export interface SelectorsObj extends Array<string> {
   get: typeof get;
   remove: typeof remove;
-  contract: Contract | ContractFactory;
+  contract: ContractInput;
 }
 
 // get function selectors from ABI
-export function getSelectors(contract: Contract | ContractFactory): SelectorsObj {
-  const signatures = Object.keys(contract.interface.functions);
+// Old type Contract | ContractFactory
+export function getSelectors(contract: ContractInput): SelectorsObj {
+  const signatures: FunctionFragment[] = Object.values(contract.interface.fragments).filter(
+    (fragment) => fragment.type === "function",
+  ) as FunctionFragment[];
+
   const selectors = signatures.reduce<string[]>((acc, val) => {
-    if (val !== "init(bytes)") {
-      acc.push(contract.interface.getSighash(val));
+    if (val.format("sighash") !== "init(bytes)") {
+      acc.push(val.selector);
     }
     return acc;
   }, []) as SelectorsObj;
-
+  console.log({ selectors });
   selectors.contract = contract;
   selectors.remove = remove;
   selectors.get = get;
@@ -29,8 +37,8 @@ export function getSelectors(contract: Contract | ContractFactory): SelectorsObj
 
 // get function selector from function signature
 export function getSelector(func: string) {
-  const abiInterface = new ethers.utils.Interface([func]);
-  return abiInterface.getSighash(ethers.utils.Fragment.from(func));
+  const abiInterface = new ethers.Interface([func]);
+  return abiInterface.getFunction(func)?.selector;
 }
 
 // used with getSelectors to remove selectors from an array of selectors
@@ -38,9 +46,12 @@ export function getSelector(func: string) {
 export function remove(this: SelectorsObj, functionNames: string[]) {
   const selectors = this.filter((v: any) => {
     for (const functionName of functionNames) {
-      if (v === this.contract?.interface.getSighash(functionName)) {
-        return false;
-      }
+      // if (v === this.contract?.interface.getSighash(functionName)) {
+      const functionSignature = this.contract?.interface.getFunction(functionName)?.selector;
+      if (functionSignature)
+        if (v === functionSignature) {
+          return false;
+        }
     }
     return true;
   }) as SelectorsObj;
@@ -57,9 +68,11 @@ export function remove(this: SelectorsObj, functionNames: string[]) {
 export function get(this: SelectorsObj, functionNames: string[]) {
   const selectors = this.filter((v: any) => {
     for (const functionName of functionNames) {
-      if (v === this.contract?.interface.getSighash(functionName)) {
-        return true;
-      }
+      const functionSignature = this.contract?.interface.getFunction(functionName)?.selector;
+      if (functionSignature)
+        if (v === functionSignature) {
+          return true;
+        }
     }
     return false;
   }) as SelectorsObj;
@@ -73,8 +86,8 @@ export function get(this: SelectorsObj, functionNames: string[]) {
 
 // remove selectors using an array of signatures
 export function removeSelectors(selectors: string[], signatures: string[]) {
-  const iface = new ethers.utils.Interface(signatures.map((v: any) => "function " + v));
-  const removeSelectors = signatures.map((v: any) => iface.getSighash(v));
+  const iface = new ethers.Interface(signatures.map((v: any) => "function " + v));
+  const removeSelectors = signatures.map((v: any) => iface.getFunction(v)?.selector);
   selectors = selectors.filter((v: any) => !removeSelectors.includes(v));
   return selectors;
 }
