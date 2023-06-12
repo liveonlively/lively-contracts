@@ -77,7 +77,6 @@ async function deployDiamond(owner?: Signer, livelyDev?: Signer, opts?: Opts): P
     "PausableFacet",
     "PaymentSplitterFacet",
     "RoyaltyFacet",
-    "PaymentUpdateFacet",
     "CrossmintFacet",
   ];
 

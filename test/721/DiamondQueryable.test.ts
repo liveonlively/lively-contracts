@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { Wallet } from "ethers";
+import { HDNodeWallet } from "ethers";
 import { valueToEther } from "../shared";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
@@ -75,7 +75,7 @@ describe(`DiamondQueryable Test`, function () {
     it("Should be query large nunber of owners", async () => {
       const { contract } = await loadFixture(deployTokenFixture);
 
-      const ownerWallets: Wallet[] = [];
+      const ownerWallets: HDNodeWallet[] = [];
       const amountOfWallets = 100; // Starts failing around 7000 wallets (10.5k mints)
       const mintingPromises = [];
 
@@ -110,7 +110,7 @@ describe(`DiamondQueryable Test`, function () {
     it("Should be query owners by edition", async () => {
       const { contract } = await loadFixture(deployTokenFixture);
 
-      const ownerWallets: Wallet[] = [];
+      const ownerWallets: HDNodeWallet[] = [];
       const amountOfWallets = 10; // Starts failing around 7000 wallets (10.5k mints)
       const mintingPromises = [];
       const editionOwners: Array<string[]> = [[], []];
@@ -171,9 +171,9 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId) => tokenId);
+      const tokenIdsAddr1 = await contract["getTokensByOwner(address)"](addr1.address);
 
-      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId) => tokenId);
+      const tokenIdsOwner = await contract["getTokensByOwner(address)"](owner.address);
 
       expect(tokenIdsAddr1).to.deep.equal([0n, 1n, 5n, 6n]);
       expect(tokenIdsOwner).to.deep.equal([2n, 3n, 4n]);
@@ -194,9 +194,9 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const tokenIdsAddr1 = (await contract["getTokensByOwner(address)"](addr1.address)).map((tokenId) => tokenId);
+      const tokenIdsAddr1 = await contract["getTokensByOwner(address)"](addr1.address);
 
-      const tokenIdsOwner = (await contract["getTokensByOwner(address)"](owner.address)).map((tokenId) => tokenId);
+      const tokenIdsOwner = await contract["getTokensByOwner(address)"](owner.address);
 
       expect(tokenIdsAddr1).to.deep.equal([0n, 1n, 5n, 6n]);
       expect(tokenIdsOwner).to.deep.equal([2n, 3n, 4n]);
@@ -217,24 +217,14 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const tokenIdsAddr1For0 = (await contract["getTokensByOwner(address,uint256)"](addr1.address, 0)).map(
-        (tokenId) => tokenId,
-      );
-      const tokenIdsOwnerFor0 = (await contract["getTokensByOwner(address,uint256)"](owner.address, 0)).map(
-        (tokenId) => tokenId,
-      );
-
-      const tokenIdsAddr1For1 = (await contract["getTokensByOwner(address,uint256)"](addr1.address, 1)).map(
-        (tokenId) => tokenId,
-      );
-
-      const tokenIdsOwnerFor1 = (await contract["getTokensByOwner(address,uint256)"](owner.address, 1)).map(
-        (tokenId) => tokenId,
-      );
+      const tokenIdsAddr1For0 = await contract["getTokensByOwner(address,uint256)"](addr1.address, 0);
+      const tokenIdsOwnerFor0 = await contract["getTokensByOwner(address,uint256)"](owner.address, 0);
+      const tokenIdsAddr1For1 = await contract["getTokensByOwner(address,uint256)"](addr1.address, 1);
+      const tokenIdsOwnerFor1 = await contract["getTokensByOwner(address,uint256)"](owner.address, 1);
 
       // Check edition 0 results
       expect(tokenIdsAddr1For0).to.deep.equal([0n, 1n]);
-      expect(tokenIdsOwnerFor0).to.deep.equal([0n]);
+      expect(tokenIdsOwnerFor0).to.deep.equal([]);
 
       // Check edition 1 results
       expect(tokenIdsAddr1For1).to.deep.equal([5n, 6n]);
@@ -256,12 +246,8 @@ describe(`DiamondQueryable Test`, function () {
         value: 0,
       });
 
-      const addr1EditionsOwned = [...new Set(await contract.getEditionsByOwner(addr1.address))].map(
-        (edition) => edition,
-      );
-      const ownerEditionsOwned = [...new Set(await contract.getEditionsByOwner(owner.address))].map(
-        (edition) => edition,
-      );
+      const addr1EditionsOwned = [...new Set(await contract.getEditionsByOwner(addr1.address))];
+      const ownerEditionsOwned = [...new Set(await contract.getEditionsByOwner(owner.address))];
 
       expect(addr1EditionsOwned).to.deep.equal([0n, 1n]);
       expect(ownerEditionsOwned).to.deep.equal([1n]);
