@@ -13,4 +13,3 @@ bytes32 whitelistRootHash
 ```solidity
 function validateMerkleProof(bytes32[] proofs) internal view returns (bool)
 ```
-

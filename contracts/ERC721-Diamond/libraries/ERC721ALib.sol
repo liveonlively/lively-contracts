@@ -2,10 +2,10 @@
 // Creator: Lively modified from Chiru Labs (https://github.com/chiru-labs/ERC721A)
 pragma solidity ^0.8.18;
 
-import {LibDiamond} from "../../shared/libraries/LibDiamond.sol";
-import {IERC721A} from "../interfaces/IERC721A.sol";
-import {PriceConsumer} from "../../shared/libraries/PriceConsumer.sol";
-import {ERC721AStorage} from "../utils/ERC721A/ERC721AStorage.sol";
+import { LibDiamond } from "../../shared/libraries/LibDiamond.sol";
+import { IERC721A } from "../interfaces/IERC721A.sol";
+import { PriceConsumer } from "../../shared/libraries/PriceConsumer.sol";
+import { ERC721AStorage } from "../utils/ERC721A/ERC721AStorage.sol";
 
 library ERC721ALib {
     string private constant CONTRACT_VERSION = "0.0.1";
@@ -32,8 +32,7 @@ library ERC721ALib {
 
     // The `Transfer` event signature is given by:
     // `keccak256(bytes("Transfer(address,address,uint256)"))`.
-    bytes32 constant _TRANSFER_EVENT_SIGNATURE =
-        0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef;
+    bytes32 constant _TRANSFER_EVENT_SIGNATURE = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef;
 
     // The bit position of `startTimestamp` in packed ownership.
     uint256 constant _BITPOS_START_TIMESTAMP = 160;
@@ -92,9 +91,7 @@ library ERC721ALib {
             // - `numberMinted += quantity`.
             //
             // We can directly add to the `balance` and `numberMinted`.
-            s.packedAddressData[to] +=
-                quantity *
-                ((1 << _BITPOS_NUMBER_MINTED) | 1);
+            s.packedAddressData[to] += quantity * ((1 << _BITPOS_NUMBER_MINTED) | 1);
 
             // Updates:
             // - `address` to the owner.
@@ -103,8 +100,7 @@ library ERC721ALib {
             // - `nextInitialized` to `quantity == 1`.
             s.packedOwnerships[startTokenId] = _packOwnershipData(
                 to,
-                _nextInitializedFlag(quantity) |
-                    _nextExtraData(address(0), to, 0)
+                _nextInitializedFlag(quantity) | _nextExtraData(address(0), to, 0)
             );
 
             uint256 toMasked;
@@ -146,18 +142,12 @@ library ERC721ALib {
     /**
      * @dev Packs ownership data into a single uint256.
      */
-    function _packOwnershipData(
-        address owner,
-        uint256 flags
-    ) internal view returns (uint256 result) {
+    function _packOwnershipData(address owner, uint256 flags) internal view returns (uint256 result) {
         assembly {
             // Mask `owner` to the lower 160 bits, in case the upper bits somehow aren't clean.
             owner := and(owner, _BITMASK_ADDRESS)
             // `owner | (block.timestamp << _BITPOS_START_TIMESTAMP) | flags`.
-            result := or(
-                owner,
-                or(shl(_BITPOS_START_TIMESTAMP, timestamp()), flags)
-            )
+            result := or(owner, or(shl(_BITPOS_START_TIMESTAMP, timestamp()), flags))
         }
     }
 
@@ -187,8 +177,7 @@ library ERC721ALib {
 
         // Nested if save gas
         if (s.isSoulbound)
-            if ((from != address(0) && to != address(0)))
-                revert TokenIsSoulbound();
+            if ((from != address(0) && to != address(0))) revert TokenIsSoulbound();
     }
 
     /**
@@ -207,19 +196,12 @@ library ERC721ALib {
      * - When `to` is zero, `tokenId` has been burned by `from`.
      * - `from` and `to` are never both zero.
      */
-    function _afterTokenTransfers(
-        address from,
-        address to,
-        uint256 startTokenId,
-        uint256 quantity
-    ) internal {}
+    function _afterTokenTransfers(address from, address to, uint256 startTokenId, uint256 quantity) internal {}
 
     /**
      * @dev Returns the `nextInitialized` flag set if `quantity` equals 1.
      */
-    function _nextInitializedFlag(
-        uint256 quantity
-    ) internal pure returns (uint256 result) {
+    function _nextInitializedFlag(uint256 quantity) internal pure returns (uint256 result) {
         // For branchless setting of the `nextInitialized` flag.
         assembly {
             // `(quantity == 1) << _BITPOS_NEXT_INITIALIZED`.
@@ -231,11 +213,7 @@ library ERC721ALib {
      * @dev Returns the next extra data for the packed ownership data.
      * The returned result is shifted into position.
      */
-    function _nextExtraData(
-        address from,
-        address to,
-        uint256 prevOwnershipPacked
-    ) internal pure returns (uint256) {
+    function _nextExtraData(address from, address to, uint256 prevOwnershipPacked) internal pure returns (uint256) {
         uint24 extraData = uint24(prevOwnershipPacked >> _BITPOS_EXTRA_DATA);
         return uint256(_extraData(from, to, extraData)) << _BITPOS_EXTRA_DATA;
     }
@@ -246,9 +224,7 @@ library ERC721ALib {
     function _numberMinted(address owner) internal view returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
-        return
-            (s.packedAddressData[owner] >> ERC721ALib._BITPOS_NUMBER_MINTED) &
-            _BITMASK_ADDRESS_DATA_ENTRY;
+        return (s.packedAddressData[owner] >> ERC721ALib._BITPOS_NUMBER_MINTED) & _BITMASK_ADDRESS_DATA_ENTRY;
     }
 
     /**
@@ -273,9 +249,7 @@ library ERC721ALib {
         assembly {
             auxCasted := aux
         }
-        packed =
-            (packed & _BITMASK_AUX_COMPLEMENT) |
-            (auxCasted << _BITPOS_AUX);
+        packed = (packed & _BITMASK_AUX_COMPLEMENT) | (auxCasted << _BITPOS_AUX);
         s.packedAddressData[owner] = packed;
     }
 
@@ -296,9 +270,7 @@ library ERC721ALib {
         assembly {
             extraDataCasted := extraData
         }
-        packed =
-            (packed & _BITMASK_EXTRA_DATA_COMPLEMENT) |
-            (extraDataCasted << ERC721ALib._BITPOS_EXTRA_DATA);
+        packed = (packed & _BITMASK_EXTRA_DATA_COMPLEMENT) | (extraDataCasted << ERC721ALib._BITPOS_EXTRA_DATA);
         s.packedOwnerships[index] = packed;
     }
 
@@ -328,18 +300,14 @@ library ERC721ALib {
      * @dev Gas spent here starts off proportional to the maximum mint batch size.
      * It gradually moves to O(1) as tokens get transferred around over time.
      */
-    function _ownershipOf(
-        uint256 tokenId
-    ) internal view returns (ERC721ALib.TokenOwnership memory) {
+    function _ownershipOf(uint256 tokenId) internal view returns (ERC721ALib.TokenOwnership memory) {
         return _unpackedOwnership(_packedOwnershipOf(tokenId));
     }
 
     /**
      * Returns the packed ownership data of `tokenId`.
      */
-    function _packedOwnershipOf(
-        uint256 tokenId
-    ) internal view returns (uint256) {
+    function _packedOwnershipOf(uint256 tokenId) internal view returns (uint256) {
         ERC721AStorage.Layout storage s = ERC721AStorage.layout();
 
         uint256 curr = tokenId;
@@ -372,13 +340,9 @@ library ERC721ALib {
     /**
      * @dev Returns the unpacked `ERC721ALib.TokenOwnership` struct from `packed`.
      */
-    function _unpackedOwnership(
-        uint256 packed
-    ) internal pure returns (ERC721ALib.TokenOwnership memory ownership) {
+    function _unpackedOwnership(uint256 packed) internal pure returns (ERC721ALib.TokenOwnership memory ownership) {
         ownership.addr = address(uint160(packed));
-        ownership.startTimestamp = uint64(
-            packed >> ERC721ALib._BITPOS_START_TIMESTAMP
-        );
+        ownership.startTimestamp = uint64(packed >> ERC721ALib._BITPOS_START_TIMESTAMP);
         ownership.burned = packed & _BITMASK_BURNED != 0;
         ownership.extraData = uint24(packed >> ERC721ALib._BITPOS_EXTRA_DATA);
     }

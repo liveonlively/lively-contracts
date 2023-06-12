@@ -1,16 +1,10 @@
 import "dotenv/config";
-
-import hre from "hardhat";
 import { Contract } from "ethers";
-import {
-  erc1155Facets,
-  erc721Facets,
-  sharedFacets,
-} from "../../optimizationEnabled";
+import hre from "hardhat";
 
-export const fetchFacets = async (
-  contractType: string
-): Promise<Contract[]> => {
+import { erc721Facets, erc1155Facets, sharedFacets } from "../../optimizationEnabled";
+
+export const fetchFacets = async (contractType: string): Promise<Contract[]> => {
   let facets: string[];
   if (contractType == "721") {
     facets = [...erc721Facets, ...sharedFacets];

@@ -25,4 +25,3 @@ function append(uint256[] _array, uint256 _tokenIndex) internal pure returns (ui
 ```solidity
 function append(address[] _array, address _address) internal pure returns (address[])
 ```
-

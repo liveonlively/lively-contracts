@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-expressions */
+
 /* eslint-disable no-unused-vars */
+import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { fullArgs, valueToEther } from "../shared";
-import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { DummyDiamond721Implementation } from "../../types";
+import { fullArgs, valueToEther } from "../shared";
 
 describe(`DiamondSale Test`, function () {
   async function deployTokenFixture() {

@@ -42,4 +42,3 @@ function allowList(uint256 _tokenId) external view returns (struct AllowListFace
 ```
 
 721's can use tokenId 0
-

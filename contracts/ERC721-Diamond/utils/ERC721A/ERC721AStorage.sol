@@ -60,8 +60,7 @@ library ERC721AStorage {
         bool isSoulbound;
     }
 
-    bytes32 internal constant STORAGE_SLOT =
-        keccak256("lively.contracts.storage.ERC721A");
+    bytes32 internal constant STORAGE_SLOT = keccak256("lively.contracts.storage.ERC721A");
 
     function layout() internal pure returns (Layout storage l) {
         bytes32 slot = STORAGE_SLOT;

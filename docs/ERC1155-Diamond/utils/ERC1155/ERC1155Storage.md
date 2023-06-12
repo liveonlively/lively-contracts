@@ -83,4 +83,3 @@ function incrementPackId(struct ERC1155Storage.Layout l) internal
 ```solidity
 function getCurrentPackId(struct ERC1155Storage.Layout l) internal view returns (uint256)
 ```
-

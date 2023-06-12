@@ -24,8 +24,7 @@ library EditionsStorage {
         mapping(uint256 => uint256) tokenEdition; // idToken => editionIndex // Deprecated
     }
 
-    bytes32 internal constant STORAGE_SLOT =
-        keccak256("lively.contracts.storage.Editions");
+    bytes32 internal constant STORAGE_SLOT = keccak256("lively.contracts.storage.Editions");
 
     function layout() internal pure returns (Layout storage l) {
         bytes32 slot = STORAGE_SLOT;

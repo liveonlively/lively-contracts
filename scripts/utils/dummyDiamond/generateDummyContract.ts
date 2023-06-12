@@ -16,13 +16,7 @@ type GetContractStringParams = GenerateContractParams & {
 
 export const generateDummyContract = (
   facetList: Contract[],
-  {
-    spdxIdentifier,
-    solidityVersion,
-    diamondAddress,
-    network,
-    contractName,
-  }: GenerateContractParams
+  { spdxIdentifier, solidityVersion, diamondAddress, network, contractName }: GenerateContractParams,
 ): string => {
   const structs = facetList
     .reduce((structsArr: any, contract) => {
@@ -80,9 +74,7 @@ ${signatures.reduce((all, sig) => {
 const getFormattedSignatures = (facet: Contract) => {
   const signatures = Object.keys(facet.interface.functions);
 
-  return signatures.map((signature) =>
-    formatSignature(facet.interface.functions[signature])
-  );
+  return signatures.map((signature) => formatSignature(facet.interface.functions[signature]));
 };
 
 const formatSignature = (func: FunctionFragment) => {
@@ -90,8 +82,7 @@ const formatSignature = (func: FunctionFragment) => {
   if (!func.outputs) return new Error("No outputs");
   const outputStr = formatParams(func.outputs);
 
-  const stateMutability =
-    func.stateMutability === "nonpayable" ? "" : ` ${func.stateMutability}`;
+  const stateMutability = func.stateMutability === "nonpayable" ? "" : ` ${func.stateMutability}`;
   const outputs = outputStr ? ` returns (${outputStr})` : "";
 
   return `function ${func.name}(${paramsString}) external${stateMutability}${outputs} {}`;
@@ -113,9 +104,7 @@ const formatType = (type: ParamType) => {
   const storageLocation = getStorageLocationForType(type.type);
 
   const arrString = getArrayString(type);
-  const formattedType = type.components
-    ? getTupleName(type) + arrString
-    : type.type;
+  const formattedType = type.components ? getTupleName(type) + arrString : type.type;
 
   return `${formattedType} ${storageLocation}`;
 };
@@ -177,10 +166,7 @@ const getFormattedStructs = (facet: Contract) => {
 
   const outputStructs = funcs.reduce((outputStructsArr: any, func) => {
     if (!func.outputs) return new Error("No outputs");
-    return [
-      ...outputStructsArr,
-      ...getFormattedStructsFromParams(func.outputs),
-    ];
+    return [...outputStructsArr, ...getFormattedStructsFromParams(func.outputs)];
   }, []);
 
   return [...inputStructs, ...outputStructs];
@@ -207,7 +193,7 @@ const recursiveFormatStructs = (param: ParamType): string[] => {
   const structMembers = param.components.map(formatStructMember);
   const struct = `    struct ${getTupleName(param)} {${structMembers.reduce(
     (allMembers, member) => `${allMembers}${member}`,
-    ""
+    "",
   )}\n    }`;
 
   return [struct, ...otherStructs];
@@ -215,9 +201,7 @@ const recursiveFormatStructs = (param: ParamType): string[] => {
 
 const formatStructMember = (param: ParamType) => {
   const arrString = getArrayString(param);
-  return `\n        ${
-    param.components ? getTupleName(param) + arrString : param.type
-  } ${param.name};`;
+  return `\n        ${param.components ? getTupleName(param) + arrString : param.type} ${param.name};`;
 };
 
 const dedoop = (str: string, index: number, allmembers: string[]) => {

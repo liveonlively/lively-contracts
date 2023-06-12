@@ -21,4 +21,3 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
 _Will be ignored when adding this facet to the NFT diamond._
-

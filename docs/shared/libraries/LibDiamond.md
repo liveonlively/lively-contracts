@@ -73,4 +73,3 @@ function initializeDiamondCut(address _init, bytes _calldata) internal
 ```solidity
 function enforceHasContractCode(address _contract, string _errorMessage) internal view
 ```
-

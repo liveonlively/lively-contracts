@@ -1,13 +1,13 @@
-import "hardhat-diamond-abi";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-deploy";
+import "hardhat-diamond-abi";
 import type { HardhatUserConfig } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
 
-import { erc1155Facets, erc721Facets, sharedFacets } from "./optimizationEnabled";
+import { erc721Facets, erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
 import "./tasks/generators";
 import "./tasks/greet";

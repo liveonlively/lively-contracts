@@ -73,4 +73,3 @@ function release(contract IERC20 token, address account) public virtual
 ```solidity
 function addPayee(address account, uint256 shares_) public virtual
 ```
-

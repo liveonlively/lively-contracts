@@ -1,8 +1,9 @@
-import { ethers, hardhatArguments } from "hardhat";
-import { Diamond1155Init } from "../../types";
-import { getSelectors, FacetCutAction, SelectorsObj } from "../libraries/diamond";
 // import { fq1155Facet, fqSharedFacet } from "../../utils/paths";
 import { Signer } from "ethers";
+import { ethers, hardhatArguments } from "hardhat";
+
+import { Diamond1155Init } from "../../types";
+import { FacetCutAction, SelectorsObj, getSelectors } from "../libraries/diamond";
 import { deployAndWait } from "../utils/deployHelpers";
 
 export const logger = (...args: unknown[]) => {

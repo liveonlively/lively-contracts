@@ -1,8 +1,9 @@
-import { ethers } from "hardhat";
-import { defaultArgs, deployDiamond, oneHourFromNowInSeconds } from "../../scripts/1155/deploy";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
-import { Wallet, Typed } from "ethers";
+import { Typed, Wallet } from "ethers";
+import { ethers } from "hardhat";
+
+import { defaultArgs, deployDiamond, oneHourFromNowInSeconds } from "../../scripts/1155/deploy";
 import { ERC1155Facet, Lively1155Diamond, Lively1155DiamondABI } from "../../typechain";
 
 // TODO: Add non owner should not be able to mint test for airdrop

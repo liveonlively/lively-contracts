@@ -54,9 +54,9 @@ Returns the latest price
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | uint256 | latest price |
+| Name | Type    | Description  |
+| ---- | ------- | ------------ |
+| [0]  | uint256 | latest price |
 
 ### getPriceFeed
 
@@ -68,13 +68,12 @@ Returns the Price Feed address
 
 #### Return Values
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| [0] | contract AggregatorV3Interface | Price Feed address |
+| Name | Type                           | Description        |
+| ---- | ------------------------------ | ------------------ |
+| [0]  | contract AggregatorV3Interface | Price Feed address |
 
 ### convertUSDtoWei
 
 ```solidity
 function convertUSDtoWei(uint256 _price) internal view returns (uint256)
 ```
-

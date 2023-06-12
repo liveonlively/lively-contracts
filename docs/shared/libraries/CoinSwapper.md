@@ -81,4 +81,3 @@ function convertWETHtoUSDC() internal
 ```
 
 _Converts all WETH owned by contract to USDC_
-

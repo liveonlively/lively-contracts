@@ -31,4 +31,3 @@ function crossmintMint(address account, uint256 id, uint256 amount) public
 ```solidity
 function crossmintPackMint(address account, uint256 packId, uint256 amount) public
 ```
-

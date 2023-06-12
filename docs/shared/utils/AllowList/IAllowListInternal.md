@@ -109,4 +109,3 @@ event AllowListRemoved(uint256 tokenId, address account)
 ```solidity
 event AllowListRemoved(uint256 tokenId, address[] accounts)
 ```
-

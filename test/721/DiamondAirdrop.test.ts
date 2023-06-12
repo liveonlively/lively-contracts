@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { expect } from "chai";
-import { ethers } from "hardhat";
-import { Contract, ContractFactory } from "ethers";
 import type { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
-import { deploy, defaultArgs } from "../../scripts/deployDiamondVerify";
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
+import { expect } from "chai";
+import { Contract, ContractFactory } from "ethers";
+import { ethers } from "hardhat";
+
+import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { DummyDiamond721Implementation } from "../../types";
 
 export interface ERC721BaseContext {
