@@ -6,7 +6,6 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 
 import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
-import { DummyDiamond721Implementation } from "../../types";
 import { fullArgs, valueToEther } from "../shared";
 
 describe(`DiamondSale Test`, function () {

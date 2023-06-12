@@ -274,7 +274,7 @@ describe(`DiamondEditionsClient Test`, function () {
     });
 
     it("Should not allow owner to mint more than the max supply", async () => {
-      const { addr1, defaultPrice, contract, maxSupply, edition1MaxSupply } = await loadFixture(deployTokenFixture);
+      const { addr1, defaultPrice, contract, edition1MaxSupply } = await loadFixture(deployTokenFixture);
       // Mint a token
       for (let i = 0; i < edition1MaxSupply; i++) {
         await contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {

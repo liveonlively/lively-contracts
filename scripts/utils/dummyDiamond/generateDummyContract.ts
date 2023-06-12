@@ -1,5 +1,6 @@
-import { Contract } from "ethers";
-import type { FunctionFragment, ParamType } from "ethers/lib/utils.js";
+import { Contract, FunctionFragment, ParamType } from "ethers";
+
+// import type { FunctionFragment, ParamType } from "ethers/lib/utils.js";
 
 type GenerateContractParams = {
   diamondAddress: string;
@@ -48,8 +49,6 @@ const getContractString = ({
   solidityVersion,
   signatures,
   structs,
-  diamondAddress,
-  network,
   contractName,
 }: GetContractStringParams) => `
 // SPDX-License-Identifier: ${spdxIdentifier || "MIT"}
