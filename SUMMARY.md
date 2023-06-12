@@ -1,24 +1,20 @@
 # Table of contents
 
-- [💎 Welcome to LivelyDiamond](README.md)
+- [💎 LivelyDiamond Protocol](README.md)
 
-## Overview
+## QUICK START
 
-- [💡 What we do](overview/what-we-do.md)
-- [✨ Our Features](overview/our-features.md)
+- [📔 Deploy Your Contract](quick-start/deploy-your-contract.md)
+- [🏚 Contract Addresses](quick-start/contract-addresses.md)
+- [🤖 JS/TS SDK](quick-start/js-ts-sdk.md)
 
-## Product Guides
+## MODULAR FEATURES
 
-- [📪 Making a post](product-guides/making-a-post.md)
-- [📎 Understanding Projects](product-guides/understanding-projects.md)
+- [‼ AllowLists](modular-features/allowlists.md)
+- [💰 Primary Royalties](modular-features/primary-royalties.md)
+- [⁉ TEAM: Etc, we'll need to figure out the best way to format this.](modular-features/team-etc-well-need-to-figure-out-the-best-way-to-format-this..md)
 
-## Fundamentals
+## Tutorials
 
-- [🛠 Getting set up](fundamentals/getting-set-up/README.md)
-  - [📝 Setting permissions](fundamentals/getting-set-up/setting-permissions.md)
-  - [🧑 Inviting Members](fundamentals/getting-set-up/inviting-members.md)
-
-## Use Cases
-
-- [🎨 For Designers](use-cases/for-designers.md)
-- [🖥 For Developers](use-cases/for-developers.md)
+- [🎨 Dynamic NFTs](tutorials/dynamic-nfts.md)
+- [🔐 Security Roles](tutorials/security-roles.md)

@@ -1,4 +1,4 @@
-# 📎 Understanding Projects
+# 💰 Primary Royalties
 
 ## How Projects work
 
