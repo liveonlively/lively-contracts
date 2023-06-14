@@ -13,6 +13,8 @@ struct Layout {
   address[] payees;
   mapping(contract IERC20 => uint256) erc20TotalReleased;
   mapping(contract IERC20 => mapping(address => uint256)) erc20Released;
+  bool isPriceUSD;
+  bool automaticUSDConversion;
 }
 ```
 

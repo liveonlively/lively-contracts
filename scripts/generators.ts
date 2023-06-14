@@ -1,19 +1,6 @@
-import { readdir, writeFile } from "fs/promises";
-import { join, resolve } from "path";
-
-// TODO: Use glob instead of this function
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function* getFiles(dir: string): any {
-  const dirents = await readdir(dir, { withFileTypes: true });
-  for (const dirent of dirents) {
-    const res = resolve(dir, dirent.name);
-    if (dirent.isDirectory()) {
-      yield* getFiles(res);
-    } else {
-      yield res;
-    }
-  }
-}
+import { writeFile } from "fs/promises";
+import { globSync } from "glob";
+import { join } from "path";
 
 /**
  * Creates a new version of the optimizationEnabled.ts file that contains the list of contracts to be compiled.
@@ -21,58 +8,76 @@ async function* getFiles(dir: string): any {
  * the list that we use in hardhat.config.ts so that each contract has it's own artifact.
  */
 export const generateContractList = async () => {
-  const directoryPath721 = join(__dirname, "..", "contracts", "ERC721-Diamond");
-  const directoryPath1155 = join(__dirname, "..", "contracts", "ERC1155-Diamond");
-  const directoryPathShared = join(__dirname, "..", "contracts", "shared");
-  // const contractsPathDummy = join(__dirname, "..", "contracts", "dummy");
+  // const directoryPath721 = join(__dirname, "..", "contracts", "ERC721-Diamond");
+  // console.log({ directoryPath721 });
+
+  // const directoryPath1155 = join(__dirname, "..", "contracts", "ERC1155-Diamond");
+  // const directoryPathShared = join(__dirname, "..", "contracts", "shared");
+  // // const contractsPathDummy = join(__dirname, "..", "contracts", "dummy");
 
   let fileData = "";
   fileData += `export const optimizationEnabled = <const>[\n`;
-  for await (const f of getFiles(directoryPath721)) {
-    const relativeName = f.replace(directoryPath721, "contracts/ERC721-Diamond");
+  const files = globSync("**/*.sol", { cwd: "contracts/ERC721-Diamond" });
+  console.log({ files });
+  for await (const f of files) {
+    const relativeName = `contracts/ERC721-Diamond/${f}`;
     if (relativeName.includes(".sol")) {
-      fileData += `  "${relativeName}",\n`;
+      fileData += `  "${relativeName}",\n`; // UNCOMMENT THIS LINE TO GENERATE THE LIST
     }
   }
 
-  for await (const f of getFiles(directoryPath1155)) {
-    const relativeName = f.replace(directoryPath1155, "contracts/ERC1155-Diamond");
+  for await (const f of globSync("**/*.sol", { cwd: "contracts/ERC1155-Diamond" })) {
+    const relativeName = `contracts/ERC1155-Diamond/${f}`;
     if (relativeName.includes(".sol")) {
-      fileData += `  "${relativeName}",\n`;
+      fileData += `  "${relativeName}",\n`; // UNCOMMENT THIS LINE TO GENERATE THE LIST
     }
   }
 
-  for await (const f of getFiles(directoryPathShared)) {
-    const relativeName = f.replace(directoryPathShared, "contracts/shared");
+  for await (const f of globSync("**/*.sol", { cwd: "contracts/shared" })) {
+    const relativeName = `contracts/shared/${f}`;
     if (relativeName.includes(".sol")) {
-      fileData += `  "${relativeName}",\n`;
+      fileData += `  "${relativeName}",\n`; // UNCOMMENT THIS LINE TO GENERATE THE LIST
     }
   }
 
-  // for await (const f of getFiles(contractsPathDummy)) {
-  //   const relativeName = f.replace(contractsPathDummy, "contracts/dummy");
-  //   if (relativeName.includes(".sol")) {
-  //     fileData += `  "${relativeName}",\n`;
+  //   for await (const f of globSync("**/*.sol", { cwd: "contracts/ERC1155-Diamond/facets" })) {
+  //     const relativeName = f.replace(directoryPath1155, "contracts/ERC1155-Diamond");
+  //     if (relativeName.includes(".sol")) {
+  //       fileData += `  "${relativeName}",\n`;
+  //     }
   //   }
-  // }
+
+  //   for await (const f of getFiles(directoryPathShared)) {
+  //     const relativeName = f.replace(directoryPathShared, "contracts/shared");
+  //     if (relativeName.includes(".sol")) {
+  //       fileData += `  "${relativeName}",\n`;
+  //     }
+  //   }
+
+  //   // for await (const f of getFiles(contractsPathDummy)) {
+  //   //   const relativeName = f.replace(contractsPathDummy, "contracts/dummy");
+  //   //   if (relativeName.includes(".sol")) {
+  //   //     fileData += `  "${relativeName}",\n`;
+  //   //   }
+  //   // }
 
   fileData += `];
 
-export const erc721Facets = optimizationEnabled
-  .filter((path) => path.startsWith("contracts/ERC721-Diamond/facets/"))
-  .map((path) => path.replace("contracts/ERC721-Diamond/facets/", ""))
-  .concat(["DummyDiamond721Implementation.sol"]);
+  export const erc721Facets = optimizationEnabled
+    .filter((path) => path.startsWith("contracts/ERC721-Diamond/facets/"))
+    .map((path) => path.replace("contracts/ERC721-Diamond/facets/", ""))
+    .concat(["DummyDiamond721Implementation.sol"]);
 
-export const erc1155Facets = optimizationEnabled
-  .filter((path) => path.startsWith("contracts/ERC1155-Diamond/facets/"))
-  .map((path) => path.replace("contracts/ERC1155-Diamond/facets/", ""))
-  .concat(["DummyDiamond1155Implementation.sol"]);
+  export const erc1155Facets = optimizationEnabled
+    .filter((path) => path.startsWith("contracts/ERC1155-Diamond/facets/"))
+    .map((path) => path.replace("contracts/ERC1155-Diamond/facets/", ""))
+    .concat(["DummyDiamond1155Implementation.sol"]);
 
-export const sharedFacets = optimizationEnabled
-  .filter((path) => path.startsWith("contracts/shared/facets/"))
-  .map((path) => path.replace("contracts/shared/facets/", ""));
+  export const sharedFacets = optimizationEnabled
+    .filter((path) => path.startsWith("contracts/shared/facets/"))
+    .map((path) => path.replace("contracts/shared/facets/", ""));
 
-`;
+  `;
 
   const promise = writeFile("optimizationEnabled.ts", fileData);
   await promise;
@@ -101,7 +106,7 @@ export const generateFacetDeploys = async () => {
     { facet: "ERC721AFacet", tags: ["Facets"] }, // ERC721
     { facet: "QueryableFacet", tags: ["Facets"] }, // ERC721
     { facet: "ERC1155Facet", tags: ["Facets"] }, // ERC1155
-
+    { facet: "PackFacet", tags: ["Facets"] }, // ERC1155
     { facet: "Diamond1155Init", tags: ["Facets", "Init"] }, // ERC1155
     { facet: "DummyDiamond721Implementation", tags: ["Facets", "Dummy"] }, // ERC721
     { facet: "DummyDiamond1155Implementation", tags: ["Facets", "Dummy"] }, // ERC1155
@@ -116,7 +121,6 @@ export const generateFacetDeploys = async () => {
   DeployOptions,
   DeployResult,
 } from "hardhat-deploy/types";
-import { BigNumber } from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import type { NomicLabsHardhatPluginError } from "hardhat/internal/core/errors";
 
@@ -137,7 +141,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   if (chainId === "1") {
     console.log("Setting maxFeePerGas to 36 gwei (36_000_000_000) for mainnet");
-    deployOptions.maxFeePerGas = BigNumber.from(36_000_000_000);
+    deployOptions.maxFeePerGas = "36000000000";
   }
 
   let deployAttempt = 0;

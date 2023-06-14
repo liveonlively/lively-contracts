@@ -17,6 +17,6 @@
     "target": "ESNext"
   },
   "exclude": ["node_modules"],
-  "files": ["./hardhat.config.ts", "optimizationEnabled.ts"],
+  "files": ["./hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts"],
   "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*", "scripts/**/*"]
 }
