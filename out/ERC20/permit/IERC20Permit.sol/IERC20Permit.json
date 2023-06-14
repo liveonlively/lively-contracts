@@ -1,0 +1,488 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "ERC20Permit__ExpiredDeadline",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ERC20Permit__InvalidSignature",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DOMAIN_SEPARATOR",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "domainSeparator",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "nonces",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "permit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "DOMAIN_SEPARATOR()": "3644e515",
+    "nonces(address)": "7ecebe00",
+    "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": "d505accf"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ERC20Permit__ExpiredDeadline\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ERC20Permit__InvalidSignature\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DOMAIN_SEPARATOR\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"domainSeparator\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"nonces\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"name\":\"permit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"DOMAIN_SEPARATOR()\":{\"returns\":{\"domainSeparator\":\"domain separator\"}},\"nonces(address)\":{\"returns\":{\"_0\":\"current nonce\"}},\"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)\":{\"details\":\"this function may be vulnerable to approval replay attacks\",\"params\":{\"amount\":\"quantity of tokens to approve\",\"owner\":\"holder of tokens and signer of permit\",\"r\":\"secp256k1 'r' value\",\"s\":\"secp256k1 's' value\",\"spender\":\"beneficiary of approval\",\"v\":\"secp256k1 'v' value\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"DOMAIN_SEPARATOR()\":{\"notice\":\"return the EIP-712 domain separator unique to contract and chain\"},\"nonces(address)\":{\"notice\":\"get the current ERC2612 nonce for the given address\"},\"permit(address,address,uint256,uint256,uint8,bytes32,bytes32)\":{\"notice\":\"approve spender to transfer tokens held by owner via signature\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol\":\"IERC20Permit\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20Metadata.sol\":{\"keccak256\":\"0x22eefd0dbd7637f41c8bfc3662a4b1ae6f084f27f26e34cc9bf124e0aee10a01\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac459354c7e3ad54842b23ea469c0bd3464a95aa293f7fc09b34c590a356b1a6\",\"dweb:/ipfs/QmYvXnJq7pVrU3e18PbfahK9AwpSc1Yu2rHvsSJMXwKGZ1\"]},\"node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol\":{\"keccak256\":\"0x32464590a972a9325d20c7125d157594df9473b6496ce6a66df617c41c4039ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://60159ad57e36fb414e79b3b9aa41ff0cdafa56585d104d67128d56e935635e01\",\"dweb:/ipfs/QmbBe4dh2zttkvqWyHn4QPj6yVpR14SWNTr4KiwSu37jk6\"]},\"node_modules/@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol\":{\"keccak256\":\"0x4b906e3eab76bf0e4e3b96987f989f9e2350f70f775b2773ae84ffcf40816f0c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://97a30f1be8cf8d85fb23ca9e2f83a79d7499b0549afa74832801afb42e8d9f87\",\"dweb:/ipfs/QmR5Tu1fY75HAFTuoJ2AFvs7TpcupoEguJLKhMGmrSRjKK\"]},\"node_modules/@solidstate/contracts/token/ERC20/permit/IERC20PermitInternal.sol\":{\"keccak256\":\"0x4f6e12f9e07cc66ca9ee57a25c40d9d2f55d3e800a3d6577c9d883068423eb22\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e8d626e9f9527fda26f30d811007fd087a4fd520ca56ab3f7821d22298981faf\",\"dweb:/ipfs/QmZCouA4wmAJP9bFvTjF9gnJiEAn7wYTr7GypkP2i6HsXL\"]},\"node_modules/@solidstate/contracts/token/ERC20/permit/IERC2612.sol\":{\"keccak256\":\"0x449c45997514a8ebf30c7cd7a27778ce6fd6f7dac27c9505fd8a4f093f396e92\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1ad30720570447afbaa87e2b40158884fa859162f779022ff01a90bd61eadae7\",\"dweb:/ipfs/Qmc2PZQQsEuWwMz9WXXAnexDaxAf5jWJj5irGgrEEuNM1P\"]},\"node_modules/@solidstate/contracts/token/ERC20/permit/IERC2612Internal.sol\":{\"keccak256\":\"0xdca4b94537ab13936677c889a29267e506f2f23da6f5f541f73a95e2db5b4db9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b59db5b753c269d10c4d71e375384c8612f477679715afe8b35ba6e4d4f67f1d\",\"dweb:/ipfs/QmUk4McXaQeFVZ3b4XsLJsWEdoKdxTLGSFQDi2Qe54oy6z\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ERC20Permit__ExpiredDeadline"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ERC20Permit__InvalidSignature"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "DOMAIN_SEPARATOR",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "domainSeparator",
+              "type": "bytes32"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nonces",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "permit"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "DOMAIN_SEPARATOR()": {
+            "returns": {
+              "domainSeparator": "domain separator"
+            }
+          },
+          "nonces(address)": {
+            "returns": {
+              "_0": "current nonce"
+            }
+          },
+          "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+            "details": "this function may be vulnerable to approval replay attacks",
+            "params": {
+              "amount": "quantity of tokens to approve",
+              "owner": "holder of tokens and signer of permit",
+              "r": "secp256k1 'r' value",
+              "s": "secp256k1 's' value",
+              "spender": "beneficiary of approval",
+              "v": "secp256k1 'v' value"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "DOMAIN_SEPARATOR()": {
+            "notice": "return the EIP-712 domain separator unique to contract and chain"
+          },
+          "nonces(address)": {
+            "notice": "get the current ERC2612 nonce for the given address"
+          },
+          "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)": {
+            "notice": "approve spender to transfer tokens held by owner via signature"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol": "IERC20Permit"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20Metadata.sol": {
+        "keccak256": "0x22eefd0dbd7637f41c8bfc3662a4b1ae6f084f27f26e34cc9bf124e0aee10a01",
+        "urls": [
+          "bzz-raw://ac459354c7e3ad54842b23ea469c0bd3464a95aa293f7fc09b34c590a356b1a6",
+          "dweb:/ipfs/QmYvXnJq7pVrU3e18PbfahK9AwpSc1Yu2rHvsSJMXwKGZ1"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol": {
+        "keccak256": "0x32464590a972a9325d20c7125d157594df9473b6496ce6a66df617c41c4039ec",
+        "urls": [
+          "bzz-raw://60159ad57e36fb414e79b3b9aa41ff0cdafa56585d104d67128d56e935635e01",
+          "dweb:/ipfs/QmbBe4dh2zttkvqWyHn4QPj6yVpR14SWNTr4KiwSu37jk6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol": {
+        "keccak256": "0x4b906e3eab76bf0e4e3b96987f989f9e2350f70f775b2773ae84ffcf40816f0c",
+        "urls": [
+          "bzz-raw://97a30f1be8cf8d85fb23ca9e2f83a79d7499b0549afa74832801afb42e8d9f87",
+          "dweb:/ipfs/QmR5Tu1fY75HAFTuoJ2AFvs7TpcupoEguJLKhMGmrSRjKK"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/token/ERC20/permit/IERC20PermitInternal.sol": {
+        "keccak256": "0x4f6e12f9e07cc66ca9ee57a25c40d9d2f55d3e800a3d6577c9d883068423eb22",
+        "urls": [
+          "bzz-raw://e8d626e9f9527fda26f30d811007fd087a4fd520ca56ab3f7821d22298981faf",
+          "dweb:/ipfs/QmZCouA4wmAJP9bFvTjF9gnJiEAn7wYTr7GypkP2i6HsXL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/token/ERC20/permit/IERC2612.sol": {
+        "keccak256": "0x449c45997514a8ebf30c7cd7a27778ce6fd6f7dac27c9505fd8a4f093f396e92",
+        "urls": [
+          "bzz-raw://1ad30720570447afbaa87e2b40158884fa859162f779022ff01a90bd61eadae7",
+          "dweb:/ipfs/Qmc2PZQQsEuWwMz9WXXAnexDaxAf5jWJj5irGgrEEuNM1P"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/token/ERC20/permit/IERC2612Internal.sol": {
+        "keccak256": "0xdca4b94537ab13936677c889a29267e506f2f23da6f5f541f73a95e2db5b4db9",
+        "urls": [
+          "bzz-raw://b59db5b753c269d10c4d71e375384c8612f477679715afe8b35ba6e4d4f67f1d",
+          "dweb:/ipfs/QmUk4McXaQeFVZ3b4XsLJsWEdoKdxTLGSFQDi2Qe54oy6z"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol",
+    "id": 36008,
+    "exportedSymbols": {
+      "IERC20Metadata": [
+        35994
+      ],
+      "IERC20Permit": [
+        36007
+      ],
+      "IERC20PermitInternal": [
+        36730
+      ],
+      "IERC2612": [
+        36770
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:331:193",
+    "nodes": [
+      {
+        "id": 35996,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:193",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 35998,
+        "nodeType": "ImportDirective",
+        "src": "58:64:193",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20Metadata.sol",
+        "file": "../metadata/IERC20Metadata.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 36008,
+        "sourceUnit": 35995,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 35997,
+              "name": "IERC20Metadata",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 35994,
+              "src": "67:14:193",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 36000,
+        "nodeType": "ImportDirective",
+        "src": "123:42:193",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/token/ERC20/permit/IERC2612.sol",
+        "file": "./IERC2612.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 36008,
+        "sourceUnit": 36771,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 35999,
+              "name": "IERC2612",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 36770,
+              "src": "132:8:193",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 36002,
+        "nodeType": "ImportDirective",
+        "src": "166:66:193",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/token/ERC20/permit/IERC20PermitInternal.sol",
+        "file": "./IERC20PermitInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 36008,
+        "sourceUnit": 36731,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 36001,
+              "name": "IERC20PermitInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 36730,
+              "src": "175:20:193",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 36007,
+        "nodeType": "ContractDefinition",
+        "src": "302:61:193",
+        "nodes": [],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 36003,
+              "name": "IERC20PermitInternal",
+              "nameLocations": [
+                "328:20:193"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 36730,
+              "src": "328:20:193"
+            },
+            "id": 36004,
+            "nodeType": "InheritanceSpecifier",
+            "src": "328:20:193"
+          },
+          {
+            "baseName": {
+              "id": 36005,
+              "name": "IERC2612",
+              "nameLocations": [
+                "350:8:193"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 36770,
+              "src": "350:8:193"
+            },
+            "id": 36006,
+            "nodeType": "InheritanceSpecifier",
+            "src": "350:8:193"
+          }
+        ],
+        "canonicalName": "IERC20Permit",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          36007,
+          36770,
+          36730,
+          37019
+        ],
+        "name": "IERC20Permit",
+        "nameLocation": "312:12:193",
+        "scope": 36008,
+        "usedErrors": [
+          36727,
+          36729
+        ],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 193
+}

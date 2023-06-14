@@ -1,0 +1,2279 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Ownable__NotOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Ownable__NotTransitiveOwner",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206d6b1815b96f51bc4adfbcd61bcd771b94f6c907bd5b7b5562e45980174b96c664736f6c63430008140033",
+    "sourceMap": "275:1520:12:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052600080fdfea26469706673582212206d6b1815b96f51bc4adfbcd61bcd771b94f6c907bd5b7b5562e45980174b96c664736f6c63430008140033",
+    "sourceMap": "275:1520:12:-:0;;;;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Ownable__NotOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Ownable__NotTransitiveOwner\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ERC1155-Diamond/utils/Metadata/MetadataInternal.sol\":\"MetadataInternal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"contracts/ERC1155-Diamond/libraries/TokenMetadata.sol\":{\"keccak256\":\"0x60cbfff5eb1d2bcedb5c6912873ab94e41ee916406334a04454da8f9c0b773b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://60589efd617c2f8e1e91b885df4e3e5ee2d90b21e7eedbf5de5993d05da0c377\",\"dweb:/ipfs/QmTfeQ9obvTZ2kGgEpYHY9kQ8kHH9W4b3hXsm5vXfEYKTS\"]},\"contracts/ERC1155-Diamond/utils/Metadata/MetadataInternal.sol\":{\"keccak256\":\"0xc21a38a57177aec8e9196d72a3d7fb873a6f2b0b3ddeae635748347a493af62c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d843c5f44dee57b41374d51d9781302233927165ec8896decf15823f04733077\",\"dweb:/ipfs/Qmeg9WJ3dC7cP3i2YvALkuViji4YbDmbMP3ycfFkHEDVWE\"]},\"contracts/ERC1155-Diamond/utils/Metadata/MetadataStorage.sol\":{\"keccak256\":\"0x55fe7e7da1c8c067d2a1c1b9a70989597a574192b1c7df42a77573b995563dd9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7982bc45773a9e0457285ea1d8f2801b820b8f7abe2d05f7cf03dae125f9f07d\",\"dweb:/ipfs/QmQFb4H3k9L7HpCoLcWYJudNEURdbwyZVefcGEtV2BgT9i\"]},\"node_modules/@openzeppelin/contracts-upgradeable/utils/Base64Upgradeable.sol\":{\"keccak256\":\"0xe5e4e0d8e42c3d922808e127da779fede3bc382c1fc19665c5663e118027f7f1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://739c53585ea8de9dce03692841a3cb8735ab98718d534650315ab30f8451fe62\",\"dweb:/ipfs/QmXrseVLiS1ZtvZgKZSBbZLrvSNaLnBDDdb69c8ya6Yii8\"]},\"node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol\":{\"keccak256\":\"0xb96dc79b65b7c37937919dcdb356a969ce0aa2e8338322bf4dc027a3c9c9a7eb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f8613145881436fc0480fff22da4868d611e2b0c0c3da083334eb4362ce1945a\",\"dweb:/ipfs/QmPqpP3YeRbBdTJRe6Gv2eGsUaANf4J6RwTNRW36iYahfV\"]},\"node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol\":{\"keccak256\":\"0x2bc0007987c229ae7624eb29be6a9b84f6a6a5872f76248b15208b131ea41c4e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2b2835c737d073ef8b82a4cc246495a9740f43e7ff2cf130906b2449ff9bfb91\",\"dweb:/ipfs/QmSCWfNoSvvTN57ic7o1RW6NqSxxGAqbBTnLKc7QHe27qB\"]},\"node_modules/@openzeppelin/contracts-upgradeable/utils/math/SignedMathUpgradeable.sol\":{\"keccak256\":\"0x88f6b7bba3ee33eeb741f9a0f5bc98b6e6e352d0fe4905377bb328590f84095a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://88ace2d60f265752f18903d839910be4e4e104340b2957678585b812447825d4\",\"dweb:/ipfs/QmXFkNxMc3AAGzhs2wUEZyErWQjsvoTGyYjuU5oZkFki5Z\"]},\"node_modules/@solidstate/contracts/access/ownable/IOwnableInternal.sol\":{\"keccak256\":\"0x6237a634712261bd82d5c7753780d35f77af215406d1e59512052f743f8f1c60\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8e54ac6cd1b376224b8d148c704693ff3f7ac9f69954fd30ee3d949fa17210c3\",\"dweb:/ipfs/QmWjq37K3gg29XhFbepg5GbmmFYoyXb81sh2K1MnVZqG6y\"]},\"node_modules/@solidstate/contracts/access/ownable/OwnableInternal.sol\":{\"keccak256\":\"0x0185d24250a5e6fbafce443b9ba19bba761803e3e5d91ba423bfb1f5f0bbdbf9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://547fadeaec559ee824f4dd37b2ef972a061ca59576f5733cf643e00d88a4db52\",\"dweb:/ipfs/QmYx6rmRmZZQkoS8TykMVsz9ZvfQ8MfSPt6UzWJ8pyj8qF\"]},\"node_modules/@solidstate/contracts/access/ownable/OwnableStorage.sol\":{\"keccak256\":\"0x7385e2020de914f75cabdc83c6adf88ed21e9de14669a89b3832b80f4f8c7b73\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a367c512bf29fb4923ed5d2454783e3dae88e5e03dec216e65c3986f3c3a8995\",\"dweb:/ipfs/QmfYkD6osr6SQzod6wc7WPae6YvVnYbn2BjJuHrYL3ERXM\"]},\"node_modules/@solidstate/contracts/interfaces/IERC173.sol\":{\"keccak256\":\"0xf1c1fbf0ec82110c29d549db1fbd8ec728ba0b995dc5f087e0a5464243135dce\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://16c7f3eba0547576833d0c1fddb7ec34aeba4f28b4ce9e878c3bd3ebc9c8d3d1\",\"dweb:/ipfs/Qme79eYLo7dinnhotgC4bvYnCg4doBDShHeCajrf5zpAUF\"]},\"node_modules/@solidstate/contracts/interfaces/IERC173Internal.sol\":{\"keccak256\":\"0x9644c3e56c9ecd1763f8aaa437d5d573a7f64a8d93ad7bea1a9c44beb5911b89\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c32cfda38b44878ab196d32eeb72823a9f9904e8193286c787caccfb2e5bfa75\",\"dweb:/ipfs/QmfBNKWUSKaJtYL3JJ3YFioXCVFeeakqQ4cR5XzAxxZkCx\"]},\"node_modules/@solidstate/contracts/utils/AddressUtils.sol\":{\"keccak256\":\"0x7d924db4dbd9210923ab08db77db3c77438014c255fd49fa208ebce283d991bf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5189eebdf91899224a14b4cd5184fa9e67a9b8904e6d88ff9610944d06c63929\",\"dweb:/ipfs/QmRwNhfcp98pPgbzK4i9hbypHLTWPGYpuRCtEJRCTNASRm\"]},\"node_modules/@solidstate/contracts/utils/UintUtils.sol\":{\"keccak256\":\"0x5aaeaea22a0800402c6f2d8ce6185293bc64f74f6c390c1b1c53b624b43972f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b1c95c745da8ca4de7b68e65ef9122dab4e748c3ae3c9f5fd5aa7c65887c9d2\",\"dweb:/ipfs/QmX2KURY4JbM4NVFp5KPYsNxoJGA8n8w6SdAFdD5Pasgza\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Ownable__NotOwner"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Ownable__NotTransitiveOwner"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/ERC1155-Diamond/utils/Metadata/MetadataInternal.sol": "MetadataInternal"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/ERC1155-Diamond/libraries/TokenMetadata.sol": {
+        "keccak256": "0x60cbfff5eb1d2bcedb5c6912873ab94e41ee916406334a04454da8f9c0b773b6",
+        "urls": [
+          "bzz-raw://60589efd617c2f8e1e91b885df4e3e5ee2d90b21e7eedbf5de5993d05da0c377",
+          "dweb:/ipfs/QmTfeQ9obvTZ2kGgEpYHY9kQ8kHH9W4b3hXsm5vXfEYKTS"
+        ],
+        "license": "MIT"
+      },
+      "contracts/ERC1155-Diamond/utils/Metadata/MetadataInternal.sol": {
+        "keccak256": "0xc21a38a57177aec8e9196d72a3d7fb873a6f2b0b3ddeae635748347a493af62c",
+        "urls": [
+          "bzz-raw://d843c5f44dee57b41374d51d9781302233927165ec8896decf15823f04733077",
+          "dweb:/ipfs/Qmeg9WJ3dC7cP3i2YvALkuViji4YbDmbMP3ycfFkHEDVWE"
+        ],
+        "license": "MIT"
+      },
+      "contracts/ERC1155-Diamond/utils/Metadata/MetadataStorage.sol": {
+        "keccak256": "0x55fe7e7da1c8c067d2a1c1b9a70989597a574192b1c7df42a77573b995563dd9",
+        "urls": [
+          "bzz-raw://7982bc45773a9e0457285ea1d8f2801b820b8f7abe2d05f7cf03dae125f9f07d",
+          "dweb:/ipfs/QmQFb4H3k9L7HpCoLcWYJudNEURdbwyZVefcGEtV2BgT9i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts-upgradeable/utils/Base64Upgradeable.sol": {
+        "keccak256": "0xe5e4e0d8e42c3d922808e127da779fede3bc382c1fc19665c5663e118027f7f1",
+        "urls": [
+          "bzz-raw://739c53585ea8de9dce03692841a3cb8735ab98718d534650315ab30f8451fe62",
+          "dweb:/ipfs/QmXrseVLiS1ZtvZgKZSBbZLrvSNaLnBDDdb69c8ya6Yii8"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol": {
+        "keccak256": "0xb96dc79b65b7c37937919dcdb356a969ce0aa2e8338322bf4dc027a3c9c9a7eb",
+        "urls": [
+          "bzz-raw://f8613145881436fc0480fff22da4868d611e2b0c0c3da083334eb4362ce1945a",
+          "dweb:/ipfs/QmPqpP3YeRbBdTJRe6Gv2eGsUaANf4J6RwTNRW36iYahfV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol": {
+        "keccak256": "0x2bc0007987c229ae7624eb29be6a9b84f6a6a5872f76248b15208b131ea41c4e",
+        "urls": [
+          "bzz-raw://2b2835c737d073ef8b82a4cc246495a9740f43e7ff2cf130906b2449ff9bfb91",
+          "dweb:/ipfs/QmSCWfNoSvvTN57ic7o1RW6NqSxxGAqbBTnLKc7QHe27qB"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts-upgradeable/utils/math/SignedMathUpgradeable.sol": {
+        "keccak256": "0x88f6b7bba3ee33eeb741f9a0f5bc98b6e6e352d0fe4905377bb328590f84095a",
+        "urls": [
+          "bzz-raw://88ace2d60f265752f18903d839910be4e4e104340b2957678585b812447825d4",
+          "dweb:/ipfs/QmXFkNxMc3AAGzhs2wUEZyErWQjsvoTGyYjuU5oZkFki5Z"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/access/ownable/IOwnableInternal.sol": {
+        "keccak256": "0x6237a634712261bd82d5c7753780d35f77af215406d1e59512052f743f8f1c60",
+        "urls": [
+          "bzz-raw://8e54ac6cd1b376224b8d148c704693ff3f7ac9f69954fd30ee3d949fa17210c3",
+          "dweb:/ipfs/QmWjq37K3gg29XhFbepg5GbmmFYoyXb81sh2K1MnVZqG6y"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/access/ownable/OwnableInternal.sol": {
+        "keccak256": "0x0185d24250a5e6fbafce443b9ba19bba761803e3e5d91ba423bfb1f5f0bbdbf9",
+        "urls": [
+          "bzz-raw://547fadeaec559ee824f4dd37b2ef972a061ca59576f5733cf643e00d88a4db52",
+          "dweb:/ipfs/QmYx6rmRmZZQkoS8TykMVsz9ZvfQ8MfSPt6UzWJ8pyj8qF"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/access/ownable/OwnableStorage.sol": {
+        "keccak256": "0x7385e2020de914f75cabdc83c6adf88ed21e9de14669a89b3832b80f4f8c7b73",
+        "urls": [
+          "bzz-raw://a367c512bf29fb4923ed5d2454783e3dae88e5e03dec216e65c3986f3c3a8995",
+          "dweb:/ipfs/QmfYkD6osr6SQzod6wc7WPae6YvVnYbn2BjJuHrYL3ERXM"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/interfaces/IERC173.sol": {
+        "keccak256": "0xf1c1fbf0ec82110c29d549db1fbd8ec728ba0b995dc5f087e0a5464243135dce",
+        "urls": [
+          "bzz-raw://16c7f3eba0547576833d0c1fddb7ec34aeba4f28b4ce9e878c3bd3ebc9c8d3d1",
+          "dweb:/ipfs/Qme79eYLo7dinnhotgC4bvYnCg4doBDShHeCajrf5zpAUF"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/interfaces/IERC173Internal.sol": {
+        "keccak256": "0x9644c3e56c9ecd1763f8aaa437d5d573a7f64a8d93ad7bea1a9c44beb5911b89",
+        "urls": [
+          "bzz-raw://c32cfda38b44878ab196d32eeb72823a9f9904e8193286c787caccfb2e5bfa75",
+          "dweb:/ipfs/QmfBNKWUSKaJtYL3JJ3YFioXCVFeeakqQ4cR5XzAxxZkCx"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/utils/AddressUtils.sol": {
+        "keccak256": "0x7d924db4dbd9210923ab08db77db3c77438014c255fd49fa208ebce283d991bf",
+        "urls": [
+          "bzz-raw://5189eebdf91899224a14b4cd5184fa9e67a9b8904e6d88ff9610944d06c63929",
+          "dweb:/ipfs/QmRwNhfcp98pPgbzK4i9hbypHLTWPGYpuRCtEJRCTNASRm"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/utils/UintUtils.sol": {
+        "keccak256": "0x5aaeaea22a0800402c6f2d8ce6185293bc64f74f6c390c1b1c53b624b43972f8",
+        "urls": [
+          "bzz-raw://8b1c95c745da8ca4de7b68e65ef9122dab4e748c3ae3c9f5fd5aa7c65887c9d2",
+          "dweb:/ipfs/QmX2KURY4JbM4NVFp5KPYsNxoJGA8n8w6SdAFdD5Pasgza"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/ERC1155-Diamond/utils/Metadata/MetadataInternal.sol",
+    "id": 3314,
+    "exportedSymbols": {
+      "MetadataInternal": [
+        3313
+      ],
+      "MetadataStorage": [
+        3359
+      ],
+      "OwnableInternal": [
+        22828
+      ],
+      "TokenMetadata": [
+        2576
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1764:12",
+    "nodes": [
+      {
+        "id": 3153,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:12",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 3155,
+        "nodeType": "ImportDirective",
+        "src": "58:56:12",
+        "nodes": [],
+        "absolutePath": "contracts/ERC1155-Diamond/utils/Metadata/MetadataStorage.sol",
+        "file": "./MetadataStorage.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 3314,
+        "sourceUnit": 3360,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 3154,
+              "name": "MetadataStorage",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 3359,
+              "src": "67:15:12",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 3157,
+        "nodeType": "ImportDirective",
+        "src": "115:66:12",
+        "nodes": [],
+        "absolutePath": "contracts/ERC1155-Diamond/libraries/TokenMetadata.sol",
+        "file": "../../libraries/TokenMetadata.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 3314,
+        "sourceUnit": 2577,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 3156,
+              "name": "TokenMetadata",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 2576,
+              "src": "124:13:12",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 3159,
+        "nodeType": "ImportDirective",
+        "src": "182:91:12",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/access/ownable/OwnableInternal.sol",
+        "file": "@solidstate/contracts/access/ownable/OwnableInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 3314,
+        "sourceUnit": 22829,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 3158,
+              "name": "OwnableInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 22828,
+              "src": "191:15:12",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 3313,
+        "nodeType": "ContractDefinition",
+        "src": "275:1520:12",
+        "nodes": [
+          {
+            "id": 3164,
+            "nodeType": "VariableDeclaration",
+            "src": "326:50:12",
+            "nodes": [],
+            "constant": true,
+            "mutability": "constant",
+            "name": "CONTRACT_VERSION",
+            "nameLocation": "350:16:12",
+            "scope": 3313,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3162,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "326:6:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "hexValue": "302e302e31",
+              "id": 3163,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "369:7:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_ae209a0b48f21c054280f2455d32cf309387644879d9acbd8ffc199163811885",
+                "typeString": "literal_string \"0.0.1\""
+              },
+              "value": "0.0.1"
+            },
+            "visibility": "private"
+          },
+          {
+            "id": 3168,
+            "nodeType": "UsingForDirective",
+            "src": "383:49:12",
+            "nodes": [],
+            "global": false,
+            "libraryName": {
+              "id": 3165,
+              "name": "MetadataStorage",
+              "nameLocations": [
+                "389:15:12"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3359,
+              "src": "389:15:12"
+            },
+            "typeName": {
+              "id": 3167,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 3166,
+                "name": "MetadataStorage.Layout",
+                "nameLocations": [
+                  "409:15:12",
+                  "425:6:12"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 3341,
+                "src": "409:22:12"
+              },
+              "referencedDeclaration": 3341,
+              "src": "409:22:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                "typeString": "struct MetadataStorage.Layout"
+              }
+            }
+          },
+          {
+            "id": 3269,
+            "nodeType": "FunctionDefinition",
+            "src": "438:859:12",
+            "nodes": [],
+            "body": {
+              "id": 3268,
+              "nodeType": "Block",
+              "src": "542:755:12",
+              "nodes": [],
+              "statements": [
+                {
+                  "assignments": [
+                    3182
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3182,
+                      "mutability": "mutable",
+                      "name": "metadataStore",
+                      "nameLocation": "583:13:12",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3268,
+                      "src": "552:44:12",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                        "typeString": "struct MetadataStorage.Layout"
+                      },
+                      "typeName": {
+                        "id": 3181,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 3180,
+                          "name": "MetadataStorage.Layout",
+                          "nameLocations": [
+                            "552:15:12",
+                            "568:6:12"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 3341,
+                          "src": "552:22:12"
+                        },
+                        "referencedDeclaration": 3341,
+                        "src": "552:22:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                          "typeString": "struct MetadataStorage.Layout"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3186,
+                  "initialValue": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "id": 3183,
+                        "name": "MetadataStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3359,
+                        "src": "599:15:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_MetadataStorage_$3359_$",
+                          "typeString": "type(library MetadataStorage)"
+                        }
+                      },
+                      "id": 3184,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "615:6:12",
+                      "memberName": "layout",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3358,
+                      "src": "599:22:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$3341_storage_ptr_$",
+                        "typeString": "function () pure returns (struct MetadataStorage.Layout storage pointer)"
+                      }
+                    },
+                    "id": 3185,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "599:24:12",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                      "typeString": "struct MetadataStorage.Layout storage pointer"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "552:71:12"
+                },
+                {
+                  "expression": {
+                    "id": 3195,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 3187,
+                            "name": "metadataStore",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3182,
+                            "src": "634:13:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                              "typeString": "struct MetadataStorage.Layout storage pointer"
+                            }
+                          },
+                          "id": 3190,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "648:8:12",
+                          "memberName": "metadata",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 3340,
+                          "src": "634:22:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                            "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                          }
+                        },
+                        "id": 3191,
+                        "indexExpression": {
+                          "id": 3189,
+                          "name": "_tokenId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3170,
+                          "src": "657:8:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "634:32:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                          "typeString": "struct MetadataStorage.Metadata storage ref"
+                        }
+                      },
+                      "id": 3192,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "667:11:12",
+                      "memberName": "description",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3322,
+                      "src": "634:44:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 3193,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "681:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3194,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "691:11:12",
+                      "memberName": "description",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3322,
+                      "src": "681:21:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_calldata_ptr",
+                        "typeString": "string calldata"
+                      }
+                    },
+                    "src": "634:68:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 3196,
+                  "nodeType": "ExpressionStatement",
+                  "src": "634:68:12"
+                },
+                {
+                  "expression": {
+                    "id": 3205,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 3197,
+                            "name": "metadataStore",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3182,
+                            "src": "712:13:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                              "typeString": "struct MetadataStorage.Layout storage pointer"
+                            }
+                          },
+                          "id": 3200,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "726:8:12",
+                          "memberName": "metadata",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 3340,
+                          "src": "712:22:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                            "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                          }
+                        },
+                        "id": 3201,
+                        "indexExpression": {
+                          "id": 3199,
+                          "name": "_tokenId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3170,
+                          "src": "735:8:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "712:32:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                          "typeString": "struct MetadataStorage.Metadata storage ref"
+                        }
+                      },
+                      "id": 3202,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "745:12:12",
+                      "memberName": "external_url",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3324,
+                      "src": "712:45:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 3203,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "760:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3204,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "770:12:12",
+                      "memberName": "external_url",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3324,
+                      "src": "760:22:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_calldata_ptr",
+                        "typeString": "string calldata"
+                      }
+                    },
+                    "src": "712:70:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 3206,
+                  "nodeType": "ExpressionStatement",
+                  "src": "712:70:12"
+                },
+                {
+                  "expression": {
+                    "id": 3215,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 3207,
+                            "name": "metadataStore",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3182,
+                            "src": "792:13:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                              "typeString": "struct MetadataStorage.Layout storage pointer"
+                            }
+                          },
+                          "id": 3210,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "806:8:12",
+                          "memberName": "metadata",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 3340,
+                          "src": "792:22:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                            "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                          }
+                        },
+                        "id": 3211,
+                        "indexExpression": {
+                          "id": 3209,
+                          "name": "_tokenId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3170,
+                          "src": "815:8:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "792:32:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                          "typeString": "struct MetadataStorage.Metadata storage ref"
+                        }
+                      },
+                      "id": 3212,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "825:5:12",
+                      "memberName": "image",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3326,
+                      "src": "792:38:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 3213,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "833:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3214,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "843:5:12",
+                      "memberName": "image",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3326,
+                      "src": "833:15:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_calldata_ptr",
+                        "typeString": "string calldata"
+                      }
+                    },
+                    "src": "792:56:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 3216,
+                  "nodeType": "ExpressionStatement",
+                  "src": "792:56:12"
+                },
+                {
+                  "expression": {
+                    "id": 3225,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 3217,
+                            "name": "metadataStore",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3182,
+                            "src": "858:13:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                              "typeString": "struct MetadataStorage.Layout storage pointer"
+                            }
+                          },
+                          "id": 3220,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "872:8:12",
+                          "memberName": "metadata",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 3340,
+                          "src": "858:22:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                            "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                          }
+                        },
+                        "id": 3221,
+                        "indexExpression": {
+                          "id": 3219,
+                          "name": "_tokenId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3170,
+                          "src": "881:8:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "858:32:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                          "typeString": "struct MetadataStorage.Metadata storage ref"
+                        }
+                      },
+                      "id": 3222,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "891:4:12",
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3328,
+                      "src": "858:37:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 3223,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "898:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3224,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "908:4:12",
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3328,
+                      "src": "898:14:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_calldata_ptr",
+                        "typeString": "string calldata"
+                      }
+                    },
+                    "src": "858:54:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 3226,
+                  "nodeType": "ExpressionStatement",
+                  "src": "858:54:12"
+                },
+                {
+                  "expression": {
+                    "id": 3235,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 3227,
+                            "name": "metadataStore",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3182,
+                            "src": "922:13:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                              "typeString": "struct MetadataStorage.Layout storage pointer"
+                            }
+                          },
+                          "id": 3230,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "936:8:12",
+                          "memberName": "metadata",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 3340,
+                          "src": "922:22:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                            "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                          }
+                        },
+                        "id": 3231,
+                        "indexExpression": {
+                          "id": 3229,
+                          "name": "_tokenId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3170,
+                          "src": "945:8:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "922:32:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                          "typeString": "struct MetadataStorage.Metadata storage ref"
+                        }
+                      },
+                      "id": 3232,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "955:13:12",
+                      "memberName": "animation_url",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3330,
+                      "src": "922:46:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 3233,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "971:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3234,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "981:13:12",
+                      "memberName": "animation_url",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3330,
+                      "src": "971:23:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_calldata_ptr",
+                        "typeString": "string calldata"
+                      }
+                    },
+                    "src": "922:72:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 3236,
+                  "nodeType": "ExpressionStatement",
+                  "src": "922:72:12"
+                },
+                {
+                  "assignments": [
+                    3238
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3238,
+                      "mutability": "mutable",
+                      "name": "attributesLength",
+                      "nameLocation": "1068:16:12",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3268,
+                      "src": "1060:24:12",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 3237,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1060:7:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3242,
+                  "initialValue": {
+                    "expression": {
+                      "expression": {
+                        "id": 3239,
+                        "name": "_metadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3173,
+                        "src": "1087:9:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                          "typeString": "struct MetadataStorage.Metadata calldata"
+                        }
+                      },
+                      "id": 3240,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1097:10:12",
+                      "memberName": "attributes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3334,
+                      "src": "1087:20:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Attribute_$2278_calldata_ptr_$dyn_calldata_ptr",
+                        "typeString": "struct TokenMetadata.Attribute calldata[] calldata"
+                      }
+                    },
+                    "id": 3241,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberLocation": "1108:6:12",
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "src": "1087:27:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1060:54:12"
+                },
+                {
+                  "assignments": [
+                    3244
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3244,
+                      "mutability": "mutable",
+                      "name": "i",
+                      "nameLocation": "1132:1:12",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3268,
+                      "src": "1124:9:12",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 3243,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1124:7:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3246,
+                  "initialValue": {
+                    "hexValue": "30",
+                    "id": 3245,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1136:1:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1124:13:12"
+                },
+                {
+                  "body": {
+                    "id": 3266,
+                    "nodeType": "Block",
+                    "src": "1176:115:12",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "baseExpression": {
+                                "expression": {
+                                  "id": 3257,
+                                  "name": "_metadata",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3173,
+                                  "src": "1239:9:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                                    "typeString": "struct MetadataStorage.Metadata calldata"
+                                  }
+                                },
+                                "id": 3258,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1249:10:12",
+                                "memberName": "attributes",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 3334,
+                                "src": "1239:20:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_Attribute_$2278_calldata_ptr_$dyn_calldata_ptr",
+                                  "typeString": "struct TokenMetadata.Attribute calldata[] calldata"
+                                }
+                              },
+                              "id": 3260,
+                              "indexExpression": {
+                                "id": 3259,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 3244,
+                                "src": "1260:1:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1239:23:12",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Attribute_$2278_calldata_ptr",
+                                "typeString": "struct TokenMetadata.Attribute calldata"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_struct$_Attribute_$2278_calldata_ptr",
+                                "typeString": "struct TokenMetadata.Attribute calldata"
+                              }
+                            ],
+                            "expression": {
+                              "expression": {
+                                "baseExpression": {
+                                  "expression": {
+                                    "id": 3250,
+                                    "name": "metadataStore",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 3182,
+                                    "src": "1190:13:12",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                                      "typeString": "struct MetadataStorage.Layout storage pointer"
+                                    }
+                                  },
+                                  "id": 3253,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberLocation": "1204:8:12",
+                                  "memberName": "metadata",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 3340,
+                                  "src": "1190:22:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                                    "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                                  }
+                                },
+                                "id": 3254,
+                                "indexExpression": {
+                                  "id": 3252,
+                                  "name": "_tokenId",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3170,
+                                  "src": "1213:8:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1190:32:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                                  "typeString": "struct MetadataStorage.Metadata storage ref"
+                                }
+                              },
+                              "id": 3255,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberLocation": "1223:10:12",
+                              "memberName": "attributes",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 3334,
+                              "src": "1190:43:12",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_Attribute_$2278_storage_$dyn_storage",
+                                "typeString": "struct TokenMetadata.Attribute storage ref[] storage ref"
+                              }
+                            },
+                            "id": 3256,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1234:4:12",
+                            "memberName": "push",
+                            "nodeType": "MemberAccess",
+                            "src": "1190:48:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_Attribute_$2278_storage_$dyn_storage_ptr_$_t_struct$_Attribute_$2278_storage_$returns$__$attached_to$_t_array$_t_struct$_Attribute_$2278_storage_$dyn_storage_ptr_$",
+                              "typeString": "function (struct TokenMetadata.Attribute storage ref[] storage pointer,struct TokenMetadata.Attribute storage ref)"
+                            }
+                          },
+                          "id": 3261,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "nameLocations": [],
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1190:73:12",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 3262,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1190:73:12"
+                      },
+                      {
+                        "expression": {
+                          "id": 3264,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "UnaryOperation",
+                          "operator": "++",
+                          "prefix": false,
+                          "src": "1277:3:12",
+                          "subExpression": {
+                            "id": 3263,
+                            "name": "i",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3244,
+                            "src": "1277:1:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 3265,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1277:3:12"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 3249,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 3247,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3244,
+                      "src": "1154:1:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "id": 3248,
+                      "name": "attributesLength",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3238,
+                      "src": "1158:16:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1154:20:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 3267,
+                  "nodeType": "WhileStatement",
+                  "src": "1147:144:12"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 3176,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 3175,
+                  "name": "onlyOwner",
+                  "nameLocations": [
+                    "532:9:12"
+                  ],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 22732,
+                  "src": "532:9:12"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "532:9:12"
+              }
+            ],
+            "name": "_setMetadata",
+            "nameLocation": "447:12:12",
+            "parameters": {
+              "id": 3174,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3170,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "468:8:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3269,
+                  "src": "460:16:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3169,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "460:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3173,
+                  "mutability": "mutable",
+                  "name": "_metadata",
+                  "nameLocation": "512:9:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3269,
+                  "src": "478:43:12",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Metadata_$3335_calldata_ptr",
+                    "typeString": "struct MetadataStorage.Metadata"
+                  },
+                  "typeName": {
+                    "id": 3172,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3171,
+                      "name": "MetadataStorage.Metadata",
+                      "nameLocations": [
+                        "478:15:12",
+                        "494:8:12"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3335,
+                      "src": "478:24:12"
+                    },
+                    "referencedDeclaration": 3335,
+                    "src": "478:24:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Metadata_$3335_storage_ptr",
+                      "typeString": "struct MetadataStorage.Metadata"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "459:63:12"
+            },
+            "returnParameters": {
+              "id": 3177,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:0:12"
+            },
+            "scope": 3313,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 3312,
+            "nodeType": "FunctionDefinition",
+            "src": "1303:490:12",
+            "nodes": [],
+            "body": {
+              "id": 3311,
+              "nodeType": "Block",
+              "src": "1381:412:12",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 3278,
+                        "name": "_tokenId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3271,
+                        "src": "1458:8:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 3279,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1484:3:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 3280,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1488:6:12",
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "1484:10:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "baseExpression": {
+                            "expression": {
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "expression": {
+                                  "id": 3281,
+                                  "name": "MetadataStorage",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3359,
+                                  "src": "1512:15:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_MetadataStorage_$3359_$",
+                                    "typeString": "type(library MetadataStorage)"
+                                  }
+                                },
+                                "id": 3282,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1528:6:12",
+                                "memberName": "layout",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 3358,
+                                "src": "1512:22:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$3341_storage_ptr_$",
+                                  "typeString": "function () pure returns (struct MetadataStorage.Layout storage pointer)"
+                                }
+                              },
+                              "id": 3283,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1512:24:12",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                                "typeString": "struct MetadataStorage.Layout storage pointer"
+                              }
+                            },
+                            "id": 3284,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1537:8:12",
+                            "memberName": "metadata",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3340,
+                            "src": "1512:33:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                              "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                            }
+                          },
+                          "id": 3286,
+                          "indexExpression": {
+                            "id": 3285,
+                            "name": "_tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3271,
+                            "src": "1546:8:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1512:43:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                            "typeString": "struct MetadataStorage.Metadata storage ref"
+                          }
+                        },
+                        "id": 3287,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1556:4:12",
+                        "memberName": "name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 3328,
+                        "src": "1512:48:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "baseExpression": {
+                            "expression": {
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "expression": {
+                                  "id": 3288,
+                                  "name": "MetadataStorage",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3359,
+                                  "src": "1578:15:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_MetadataStorage_$3359_$",
+                                    "typeString": "type(library MetadataStorage)"
+                                  }
+                                },
+                                "id": 3289,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1594:6:12",
+                                "memberName": "layout",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 3358,
+                                "src": "1578:22:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$3341_storage_ptr_$",
+                                  "typeString": "function () pure returns (struct MetadataStorage.Layout storage pointer)"
+                                }
+                              },
+                              "id": 3290,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1578:24:12",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                                "typeString": "struct MetadataStorage.Layout storage pointer"
+                              }
+                            },
+                            "id": 3291,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1603:8:12",
+                            "memberName": "metadata",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3340,
+                            "src": "1578:33:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                              "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                            }
+                          },
+                          "id": 3293,
+                          "indexExpression": {
+                            "id": 3292,
+                            "name": "_tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3271,
+                            "src": "1612:8:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1578:43:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                            "typeString": "struct MetadataStorage.Metadata storage ref"
+                          }
+                        },
+                        "id": 3294,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1622:5:12",
+                        "memberName": "image",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 3326,
+                        "src": "1578:49:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "baseExpression": {
+                            "expression": {
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "expression": {
+                                  "id": 3295,
+                                  "name": "MetadataStorage",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3359,
+                                  "src": "1645:15:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_MetadataStorage_$3359_$",
+                                    "typeString": "type(library MetadataStorage)"
+                                  }
+                                },
+                                "id": 3296,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1661:6:12",
+                                "memberName": "layout",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 3358,
+                                "src": "1645:22:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$3341_storage_ptr_$",
+                                  "typeString": "function () pure returns (struct MetadataStorage.Layout storage pointer)"
+                                }
+                              },
+                              "id": 3297,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1645:24:12",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                                "typeString": "struct MetadataStorage.Layout storage pointer"
+                              }
+                            },
+                            "id": 3298,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1670:8:12",
+                            "memberName": "metadata",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3340,
+                            "src": "1645:33:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                              "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                            }
+                          },
+                          "id": 3300,
+                          "indexExpression": {
+                            "id": 3299,
+                            "name": "_tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3271,
+                            "src": "1679:8:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1645:43:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                            "typeString": "struct MetadataStorage.Metadata storage ref"
+                          }
+                        },
+                        "id": 3301,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1689:11:12",
+                        "memberName": "description",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 3322,
+                        "src": "1645:55:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "baseExpression": {
+                            "expression": {
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "expression": {
+                                  "id": 3302,
+                                  "name": "MetadataStorage",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3359,
+                                  "src": "1718:15:12",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_MetadataStorage_$3359_$",
+                                    "typeString": "type(library MetadataStorage)"
+                                  }
+                                },
+                                "id": 3303,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1734:6:12",
+                                "memberName": "layout",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 3358,
+                                "src": "1718:22:12",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$3341_storage_ptr_$",
+                                  "typeString": "function () pure returns (struct MetadataStorage.Layout storage pointer)"
+                                }
+                              },
+                              "id": 3304,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "nameLocations": [],
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "1718:24:12",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Layout_$3341_storage_ptr",
+                                "typeString": "struct MetadataStorage.Layout storage pointer"
+                              }
+                            },
+                            "id": 3305,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1743:8:12",
+                            "memberName": "metadata",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 3340,
+                            "src": "1718:33:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Metadata_$3335_storage_$",
+                              "typeString": "mapping(uint256 => struct MetadataStorage.Metadata storage ref)"
+                            }
+                          },
+                          "id": 3307,
+                          "indexExpression": {
+                            "id": 3306,
+                            "name": "_tokenId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3271,
+                            "src": "1752:8:12",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1718:43:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Metadata_$3335_storage",
+                            "typeString": "struct MetadataStorage.Metadata storage ref"
+                          }
+                        },
+                        "id": 3308,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1762:10:12",
+                        "memberName": "attributes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 3334,
+                        "src": "1718:54:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Attribute_$2278_storage_$dyn_storage",
+                          "typeString": "struct TokenMetadata.Attribute storage ref[] storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_struct$_Attribute_$2278_storage_$dyn_storage",
+                          "typeString": "struct TokenMetadata.Attribute storage ref[] storage ref"
+                        }
+                      ],
+                      "expression": {
+                        "id": 3276,
+                        "name": "TokenMetadata",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2576,
+                        "src": "1410:13:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_TokenMetadata_$2576_$",
+                          "typeString": "type(library TokenMetadata)"
+                        }
+                      },
+                      "id": 3277,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1424:16:12",
+                      "memberName": "makeMetadataJSON",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2347,
+                      "src": "1410:30:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_address_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_array$_t_struct$_Attribute_$2278_memory_ptr_$dyn_memory_ptr_$returns$_t_string_memory_ptr_$",
+                        "typeString": "function (uint256,address,string memory,string memory,string memory,struct TokenMetadata.Attribute memory[] memory) pure returns (string memory)"
+                      }
+                    },
+                    "id": 3309,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1410:376:12",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "functionReturnParameters": 3275,
+                  "id": 3310,
+                  "nodeType": "Return",
+                  "src": "1391:395:12"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_getMetadata",
+            "nameLocation": "1312:12:12",
+            "parameters": {
+              "id": 3272,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3271,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "1333:8:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3312,
+                  "src": "1325:16:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3270,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1325:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1324:18:12"
+            },
+            "returnParameters": {
+              "id": 3275,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3274,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3312,
+                  "src": "1366:13:12",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 3273,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1366:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1365:15:12"
+            },
+            "scope": 3313,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 3160,
+              "name": "OwnableInternal",
+              "nameLocations": [
+                "304:15:12"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 22828,
+              "src": "304:15:12"
+            },
+            "id": 3161,
+            "nodeType": "InheritanceSpecifier",
+            "src": "304:15:12"
+          }
+        ],
+        "canonicalName": "MetadataInternal",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          3313,
+          22828,
+          33760,
+          34047
+        ],
+        "name": "MetadataInternal",
+        "nameLocation": "284:16:12",
+        "scope": 3314,
+        "usedErrors": [
+          33757,
+          33759
+        ],
+        "usedEvents": [
+          34046
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 12
+}

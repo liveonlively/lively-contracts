@@ -1,0 +1,123 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"ERC20 metadata internal interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol\":\"IERC20MetadataInternal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol\":{\"keccak256\":\"0x32464590a972a9325d20c7125d157594df9473b6496ce6a66df617c41c4039ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://60159ad57e36fb414e79b3b9aa41ff0cdafa56585d104d67128d56e935635e01\",\"dweb:/ipfs/QmbBe4dh2zttkvqWyHn4QPj6yVpR14SWNTr4KiwSu37jk6\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol": "IERC20MetadataInternal"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol": {
+        "keccak256": "0x32464590a972a9325d20c7125d157594df9473b6496ce6a66df617c41c4039ec",
+        "urls": [
+          "bzz-raw://60159ad57e36fb414e79b3b9aa41ff0cdafa56585d104d67128d56e935635e01",
+          "dweb:/ipfs/QmbBe4dh2zttkvqWyHn4QPj6yVpR14SWNTr4KiwSu37jk6"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol",
+    "id": 20230,
+    "exportedSymbols": {
+      "IERC20MetadataInternal": [
+        20229
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:115:113",
+    "nodes": [
+      {
+        "id": 20227,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:113",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 20229,
+        "nodeType": "ContractDefinition",
+        "src": "110:37:113",
+        "nodes": [],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC20MetadataInternal",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 20228,
+          "nodeType": "StructuredDocumentation",
+          "src": "58:51:113",
+          "text": " @title ERC20 metadata internal interface"
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          20229
+        ],
+        "name": "IERC20MetadataInternal",
+        "nameLocation": "120:22:113",
+        "scope": 20230,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 113
+}

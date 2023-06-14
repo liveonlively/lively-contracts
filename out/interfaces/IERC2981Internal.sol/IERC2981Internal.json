@@ -1,0 +1,123 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"ERC2981 interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC2981Internal.sol\":\"IERC2981Internal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC2981Internal.sol\":{\"keccak256\":\"0xa5f4334471e853f25803798f82e6dece96df7bcf7d47a31d4be47d9b553176fb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cb4b06ab3f0b1d994ebe6cf3c3b3c4091daa8ae227208033dc3e5860a436e233\",\"dweb:/ipfs/QmfXKqyZM39sitH1PAvWwcaUiDPFZYeBKMktzwQUz4TB1j\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC2981Internal.sol": "IERC2981Internal"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC2981Internal.sol": {
+        "keccak256": "0xa5f4334471e853f25803798f82e6dece96df7bcf7d47a31d4be47d9b553176fb",
+        "urls": [
+          "bzz-raw://cb4b06ab3f0b1d994ebe6cf3c3b3c4091daa8ae227208033dc3e5860a436e233",
+          "dweb:/ipfs/QmfXKqyZM39sitH1PAvWwcaUiDPFZYeBKMktzwQUz4TB1j"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC2981Internal.sol",
+    "id": 17860,
+    "exportedSymbols": {
+      "IERC2981Internal": [
+        17859
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:93:82",
+    "nodes": [
+      {
+        "id": 17857,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:82",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 17859,
+        "nodeType": "ContractDefinition",
+        "src": "94:31:82",
+        "nodes": [],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC2981Internal",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 17858,
+          "nodeType": "StructuredDocumentation",
+          "src": "58:35:82",
+          "text": " @title ERC2981 interface"
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          17859
+        ],
+        "name": "IERC2981Internal",
+        "nameLocation": "104:16:82",
+        "scope": 17860,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 82
+}

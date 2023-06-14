@@ -1,0 +1,435 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "ArrayLengthsDiffer",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ExceedsMaxSupply",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidMaxSupply",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidMintType",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidTokenID",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PaymentReceived",
+      "type": "event"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ArrayLengthsDiffer\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ExceedsMaxSupply\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMaxSupply\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMintType\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidTokenID\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PaymentReceived\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol\":\"IERC1155Facet\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol\":{\"keccak256\":\"0x4a95834147b28a9e77caa9619da235d11f5170814a7f11c508baac23ff92e067\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbcda1f0a339f764b8ea2bf4287adbdb46866483076d4e21063ed02a3cdf76f5\",\"dweb:/ipfs/QmT6AzMiQVJxwhTvtNKP3HWXe2pGdS7di9EYw7kNmq9Yev\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ArrayLengthsDiffer"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ExceedsMaxSupply"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "InvalidAmount"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "InvalidMaxSupply"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "InvalidMintType"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "InvalidTokenID"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "PaymentReceived",
+          "anonymous": false
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol": "IERC1155Facet"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol": {
+        "keccak256": "0x4a95834147b28a9e77caa9619da235d11f5170814a7f11c508baac23ff92e067",
+        "urls": [
+          "bzz-raw://cbcda1f0a339f764b8ea2bf4287adbdb46866483076d4e21063ed02a3cdf76f5",
+          "dweb:/ipfs/QmT6AzMiQVJxwhTvtNKP3HWXe2pGdS7di9EYw7kNmq9Yev"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol",
+    "id": 1856,
+    "exportedSymbols": {
+      "IERC1155Facet": [
+        1855
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:353:5",
+    "nodes": [
+      {
+        "id": 1833,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:5",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 1855,
+        "nodeType": "ContractDefinition",
+        "src": "58:326:5",
+        "nodes": [
+          {
+            "id": 1836,
+            "nodeType": "VariableDeclaration",
+            "src": "96:50:5",
+            "nodes": [],
+            "constant": true,
+            "mutability": "constant",
+            "name": "CONTRACT_VERSION",
+            "nameLocation": "120:16:5",
+            "scope": 1855,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1834,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "96:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "hexValue": "302e302e31",
+              "id": 1835,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "139:7:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_ae209a0b48f21c054280f2455d32cf309387644879d9acbd8ffc199163811885",
+                "typeString": "literal_string \"0.0.1\""
+              },
+              "value": "0.0.1"
+            },
+            "visibility": "private"
+          },
+          {
+            "id": 1838,
+            "nodeType": "ErrorDefinition",
+            "src": "153:25:5",
+            "nodes": [],
+            "errorSelector": "c30436e9",
+            "name": "ExceedsMaxSupply",
+            "nameLocation": "159:16:5",
+            "parameters": {
+              "id": 1837,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "175:2:5"
+            }
+          },
+          {
+            "id": 1840,
+            "nodeType": "ErrorDefinition",
+            "src": "183:23:5",
+            "nodes": [],
+            "errorSelector": "6aa2a937",
+            "name": "InvalidTokenID",
+            "nameLocation": "189:14:5",
+            "parameters": {
+              "id": 1839,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "203:2:5"
+            }
+          },
+          {
+            "id": 1842,
+            "nodeType": "ErrorDefinition",
+            "src": "211:22:5",
+            "nodes": [],
+            "errorSelector": "2c5211c6",
+            "name": "InvalidAmount",
+            "nameLocation": "217:13:5",
+            "parameters": {
+              "id": 1841,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "230:2:5"
+            }
+          },
+          {
+            "id": 1844,
+            "nodeType": "ErrorDefinition",
+            "src": "238:25:5",
+            "nodes": [],
+            "errorSelector": "19bcc14c",
+            "name": "InvalidMaxSupply",
+            "nameLocation": "244:16:5",
+            "parameters": {
+              "id": 1843,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "260:2:5"
+            }
+          },
+          {
+            "id": 1846,
+            "nodeType": "ErrorDefinition",
+            "src": "268:27:5",
+            "nodes": [],
+            "errorSelector": "cc0983b8",
+            "name": "ArrayLengthsDiffer",
+            "nameLocation": "274:18:5",
+            "parameters": {
+              "id": 1845,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "292:2:5"
+            }
+          },
+          {
+            "id": 1848,
+            "nodeType": "ErrorDefinition",
+            "src": "300:24:5",
+            "nodes": [],
+            "errorSelector": "94460fa8",
+            "name": "InvalidMintType",
+            "nameLocation": "306:15:5",
+            "parameters": {
+              "id": 1847,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "321:2:5"
+            }
+          },
+          {
+            "id": 1854,
+            "nodeType": "EventDefinition",
+            "src": "330:52:5",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "6ef95f06320e7a25a04a175ca677b7052bdd97131872c2192525a629f51be770",
+            "name": "PaymentReceived",
+            "nameLocation": "336:15:5",
+            "parameters": {
+              "id": 1853,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1850,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "360:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1854,
+                  "src": "352:12:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1849,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "352:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1852,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "374:6:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1854,
+                  "src": "366:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1851,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "366:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "351:30:5"
+            }
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "IERC1155Facet",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          1855
+        ],
+        "name": "IERC1155Facet",
+        "nameLocation": "76:13:5",
+        "scope": 1856,
+        "usedErrors": [
+          1838,
+          1840,
+          1842,
+          1844,
+          1846,
+          1848
+        ],
+        "usedEvents": [
+          1854
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 5
+}

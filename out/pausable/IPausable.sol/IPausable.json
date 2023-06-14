@@ -1,0 +1,352 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Pausable__NotPaused",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Pausable__Paused",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "paused()": "5c975abb"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"Pausable__NotPaused\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"Pausable__Paused\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"paused()\":{\"returns\":{\"status\":\"whether contract is paused\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"paused()\":{\"notice\":\"query whether contract is paused\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausable.sol\":\"IPausable\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausable.sol\":{\"keccak256\":\"0x02c7a692542fea6beecf9fd19b14b9c5705196d4ebcc9f548e62a7721b614d12\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://00da32ffe4743d73286a568d28b15a3987ce502ad55edb07ddd2d763e1f4a06c\",\"dweb:/ipfs/Qme1CEp7LVFo2yaWJ6UBaMZyTc76WWpAKxoAThoALGdLks\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausableInternal.sol\":{\"keccak256\":\"0xe54f7b8380acdc3b67d2f59325c2bc7241271b926436ba86f396cd22b3d046d1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6d8787ac0cbb34d05164840719e28c33f43deb2ed5fcee14ea159238b603af67\",\"dweb:/ipfs/QmR9GmqrVvoT4TzvWrUR9EdssSubAE2a9aWLR2yvkfsVpD\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Pausable__NotPaused"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "Pausable__Paused"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Paused",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Unpaused",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "paused",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "status",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "paused()": {
+            "returns": {
+              "status": "whether contract is paused"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "paused()": {
+            "notice": "query whether contract is paused"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausable.sol": "IPausable"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausable.sol": {
+        "keccak256": "0x02c7a692542fea6beecf9fd19b14b9c5705196d4ebcc9f548e62a7721b614d12",
+        "urls": [
+          "bzz-raw://00da32ffe4743d73286a568d28b15a3987ce502ad55edb07ddd2d763e1f4a06c",
+          "dweb:/ipfs/Qme1CEp7LVFo2yaWJ6UBaMZyTc76WWpAKxoAThoALGdLks"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausableInternal.sol": {
+        "keccak256": "0xe54f7b8380acdc3b67d2f59325c2bc7241271b926436ba86f396cd22b3d046d1",
+        "urls": [
+          "bzz-raw://6d8787ac0cbb34d05164840719e28c33f43deb2ed5fcee14ea159238b603af67",
+          "dweb:/ipfs/QmR9GmqrVvoT4TzvWrUR9EdssSubAE2a9aWLR2yvkfsVpD"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausable.sol",
+    "id": 18027,
+    "exportedSymbols": {
+      "IPausable": [
+        18026
+      ],
+      "IPausableInternal": [
+        18041
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:304:89",
+    "nodes": [
+      {
+        "id": 18015,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:89",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 18017,
+        "nodeType": "ImportDirective",
+        "src": "58:60:89",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/security/pausable/IPausableInternal.sol",
+        "file": "./IPausableInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 18027,
+        "sourceUnit": 18042,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 18016,
+              "name": "IPausableInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 18041,
+              "src": "67:17:89",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 18026,
+        "nodeType": "ContractDefinition",
+        "src": "120:216:89",
+        "nodes": [
+          {
+            "id": 18025,
+            "nodeType": "FunctionDefinition",
+            "src": "280:54:89",
+            "nodes": [],
+            "documentation": {
+              "id": 18020,
+              "nodeType": "StructuredDocumentation",
+              "src": "167:108:89",
+              "text": " @notice query whether contract is paused\n @return status whether contract is paused"
+            },
+            "functionSelector": "5c975abb",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "paused",
+            "nameLocation": "289:6:89",
+            "parameters": {
+              "id": 18021,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "295:2:89"
+            },
+            "returnParameters": {
+              "id": 18024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 18023,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "326:6:89",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 18025,
+                  "src": "321:11:89",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 18022,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:4:89",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "320:13:89"
+            },
+            "scope": 18026,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 18018,
+              "name": "IPausableInternal",
+              "nameLocations": [
+                "143:17:89"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 18041,
+              "src": "143:17:89"
+            },
+            "id": 18019,
+            "nodeType": "InheritanceSpecifier",
+            "src": "143:17:89"
+          }
+        ],
+        "canonicalName": "IPausable",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          18026,
+          18041
+        ],
+        "name": "IPausable",
+        "nameLocation": "130:9:89",
+        "scope": 18027,
+        "usedErrors": [
+          18030,
+          18032
+        ],
+        "usedEvents": [
+          18036,
+          18040
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 89
+}

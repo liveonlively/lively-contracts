@@ -1,0 +1,547 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "ERC165Base__InvalidInterfaceId",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "supportsInterface(bytes4)": "01ffc9a7"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ERC165Base__InvalidInterfaceId\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"supportsInterface(bytes4)\":{\"params\":{\"interfaceId\":\"interface id\"},\"returns\":{\"_0\":\"bool whether interface is supported\"}}},\"title\":\"ERC165 implementation\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"supportsInterface(bytes4)\":{\"notice\":\"query whether contract has registered support for given interface\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol\":\"ERC165Base\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0xc250e493770feaa0da8e5a55d241712c1c6526caa7d8df2455c3e5fa25124c0b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://768e47d9ddeb15daeab0c8c1109ae43a4c2a0633bd9e4bf141488dfc9252f7ba\",\"dweb:/ipfs/QmWMTTRTncar9LptrxU7WK7WG5hHp8KsYnBGfm3cYowuP8\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC165Internal.sol\":{\"keccak256\":\"0xf4d4708a60ed04887849509a258db49d4eb686f33214cb9c9643325cd8dae89d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://66e7ade64c12edf7adbc0f20c1195b3c635ea2df67b836215441a4fe22ae17da\",\"dweb:/ipfs/QmUAbU31ZYg3FrKzXCk8CE1FbCg6LNoB5HpR4pU2QwZc7p\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol\":{\"keccak256\":\"0x3f2268856fdd9b27946adc65010bc83992069a90034bf692ab630802a926a9c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c8f4aa0a9d369054fa3241abbf4a937eff32e42f7984ec2c11efe84b3536bdfd\",\"dweb:/ipfs/QmdL9cjvBLa5yszgCdxsqoh5BMYj6tJ2YWKPfLcRSzkA9c\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol\":{\"keccak256\":\"0xad163d89454d9c8a018880253c5be156ee0f847f05a392a12b2a7061c7fa8682\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f76be2455986e64dd5108360e42087c7f5d87552d60a256ff616d3258c01fa7d\",\"dweb:/ipfs/QmZEYtAya7yeZQ6BWBUYeCetm5Wem3vaxiq3mdx4DLLtUJ\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol\":{\"keccak256\":\"0xfd1cfba40f8aabda5898ffe21adeeea8c7011da12bfdad7f7aa0cf87b3635653\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6b80596a94faae265ecd9e03875ccebf5c1e45d94d8119dcf04e3a1cd92f5fb6\",\"dweb:/ipfs/QmVK8xje6PeEwVoZfFcugAdy43kLx59D9UHr4m8Qu9GgV9\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165Base.sol\":{\"keccak256\":\"0x288c50013c735cf30be90eb084589fc54bc0ee77a88ec69c3cc1efb11d7dccf4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://857c5836ad7808d13a87afa482af6ef2adbb26616767b2dd558b33ccb9569a28\",\"dweb:/ipfs/QmdptfxicGQUfsXFHpTW1y8NDV6k6oCuk5r9UqgGuv49Tk\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol\":{\"keccak256\":\"0xccda4b118c8c09c276a0e577168aa404ea6207aad6b384b04f5f3a8923316422\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dcbafa161920a2a39ac001c76ee166ae4b345bef3ee6a0c5ca505504c0e9c052\",\"dweb:/ipfs/QmTF3DPJQPLsiYTmGNZXGBkmVRs14g2bUb1QJDH4ywwMq5\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ERC165Base__InvalidInterfaceId"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "interfaceId",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsInterface",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "supportsInterface(bytes4)": {
+            "params": {
+              "interfaceId": "interface id"
+            },
+            "returns": {
+              "_0": "bool whether interface is supported"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "supportsInterface(bytes4)": {
+            "notice": "query whether contract has registered support for given interface"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol": "ERC165Base"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0xc250e493770feaa0da8e5a55d241712c1c6526caa7d8df2455c3e5fa25124c0b",
+        "urls": [
+          "bzz-raw://768e47d9ddeb15daeab0c8c1109ae43a4c2a0633bd9e4bf141488dfc9252f7ba",
+          "dweb:/ipfs/QmWMTTRTncar9LptrxU7WK7WG5hHp8KsYnBGfm3cYowuP8"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC165Internal.sol": {
+        "keccak256": "0xf4d4708a60ed04887849509a258db49d4eb686f33214cb9c9643325cd8dae89d",
+        "urls": [
+          "bzz-raw://66e7ade64c12edf7adbc0f20c1195b3c635ea2df67b836215441a4fe22ae17da",
+          "dweb:/ipfs/QmUAbU31ZYg3FrKzXCk8CE1FbCg6LNoB5HpR4pU2QwZc7p"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol": {
+        "keccak256": "0x3f2268856fdd9b27946adc65010bc83992069a90034bf692ab630802a926a9c2",
+        "urls": [
+          "bzz-raw://c8f4aa0a9d369054fa3241abbf4a937eff32e42f7984ec2c11efe84b3536bdfd",
+          "dweb:/ipfs/QmdL9cjvBLa5yszgCdxsqoh5BMYj6tJ2YWKPfLcRSzkA9c"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol": {
+        "keccak256": "0xad163d89454d9c8a018880253c5be156ee0f847f05a392a12b2a7061c7fa8682",
+        "urls": [
+          "bzz-raw://f76be2455986e64dd5108360e42087c7f5d87552d60a256ff616d3258c01fa7d",
+          "dweb:/ipfs/QmZEYtAya7yeZQ6BWBUYeCetm5Wem3vaxiq3mdx4DLLtUJ"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol": {
+        "keccak256": "0xfd1cfba40f8aabda5898ffe21adeeea8c7011da12bfdad7f7aa0cf87b3635653",
+        "urls": [
+          "bzz-raw://6b80596a94faae265ecd9e03875ccebf5c1e45d94d8119dcf04e3a1cd92f5fb6",
+          "dweb:/ipfs/QmVK8xje6PeEwVoZfFcugAdy43kLx59D9UHr4m8Qu9GgV9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165Base.sol": {
+        "keccak256": "0x288c50013c735cf30be90eb084589fc54bc0ee77a88ec69c3cc1efb11d7dccf4",
+        "urls": [
+          "bzz-raw://857c5836ad7808d13a87afa482af6ef2adbb26616767b2dd558b33ccb9569a28",
+          "dweb:/ipfs/QmdptfxicGQUfsXFHpTW1y8NDV6k6oCuk5r9UqgGuv49Tk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol": {
+        "keccak256": "0xccda4b118c8c09c276a0e577168aa404ea6207aad6b384b04f5f3a8923316422",
+        "urls": [
+          "bzz-raw://dcbafa161920a2a39ac001c76ee166ae4b345bef3ee6a0c5ca505504c0e9c052",
+          "dweb:/ipfs/QmTF3DPJQPLsiYTmGNZXGBkmVRs14g2bUb1QJDH4ywwMq5"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol",
+    "id": 17917,
+    "exportedSymbols": {
+      "ERC165Base": [
+        17916
+      ],
+      "ERC165BaseInternal": [
+        17968
+      ],
+      "ERC165BaseStorage": [
+        17993
+      ],
+      "IERC165": [
+        17713
+      ],
+      "IERC165Base": [
+        18004
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:543:84",
+    "nodes": [
+      {
+        "id": 17889,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:84",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 17891,
+        "nodeType": "ImportDirective",
+        "src": "58:58:84",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/interfaces/IERC165.sol",
+        "file": "../../../interfaces/IERC165.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 17917,
+        "sourceUnit": 17714,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 17890,
+              "name": "IERC165",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 17713,
+              "src": "67:7:84",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 17893,
+        "nodeType": "ImportDirective",
+        "src": "117:48:84",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165Base.sol",
+        "file": "./IERC165Base.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 17917,
+        "sourceUnit": 18005,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 17892,
+              "name": "IERC165Base",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 18004,
+              "src": "126:11:84",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 17895,
+        "nodeType": "ImportDirective",
+        "src": "166:62:84",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol",
+        "file": "./ERC165BaseInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 17917,
+        "sourceUnit": 17969,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 17894,
+              "name": "ERC165BaseInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 17968,
+              "src": "175:18:84",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 17897,
+        "nodeType": "ImportDirective",
+        "src": "229:60:84",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol",
+        "file": "./ERC165BaseStorage.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 17917,
+        "sourceUnit": 17994,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 17896,
+              "name": "ERC165BaseStorage",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 17993,
+              "src": "238:17:84",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 17916,
+        "nodeType": "ContractDefinition",
+        "src": "331:244:84",
+        "nodes": [
+          {
+            "id": 17915,
+            "nodeType": "FunctionDefinition",
+            "src": "444:129:84",
+            "nodes": [],
+            "body": {
+              "id": 17914,
+              "nodeType": "Block",
+              "src": "518:55:84",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 17911,
+                        "name": "interfaceId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 17905,
+                        "src": "554:11:84",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      ],
+                      "id": 17910,
+                      "name": "_supportsInterface",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 17941,
+                      "src": "535:18:84",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_bytes4_$returns$_t_bool_$",
+                        "typeString": "function (bytes4) view returns (bool)"
+                      }
+                    },
+                    "id": 17912,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "535:31:84",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 17909,
+                  "id": 17913,
+                  "nodeType": "Return",
+                  "src": "528:38:84"
+                }
+              ]
+            },
+            "baseFunctions": [
+              17712
+            ],
+            "documentation": {
+              "id": 17903,
+              "nodeType": "StructuredDocumentation",
+              "src": "401:38:84",
+              "text": " @inheritdoc IERC165"
+            },
+            "functionSelector": "01ffc9a7",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nameLocation": "453:17:84",
+            "parameters": {
+              "id": 17906,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17905,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "478:11:84",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17915,
+                  "src": "471:18:84",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 17904,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "471:6:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "470:20:84"
+            },
+            "returnParameters": {
+              "id": 17909,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 17908,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17915,
+                  "src": "512:4:84",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 17907,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "512:4:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "511:6:84"
+            },
+            "scope": 17916,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 17899,
+              "name": "IERC165Base",
+              "nameLocations": [
+                "363:11:84"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 18004,
+              "src": "363:11:84"
+            },
+            "id": 17900,
+            "nodeType": "InheritanceSpecifier",
+            "src": "363:11:84"
+          },
+          {
+            "baseName": {
+              "id": 17901,
+              "name": "ERC165BaseInternal",
+              "nameLocations": [
+                "376:18:84"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 17968,
+              "src": "376:18:84"
+            },
+            "id": 17902,
+            "nodeType": "InheritanceSpecifier",
+            "src": "376:18:84"
+          }
+        ],
+        "canonicalName": "ERC165Base",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 17898,
+          "nodeType": "StructuredDocumentation",
+          "src": "291:39:84",
+          "text": " @title ERC165 implementation"
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          17916,
+          17968,
+          18004,
+          18013,
+          17713,
+          17717
+        ],
+        "name": "ERC165Base",
+        "nameLocation": "349:10:84",
+        "scope": 17917,
+        "usedErrors": [
+          18012
+        ],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 84
+}

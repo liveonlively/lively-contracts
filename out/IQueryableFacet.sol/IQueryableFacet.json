@@ -1,0 +1,1245 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "EditionsDisabled",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidEditionIndex",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEditionIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "getEditionsByOwner",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwners",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_editionIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getOwners",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "getTokensByOwner",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_editionIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTokensByOwner",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "editionIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownsEdition",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "getEditionIndex(uint256)": "6e563cdf",
+    "getEditionsByOwner(address)": "1e030939",
+    "getOwners()": "a0e67e2b",
+    "getOwners(uint256)": "ee4525d5",
+    "getTokensByOwner(address)": "40398d67",
+    "getTokensByOwner(address,uint256)": "9f6cfaa2",
+    "ownsEdition(address,uint256)": "6f2e2f27"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"EditionsDisabled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidEditionIndex\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"getEditionIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"getEditionsByOwner\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwners\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_editionIndex\",\"type\":\"uint256\"}],\"name\":\"getOwners\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"getTokensByOwner\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_editionIndex\",\"type\":\"uint256\"}],\"name\":\"getTokensByOwner\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"editionIndex\",\"type\":\"uint256\"}],\"name\":\"ownsEdition\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"https://github.com/lively\",\"details\":\"Allow list Facet for updating AllowList Merkle Tree\",\"kind\":\"dev\",\"methods\":{\"getEditionIndex(uint256)\":{\"params\":{\"_tokenId\":\"The tokenId to check\"},\"returns\":{\"_0\":\"The editionIndex\"}},\"getEditionsByOwner(address)\":{\"params\":{\"_owner\":\"Address of the owner\"},\"returns\":{\"_0\":\"Array of edition indexes\"}},\"getOwners()\":{\"returns\":{\"_0\":\"Array of addresses\"}},\"getOwners(uint256)\":{\"params\":{\"_editionIndex\":\"The edition index to check\"},\"returns\":{\"_0\":\"Array of addresses\"}},\"getTokensByOwner(address)\":{\"params\":{\"_owner\":\"Address of the owner\"},\"returns\":{\"_0\":\"Array of token IDs\"}},\"getTokensByOwner(address,uint256)\":{\"params\":{\"_editionIndex\":\"Edition index\",\"_owner\":\"Address of the owner\"},\"returns\":{\"_0\":\"Array of token IDs\"}},\"ownsEdition(address,uint256)\":{\"params\":{\"_owner\":\"Address of the owner\"},\"returns\":{\"_0\":\"True/false based on ownership\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getEditionIndex(uint256)\":{\"notice\":\"Get the editionIndex or a given tokenId\"},\"getEditionsByOwner(address)\":{\"notice\":\"Get all editions owned  by a specific address\"},\"getOwners()\":{\"notice\":\"Get all the current owners of the collection\"},\"getOwners(uint256)\":{\"notice\":\"Get all current owners of a specific edition in the collection\"},\"getTokensByOwner(address)\":{\"notice\":\"Get all tokens owned by a given address\"},\"getTokensByOwner(address,uint256)\":{\"notice\":\"Get all tokens owned by given address for a specific edition\"},\"ownsEdition(address,uint256)\":{\"notice\":\"Verifies if address owns an edition\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ERC721-Diamond/interfaces/IQueryableFacet.sol\":\"IQueryableFacet\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"contracts/ERC721-Diamond/interfaces/IQueryableFacet.sol\":{\"keccak256\":\"0xc69f420626d88224736b85e8a707ca36cdefe7cb8ddb62f67a3f5d4986549144\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7cc1c88f5e33a4056c7d49963455a1dbabfc074cf473645e36bb36c07622d229\",\"dweb:/ipfs/QmUaYf1Ttg9YBbhQpACYNMrF68qLVJRHeisrLpvwQHdNyF\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "EditionsDisabled"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "InvalidEditionIndex"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getEditionIndex",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getEditionsByOwner",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getOwners",
+          "outputs": [
+            {
+              "internalType": "address[]",
+              "name": "",
+              "type": "address[]"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_editionIndex",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getOwners",
+          "outputs": [
+            {
+              "internalType": "address[]",
+              "name": "",
+              "type": "address[]"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTokensByOwner",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_editionIndex",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTokensByOwner",
+          "outputs": [
+            {
+              "internalType": "uint256[]",
+              "name": "",
+              "type": "uint256[]"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "editionIndex",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ownsEdition",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "getEditionIndex(uint256)": {
+            "params": {
+              "_tokenId": "The tokenId to check"
+            },
+            "returns": {
+              "_0": "The editionIndex"
+            }
+          },
+          "getEditionsByOwner(address)": {
+            "params": {
+              "_owner": "Address of the owner"
+            },
+            "returns": {
+              "_0": "Array of edition indexes"
+            }
+          },
+          "getOwners()": {
+            "returns": {
+              "_0": "Array of addresses"
+            }
+          },
+          "getOwners(uint256)": {
+            "params": {
+              "_editionIndex": "The edition index to check"
+            },
+            "returns": {
+              "_0": "Array of addresses"
+            }
+          },
+          "getTokensByOwner(address)": {
+            "params": {
+              "_owner": "Address of the owner"
+            },
+            "returns": {
+              "_0": "Array of token IDs"
+            }
+          },
+          "getTokensByOwner(address,uint256)": {
+            "params": {
+              "_editionIndex": "Edition index",
+              "_owner": "Address of the owner"
+            },
+            "returns": {
+              "_0": "Array of token IDs"
+            }
+          },
+          "ownsEdition(address,uint256)": {
+            "params": {
+              "_owner": "Address of the owner"
+            },
+            "returns": {
+              "_0": "True/false based on ownership"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "getEditionIndex(uint256)": {
+            "notice": "Get the editionIndex or a given tokenId"
+          },
+          "getEditionsByOwner(address)": {
+            "notice": "Get all editions owned  by a specific address"
+          },
+          "getOwners()": {
+            "notice": "Get all the current owners of the collection"
+          },
+          "getOwners(uint256)": {
+            "notice": "Get all current owners of a specific edition in the collection"
+          },
+          "getTokensByOwner(address)": {
+            "notice": "Get all tokens owned by a given address"
+          },
+          "getTokensByOwner(address,uint256)": {
+            "notice": "Get all tokens owned by given address for a specific edition"
+          },
+          "ownsEdition(address,uint256)": {
+            "notice": "Verifies if address owns an edition"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/ERC721-Diamond/interfaces/IQueryableFacet.sol": "IQueryableFacet"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/ERC721-Diamond/interfaces/IQueryableFacet.sol": {
+        "keccak256": "0xc69f420626d88224736b85e8a707ca36cdefe7cb8ddb62f67a3f5d4986549144",
+        "urls": [
+          "bzz-raw://7cc1c88f5e33a4056c7d49963455a1dbabfc074cf473645e36bb36c07622d229",
+          "dweb:/ipfs/QmUaYf1Ttg9YBbhQpACYNMrF68qLVJRHeisrLpvwQHdNyF"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/ERC721-Diamond/interfaces/IQueryableFacet.sol",
+    "id": 8080,
+    "exportedSymbols": {
+      "IQueryableFacet": [
+        8079
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1867:24",
+    "nodes": [
+      {
+        "id": 8010,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:24",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 8079,
+        "nodeType": "ContractDefinition",
+        "src": "163:1735:24",
+        "nodes": [
+          {
+            "id": 8013,
+            "nodeType": "ErrorDefinition",
+            "src": "195:25:24",
+            "nodes": [],
+            "errorSelector": "32b5467d",
+            "name": "EditionsDisabled",
+            "nameLocation": "201:16:24",
+            "parameters": {
+              "id": 8012,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "217:2:24"
+            }
+          },
+          {
+            "id": 8015,
+            "nodeType": "ErrorDefinition",
+            "src": "225:28:24",
+            "nodes": [],
+            "errorSelector": "544287e2",
+            "name": "InvalidEditionIndex",
+            "nameLocation": "231:19:24",
+            "parameters": {
+              "id": 8014,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "250:2:24"
+            }
+          },
+          {
+            "id": 8023,
+            "nodeType": "FunctionDefinition",
+            "src": "393:75:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8016,
+              "nodeType": "StructuredDocumentation",
+              "src": "259:129:24",
+              "text": "@notice Get the editionIndex or a given tokenId\n @param _tokenId The tokenId to check\n @return The editionIndex"
+            },
+            "functionSelector": "6e563cdf",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEditionIndex",
+            "nameLocation": "402:15:24",
+            "parameters": {
+              "id": 8019,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8018,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "426:8:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8023,
+                  "src": "418:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8017,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "418:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "417:18:24"
+            },
+            "returnParameters": {
+              "id": 8022,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8021,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8023,
+                  "src": "459:7:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8020,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "459:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "458:9:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8030,
+            "nodeType": "FunctionDefinition",
+            "src": "570:62:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8024,
+              "nodeType": "StructuredDocumentation",
+              "src": "474:91:24",
+              "text": "@notice Get all the current owners of the collection\n @return Array of addresses"
+            },
+            "functionSelector": "a0e67e2b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getOwners",
+            "nameLocation": "579:9:24",
+            "parameters": {
+              "id": 8025,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "588:2:24"
+            },
+            "returnParameters": {
+              "id": 8029,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8028,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8030,
+                  "src": "614:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 8026,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "614:7:24",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 8027,
+                    "nodeType": "ArrayTypeName",
+                    "src": "614:9:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "613:18:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8039,
+            "nodeType": "FunctionDefinition",
+            "src": "808:83:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8031,
+              "nodeType": "StructuredDocumentation",
+              "src": "638:165:24",
+              "text": "@notice Get all current owners of a specific edition in the collection\n @param _editionIndex The edition index to check\n @return Array of addresses"
+            },
+            "functionSelector": "ee4525d5",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getOwners",
+            "nameLocation": "817:9:24",
+            "parameters": {
+              "id": 8034,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8033,
+                  "mutability": "mutable",
+                  "name": "_editionIndex",
+                  "nameLocation": "835:13:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8039,
+                  "src": "827:21:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8032,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "827:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "826:23:24"
+            },
+            "returnParameters": {
+              "id": 8038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8037,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8039,
+                  "src": "873:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 8035,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "873:7:24",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 8036,
+                    "nodeType": "ArrayTypeName",
+                    "src": "873:9:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "872:18:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8048,
+            "nodeType": "FunctionDefinition",
+            "src": "1031:83:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8040,
+              "nodeType": "StructuredDocumentation",
+              "src": "897:129:24",
+              "text": "@notice Get all tokens owned by a given address\n @param _owner Address of the owner\n @return Array of token IDs"
+            },
+            "functionSelector": "40398d67",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokensByOwner",
+            "nameLocation": "1040:16:24",
+            "parameters": {
+              "id": 8043,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8042,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "1065:6:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8048,
+                  "src": "1057:14:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8041,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1057:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1056:16:24"
+            },
+            "returnParameters": {
+              "id": 8047,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8046,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8048,
+                  "src": "1096:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 8044,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1096:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 8045,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1096:9:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1095:18:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8059,
+            "nodeType": "FunctionDefinition",
+            "src": "1318:106:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8049,
+              "nodeType": "StructuredDocumentation",
+              "src": "1120:193:24",
+              "text": "@notice Get all tokens owned by given address for a specific edition\n @param _owner Address of the owner\n @param _editionIndex Edition index\n @return Array of token IDs"
+            },
+            "functionSelector": "9f6cfaa2",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokensByOwner",
+            "nameLocation": "1327:16:24",
+            "parameters": {
+              "id": 8054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8051,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "1352:6:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8059,
+                  "src": "1344:14:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8050,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1344:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8053,
+                  "mutability": "mutable",
+                  "name": "_editionIndex",
+                  "nameLocation": "1368:13:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8059,
+                  "src": "1360:21:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8052,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1360:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1343:39:24"
+            },
+            "returnParameters": {
+              "id": 8058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8057,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8059,
+                  "src": "1406:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 8055,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1406:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 8056,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1406:9:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1405:18:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8068,
+            "nodeType": "FunctionDefinition",
+            "src": "1576:85:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8060,
+              "nodeType": "StructuredDocumentation",
+              "src": "1430:141:24",
+              "text": "@notice Get all editions owned  by a specific address\n @param _owner Address of the owner\n @return Array of edition indexes"
+            },
+            "functionSelector": "1e030939",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEditionsByOwner",
+            "nameLocation": "1585:18:24",
+            "parameters": {
+              "id": 8063,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8062,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "1612:6:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8068,
+                  "src": "1604:14:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8061,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1604:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1603:16:24"
+            },
+            "returnParameters": {
+              "id": 8067,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8066,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8068,
+                  "src": "1643:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 8064,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1643:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 8065,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1643:9:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1642:18:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 8078,
+            "nodeType": "FunctionDefinition",
+            "src": "1808:88:24",
+            "nodes": [],
+            "documentation": {
+              "id": 8069,
+              "nodeType": "StructuredDocumentation",
+              "src": "1667:136:24",
+              "text": "@notice Verifies if address owns an edition\n @param _owner Address of the owner\n @return True/false based on ownership"
+            },
+            "functionSelector": "6f2e2f27",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ownsEdition",
+            "nameLocation": "1817:11:24",
+            "parameters": {
+              "id": 8074,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8071,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "1837:6:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8078,
+                  "src": "1829:14:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8070,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1829:7:24",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8073,
+                  "mutability": "mutable",
+                  "name": "editionIndex",
+                  "nameLocation": "1853:12:24",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8078,
+                  "src": "1845:20:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8072,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1845:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1828:38:24"
+            },
+            "returnParameters": {
+              "id": 8077,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8076,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8078,
+                  "src": "1890:4:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 8075,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1890:4:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1889:6:24"
+            },
+            "scope": 8079,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IQueryableFacet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 8011,
+          "nodeType": "StructuredDocumentation",
+          "src": "58:104:24",
+          "text": " @dev Allow list Facet for updating AllowList Merkle Tree\n @author https://github.com/lively"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          8079
+        ],
+        "name": "IQueryableFacet",
+        "nameLocation": "173:15:24",
+        "scope": 8080,
+        "usedErrors": [
+          8013,
+          8015
+        ],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 24
+}

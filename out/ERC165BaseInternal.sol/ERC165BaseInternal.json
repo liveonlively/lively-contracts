@@ -1,0 +1,731 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "ERC165Base__InvalidInterfaceId",
+      "type": "error"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ERC165Base__InvalidInterfaceId\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"ERC165 implementation\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol\":\"ERC165BaseInternal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/@solidstate/contracts/interfaces/IERC165Internal.sol\":{\"keccak256\":\"0xf4d4708a60ed04887849509a258db49d4eb686f33214cb9c9643325cd8dae89d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://66e7ade64c12edf7adbc0f20c1195b3c635ea2df67b836215441a4fe22ae17da\",\"dweb:/ipfs/QmUAbU31ZYg3FrKzXCk8CE1FbCg6LNoB5HpR4pU2QwZc7p\"]},\"node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol\":{\"keccak256\":\"0xad163d89454d9c8a018880253c5be156ee0f847f05a392a12b2a7061c7fa8682\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f76be2455986e64dd5108360e42087c7f5d87552d60a256ff616d3258c01fa7d\",\"dweb:/ipfs/QmZEYtAya7yeZQ6BWBUYeCetm5Wem3vaxiq3mdx4DLLtUJ\"]},\"node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol\":{\"keccak256\":\"0xfd1cfba40f8aabda5898ffe21adeeea8c7011da12bfdad7f7aa0cf87b3635653\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6b80596a94faae265ecd9e03875ccebf5c1e45d94d8119dcf04e3a1cd92f5fb6\",\"dweb:/ipfs/QmVK8xje6PeEwVoZfFcugAdy43kLx59D9UHr4m8Qu9GgV9\"]},\"node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol\":{\"keccak256\":\"0xccda4b118c8c09c276a0e577168aa404ea6207aad6b384b04f5f3a8923316422\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dcbafa161920a2a39ac001c76ee166ae4b345bef3ee6a0c5ca505504c0e9c052\",\"dweb:/ipfs/QmTF3DPJQPLsiYTmGNZXGBkmVRs14g2bUb1QJDH4ywwMq5\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "ERC165Base__InvalidInterfaceId"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol": "ERC165BaseInternal"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/@solidstate/contracts/interfaces/IERC165Internal.sol": {
+        "keccak256": "0xf4d4708a60ed04887849509a258db49d4eb686f33214cb9c9643325cd8dae89d",
+        "urls": [
+          "bzz-raw://66e7ade64c12edf7adbc0f20c1195b3c635ea2df67b836215441a4fe22ae17da",
+          "dweb:/ipfs/QmUAbU31ZYg3FrKzXCk8CE1FbCg6LNoB5HpR4pU2QwZc7p"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol": {
+        "keccak256": "0xad163d89454d9c8a018880253c5be156ee0f847f05a392a12b2a7061c7fa8682",
+        "urls": [
+          "bzz-raw://f76be2455986e64dd5108360e42087c7f5d87552d60a256ff616d3258c01fa7d",
+          "dweb:/ipfs/QmZEYtAya7yeZQ6BWBUYeCetm5Wem3vaxiq3mdx4DLLtUJ"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol": {
+        "keccak256": "0xfd1cfba40f8aabda5898ffe21adeeea8c7011da12bfdad7f7aa0cf87b3635653",
+        "urls": [
+          "bzz-raw://6b80596a94faae265ecd9e03875ccebf5c1e45d94d8119dcf04e3a1cd92f5fb6",
+          "dweb:/ipfs/QmVK8xje6PeEwVoZfFcugAdy43kLx59D9UHr4m8Qu9GgV9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol": {
+        "keccak256": "0xccda4b118c8c09c276a0e577168aa404ea6207aad6b384b04f5f3a8923316422",
+        "urls": [
+          "bzz-raw://dcbafa161920a2a39ac001c76ee166ae4b345bef3ee6a0c5ca505504c0e9c052",
+          "dweb:/ipfs/QmTF3DPJQPLsiYTmGNZXGBkmVRs14g2bUb1QJDH4ywwMq5"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol",
+    "id": 34152,
+    "exportedSymbols": {
+      "ERC165BaseInternal": [
+        34151
+      ],
+      "ERC165BaseStorage": [
+        34176
+      ],
+      "IERC165BaseInternal": [
+        36544
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:1145:161",
+    "nodes": [
+      {
+        "id": 34101,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:161",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 34103,
+        "nodeType": "ImportDirective",
+        "src": "58:64:161",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol",
+        "file": "./IERC165BaseInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 34152,
+        "sourceUnit": 36545,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 34102,
+              "name": "IERC165BaseInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 36544,
+              "src": "67:19:161",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 34105,
+        "nodeType": "ImportDirective",
+        "src": "123:60:161",
+        "nodes": [],
+        "absolutePath": "node_modules/@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol",
+        "file": "./ERC165BaseStorage.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 34152,
+        "sourceUnit": 34177,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 34104,
+              "name": "ERC165BaseStorage",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 34176,
+              "src": "132:17:161",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 34151,
+        "nodeType": "ContractDefinition",
+        "src": "225:952:161",
+        "nodes": [
+          {
+            "id": 34124,
+            "nodeType": "FunctionDefinition",
+            "src": "512:182:161",
+            "nodes": [],
+            "body": {
+              "id": 34123,
+              "nodeType": "Block",
+              "src": "611:83:161",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "expression": {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "id": 34116,
+                            "name": "ERC165BaseStorage",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 34176,
+                            "src": "628:17:161",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_ERC165BaseStorage_$34176_$",
+                              "typeString": "type(library ERC165BaseStorage)"
+                            }
+                          },
+                          "id": 34117,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "646:6:161",
+                          "memberName": "layout",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 34175,
+                          "src": "628:24:161",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$34158_storage_ptr_$",
+                            "typeString": "function () pure returns (struct ERC165BaseStorage.Layout storage pointer)"
+                          }
+                        },
+                        "id": 34118,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "628:26:161",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Layout_$34158_storage_ptr",
+                          "typeString": "struct ERC165BaseStorage.Layout storage pointer"
+                        }
+                      },
+                      "id": 34119,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "655:19:161",
+                      "memberName": "supportedInterfaces",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 34157,
+                      "src": "628:46:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes4_$_t_bool_$",
+                        "typeString": "mapping(bytes4 => bool)"
+                      }
+                    },
+                    "id": 34121,
+                    "indexExpression": {
+                      "id": 34120,
+                      "name": "interfaceId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34111,
+                      "src": "675:11:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "628:59:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 34115,
+                  "id": 34122,
+                  "nodeType": "Return",
+                  "src": "621:66:161"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 34109,
+              "nodeType": "StructuredDocumentation",
+              "src": "291:216:161",
+              "text": " @notice indicates whether an interface is already supported based on the interfaceId\n @param interfaceId id of interface to check\n @return bool indicating whether interface is supported"
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_supportsInterface",
+            "nameLocation": "521:18:161",
+            "parameters": {
+              "id": 34112,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 34111,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "556:11:161",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 34124,
+                  "src": "549:18:161",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 34110,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "549:6:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "539:34:161"
+            },
+            "returnParameters": {
+              "id": 34115,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 34114,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 34124,
+                  "src": "605:4:161",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 34113,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "605:4:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "604:6:161"
+            },
+            "scope": 34151,
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "id": 34150,
+            "nodeType": "FunctionDefinition",
+            "src": "907:268:161",
+            "nodes": [],
+            "body": {
+              "id": 34149,
+              "nodeType": "Block",
+              "src": "1010:165:161",
+              "nodes": [],
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    },
+                    "id": 34134,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 34132,
+                      "name": "interfaceId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34127,
+                      "src": "1024:11:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30786666666666666666",
+                      "id": 34133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1039:10:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_4294967295_by_1",
+                        "typeString": "int_const 4294967295"
+                      },
+                      "value": "0xffffffff"
+                    },
+                    "src": "1024:25:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 34138,
+                  "nodeType": "IfStatement",
+                  "src": "1020:70:161",
+                  "trueBody": {
+                    "errorCall": {
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "id": 34135,
+                        "name": "ERC165Base__InvalidInterfaceId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 36543,
+                        "src": "1058:30:161",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 34136,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1058:32:161",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$__$",
+                        "typeString": "tuple()"
+                      }
+                    },
+                    "id": 34137,
+                    "nodeType": "RevertStatement",
+                    "src": "1051:39:161"
+                  }
+                },
+                {
+                  "expression": {
+                    "id": 34147,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "expression": {
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "id": 34139,
+                              "name": "ERC165BaseStorage",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 34176,
+                              "src": "1100:17:161",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_ERC165BaseStorage_$34176_$",
+                                "typeString": "type(library ERC165BaseStorage)"
+                              }
+                            },
+                            "id": 34141,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "1118:6:161",
+                            "memberName": "layout",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 34175,
+                            "src": "1100:24:161",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Layout_$34158_storage_ptr_$",
+                              "typeString": "function () pure returns (struct ERC165BaseStorage.Layout storage pointer)"
+                            }
+                          },
+                          "id": 34142,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "nameLocations": [],
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1100:26:161",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Layout_$34158_storage_ptr",
+                            "typeString": "struct ERC165BaseStorage.Layout storage pointer"
+                          }
+                        },
+                        "id": 34143,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1127:19:161",
+                        "memberName": "supportedInterfaces",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 34157,
+                        "src": "1100:46:161",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes4_$_t_bool_$",
+                          "typeString": "mapping(bytes4 => bool)"
+                        }
+                      },
+                      "id": 34145,
+                      "indexExpression": {
+                        "id": 34144,
+                        "name": "interfaceId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 34127,
+                        "src": "1147:11:161",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1100:59:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 34146,
+                      "name": "status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 34129,
+                      "src": "1162:6:161",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "1100:68:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 34148,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1100:68:161"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 34125,
+              "nodeType": "StructuredDocumentation",
+              "src": "700:202:161",
+              "text": " @notice sets status of interface support\n @param interfaceId id of interface to set status for\n @param status boolean indicating whether interface will be set as supported"
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_setSupportsInterface",
+            "nameLocation": "916:21:161",
+            "parameters": {
+              "id": 34130,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 34127,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "954:11:161",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 34150,
+                  "src": "947:18:161",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 34126,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "947:6:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 34129,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "980:6:161",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 34150,
+                  "src": "975:11:161",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 34128,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "975:4:161",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "937:55:161"
+            },
+            "returnParameters": {
+              "id": 34131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1010:0:161"
+            },
+            "scope": 34151,
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 34107,
+              "name": "IERC165BaseInternal",
+              "nameLocations": [
+                "265:19:161"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 36544,
+              "src": "265:19:161"
+            },
+            "id": 34108,
+            "nodeType": "InheritanceSpecifier",
+            "src": "265:19:161"
+          }
+        ],
+        "canonicalName": "ERC165BaseInternal",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 34106,
+          "nodeType": "StructuredDocumentation",
+          "src": "185:39:161",
+          "text": " @title ERC165 implementation"
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          34151,
+          36544,
+          34037
+        ],
+        "name": "ERC165BaseInternal",
+        "nameLocation": "243:18:161",
+        "scope": 34152,
+        "usedErrors": [
+          36543
+        ],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 161
+}

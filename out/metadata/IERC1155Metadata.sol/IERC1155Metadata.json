@@ -1,0 +1,360 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "URI",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "uri",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "uri(uint256)": "0e89341c"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"value\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"uri(uint256)\":{\"returns\":{\"_0\":\"token URI\"}}},\"title\":\"ERC1155Metadata interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"uri(uint256)\":{\"notice\":\"get generated URI for given token\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol\":\"IERC1155Metadata\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol\":{\"keccak256\":\"0x5996ccbe41ca8000926401f9172fe777853be594ca516bed5d56513f24b35798\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bf39d593cd22490c4048c654249e76eb2b9468acf7c4186c3859f51ebb0d1cd2\",\"dweb:/ipfs/Qmctmaqf57FN6Lw6kueCUYhEyYR4PVTT8gwRioZvBeBv7e\"]},\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155MetadataInternal.sol\":{\"keccak256\":\"0x394093a86fbfebdcda356fe9407480d81434aa162afc6a3e8efbf72a4c05b98d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://afd12f43c0ba7b94ebd701da54b200074f464c16861bb14adcf5593f0f854c17\",\"dweb:/ipfs/QmWCmvKp1dRce5uaGrNog1pmt5pQCzsjcFuALJqn6kLxLD\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "value",
+              "type": "string",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "URI",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "uri",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "uri(uint256)": {
+            "returns": {
+              "_0": "token URI"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "uri(uint256)": {
+            "notice": "get generated URI for given token"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol": "IERC1155Metadata"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol": {
+        "keccak256": "0x5996ccbe41ca8000926401f9172fe777853be594ca516bed5d56513f24b35798",
+        "urls": [
+          "bzz-raw://bf39d593cd22490c4048c654249e76eb2b9468acf7c4186c3859f51ebb0d1cd2",
+          "dweb:/ipfs/Qmctmaqf57FN6Lw6kueCUYhEyYR4PVTT8gwRioZvBeBv7e"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155MetadataInternal.sol": {
+        "keccak256": "0x394093a86fbfebdcda356fe9407480d81434aa162afc6a3e8efbf72a4c05b98d",
+        "urls": [
+          "bzz-raw://afd12f43c0ba7b94ebd701da54b200074f464c16861bb14adcf5593f0f854c17",
+          "dweb:/ipfs/QmWCmvKp1dRce5uaGrNog1pmt5pQCzsjcFuALJqn6kLxLD"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol",
+    "id": 20112,
+    "exportedSymbols": {
+      "IERC1155Metadata": [
+        20111
+      ],
+      "IERC1155MetadataInternal": [
+        20121
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:367:106",
+    "nodes": [
+      {
+        "id": 20097,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:106",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 20099,
+        "nodeType": "ImportDirective",
+        "src": "58:74:106",
+        "nodes": [],
+        "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/metadata/IERC1155MetadataInternal.sol",
+        "file": "./IERC1155MetadataInternal.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 20112,
+        "sourceUnit": 20122,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 20098,
+              "name": "IERC1155MetadataInternal",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 20121,
+              "src": "67:24:106",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 20111,
+        "nodeType": "ContractDefinition",
+        "src": "178:221:106",
+        "nodes": [
+          {
+            "id": 20110,
+            "nodeType": "FunctionDefinition",
+            "src": "329:68:106",
+            "nodes": [],
+            "documentation": {
+              "id": 20103,
+              "nodeType": "StructuredDocumentation",
+              "src": "239:85:106",
+              "text": " @notice get generated URI for given token\n @return token URI"
+            },
+            "functionSelector": "0e89341c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uri",
+            "nameLocation": "338:3:106",
+            "parameters": {
+              "id": 20106,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20105,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "350:7:106",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20110,
+                  "src": "342:15:106",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20104,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "342:7:106",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "341:17:106"
+            },
+            "returnParameters": {
+              "id": 20109,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20108,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20110,
+                  "src": "382:13:106",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 20107,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:6:106",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "381:15:106"
+            },
+            "scope": 20111,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 20101,
+              "name": "IERC1155MetadataInternal",
+              "nameLocations": [
+                "208:24:106"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 20121,
+              "src": "208:24:106"
+            },
+            "id": 20102,
+            "nodeType": "InheritanceSpecifier",
+            "src": "208:24:106"
+          }
+        ],
+        "canonicalName": "IERC1155Metadata",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 20100,
+          "nodeType": "StructuredDocumentation",
+          "src": "134:43:106",
+          "text": " @title ERC1155Metadata interface"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          20111,
+          20121
+        ],
+        "name": "IERC1155Metadata",
+        "nameLocation": "188:16:106",
+        "scope": 20112,
+        "usedErrors": [],
+        "usedEvents": [
+          20120
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 106
+}

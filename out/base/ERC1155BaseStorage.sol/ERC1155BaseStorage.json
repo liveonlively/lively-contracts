@@ -1,0 +1,525 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c8ce633208da234f36378515545d9770b284ae863843277c62364106a77fbc2964736f6c63430008140033",
+    "sourceMap": "58:468:96:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;58:468:96;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c8ce633208da234f36378515545d9770b284ae863843277c62364106a77fbc2964736f6c63430008140033",
+    "sourceMap": "58:468:96:-:0;;;;;;;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol\":\"ERC1155BaseStorage\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol\":{\"keccak256\":\"0x5bc1fde9bab7b338312099733e21c7bbbc44597fd25970bd68187eb65e622ef1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c29f21cd4b1225a48b4ad8647d65f5787e3117fdbf7df2ee4040b3566903892\",\"dweb:/ipfs/QmYLmrkDErz9Nufh1vFrCjSyFH8cHhcXw5Cqy9EhmE8Ai4\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol": "ERC1155BaseStorage"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol": {
+        "keccak256": "0x5bc1fde9bab7b338312099733e21c7bbbc44597fd25970bd68187eb65e622ef1",
+        "urls": [
+          "bzz-raw://6c29f21cd4b1225a48b4ad8647d65f5787e3117fdbf7df2ee4040b3566903892",
+          "dweb:/ipfs/QmYLmrkDErz9Nufh1vFrCjSyFH8cHhcXw5Cqy9EhmE8Ai4"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "node_modules/.pnpm/@solidstate+contracts@0.0.57/node_modules/@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol",
+    "id": 19377,
+    "exportedSymbols": {
+      "ERC1155BaseStorage": [
+        19376
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:494:96",
+    "nodes": [
+      {
+        "id": 19345,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:96",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".8"
+        ]
+      },
+      {
+        "id": 19376,
+        "nodeType": "ContractDefinition",
+        "src": "58:468:96",
+        "nodes": [
+          {
+            "id": 19358,
+            "nodeType": "StructDefinition",
+            "src": "91:159:96",
+            "nodes": [],
+            "canonicalName": "ERC1155BaseStorage.Layout",
+            "members": [
+              {
+                "constant": false,
+                "id": 19351,
+                "mutability": "mutable",
+                "name": "balances",
+                "nameLocation": "163:8:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 19358,
+                "src": "115:56:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_address_$_t_uint256_$_$",
+                  "typeString": "mapping(uint256 => mapping(address => uint256))"
+                },
+                "typeName": {
+                  "id": 19350,
+                  "keyName": "",
+                  "keyNameLocation": "-1:-1:-1",
+                  "keyType": {
+                    "id": 19346,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "123:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "115:47:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_address_$_t_uint256_$_$",
+                    "typeString": "mapping(uint256 => mapping(address => uint256))"
+                  },
+                  "valueName": "",
+                  "valueNameLocation": "-1:-1:-1",
+                  "valueType": {
+                    "id": 19349,
+                    "keyName": "",
+                    "keyNameLocation": "-1:-1:-1",
+                    "keyType": {
+                      "id": 19347,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "142:7:96",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Mapping",
+                    "src": "134:27:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                      "typeString": "mapping(address => uint256)"
+                    },
+                    "valueName": "",
+                    "valueNameLocation": "-1:-1:-1",
+                    "valueType": {
+                      "id": 19348,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "153:7:96",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    }
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 19357,
+                "mutability": "mutable",
+                "name": "operatorApprovals",
+                "nameLocation": "226:17:96",
+                "nodeType": "VariableDeclaration",
+                "scope": 19358,
+                "src": "181:62:96",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                  "typeString": "mapping(address => mapping(address => bool))"
+                },
+                "typeName": {
+                  "id": 19356,
+                  "keyName": "",
+                  "keyNameLocation": "-1:-1:-1",
+                  "keyType": {
+                    "id": 19352,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "189:7:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "181:44:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
+                    "typeString": "mapping(address => mapping(address => bool))"
+                  },
+                  "valueName": "",
+                  "valueNameLocation": "-1:-1:-1",
+                  "valueType": {
+                    "id": 19355,
+                    "keyName": "",
+                    "keyNameLocation": "-1:-1:-1",
+                    "keyType": {
+                      "id": 19353,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "208:7:96",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Mapping",
+                    "src": "200:24:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                      "typeString": "mapping(address => bool)"
+                    },
+                    "valueName": "",
+                    "valueNameLocation": "-1:-1:-1",
+                    "valueType": {
+                      "id": 19354,
+                      "name": "bool",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "219:4:96",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Layout",
+            "nameLocation": "98:6:96",
+            "scope": 19376,
+            "visibility": "public"
+          },
+          {
+            "id": 19363,
+            "nodeType": "VariableDeclaration",
+            "src": "256:102:96",
+            "nodes": [],
+            "constant": true,
+            "mutability": "constant",
+            "name": "STORAGE_SLOT",
+            "nameLocation": "282:12:96",
+            "scope": 19376,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 19359,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "256:7:96",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "736f6c696473746174652e636f6e7472616374732e73746f726167652e4552433131353542617365",
+                  "id": 19361,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "315:42:96",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_1799cf914cb0cb442ca7c7ac709ee40d0cb89e87351dc08d517fbda27d50c68b",
+                    "typeString": "literal_string \"solidstate.contracts.storage.ERC1155Base\""
+                  },
+                  "value": "solidstate.contracts.storage.ERC1155Base"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_stringliteral_1799cf914cb0cb442ca7c7ac709ee40d0cb89e87351dc08d517fbda27d50c68b",
+                    "typeString": "literal_string \"solidstate.contracts.storage.ERC1155Base\""
+                  }
+                ],
+                "id": 19360,
+                "name": "keccak256",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": -8,
+                "src": "305:9:96",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                  "typeString": "function (bytes memory) pure returns (bytes32)"
+                }
+              },
+              "id": 19362,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "nameLocations": [],
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "305:53:96",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 19375,
+            "nodeType": "FunctionDefinition",
+            "src": "365:159:96",
+            "nodes": [],
+            "body": {
+              "id": 19374,
+              "nodeType": "Block",
+              "src": "424:100:96",
+              "nodes": [],
+              "statements": [
+                {
+                  "assignments": [
+                    19370
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 19370,
+                      "mutability": "mutable",
+                      "name": "slot",
+                      "nameLocation": "442:4:96",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 19374,
+                      "src": "434:12:96",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 19369,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "434:7:96",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 19372,
+                  "initialValue": {
+                    "id": 19371,
+                    "name": "STORAGE_SLOT",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 19363,
+                    "src": "449:12:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "434:27:96"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "480:38:96",
+                    "statements": [
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "494:14:96",
+                        "value": {
+                          "name": "slot",
+                          "nodeType": "YulIdentifier",
+                          "src": "504:4:96"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "l.slot",
+                            "nodeType": "YulIdentifier",
+                            "src": "494:6:96"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "evmVersion": "paris",
+                  "externalReferences": [
+                    {
+                      "declaration": 19367,
+                      "isOffset": false,
+                      "isSlot": true,
+                      "src": "494:6:96",
+                      "suffix": "slot",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 19370,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "504:4:96",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 19373,
+                  "nodeType": "InlineAssembly",
+                  "src": "471:47:96"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "layout",
+            "nameLocation": "374:6:96",
+            "parameters": {
+              "id": 19364,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "380:2:96"
+            },
+            "returnParameters": {
+              "id": 19368,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19367,
+                  "mutability": "mutable",
+                  "name": "l",
+                  "nameLocation": "421:1:96",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 19375,
+                  "src": "406:16:96",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Layout_$19358_storage_ptr",
+                    "typeString": "struct ERC1155BaseStorage.Layout"
+                  },
+                  "typeName": {
+                    "id": 19366,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 19365,
+                      "name": "Layout",
+                      "nameLocations": [
+                        "406:6:96"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 19358,
+                      "src": "406:6:96"
+                    },
+                    "referencedDeclaration": 19358,
+                    "src": "406:6:96",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Layout_$19358_storage_ptr",
+                      "typeString": "struct ERC1155BaseStorage.Layout"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "405:18:96"
+            },
+            "scope": 19376,
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ERC1155BaseStorage",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          19376
+        ],
+        "name": "ERC1155BaseStorage",
+        "nameLocation": "66:18:96",
+        "scope": 19377,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 96
+}

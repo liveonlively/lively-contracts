@@ -1,0 +1,1454 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "AccountAlreadyAllowListed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AccountNotAllowListed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllowListAmountExceeded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllowListDisabled",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllowListEnabled",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllowListMintUnopened",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MintNotOpen",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotOnAllowList",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "allowance",
+          "type": "uint256"
+        }
+      ],
+      "name": "AllowListAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "accounts",
+          "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "allowance",
+          "type": "uint256"
+        }
+      ],
+      "name": "AllowListAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "allowance",
+          "type": "uint256"
+        }
+      ],
+      "name": "AllowListAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "accounts",
+          "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "allowance",
+          "type": "uint256"
+        }
+      ],
+      "name": "AllowListAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "AllowListRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "accounts",
+          "type": "address[]"
+        }
+      ],
+      "name": "AllowListRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "AllowListRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "accounts",
+          "type": "address[]"
+        }
+      ],
+      "name": "AllowListRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "AllowListStatus",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "AllowListStatus",
+      "type": "event"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AccountAlreadyAllowListed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AccountNotAllowListed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AllowListAmountExceeded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AllowListDisabled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AllowListEnabled\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"AllowListMintUnopened\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MintNotOpen\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotOnAllowList\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"}],\"name\":\"AllowListAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"}],\"name\":\"AllowListAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"}],\"name\":\"AllowListAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"}],\"name\":\"AllowListAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AllowListRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"name\":\"AllowListRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AllowListRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"name\":\"AllowListRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"name\":\"AllowListStatus\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"name\":\"AllowListStatus\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/shared/utils/AllowList/IAllowListInternal.sol\":\"IAllowListInternal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidstate/=node_modules/@solidstate/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":hardhat/=node_modules/hardhat/\",\":operator-filter-registry/=node_modules/operator-filter-registry/\"]},\"sources\":{\"contracts/shared/utils/AllowList/IAllowListInternal.sol\":{\"keccak256\":\"0xa6a8998b51ce2377123ad5fa8ea239cc7e17cb72c85342544e352028c2adba3c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ecedbf19a4f8e394e6b4037d3ed5aeec5a92fe240ac6c21cde6e6d9e7e27982a\",\"dweb:/ipfs/QmTZwbaTMYAFFf5WVPWAbFdbBNbGAkWcT55SJ54YSZNnVz\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AccountAlreadyAllowListed"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AccountNotAllowListed"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AllowListAmountExceeded"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AllowListDisabled"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AllowListEnabled"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "AllowListMintUnopened"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "MintNotOpen"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "NotOnAllowList"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "allowance",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListAdded",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "accounts",
+              "type": "address[]",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "allowance",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListAdded",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "allowance",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListAdded",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address[]",
+              "name": "accounts",
+              "type": "address[]",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "allowance",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListAdded",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListRemoved",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address[]",
+              "name": "accounts",
+              "type": "address[]",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListRemoved",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListRemoved",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address[]",
+              "name": "accounts",
+              "type": "address[]",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListRemoved",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bool",
+              "name": "status",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListStatus",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "bool",
+              "name": "status",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "AllowListStatus",
+          "anonymous": false
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidstate/=node_modules/@solidstate/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":hardhat/=node_modules/hardhat/",
+        ":operator-filter-registry/=node_modules/operator-filter-registry/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/shared/utils/AllowList/IAllowListInternal.sol": "IAllowListInternal"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/shared/utils/AllowList/IAllowListInternal.sol": {
+        "keccak256": "0xa6a8998b51ce2377123ad5fa8ea239cc7e17cb72c85342544e352028c2adba3c",
+        "urls": [
+          "bzz-raw://ecedbf19a4f8e394e6b4037d3ed5aeec5a92fe240ac6c21cde6e6d9e7e27982a",
+          "dweb:/ipfs/QmTZwbaTMYAFFf5WVPWAbFdbBNbGAkWcT55SJ54YSZNnVz"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/shared/utils/AllowList/IAllowListInternal.sol",
+    "id": 14551,
+    "exportedSymbols": {
+      "IAllowListInternal": [
+        14550
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:926:56",
+    "nodes": [
+      {
+        "id": 14471,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:56",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 14550,
+        "nodeType": "ContractDefinition",
+        "src": "58:899:56",
+        "nodes": [
+          {
+            "id": 14473,
+            "nodeType": "ErrorDefinition",
+            "src": "93:30:56",
+            "nodes": [],
+            "errorSelector": "21ba6abf",
+            "name": "AccountNotAllowListed",
+            "nameLocation": "99:21:56",
+            "parameters": {
+              "id": 14472,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "120:2:56"
+            }
+          },
+          {
+            "id": 14475,
+            "nodeType": "ErrorDefinition",
+            "src": "128:34:56",
+            "nodes": [],
+            "errorSelector": "c18a4f87",
+            "name": "AccountAlreadyAllowListed",
+            "nameLocation": "134:25:56",
+            "parameters": {
+              "id": 14474,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "159:2:56"
+            }
+          },
+          {
+            "id": 14477,
+            "nodeType": "ErrorDefinition",
+            "src": "167:25:56",
+            "nodes": [],
+            "errorSelector": "989aa33b",
+            "name": "AllowListEnabled",
+            "nameLocation": "173:16:56",
+            "parameters": {
+              "id": 14476,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:2:56"
+            }
+          },
+          {
+            "id": 14479,
+            "nodeType": "ErrorDefinition",
+            "src": "197:26:56",
+            "nodes": [],
+            "errorSelector": "53bcf515",
+            "name": "AllowListDisabled",
+            "nameLocation": "203:17:56",
+            "parameters": {
+              "id": 14478,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "220:2:56"
+            }
+          },
+          {
+            "id": 14481,
+            "nodeType": "ErrorDefinition",
+            "src": "228:20:56",
+            "nodes": [],
+            "errorSelector": "951b974f",
+            "name": "MintNotOpen",
+            "nameLocation": "234:11:56",
+            "parameters": {
+              "id": 14480,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "245:2:56"
+            }
+          },
+          {
+            "id": 14483,
+            "nodeType": "ErrorDefinition",
+            "src": "253:23:56",
+            "nodes": [],
+            "errorSelector": "60cea48b",
+            "name": "NotOnAllowList",
+            "nameLocation": "259:14:56",
+            "parameters": {
+              "id": 14482,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "273:2:56"
+            }
+          },
+          {
+            "id": 14485,
+            "nodeType": "ErrorDefinition",
+            "src": "281:32:56",
+            "nodes": [],
+            "errorSelector": "23bd2c13",
+            "name": "AllowListAmountExceeded",
+            "nameLocation": "287:23:56",
+            "parameters": {
+              "id": 14484,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "310:2:56"
+            }
+          },
+          {
+            "id": 14487,
+            "nodeType": "ErrorDefinition",
+            "src": "318:30:56",
+            "nodes": [],
+            "errorSelector": "de1100ae",
+            "name": "AllowListMintUnopened",
+            "nameLocation": "324:21:56",
+            "parameters": {
+              "id": 14486,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "345:2:56"
+            }
+          },
+          {
+            "id": 14491,
+            "nodeType": "EventDefinition",
+            "src": "354:35:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "3ed5bae460d400b46b17c2a526bd9c2b77d9779d091c58f4a6873ad934eff05c",
+            "name": "AllowListStatus",
+            "nameLocation": "360:15:56",
+            "parameters": {
+              "id": 14490,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14489,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "381:6:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14491,
+                  "src": "376:11:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 14488,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "376:4:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "375:13:56"
+            }
+          },
+          {
+            "id": 14497,
+            "nodeType": "EventDefinition",
+            "src": "394:57:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "5e408c72f624279596afadf0c28628a0f8bc3ca871137c68c100c07c3e2ec632",
+            "name": "AllowListAdded",
+            "nameLocation": "400:14:56",
+            "parameters": {
+              "id": 14496,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14493,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "423:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14497,
+                  "src": "415:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14492,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "415:7:56",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14495,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "allowance",
+                  "nameLocation": "440:9:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14497,
+                  "src": "432:17:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14494,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "432:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "414:36:56"
+            }
+          },
+          {
+            "id": 14504,
+            "nodeType": "EventDefinition",
+            "src": "456:60:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "e3daa9e9b624dbc59e18288c49890dfc6bed86dd3d18efec1f9e3ccada3f7429",
+            "name": "AllowListAdded",
+            "nameLocation": "462:14:56",
+            "parameters": {
+              "id": 14503,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14500,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "accounts",
+                  "nameLocation": "487:8:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14504,
+                  "src": "477:18:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 14498,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "477:7:56",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 14499,
+                    "nodeType": "ArrayTypeName",
+                    "src": "477:9:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14502,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "allowance",
+                  "nameLocation": "505:9:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14504,
+                  "src": "497:17:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14501,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "497:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "476:39:56"
+            }
+          },
+          {
+            "id": 14508,
+            "nodeType": "EventDefinition",
+            "src": "521:40:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "e7fc45e1e6a61a6d67e182d4847f8c2dcde282d7008410c1bc3a7e8fa299eb90",
+            "name": "AllowListRemoved",
+            "nameLocation": "527:16:56",
+            "parameters": {
+              "id": 14507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14506,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "552:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14508,
+                  "src": "544:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14505,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "544:7:56",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "543:17:56"
+            }
+          },
+          {
+            "id": 14513,
+            "nodeType": "EventDefinition",
+            "src": "566:43:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "b537a0382d24c98056e6eb1475e7bc8ae789017ab4236ef298822a971b0a96ef",
+            "name": "AllowListRemoved",
+            "nameLocation": "572:16:56",
+            "parameters": {
+              "id": 14512,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14511,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "accounts",
+                  "nameLocation": "599:8:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14513,
+                  "src": "589:18:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 14509,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "589:7:56",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 14510,
+                    "nodeType": "ArrayTypeName",
+                    "src": "589:9:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "588:20:56"
+            }
+          },
+          {
+            "id": 14519,
+            "nodeType": "EventDefinition",
+            "src": "615:52:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "37b57eb22f2f6cd66cdec8f97236a500e2bcd46e574738fe319c240339e756d8",
+            "name": "AllowListStatus",
+            "nameLocation": "621:15:56",
+            "parameters": {
+              "id": 14518,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14515,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "645:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14519,
+                  "src": "637:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14514,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "637:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14517,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "status",
+                  "nameLocation": "659:6:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14519,
+                  "src": "654:11:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 14516,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "654:4:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "636:30:56"
+            }
+          },
+          {
+            "id": 14527,
+            "nodeType": "EventDefinition",
+            "src": "672:74:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "28fe12e21bec3527bc7a181a87ca5e7a646218458e8cb90ce845bbe5cf7a1766",
+            "name": "AllowListAdded",
+            "nameLocation": "678:14:56",
+            "parameters": {
+              "id": 14526,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14521,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "701:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14527,
+                  "src": "693:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14520,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "693:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14523,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "718:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14527,
+                  "src": "710:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14522,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:56",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14525,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "allowance",
+                  "nameLocation": "735:9:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14527,
+                  "src": "727:17:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14524,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "727:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "692:53:56"
+            }
+          },
+          {
+            "id": 14536,
+            "nodeType": "EventDefinition",
+            "src": "751:77:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "88d7a64ca203aeae11370903ed741761b75b74a9b5326424f737435d05f8531c",
+            "name": "AllowListAdded",
+            "nameLocation": "757:14:56",
+            "parameters": {
+              "id": 14535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14529,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "780:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14536,
+                  "src": "772:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14528,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "772:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14532,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "accounts",
+                  "nameLocation": "799:8:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14536,
+                  "src": "789:18:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 14530,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "789:7:56",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 14531,
+                    "nodeType": "ArrayTypeName",
+                    "src": "789:9:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14534,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "allowance",
+                  "nameLocation": "817:9:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14536,
+                  "src": "809:17:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14533,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "809:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "771:56:56"
+            }
+          },
+          {
+            "id": 14542,
+            "nodeType": "EventDefinition",
+            "src": "833:57:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "286976365d14354f2f275133839a23cf944d19c9e56cd78fe3d07c84c88c0bfd",
+            "name": "AllowListRemoved",
+            "nameLocation": "839:16:56",
+            "parameters": {
+              "id": 14541,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14538,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "864:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14542,
+                  "src": "856:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14537,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "856:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14540,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "881:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14542,
+                  "src": "873:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14539,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "873:7:56",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "855:34:56"
+            }
+          },
+          {
+            "id": 14549,
+            "nodeType": "EventDefinition",
+            "src": "895:60:56",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "94400dfbb04fc4e1b8c67dfab336eb5c8c568afbc1eeae4c1244831db69778ae",
+            "name": "AllowListRemoved",
+            "nameLocation": "901:16:56",
+            "parameters": {
+              "id": 14548,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14544,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "926:7:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14549,
+                  "src": "918:15:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14543,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "918:7:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14547,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "accounts",
+                  "nameLocation": "945:8:56",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14549,
+                  "src": "935:18:56",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 14545,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "935:7:56",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 14546,
+                    "nodeType": "ArrayTypeName",
+                    "src": "935:9:56",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "917:37:56"
+            }
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IAllowListInternal",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          14550
+        ],
+        "name": "IAllowListInternal",
+        "nameLocation": "68:18:56",
+        "scope": 14551,
+        "usedErrors": [
+          14473,
+          14475,
+          14477,
+          14479,
+          14481,
+          14483,
+          14485,
+          14487
+        ],
+        "usedEvents": [
+          14491,
+          14497,
+          14504,
+          14508,
+          14513,
+          14519,
+          14527,
+          14536,
+          14542,
+          14549
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 56
+}
