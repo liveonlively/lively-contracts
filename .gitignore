@@ -11,6 +11,15 @@ node_modules
 types
 deployments
 
+abi/
+contracts/abi/
+contracts/README.md
+artifacts/
+artifacts_forge/
+
+types
+
+
 # files
 *.env
 *.log
@@ -19,3 +28,11 @@ deployments
 coverage.json
 package-lock.json
 yarn.lock
+
+# Forge
+#/lib
+/out
+
+#Build
+.swc/
+out/

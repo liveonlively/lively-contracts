@@ -670,6 +670,46 @@
         }
       }
     },
+    "contracts/ERC1155-Diamond/facets/PackFacet.sol": {
+      "lastModificationDate": 1686779173857,
+      "contentHash": "39b758b32f5561f1f8bf4eae7365c670",
+      "sourceName": "contracts/ERC1155-Diamond/facets/PackFacet.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.18",
+      "artifacts": {
+        "PackFacet": {
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "PackFacet.sol/PackFacet.json"
+        }
+      }
+    },
     "contracts/ERC1155-Diamond/interfaces/IERC1155Facet.sol": {
       "lastModificationDate": 1686512334727,
       "contentHash": "38f5fca2bb421edaac32adc846c0a695",
