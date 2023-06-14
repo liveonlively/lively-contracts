@@ -19,6 +19,7 @@ export const generateDummyContract = (
 ): string => {
   const structs = facetList
     .reduce((structsArr: any, contract) => {
+      console.log({ contract, structsArr });
       return [...structsArr, ...getFormattedStructs(contract)];
     }, [])
     .filter(dedoop);
@@ -69,23 +70,37 @@ ${signatures.reduce((all, sig) => {
 `;
 
 const getFormattedSignatures = (facet: Contract) => {
-  const signatures = Object.keys(facet.interface.functions);
+  // const signatures = Object.keys(facet.interface.functions);
+  console.log("------Inside getFormattedSignatures------");
+  const signatures: FunctionFragment[] = Object.values(facet.interface.fragments).filter(
+    (fragment) => fragment.type === "function",
+  ) as FunctionFragment[];
 
-  return signatures.map((signature) => formatSignature(facet.interface.functions[signature]));
+  console.log({ signatures: JSON.stringify(signatures, null, 2) });
+
+  return signatures.map((signature) => formatSignature(signature));
 };
 
 const formatSignature = (func: FunctionFragment) => {
-  const paramsString = formatParams(func.inputs);
+  console.log("Inside formatSignature");
+  // const paramsString = formatParams(func.inputs);
+  const paramsString = func.inputs.reduce((currStr, param, i) => {
+    return `${currStr}${param.type} ${param.name}${i < func.inputs.length - 1 ? ", " : ""}`;
+  }, "");
+  console.log({ paramsString });
   if (!func.outputs) return new Error("No outputs");
   const outputStr = formatParams(func.outputs);
+  console.log({ outputStr });
 
   const stateMutability = func.stateMutability === "nonpayable" ? "" : ` ${func.stateMutability}`;
+  console.log({ stateMutability });
   const outputs = outputStr ? ` returns (${outputStr})` : "";
+  console.log({ outputs });
 
   return `function ${func.name}(${paramsString}) external${stateMutability}${outputs} {}`;
 };
 
-const formatParams = (params: ParamType[]): string => {
+const formatParams = (params: readonly ParamType[]): string => {
   const paramsString = params.reduce((currStr, param, i) => {
     const comma = i < params.length - 1 ? ", " : "";
     const formattedType = formatType(param);
@@ -98,10 +113,13 @@ const formatParams = (params: ParamType[]): string => {
 };
 
 const formatType = (type: ParamType) => {
+  console.log("Inside formatType: ", { type });
   const storageLocation = getStorageLocationForType(type.type);
-
+  console.log({ storageLocation });
   const arrString = getArrayString(type);
+  console.log({ arrString });
   const formattedType = type.components ? getTupleName(type) + arrString : type.type;
+  console.log({ formattedType });
 
   return `${formattedType} ${storageLocation}`;
 };
@@ -155,7 +173,13 @@ function hashCode(str: string) {
 
 // declare structs used in function arguments
 const getFormattedStructs = (facet: Contract) => {
-  const funcs = Object.values(facet.interface.functions);
+  console.log("Generating structs for facet: ", facet, "...");
+
+  const funcs: FunctionFragment[] = Object.values(facet.interface.fragments).filter(
+    (fragment) => fragment.type === "function",
+  ) as FunctionFragment[];
+
+  console.log("Inside getFormattedStructs: ", { funcs });
 
   const inputStructs = funcs.reduce((inputStructsArr: any, func) => {
     return [...inputStructsArr, ...getFormattedStructsFromParams(func.inputs)];
@@ -166,14 +190,20 @@ const getFormattedStructs = (facet: Contract) => {
     return [...outputStructsArr, ...getFormattedStructsFromParams(func.outputs)];
   }, []);
 
+  console.log({ inputStructs, outputStructs });
+
   return [...inputStructs, ...outputStructs];
 };
 
-const getFormattedStructsFromParams = (params: ParamType[]): string[] => {
-  return params
+const getFormattedStructsFromParams = (params: readonly ParamType[]): string[] => {
+  console.log("Inside getFormattedStructsFromParams");
+  const formatStructResult = params
     .map(recursiveFormatStructs)
     .flat()
     .filter((str) => str.indexOf(" struct ") !== -1);
+  console.log({ formatStructResult });
+
+  return formatStructResult;
 };
 
 const recursiveFormatStructs = (param: ParamType): string[] => {

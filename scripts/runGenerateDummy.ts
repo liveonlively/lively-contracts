@@ -7,7 +7,7 @@ import { generateDummyContract } from "./dummyDiamond/generateDummyContract";
 const main = async () => {
   const diamondAddress = "0x0000000000000000000000000000000000000000";
   const network = "localhost";
-  const contractTypes = ["1155", "721"];
+  const contractTypes = ["721"]; // Remove 1155 to simplify the v5 -> v6 upgrade
 
   if (!diamondAddress || !network) {
     throw new Error("missing argument");
