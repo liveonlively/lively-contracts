@@ -27,9 +27,12 @@ jobs:
         with:
           cache: "pnpm"
           node-version: "lts/*"
+          cache-dependency-path: |
+            packages/lively-diamond/pnpm-lock.json
+            pnpm-lock.yaml
 
       - name: "Install the dependencies"
-        run: "pnpm install"
+        run: pnpm install --frozen-lockfile
 
       - name: "Lint the code"
         run: "pnpm lint"
