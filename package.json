@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "coverage": "turbo run coverage",
     "dev": "turbo run dev",
     "typechain": "turbo run typechain",
     "lint": "turbo run lint",
