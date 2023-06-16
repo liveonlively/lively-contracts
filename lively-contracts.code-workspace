@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "packages/lively-diamond",
+      "name": "💎 lively-diamond"
+    },
+    {
+      "path": "packages/sdk-lively-contracts",
+      "name": "🤖 sdk"
+    },
+    {
+      "path": ".",
+      "name": "🌳 root"
+    }
+  ]
+}

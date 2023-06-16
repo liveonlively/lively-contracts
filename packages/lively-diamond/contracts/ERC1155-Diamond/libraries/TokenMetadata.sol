@@ -112,7 +112,14 @@ library TokenMetadata {
     }
 
     function toString(TokenType tokenType) internal pure returns (string memory) {
-        return tokenType == TokenType.ERC721 ? "ERC721" : tokenType == TokenType.ERC1155 ? "ERC1155" : "ERC20";
+        // return tokenType == TokenType.ERC721 ? "ERC721" : tokenType == TokenType.ERC1155 ? "ERC1155" : "ERC20";
+        if (tokenType == TokenType.ERC721) {
+            return "ERC721";
+        } else if (tokenType == TokenType.ERC1155) {
+            return "ERC1155";
+        } else {
+            return "ERC20";
+        }
     }
 
     function makeContractURI(
