@@ -94,16 +94,18 @@ contract Diamond1155Init is OwnableInternal, IPaymentSplitterInternal {
         }
         ERC1155Storage.Layout storage s = ERC1155Storage.layout();
         ERC2981Storage.Layout storage ers = ERC2981Storage.layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
 
         // Set various state variables
         OwnableStorage.layout().owner = msg.sender;
         ERC1155MetadataStorage.layout().baseURI = _args._baseURI;
+
         if (_args._airdrop) s.airdrop = _args._airdrop;
         s.name = _args._name;
         s.symbol = _args._symbol;
         s.contractURI = _args._contractURI;
-        if (_args._isPriceUSD) s.isPriceUSD = _args._isPriceUSD;
-        if (_args._automaticUSDConversion) s.automaticUSDConversion = _args._automaticUSDConversion;
+        if (_args._isPriceUSD) pss.isPriceUSD = _args._isPriceUSD;
+        if (_args._automaticUSDConversion) pss.automaticUSDConversion = _args._automaticUSDConversion;
 
         // Initialize PaymentSplitter information (Primary Royalties)
         uint256 i;

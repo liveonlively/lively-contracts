@@ -195,4 +195,22 @@ abstract contract PaymentSplitterInternal is IPaymentSplitterInternal {
 
         emit PayeeAdded(account, shares_);
     }
+
+    /**
+     * Returns whether isPriceUsd is set to true or false
+     */
+    function _isPriceUSD() internal view returns (bool) {
+        return PaymentSplitterStorage.layout().isPriceUSD;
+    }
+
+    /**
+     * Returns whether automaticUSDConversion is set to true or false
+     */
+    function _automaticUSDConversion() internal view returns (bool) {
+        return PaymentSplitterStorage.layout().automaticUSDConversion;
+    }
+
+    /**
+     * Sets isPriceUSD to true or false, owner only
+     */
 }

@@ -57,4 +57,12 @@ abstract contract PaymentSplitter is PaymentSplitterInternal, OwnableInternal {
     function addPayee(address account, uint256 shares_) public virtual onlyOwner {
         return _addPayee(account, shares_);
     }
+
+    function isPriceUSD() public view virtual returns (bool) {
+        return _isPriceUSD();
+    }
+
+    function automaticUSDConversion() public view virtual returns (bool) {
+        return _automaticUSDConversion();
+    }
 }

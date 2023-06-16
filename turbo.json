@@ -11,6 +11,7 @@
       "persistent": true
     },
     "typechain": {},
-    "coverage": {}
+    "coverage": {},
+    "test": {}
   }
 }

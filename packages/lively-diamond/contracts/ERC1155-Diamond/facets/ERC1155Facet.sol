@@ -11,6 +11,7 @@ import { CoinSwapper } from "../../shared/libraries/CoinSwapper.sol";
 import { OwnableInternal } from "@solidstate/contracts/access/ownable/Ownable.sol";
 import { PausableInternal } from "@solidstate/contracts/security/pausable/PausableInternal.sol";
 import { MetadataInternal, MetadataStorage } from "../utils/Metadata/MetadataInternal.sol";
+import { PaymentSplitterStorage } from "../../shared/utils/PaymentSplitter/PaymentSplitterStorage.sol";
 import { DefaultOperatorFilterer } from "operator-filter-registry/src/DefaultOperatorFilterer.sol";
 import { ERC1155BaseStorage } from "@solidstate/contracts/token/ERC1155/base/ERC1155BaseStorage.sol";
 import { IERC1155Metadata } from "@solidstate/contracts/token/ERC1155/metadata/IERC1155Metadata.sol";
@@ -321,12 +322,13 @@ contract ERC1155Facet is OwnableInternal, DefaultOperatorFilterer, ERC1155 {
         }
     }
 
-    /// Get price for certain edition
+    /// Get price (in nativt token) for certain edition
     function price(uint256 _id) public view validTokenID(_id) returns (uint256) {
         ERC1155Storage.Layout storage l = ERC1155Storage.layout();
+        PaymentSplitterStorage.Layout storage pss = PaymentSplitterStorage.layout();
         uint256 tokenPrice = l.tokenData[_id].price;
 
-        return l.isPriceUSD ? PriceConsumer.convertUSDtoWei(tokenPrice) : tokenPrice;
+        return pss.isPriceUSD ? PriceConsumer.convertUSDtoWei(tokenPrice) : tokenPrice;
     }
 
     /// Set price for certain edition
