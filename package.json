@@ -3,6 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "typechain": "turbo run typechain",
     "lint": "turbo run lint",
     "format": "prettier --write ."
   },
