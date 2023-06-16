@@ -10,59 +10,59 @@ import { OwnableInternal } from "@solidstate/contracts/access/ownable/Ownable.so
 abstract contract PaymentSplitter is PaymentSplitterInternal, OwnableInternal {
     string private constant CONTRACT_VERSION = "0.0.1";
 
-    function totalShares() public view virtual returns (uint256) {
+    function totalShares() external view virtual returns (uint256) {
         return _totalShares();
     }
 
-    function totalReleased() public view virtual returns (uint256) {
+    function totalReleased() external view virtual returns (uint256) {
         return _totalReleased();
     }
 
-    function totalReleased(IERC20 token) public view virtual returns (uint256) {
+    function totalReleased(IERC20 token) external view virtual returns (uint256) {
         return _totalReleased(token);
     }
 
-    function shares(address account) public view virtual returns (uint256) {
+    function shares(address account) external view virtual returns (uint256) {
         return _shares(account);
     }
 
-    function released(address account) public view virtual returns (uint256) {
+    function released(address account) external view virtual returns (uint256) {
         return _released(account);
     }
 
-    function released(IERC20 token, address account) public view virtual returns (uint256) {
+    function released(IERC20 token, address account) external view virtual returns (uint256) {
         return _released(token, account);
     }
 
-    function payee(uint256 index) public view virtual returns (address) {
+    function payee(uint256 index) external view virtual returns (address) {
         return _payee(index);
     }
 
-    function releasable(address account) public view virtual returns (uint256) {
+    function releasable(address account) external view virtual returns (uint256) {
         return _releasable(account);
     }
 
-    function releasable(IERC20 token, address account) public view virtual returns (uint256) {
+    function releasable(IERC20 token, address account) external view virtual returns (uint256) {
         return _releasable(token, account);
     }
 
-    function release(address payable account) public virtual {
+    function release(address payable account) external virtual {
         return _release(account);
     }
 
-    function release(IERC20 token, address account) public virtual {
+    function release(IERC20 token, address account) external virtual {
         return _release(token, account);
     }
 
-    function addPayee(address account, uint256 shares_) public virtual onlyOwner {
+    function addPayee(address account, uint256 shares_) external virtual onlyOwner {
         return _addPayee(account, shares_);
     }
 
-    function isPriceUSD() public view virtual returns (bool) {
+    function isPriceUSD() external view virtual returns (bool) {
         return _isPriceUSD();
     }
 
-    function automaticUSDConversion() public view virtual returns (bool) {
+    function automaticUSDConversion() external view virtual returns (bool) {
         return _automaticUSDConversion();
     }
 }

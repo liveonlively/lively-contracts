@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LivelyDiamond from '$lib/sdk/index.js';
+	// import LivelyDiamond from '$lib/sdk/index.js';
 
 	// let diamond = LivelyDiamond({ isReal: true });
 	// diamond.information();

@@ -4,11 +4,11 @@
 
 type SupportedNetwork = 'mainnet' | 'goerli' | 'sepolia' | 'mumnbai' | 'matic';
 
-interface LivelyDiamondFactoryConstructor {
-	address?: string;
-	network?: SupportedNetwork;
-	privateKey?: string;
-}
+// interface LivelyDiamondFactoryConstructor {
+// 	address?: string;
+// 	network?: SupportedNetwork;
+// 	privateKey?: string;
+// }
 
 class LivelyDiamondFactory {
 	address: string | undefined;
