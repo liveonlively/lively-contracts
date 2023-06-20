@@ -10,18 +10,14 @@ export enum SupportedNetworks {
 	MATIC = 'matic'
 }
 
-// interface LivelyDiamondFactoryConstructor {
-// 	address?: string;
-// 	network?: SupportedNetwork;
-// 	privateKey?: string;
-// }
-
 class LivelyDiamondFactory {
 	address: string | undefined;
 	network: SupportedNetworks | undefined;
-	privateKey: string | undefined;
+	private privateKey: string | undefined;
 
-	constructor(network: SupportedNetworks = SupportedNetworks.GOERLI) {
+	constructor(network: SupportedNetworks = SupportedNetworks.MAINNET) {
+		if (!Object.values(SupportedNetworks).includes(network)) throw new Error('Invalid network');
+
 		this.network = network;
 	}
 
