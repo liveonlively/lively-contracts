@@ -22,14 +22,34 @@ const defaultOpts = {
 // 	bar: (error: Error) => void;
 // };
 
+function ValidateOptions(target: any) {
+	const originalConstructor = target.prototype.constructor;
+
+	function newConstructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
+		if (opts.network && !isValidNetwork(opts.network)) {
+			throw new Error('Invalid network');
+		}
+
+		if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) {
+			throw new Error('Invalid privateKey');
+		}
+
+		originalConstructor.call(this, opts);
+	}
+
+	target.prototype.constructor = newConstructor;
+}
+
 // class LivelyDiamondSDK<T extends object> extends EventEmitter<EventTypes & T> {
+
+@ValidateOptions
 class LivelyDiamondSDK {
 	network: SupportedNetworks | undefined;
 	private account: PrivateKeyAccount | undefined;
 
 	constructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
-		if (opts.network && !isValidNetwork(opts.network)) throw new Error('Invalid network');
-		if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) throw new Error('Invalid PK');
+		// if (opts.network && !isValidNetwork(opts.network)) throw new Error('Invalid network');
+		// if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) throw new Error('Invalid PK');
 
 		// super();
 		this.network = opts.network;
