@@ -1,50 +1,59 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { privateKeyToAccount } from 'viem/accounts';
-import { SupportedNetworks, type EthAddress, type LivelyDiamondSDKOptions } from './types.js';
+import { SupportedNetworks } from './types.js';
 
-// NOTE: Need to get these working as actual decorators. Mainly having trouble with the constructor decorator for the class.
-
-export function isValidNetwork(network: SupportedNetworks): boolean {
-	if (!Object.values(SupportedNetworks).includes(network)) return false;
-	return true;
+export function isValidNetwork(network?: unknown): boolean {
+	return Boolean(typeof network === 'string' && Object.values(SupportedNetworks).includes(network));
 }
 
-export function isValidPrivateKey(privateKey: EthAddress): boolean {
+export function isValidPrivateKey(privateKey?: unknown): boolean {
+	if (typeof privateKey !== 'string' || !privateKey.startsWith('0x')) return false;
 	try {
-		privateKeyToAccount(privateKey);
+		privateKeyToAccount(privateKey as `0x${string}`);
 		return true;
 	} catch (error) {
-		return false;
 		// throw new Error(`Invalid private key: ${(error as Error).message}`);
+		return false;
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function Validate<T extends { new (...args: any[]): {} }>(constructor: T, ...args: any[]) {
-	console.log({ constructor, args });
-	return class extends constructor {
-		isValidNetwork(network: SupportedNetworks): boolean {
-			return isValidNetwork(network);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function validate<T extends abstract new (...args: any) => any>(
+	field: string,
+	validator: (v: unknown) => boolean,
+	validateOptions: { optional?: boolean } = { optional: false }
+) {
+	return function (
+		target: any,
+		context: ClassDecoratorContext<T> | ClassMethodDecoratorContext<T>
+	): T | void {
+		if (!context || context.kind === 'class') {
+			// Maybe do this instead of wrapping?
+			// context.addInitializer(function () {
+			// 	if (!validator(this[field as keyof T])) {
+			// 		throw new Error(`Invalid ${String(field)}`);
+			// 	}
+			// });
+			const wrapper = function (...args: any) {
+				const opts = args?.[0];
+				if ((validateOptions.optional && !opts?.[field]) || validator(opts?.[field])) {
+					return new target(...args);
+				}
+				throw new Error(`Invalid ${String(field)}`);
+			};
+			wrapper.prototype = target.prototype;
+			return wrapper as unknown as T;
+		}
+		if (context.kind === 'function') {
+			const wrapper = function (...args: any) {
+				const opts = args?.[0];
+				if ((validateOptions.optional && !opts?.[field]) || validator(opts?.[field])) {
+					return target(...args);
+				}
+				throw new Error(`Invalid ${String(field)}`);
+			};
+			wrapper.prototype = target.prototype;
+			return wrapper as unknown as T;
 		}
 	};
 }
-
-// /**
-//  * Check if the options passed are valid
-//  * @param opts All valid configuration options
-//  * @returns void
-//  * @throws Error if any of the options are invalid
-//  */
-// export function isValidOptions(opts?: Partial<LivelyDiamondSDKOptions>): boolean {
-// 	console.log(`Inside isValidOptions: ${opts}`);
-
-// 	if (!opts) return true;
-
-// 	let isValid: boolean | undefined = undefined;
-
-// 	if (opts?.privateKey) isValid ??= isValidPrivateKey(opts.privateKey);
-// 	if (opts?.network) isValid ??= isValidNetwork(opts.network);
-
-// 	if (!isValid) isValid ??= false;
-
-// 	return isValid;
-// }
