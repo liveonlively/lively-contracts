@@ -19,3 +19,8 @@ deployments
 coverage.json
 package-lock.json
 yarn.lock
+
+# svelte
+.svelte-kit
+.vercel
+.turbo

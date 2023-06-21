@@ -14,7 +14,7 @@ library PaymentSplitterStorage {
         address[] payees;
         mapping(IERC20 => uint256) erc20TotalReleased;
         mapping(IERC20 => mapping(address => uint256)) erc20Released;
-        bool isPriceUSD; // NOTE: I took this out for some reason earlier. Maybe there's a better place to put this?
+        bool isPriceUSD; // NOTE: I took this out for some reason earlier. Maybe there's a better place to put this? Wasn't using these variables anyway.
         bool automaticUSDConversion;
     }
 
