@@ -19,6 +19,8 @@
     "slither.scanningDirectories": "contracts-only",
     "slither.solcPath": "",
     "slither.hiddenDetectors": [],
+    "vitest.enable": true,
+    "vitest.commandLine": "pnpm vitest --",
     "[svelte]": {
       "editor.defaultFormatter": "svelte.svelte-vscode",
       "editor.formatOnSave": true

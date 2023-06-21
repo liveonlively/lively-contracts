@@ -3,7 +3,6 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
-		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
@@ -12,6 +11,12 @@
 		"moduleResolution": "NodeNext",
 		"ignoreDeprecations": "5.0",
     "target": "ES5",
-    "experimentalDecorators": true
-	}
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+
+	},
+  "ts-node": {
+    "esm": true
+  },
 }
