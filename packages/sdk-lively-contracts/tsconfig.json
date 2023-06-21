@@ -10,13 +10,12 @@
 		"strict": true,
 		"moduleResolution": "NodeNext",
 		"ignoreDeprecations": "5.0",
-    "target": "ES5",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-
+		"target": "ES5",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true
 	},
-  "ts-node": {
-    "esm": true
-  },
+	"ts-node": {
+		"esm": true
+	}
 }
