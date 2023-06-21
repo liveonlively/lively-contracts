@@ -1,6 +1,6 @@
 import type { PrivateKeyAccount } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
+import { isValidNetwork, isValidPrivateKey, validate } from './shared/decorators.js';
 import {
 	SupportedNetworks,
 	type LivelyDiamondSDKOptions,
@@ -22,45 +22,17 @@ const defaultOpts = {
 // 	bar: (error: Error) => void;
 // };
 
-function ValidateOptions(target: any) {
-	const originalConstructor = target.prototype.constructor;
-
-	function newConstructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
-		if (opts.network && !isValidNetwork(opts.network)) {
-			throw new Error('Invalid network');
-		}
-
-		if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) {
-			throw new Error('Invalid privateKey');
-		}
-
-		originalConstructor.call(this, opts);
-	}
-
-	target.prototype.constructor = newConstructor;
-}
-
 // class LivelyDiamondSDK<T extends object> extends EventEmitter<EventTypes & T> {
 
-@ValidateOptions
+@validate('network', isValidNetwork, { optional: true })
+@validate('privateKey', isValidPrivateKey, { optional: true })
 class LivelyDiamondSDK {
 	network: SupportedNetworks | undefined;
 	private account: PrivateKeyAccount | undefined;
 
 	constructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
-		// if (opts.network && !isValidNetwork(opts.network)) throw new Error('Invalid network');
-		// if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) throw new Error('Invalid PK');
-
-		// super();
-		this.network = opts.network;
+		this.network = opts?.network || SupportedNetworks.MAINNET;
 		this.account = opts?.privateKey ? privateKeyToAccount(opts.privateKey) : undefined;
-	}
-
-	static fromPK(privateKey: EthAddress, opts = { network: SupportedNetworks.MAINNET }) {
-		if (!isValidPrivateKey(privateKey)) throw new Error('Invalid PK');
-		if (opts.network && !isValidNetwork(opts.network)) throw new Error('Invalid network');
-
-		return new LivelyDiamondSDK({ network: opts.network, privateKey });
 	}
 
 	// Read only properties
@@ -69,9 +41,9 @@ class LivelyDiamondSDK {
 	}
 
 	// Write properties (needs a signer)
-	public connectPK(privateKey: EthAddress) {
-		if (!isValidPrivateKey(privateKey)) throw new Error('Invalid PK');
-		this.account = privateKeyToAccount(privateKey);
+	@validate('privateKey', isValidPrivateKey)
+	public connectPK(opts: { privateKey: EthAddress }) {
+		this.account = privateKeyToAccount(opts.privateKey);
 	}
 }
 

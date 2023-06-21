@@ -12,7 +12,6 @@ describe('livelyDiamondSDK', () => {
 	describe('decorators', () => {
 		describe('isValidNetwork', () => {
 			it('should be false for invalid network', () => {
-				// @ts-expect-error This is testing an invalid network so it should throw an error
 				expect(() => isValidNetwork('mainnet2')).toBeFalsy;
 			});
 
@@ -72,7 +71,7 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('return account info if properly given private key', () => {
-			const sdk2 = LivelyDiamondSDK.fromPK(validPK);
+			const sdk2 = new LivelyDiamondSDK({ privateKey: validPK });
 			console.log({ sdk2 });
 		});
 	});
