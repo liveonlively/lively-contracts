@@ -1,7 +1,7 @@
 import { privateKeyToAccount } from 'viem/accounts';
 import { SupportedNetworks, type EthAddress } from './types.js';
 
-// NOTE: Need to get these working as actual decorators. Mainly having trouble with the constructor decorator for the class.
+// NOTE: Need to get these working as actual decorators. Mainly having trouble with the constructor decorator for the class...
 
 export function isValidNetwork(network: SupportedNetworks): boolean {
 	return !Object.values(SupportedNetworks).includes(network) ? false : true;
