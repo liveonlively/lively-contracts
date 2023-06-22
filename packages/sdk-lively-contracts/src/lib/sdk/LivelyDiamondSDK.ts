@@ -1,12 +1,11 @@
 import type { PrivateKeyAccount } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
+import { SDKValidator, isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
 import {
 	SupportedNetworks,
 	type LivelyDiamondSDKOptions,
 	type EthAddress
 } from './shared/types.js';
-// import EventEmitter from 'eventemitter3';
 
 /**
  * LivelyDiamond SDK
@@ -17,43 +16,18 @@ const defaultOpts = {
 	privateKey: undefined
 };
 
-// type EventTypes = {
-// 	foo: () => void;
-// 	bar: (error: Error) => void;
-// };
+// { network, privateKey }: LivelyDiamondSDKOptions = {
+//   network: SupportedNetworks.MAINNET
+// }
 
-function ValidateOptions(target: any) {
-	const originalConstructor = target.prototype.constructor;
-
-	function newConstructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
-		if (opts.network && !isValidNetwork(opts.network)) {
-			throw new Error('Invalid network');
-		}
-
-		if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) {
-			throw new Error('Invalid privateKey');
-		}
-
-		originalConstructor.call(this, opts);
-	}
-
-	target.prototype.constructor = newConstructor;
-}
-
-// class LivelyDiamondSDK<T extends object> extends EventEmitter<EventTypes & T> {
-
-@ValidateOptions
-class LivelyDiamondSDK {
+@SDKValidator
+export class LivelyDiamondSDK {
 	network: SupportedNetworks | undefined;
-	private account: PrivateKeyAccount | undefined;
+	account: PrivateKeyAccount | undefined;
 
-	constructor(opts: LivelyDiamondSDKOptions = defaultOpts) {
-		// if (opts.network && !isValidNetwork(opts.network)) throw new Error('Invalid network');
-		// if (opts.privateKey && !isValidPrivateKey(opts.privateKey)) throw new Error('Invalid PK');
-
-		// super();
-		this.network = opts.network;
-		this.account = opts?.privateKey ? privateKeyToAccount(opts.privateKey) : undefined;
+	constructor({ network, privateKey }: LivelyDiamondSDKOptions = defaultOpts) {
+		this.network = network;
+		this.account = privateKey ? privateKeyToAccount(privateKey) : undefined;
 	}
 
 	static fromPK(privateKey: EthAddress, opts = { network: SupportedNetworks.MAINNET }) {
@@ -74,5 +48,3 @@ class LivelyDiamondSDK {
 		this.account = privateKeyToAccount(privateKey);
 	}
 }
-
-export default LivelyDiamondSDK;

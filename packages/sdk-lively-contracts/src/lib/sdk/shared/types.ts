@@ -10,6 +10,6 @@ export enum SupportedNetworks {
 }
 
 export interface LivelyDiamondSDKOptions {
-	network?: SupportedNetworks;
+	network: SupportedNetworks;
 	privateKey?: EthAddress;
 }
