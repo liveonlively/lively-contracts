@@ -62,7 +62,9 @@ jobs:
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
       - name: "Test packages"
-        run: "pnpm test"
+        run: |
+          pnpx playwright install
+          pnpm test
 
       - name: "Add test summary"
         run: |
