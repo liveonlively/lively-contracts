@@ -61,21 +61,26 @@ jobs:
           echo "## Lint results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
-      - name: "Test packages"
+      - name: "Test all packages (sdk, contracts)"
         run: "pnpm test"
 
       - name: "Add test summary"
         run: |
-          echo "## Package test results" >> $GITHUB_STEP_SUMMARY
+          echo "## Test all packages results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
       - name: "Compile the contracts"
         run: "pnpm compile"
 
-      - name: "Test the contracts and generate the coverage report"
+      - name: "Add test summary"
+        run: |
+          echo "## Contract compile results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
+
+      - name: "Generate the contracts coverage report"
         run: "pnpm coverage"
 
       - name: "Add test summary"
         run: |
-          echo "## Contract test results" >> $GITHUB_STEP_SUMMARY
+          echo "## Contract coverage results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
