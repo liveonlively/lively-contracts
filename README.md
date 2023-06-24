@@ -4,7 +4,7 @@ description: >-
   ecosystem to mint, airdrop, token gate, and more.
 ---
 
-# 💎 LivelyDiamond Protocol
+# 💎 LivelyDiamond Protocol (Test Change Gitbook)
 
 ## LivelyDiamond's Goal
 
