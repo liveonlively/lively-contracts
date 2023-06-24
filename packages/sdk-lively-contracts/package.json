@@ -29,6 +29,7 @@
 		"svelte": "^3.54.0"
 	},
 	"devDependencies": {
+		"@metamask/sdk": "^0.3.2",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
@@ -38,6 +39,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
+		"esm-env": "^1.0.0",
 		"eventemitter3": "^5.0.1",
 		"jest": "^29.5.0",
 		"prettier": "^2.8.0",

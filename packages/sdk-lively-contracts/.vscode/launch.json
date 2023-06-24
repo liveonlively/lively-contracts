@@ -1,6 +1,28 @@
 {
 	"version": "0.2.0",
 	"configurations": [
+    {
+			"type": "node",
+			"request": "launch",
+			"name": "Watch - Debug All Tests",
+			"autoAttachChildProcesses": true,
+			"skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+			"program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+			"args": [],
+			"smartStep": true,
+			"console": "integratedTerminal"
+		},
+    {
+			"type": "node",
+			"request": "launch",
+			"name": "Watch - Debug Current Test File",
+			"autoAttachChildProcesses": true,
+			"skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+			"program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+			"args": ["${relativeFile}"],
+			"smartStep": true,
+			"console": "integratedTerminal"
+		},
 		{
 			"type": "node",
 			"request": "launch",

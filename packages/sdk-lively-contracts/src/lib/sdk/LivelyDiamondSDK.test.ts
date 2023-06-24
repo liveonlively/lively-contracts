@@ -17,7 +17,7 @@ describe('livelyDiamondSDK', () => {
 			});
 
 			it('should not throw an error if a valid network is passed', () => {
-				expect(() => isValidNetwork(SupportedNetworks.MAINNET)).toBeTruthy;
+				expect(() => isValidNetwork('MAINNET')).toBeTruthy;
 			});
 		});
 
@@ -40,17 +40,17 @@ describe('livelyDiamondSDK', () => {
 		// FAILING TEST
 		it('should create a new instance of the livelyDiamondSDK', () => {
 			expect(sdk).to.be.instanceOf(LivelyDiamondSDK);
-			expect(sdk.getNetwork()).not.toBe('matic');
-			expect(sdk.getNetwork()).toBe('mainnet');
+			expect(sdk.getNetwork()).not.toBe(SupportedNetworks.MUMBAI);
+			expect(sdk.getNetwork()).toBe(SupportedNetworks.MAINNET);
 			expect(sdk.getAccount()).toBeUndefined();
 		});
 
-		it('should create a new instance of the livelyDiamondSDK with a default network (mainnet)', () => {
+		it('should create a new instance of the livelyDiamondSDK with a default network (homestead)', () => {
 			const livelyDiamondSDKDefault = new LivelyDiamondSDK();
 
 			expect(livelyDiamondSDKDefault).to.be.instanceOf(LivelyDiamondSDK);
-			expect(livelyDiamondSDKDefault.getNetwork()).not.toBe('mumbai');
-			expect(livelyDiamondSDKDefault.getNetwork()).toBe('mainnet');
+			expect(livelyDiamondSDKDefault.getNetwork()).not.toBe(SupportedNetworks.MUMBAI);
+			expect(livelyDiamondSDKDefault.getNetwork()).toBe(SupportedNetworks.MAINNET);
 		});
 
 		it('should have the correct properties', () => {

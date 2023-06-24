@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { privateKeyToAccount } from 'viem/accounts';
 import { SupportedNetworks } from './types.js';
 import type { Hex } from 'viem';
-import 'reflect-metadata';
 
 /**
  * Checks that the properties passed are defined
@@ -14,7 +14,6 @@ export function CheckProperties(properties: string[]) {
 
 		descriptor.value = function (...args: any[]) {
 			for (const property of properties) {
-				console.log('this[property]: ', (this as any)[property]);
 				if ((this as any)[property] == undefined) {
 					throw new Error(`${property} is not defined`);
 				}
@@ -26,15 +25,15 @@ export function CheckProperties(properties: string[]) {
 	};
 }
 
-export function isValidNetwork(network: SupportedNetworks): boolean {
-	return !Object.values(SupportedNetworks).includes(network) ? false : true;
+export function isValidNetwork(network: keyof typeof SupportedNetworks): boolean {
+	return Object.keys(SupportedNetworks).includes(network) ? false : true;
 }
 
 export function isValidPrivateKey(privateKey: Hex): boolean {
 	try {
 		privateKeyToAccount(privateKey);
 		return true;
-	} catch (error) {
+	} catch (err) {
 		return false;
 	}
 }
@@ -43,7 +42,7 @@ export function isValidPrivateKey(privateKey: Hex): boolean {
 export function SDKValidator<T extends { new (...args: any[]): {} }>(constructor: T) {
 	return class extends constructor {
 		constructor(...args: any[]) {
-			if (args[0]?.network && !isValidNetwork(args[0].network)) {
+			if (args[0]?.network && !isValidNetwork(args[0])) {
 				throw new Error('Invalid network');
 			}
 
