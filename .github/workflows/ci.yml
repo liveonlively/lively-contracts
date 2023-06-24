@@ -6,6 +6,8 @@ env:
   INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
   MNEMONIC: ${{ secrets.MNEMONIC }}
   POLYGONSCAN_API_KEY: ${{ secrets.POLYGONSCAN_API_KEY }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
 on:
   workflow_dispatch:
@@ -46,6 +48,14 @@ jobs:
           echo "## Lint results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
+      - name: "Test packages"
+        run: "pnpm test"
+
+      - name: "Add test summary"
+        run: |
+          echo "## Package test results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
+
       - name: "Compile the contracts and generate the TypeChain bindings"
         run: "pnpm typechain"
 
@@ -54,5 +64,5 @@ jobs:
 
       - name: "Add test summary"
         run: |
-          echo "## Test results" >> $GITHUB_STEP_SUMMARY
+          echo "## Contract test results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
