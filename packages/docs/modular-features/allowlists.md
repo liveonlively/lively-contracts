@@ -1,4 +1,4 @@
-# 📪 Making a post
+# ‼ AllowLists
 
 ## Step 1 - Start journalling
 
