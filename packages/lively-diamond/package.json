@@ -101,7 +101,7 @@
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "task:deployGreeter": "hardhat task:deployGreeter",
     "task:setGreeting": "hardhat task:setGreeting",
-    "test": "hardhat test --parallel",
+    "test": "hardhat test",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   }
