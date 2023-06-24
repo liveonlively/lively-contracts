@@ -1,43 +1,44 @@
-import type { PrivateKeyAccount } from 'viem';
+import type { PrivateKeyAccount, Hex } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { SDKValidator } from './shared/decorators.js';
-import {
-	SupportedNetworks,
-	type LivelyDiamondSDKOptions,
-	type EthAddress
-} from './shared/types.js';
+import { SDKValidator, CheckProperties } from './shared/decorators.js';
+import { SupportedNetworks, type LivelyDiamondSDKOptions } from './shared/types.js';
 
 /**
  * LivelyDiamond SDK
  */
 
-const defaultOpts = {
-	network: SupportedNetworks.MAINNET,
+const defaultOpts: LivelyDiamondSDKOptions = {
 	privateKey: undefined
 };
 
 @SDKValidator
 export class LivelyDiamondSDK {
-	network: SupportedNetworks | undefined;
-	account: PrivateKeyAccount | undefined;
+	protected _network: SupportedNetworks | undefined;
+	protected _account: PrivateKeyAccount | undefined;
 
-	constructor({ network, privateKey }: LivelyDiamondSDKOptions = defaultOpts) {
-		this.network = network;
-		this.account = privateKey ? privateKeyToAccount(privateKey) : undefined;
+	constructor(network = SupportedNetworks.MAINNET, opts = defaultOpts) {
+		this._network = network;
+		this._account = opts.privateKey ? privateKeyToAccount(opts.privateKey) : undefined;
 	}
 
-	static fromPK(privateKey: EthAddress, opts = { network: SupportedNetworks.MAINNET }) {
-		return new LivelyDiamondSDK({ network: opts.network, privateKey });
+	static fromPK(privateKey: Hex, opts = { network: SupportedNetworks.MAINNET }) {
+		return new LivelyDiamondSDK(opts.network, { privateKey });
+	}
+
+	// Getters
+	public getNetwork() {
+		return this._network;
 	}
 
 	// Read only properties
 	public getAccount() {
-		return this.account;
+		return this._account;
 	}
 
 	// Write properties (needs a signer)
-	public connectPK(privateKey: EthAddress) {
-		console.log({ privateKey });
-		this.account = privateKeyToAccount(privateKey);
+	@CheckProperties(['_network'])
+	public connectPK(privateKey: Hex) {
+		this._account = privateKeyToAccount(privateKey);
+		return this;
 	}
 }

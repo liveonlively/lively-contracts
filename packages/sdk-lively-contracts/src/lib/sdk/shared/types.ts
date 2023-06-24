@@ -1,4 +1,5 @@
-export type EthAddress = `0x${string}`;
+import type { Hex } from 'viem';
+import type { LivelyDiamondSDK } from '../LivelyDiamondSDK.js';
 
 export enum SupportedNetworks {
 	MAINNET = 'mainnet',
@@ -10,6 +11,6 @@ export enum SupportedNetworks {
 }
 
 export interface LivelyDiamondSDKOptions {
-	network: SupportedNetworks;
-	privateKey?: EthAddress;
+	// network: SupportedNetworks;
+	privateKey?: Hex;
 }
