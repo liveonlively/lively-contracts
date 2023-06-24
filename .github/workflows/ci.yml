@@ -69,8 +69,8 @@ jobs:
           echo "## Package test results" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
-      - name: "Compile the contracts and generate the TypeChain bindings"
-        run: "pnpm typechain"
+      - name: "Compile the contracts"
+        run: "pnpm compile"
 
       - name: "Test the contracts and generate the coverage report"
         run: "pnpm coverage"
