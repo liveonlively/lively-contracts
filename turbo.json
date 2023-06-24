@@ -13,6 +13,9 @@
     },
     "typechain": {},
     "coverage": {},
-    "test": {}
+    "test": {},
+    "compile": {
+      "outputs": ["artifacts"]
+    }
   }
 }

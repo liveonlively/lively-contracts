@@ -1,15 +1,20 @@
-export type EthAddress = `0x${string}`;
+import type { Hex } from 'viem';
+import { mainnet, goerli, sepolia, polygonMumbai, polygon, localhost } from 'viem/chains';
 
-export enum SupportedNetworks {
-	MAINNET = 'mainnet',
-	GOERLI = 'goerli',
-	SEPOLIA = 'sepolia',
-	MUMBAI = 'polygonMumbai',
-	POLYGON = 'polygon',
-	LOCALHOST = 'localhost'
-}
+type valueOf<T> = T[keyof T];
+
+export const SupportedNetworks = {
+	MAINNET: mainnet,
+	GOERLI: goerli,
+	SEPOLIA: sepolia,
+	MUMBAI: polygonMumbai,
+	POLYGON: polygon,
+	LOCALHOST: localhost
+};
 
 export interface LivelyDiamondSDKOptions {
-	network: SupportedNetworks;
-	privateKey?: EthAddress;
+	// network: SupportedNetworks;
+	privateKey?: Hex;
 }
+
+export type SupportedNetworksType = valueOf<typeof SupportedNetworks>;
