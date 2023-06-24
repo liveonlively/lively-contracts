@@ -1,7 +1,7 @@
 {
 	"version": "0.2.0",
 	"configurations": [
-    {
+		{
 			"type": "node",
 			"request": "launch",
 			"name": "Watch - Debug All Tests",
@@ -12,7 +12,7 @@
 			"smartStep": true,
 			"console": "integratedTerminal"
 		},
-    {
+		{
 			"type": "node",
 			"request": "launch",
 			"name": "Watch - Debug Current Test File",
