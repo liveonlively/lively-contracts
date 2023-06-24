@@ -80,7 +80,7 @@
     "build": "pnpm hardhat clean && pnpm hardhat compile",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json && pnpm typechain",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
-    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && pnpm typechain",
+    "coverage": "hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\"",
     "deploy:contracts": "hardhat deploy",
     "init-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint": "pnpm lint:sol && pnpm lint:ts && pnpm prettier:check",
@@ -101,7 +101,7 @@
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "task:deployGreeter": "hardhat task:deployGreeter",
     "task:setGreeting": "hardhat task:setGreeting",
-    "test": "hardhat test",
+    "test": "hardhat test --parallel",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   }
