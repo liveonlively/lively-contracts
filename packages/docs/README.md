@@ -1,7 +1,8 @@
 ---
 description: >-
   These docs will show you how to use the Lively Diamond NFT Smart Contract
-  ecosystem to mint, airdrop, token gate, and more.
+  ecosystem to mint, airdrop, token gate, and more. All with an SDK package to
+  make your coding easier.
 ---
 
 # 💎 LivelyDiamond Protocol
@@ -47,14 +48,14 @@ DEV NOTE (JSH): We need to think about how we want to list all our features bett
 
 We've put together some helpful guides for you to get setup with our product quickly and easily.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
