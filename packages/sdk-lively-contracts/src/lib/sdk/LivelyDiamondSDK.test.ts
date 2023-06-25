@@ -62,6 +62,14 @@ describe('livelyDiamondSDK', () => {
 			expect(livelyDiamondSDKDefault.network).toBe(SupportedNetworks.MAINNET);
 		});
 
+		it('should create a new instance of the livelyDiamondSDK with polygon as the network', () => {
+			const livelyDiamondSDKDefault = new LivelyDiamondSDK(SupportedNetworks.POLYGON);
+
+			expect(livelyDiamondSDKDefault).to.be.instanceOf(LivelyDiamondSDK);
+			expect(livelyDiamondSDKDefault.network).not.toBe(SupportedNetworks.MAINNET);
+			expect(livelyDiamondSDKDefault.network).toBe(SupportedNetworks.POLYGON);
+		});
+
 		it('should have the correct methods', () => {
 			// @ts-expect-error This is testing that following properties only have getters and not setters
 			expect(() => (sdk.network = SupportedNetworks.MUMBAI)).toThrow();
@@ -69,7 +77,7 @@ describe('livelyDiamondSDK', () => {
 
 		it('should throw an error if an invalid network is passed', () => {
 			// @ts-expect-error This is testing an invalid network so it should throw an error
-			expect(() => new LivelyDiamondSDK('mainnet2')).toThrow();
+			expect(() => new LivelyDiamondSDK('mainnet2')).toThrow('Invalid network');
 		});
 	});
 
@@ -146,7 +154,7 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('throw error if improper key given', () => {
-			expect(() => LivelyDiamondSDK.fromPK('0x1234')).toThrow();
+			expect(() => LivelyDiamondSDK.fromPK('0x1234')).toThrow('Invalid PK');
 		});
 
 		it('should allow a user to switch accounts of the SDK1', () => {
@@ -166,7 +174,7 @@ describe('livelyDiamondSDK', () => {
 		it('should not allow a user to connect a PK if no network is selected', () => {
 			// @ts-expect-error This is testing an invalid network so it should throw an error, should never happen
 			sdk._network = undefined; // This should never be able to happen but just in case
-			expect(() => sdk.connectPK(validPK)).toThrow();
+			expect(() => sdk.connectPK(validPK)).toThrow('_network is not defined');
 		});
 
 		it('should allow a user to switch accounts of the SDK2', () => {
