@@ -4,8 +4,8 @@ import {
 	type Address,
 	createWalletClient,
 	http,
-	type WalletClient,
-	createPublicClient
+	createPublicClient,
+	type WalletClient
 } from 'viem';
 import { LivelyDiamondSDK } from './LivelyDiamondSDK.js';
 import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
@@ -14,6 +14,11 @@ import { mainnet } from 'viem/chains';
 
 describe('livelyDiamondSDK', () => {
 	const validPK = generatePrivateKey();
+	// These mnemonics are set explicitly because of hardhats .env file
+	// FIXME: This should be changed to be dynamic, need to make that work with hardhat package as well so I know what accounts are available
+	const testMnemonic =
+		'south crazy loan indoor cause option evil settle feed recipe mushroom false';
+	const testPublicAddress = '0x0b3Ca3586327FAB688fd34feF784d586e3828153';
 	const protectedProps = ['network', 'account'] as const;
 
 	let sdk: LivelyDiamondSDK;
@@ -88,7 +93,6 @@ describe('livelyDiamondSDK', () => {
 
 		it('should have the correct getters for proptected properties', () => {
 			for (const property of protectedProps) {
-				console.log({ property });
 				expect(sdk).toHaveProperty(property);
 			}
 		});
@@ -124,12 +128,9 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('should automatically create appropriate client if PK is passed', () => {
-			sdk = new LivelyDiamondSDK(SupportedNetworks.MUMBAI);
+			expect(sdk?.client?.type).to.equal('publicClient');
 			sdk.connectPK(validPK);
-			// expect(sdk.walletConnected()).toBe(true);
-			console.log('sdk.publicClient: ', sdk.publicClient);
-			console.log('sdk.walletClient: ', sdk.walletClient);
-			console.log('sdk.client: ', sdk.client);
+			expect(sdk?.client?.type).to.equal('walletClient');
 		});
 	});
 
@@ -189,6 +190,25 @@ describe('livelyDiamondSDK', () => {
 			expect(sdk.account).toBeDefined();
 
 			expect(account1).to.not.equal(account2);
+		});
+	});
+
+	describe('mnemonic', () => {
+		it('should create a client by a valid mnemonic', () => {
+			const sdk = LivelyDiamondSDK.fromMnemonic(testMnemonic);
+
+			expect(sdk.account?.address).to.equal(testPublicAddress);
+			expect(sdk.client).toBeDefined();
+			expect(sdk.client?.type).to.equal('walletClient');
+			expect(sdk.publicClient).toBeUndefined();
+			expect(sdk.walletClient).toBeDefined();
+			expect(sdk.walletClient).to.equal(sdk.client);
+		});
+	});
+
+	describe('Hardhard test network', () => {
+		it('should connect to network', () => {
+			// TODO: Fix this test after working contract class, maybe move ot Contract.test.ts
 		});
 	});
 });

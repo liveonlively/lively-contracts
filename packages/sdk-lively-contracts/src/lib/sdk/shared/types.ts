@@ -21,8 +21,9 @@ export const SupportedNetworks: Record<string, Chain> = {
 };
 
 export interface LivelyDiamondSDKOptions {
-	// network: SupportedNetworks;
 	privateKey?: Hex;
+	mnemonic?: string;
+	contractAddress?: Hex;
 }
 
 export type SupportedNetworksType = valueOf<typeof SupportedNetworks>;
