@@ -5,7 +5,7 @@ export const cut1155 = [
     functionSelectors: ["0xc605f76c"],
   },
   {
-    facetAddress: "0x52778a039B09c74922959e52e4Ca1BB9D311A83f",
+    facetAddress: "0xc2356EF51d07280684e515473AEb915c03ca3520",
     action: 0,
     functionSelectors: [
       "0x41f43434",
@@ -145,10 +145,12 @@ export const cut1155 = [
     functionSelectors: ["0xe8a3d485", "0x2a55205a", "0x05b4d1d6"],
   },
   {
-    facetAddress: "0x914E1A7F766bbd0BEf81d4C494BC2746C33B38eF",
+    facetAddress: "0x53c06EBe84A0eC3258ca734Fc4eC96273136388C",
     action: 0,
     functionSelectors: [
       "0x18f9b023",
+      "0x7dfcee6f",
+      "0xb84a03d0",
       "0x8b83209b",
       "0xa3f8eace",
       "0xc45ac050",
@@ -389,10 +391,12 @@ export const cut721 = [
     functionSelectors: ["0xe8a3d485", "0x2a55205a", "0x05b4d1d6"],
   },
   {
-    facetAddress: "0x914E1A7F766bbd0BEf81d4C494BC2746C33B38eF",
+    facetAddress: "0x53c06EBe84A0eC3258ca734Fc4eC96273136388C",
     action: 0,
     functionSelectors: [
       "0x18f9b023",
+      "0x7dfcee6f",
+      "0xb84a03d0",
       "0x8b83209b",
       "0xa3f8eace",
       "0xc45ac050",
@@ -453,4 +457,4 @@ export const cut721 = [
   },
 ];
 
-export const diamond1155Init = "0xb70B7575b1C9e56C4Ca992235df099AaB7c56a52";
+export const diamond1155Init = "0x15effEB9743746dFE73fFE711F6AF2c19a5eFD17";

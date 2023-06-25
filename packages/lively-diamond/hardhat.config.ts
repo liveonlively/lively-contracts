@@ -14,6 +14,8 @@ import "./tasks/generators";
 import "./tasks/greet";
 import "./tasks/taskDeploy";
 
+// FIXME: Generate dummy doesn't work with ethers v6. Figure out a workaround or use something else.
+
 const dotenvConfigPath: string = process.env.DOTENV_CONFIG_PATH || "./.env";
 dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
 

@@ -4,8 +4,8 @@ import {
 	type Address,
 	createWalletClient,
 	http,
-	type WalletClient,
-	createPublicClient
+	createPublicClient,
+	type WalletClient
 } from 'viem';
 import { LivelyDiamondSDK } from './LivelyDiamondSDK.js';
 import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
@@ -14,6 +14,11 @@ import { mainnet } from 'viem/chains';
 
 describe('livelyDiamondSDK', () => {
 	const validPK = generatePrivateKey();
+	// These mnemonics are set explicitly because of hardhats .env file
+	// FIXME: This should be changed to be dynamic, need to make that work with hardhat package as well so I know what accounts are available
+	const testMnemonic =
+		'south crazy loan indoor cause option evil settle feed recipe mushroom false';
+	const testPublicAddress = '0x0b3Ca3586327FAB688fd34feF784d586e3828153';
 	const protectedProps = ['network', 'account'] as const;
 
 	let sdk: LivelyDiamondSDK;
@@ -21,22 +26,22 @@ describe('livelyDiamondSDK', () => {
 	describe('decorators', () => {
 		describe('isValidNetwork', () => {
 			it('should be false for invalid network', () => {
-				// @ts-expect-error This is testing an invalid network so it should throw an error
-				expect(() => isValidNetwork('mainnet2')).toBeFalsy;
+				// @ts-expect-error This is testing runtime errors and should have a TS error
+				expect(isValidNetwork('mainnet2')).toBe(false);
 			});
 
 			it('should not throw an error if a valid network is passed', () => {
-				expect(() => isValidNetwork('MAINNET')).toBeTruthy;
+				expect(isValidNetwork(SupportedNetworks.MAINNET)).toBe(true);
 			});
 		});
 
 		describe('isValidPrivateKey', () => {
 			it('should return false if an invalid private key is passed', () => {
-				expect(() => isValidPrivateKey('0x1234')).toBeFalsy;
+				expect(isValidPrivateKey('0x1234')).toBe(false);
 			});
 
 			it('should return true if a valid private key is passed', () => {
-				expect(() => isValidPrivateKey(validPK)).toBeTruthy;
+				expect(isValidPrivateKey(validPK)).toBe(true);
 			});
 		});
 	});
@@ -46,7 +51,6 @@ describe('livelyDiamondSDK', () => {
 			sdk = new LivelyDiamondSDK(SupportedNetworks.MAINNET);
 		});
 
-		// FAILING TEST
 		it('should create a new instance of the livelyDiamondSDK', () => {
 			expect(sdk).to.be.instanceOf(LivelyDiamondSDK);
 			expect(sdk.network).not.toBe(SupportedNetworks.MUMBAI);
@@ -63,6 +67,14 @@ describe('livelyDiamondSDK', () => {
 			expect(livelyDiamondSDKDefault.network).toBe(SupportedNetworks.MAINNET);
 		});
 
+		it('should create a new instance of the livelyDiamondSDK with polygon as the network', () => {
+			const livelyDiamondSDKDefault = new LivelyDiamondSDK(SupportedNetworks.POLYGON);
+
+			expect(livelyDiamondSDKDefault).to.be.instanceOf(LivelyDiamondSDK);
+			expect(livelyDiamondSDKDefault.network).not.toBe(SupportedNetworks.MAINNET);
+			expect(livelyDiamondSDKDefault.network).toBe(SupportedNetworks.POLYGON);
+		});
+
 		it('should have the correct methods', () => {
 			// @ts-expect-error This is testing that following properties only have getters and not setters
 			expect(() => (sdk.network = SupportedNetworks.MUMBAI)).toThrow();
@@ -70,7 +82,7 @@ describe('livelyDiamondSDK', () => {
 
 		it('should throw an error if an invalid network is passed', () => {
 			// @ts-expect-error This is testing an invalid network so it should throw an error
-			expect(() => new LivelyDiamondSDK({ network: 'mainnet2' })).toThrow();
+			expect(() => new LivelyDiamondSDK('mainnet2')).toThrow('Invalid network');
 		});
 	});
 
@@ -81,7 +93,6 @@ describe('livelyDiamondSDK', () => {
 
 		it('should have the correct getters for proptected properties', () => {
 			for (const property of protectedProps) {
-				console.log({ property });
 				expect(sdk).toHaveProperty(property);
 			}
 		});
@@ -117,12 +128,9 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('should automatically create appropriate client if PK is passed', () => {
-			sdk = new LivelyDiamondSDK(SupportedNetworks.MUMBAI);
+			expect(sdk?.client?.type).to.equal('publicClient');
 			sdk.connectPK(validPK);
-			// expect(sdk.walletConnected()).toBe(true);
-			console.log('sdk.publicClient: ', sdk.publicClient);
-			console.log('sdk.walletClient: ', sdk.walletClient);
-			console.log('sdk.client: ', sdk.client);
+			expect(sdk?.client?.type).to.equal('walletClient');
 		});
 	});
 
@@ -147,7 +155,7 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('throw error if improper key given', () => {
-			expect(() => LivelyDiamondSDK.fromPK('0x1234')).toThrow();
+			expect(() => LivelyDiamondSDK.fromPK('0x1234')).toThrow('Invalid PK');
 		});
 
 		it('should allow a user to switch accounts of the SDK1', () => {
@@ -167,7 +175,7 @@ describe('livelyDiamondSDK', () => {
 		it('should not allow a user to connect a PK if no network is selected', () => {
 			// @ts-expect-error This is testing an invalid network so it should throw an error, should never happen
 			sdk._network = undefined; // This should never be able to happen but just in case
-			expect(() => sdk.connectPK(validPK)).toThrow();
+			expect(() => sdk.connectPK(validPK)).toThrow('_network is not defined');
 		});
 
 		it('should allow a user to switch accounts of the SDK2', () => {
@@ -182,6 +190,25 @@ describe('livelyDiamondSDK', () => {
 			expect(sdk.account).toBeDefined();
 
 			expect(account1).to.not.equal(account2);
+		});
+	});
+
+	describe('mnemonic', () => {
+		it('should create a client by a valid mnemonic', () => {
+			const sdk = LivelyDiamondSDK.fromMnemonic(testMnemonic);
+
+			expect(sdk.account?.address).to.equal(testPublicAddress);
+			expect(sdk.client).toBeDefined();
+			expect(sdk.client?.type).to.equal('walletClient');
+			expect(sdk.publicClient).toBeUndefined();
+			expect(sdk.walletClient).toBeDefined();
+			expect(sdk.walletClient).to.equal(sdk.client);
+		});
+	});
+
+	describe('Hardhard test network', () => {
+		it('should connect to network', () => {
+			// TODO: Fix this test after working contract class, maybe move ot Contract.test.ts
 		});
 	});
 });
