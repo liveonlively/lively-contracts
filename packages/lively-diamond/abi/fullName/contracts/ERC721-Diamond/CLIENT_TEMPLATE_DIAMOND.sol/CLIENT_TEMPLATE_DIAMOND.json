@@ -1,0 +1,11 @@
+[
+  "constructor(tuple(address facetAddress, uint8 action, bytes4[] functionSelectors)[] _diamondCut, tuple(uint256 _price, uint256 _maxSupply, uint256 _maxMintPerTx, uint256 _maxMintPerAddress, address _secondaryPayee, address _owner, uint16 _secondaryPoints, address[] _payees, uint256[] _shares, string _name, string _symbol, string _contractURI, string _baseTokenUri, bool _airdrop, bool _allowListEnabled, bool _isPriceUSD, bool _automaticUSDConversion, bool _isSoulbound, tuple(string name, uint256 maxSupply, uint256 totalSupply, uint256 price)[] _editions) _args) payable",
+  "error EditionsDisabled()",
+  "error InitializationFunctionReverted(address _initializationContractAddress, bytes _calldata)",
+  "error NameRequired()",
+  "error PaymentSplitterAccountAddressZero()",
+  "error PaymentSplitterAccountHasShares()",
+  "error PaymentSplitterMismatch()",
+  "error PaymentSplitterNoPayees()",
+  "error PaymentSplitterSharesZero()"
+]

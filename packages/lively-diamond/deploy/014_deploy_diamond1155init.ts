@@ -1,6 +1,10 @@
-import { DeployFunction, DeployOptions, DeployResult } from "hardhat-deploy/types";
-import type { NomicLabsHardhatPluginError } from "hardhat/internal/core/errors";
+import {
+  DeployFunction,
+  DeployOptions,
+  DeployResult,
+} from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import type { NomicLabsHardhatPluginError } from "hardhat/internal/core/errors";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts, getChainId, network } = hre;
@@ -40,7 +44,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     address: newlyDeployed.address,
   });
 
-  if (network.live) {
+  if (network.live && chainId !== "1337") {
     if (newlyDeployed.receipt) {
       console.log("Receipt found");
 

@@ -1,0 +1,15 @@
+[
+  {
+    "inputs": [],
+    "name": "swapRouter",
+    "outputs": [
+      {
+        "internalType": "contract ISwapRouter",
+        "name": "",
+        "type": "ISwapRouter"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

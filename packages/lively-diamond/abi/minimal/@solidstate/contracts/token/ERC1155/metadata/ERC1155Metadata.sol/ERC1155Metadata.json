@@ -1,0 +1,4 @@
+[
+  "event URI(string,uint256 indexed)",
+  "function uri(uint256) view returns (string)"
+]

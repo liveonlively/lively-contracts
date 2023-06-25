@@ -1,0 +1,14 @@
+[
+  "error InvalidPayee()",
+  "error PayeeNotSender()",
+  "error PaymentSplitterAlreadyHasShares()",
+  "error PaymentSplitterMismatch()",
+  "error PaymentSplitterNoPayees()",
+  "error PaymentSplitterZeroAddress()",
+  "error PaymentSplitterZeroFundsDue()",
+  "error PaymentSplitterZeroShares()",
+  "event ERC20PaymentReleased(address indexed token, address to, uint256 amount)",
+  "event PayeeAdded(address account, uint256 shares)",
+  "event PaymentReceived(address from, uint256 amount)",
+  "event PaymentReleased(address to, uint256 amount)"
+]

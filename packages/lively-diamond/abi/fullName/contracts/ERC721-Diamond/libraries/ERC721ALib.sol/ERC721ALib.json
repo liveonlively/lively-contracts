@@ -1,0 +1,5 @@
+[
+  "error OwnerQueryForNonexistentToken()",
+  "error OwnershipNotInitializedForExtraData()",
+  "error TokenIsSoulbound()"
+]

@@ -1,0 +1,20 @@
+[
+  "error InvalidPayee()",
+  "error NotOwner()",
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "error PayeeNotSender()",
+  "error PaymentSplitterAlreadyHasShares()",
+  "error PaymentSplitterMismatch()",
+  "error PaymentSplitterNoPayees()",
+  "error PaymentSplitterZeroAddress()",
+  "error PaymentSplitterZeroFundsDue()",
+  "error PaymentSplitterZeroShares()",
+  "event ERC20PaymentReleased(address indexed,address,uint256)",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "event PayeeAdded(address,uint256)",
+  "event PaymentReceived(address,uint256)",
+  "event PaymentReleased(address,uint256)",
+  "event URI(string,uint256 indexed)",
+  "function init(tuple(address[],uint256[],address,uint16,bool,string,string,string,string,tuple(uint256,uint256,address,string,bool,uint256,bool)[],bool,bool))"
+]

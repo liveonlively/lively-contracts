@@ -1,0 +1,4 @@
+[
+  "error OperatorNotAllowed(address operator)",
+  "function OPERATOR_FILTER_REGISTRY() view returns (address)"
+]

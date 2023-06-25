@@ -14,9 +14,15 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "paths": {
+      "$artifacts/*": ["./artifacts/*"],
+      "$utils/*": ["./utils/*"],
+      "$scripts/*": ["./scripts/*"]
+    },
   },
+
   "exclude": ["node_modules"],
-  "files": ["./hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts"],
+  "files": ["./hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "./scripts/1155/deploy.ts"],
   "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*", "scripts/**/*"]
 }

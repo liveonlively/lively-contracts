@@ -1,0 +1,15 @@
+[
+  "error ERC721Base__BalanceQueryZeroAddress()",
+  "error ERC721Base__ERC721ReceiverNotImplemented()",
+  "error ERC721Base__InvalidOwner()",
+  "error ERC721Base__MintToZeroAddress()",
+  "error ERC721Base__NonExistentToken()",
+  "error ERC721Base__NotOwnerOrApproved()",
+  "error ERC721Base__NotTokenOwner()",
+  "error ERC721Base__SelfApproval()",
+  "error ERC721Base__TokenAlreadyMinted()",
+  "error ERC721Base__TransferToZeroAddress()",
+  "event Approval(address indexed owner, address indexed operator, uint256 indexed tokenId)",
+  "event ApprovalForAll(address indexed owner, address indexed operator, bool approved)",
+  "event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"
+]

@@ -1,0 +1,6 @@
+[
+  "error Pausable__NotPaused()",
+  "error Pausable__Paused()",
+  "event Paused(address account)",
+  "event Unpaused(address account)"
+]
