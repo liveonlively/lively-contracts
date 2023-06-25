@@ -1,13 +1,13 @@
-import type { PrivateKeyAccount, Hex, PublicClient, WalletClient } from 'viem';
+import type { PrivateKeyAccount, Hex, PublicClient, WalletClient, Client } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { SDKValidator, CheckProperties } from './shared/decorators.js';
+import { SDKValidator, CheckPropsDefined, ConnectClient } from './shared/decorators.js';
 import {
 	type SupportedNetworksType,
 	SupportedNetworks,
 	type LivelyDiamondSDKOptions
 } from './shared/types.js';
-import { createPublicClient, createWalletClient, custom, http } from 'viem';
-import { BROWSER } from 'esm-env';
+import 'reflect-metadata';
+
 /**
  * LivelyDiamond SDK
  */
@@ -22,49 +22,75 @@ export class LivelyDiamondSDK {
 	protected _account: PrivateKeyAccount | undefined;
 	protected _publicClient: PublicClient | undefined;
 	protected _walletClient: WalletClient | undefined;
+	protected _client: Client | undefined;
+	public walletConnected = () => !!this._walletClient;
 
 	// Constructor + Static Builers
 	constructor(network: SupportedNetworksType = SupportedNetworks.MAINNET, opts = defaultOpts) {
 		this._network = network;
 		this._account = opts.privateKey ? privateKeyToAccount(opts.privateKey) : undefined;
 
-		if (this._account) {
-			const transport = BROWSER && window.ethereum ? custom(window.ethereum) : http();
-
-			this._walletClient = createWalletClient({
-				account: this._account,
-				chain: this._network,
-				transport
-			});
-		} else {
-			this._publicClient = createPublicClient({ chain: this._network, transport: http() });
-		}
+		this.connectClient();
 	}
 
 	static fromPK(privateKey: Hex, opts = { network: SupportedNetworks.MAINNET }): LivelyDiamondSDK {
 		return new LivelyDiamondSDK(opts.network, { privateKey });
 	}
 
-	// Getters
-	public getNetwork() {
+	/**
+	 * Creates a walletClient or a publicClient depending on the account
+	 */
+	@ConnectClient()
+	private connectClient() {
+		// Let decorator do the work
+	}
+
+	// Getters/setters for protected properties that need to be read/written by decorator methods
+	get network(): SupportedNetworksType | undefined {
 		return this._network;
 	}
 
-	// Read only properties
-	public getAccount() {
+	get account(): PrivateKeyAccount | undefined {
 		return this._account;
 	}
 
-	// PK Stuff
-	@CheckProperties(['_network'])
+	get publicClient(): PublicClient | undefined {
+		return this._publicClient;
+	}
+
+	set publicClient(value: PublicClient | undefined) {
+		if (value && value?.type !== 'publicClient') throw new Error('Incorrect type for publicClient');
+		this._publicClient = value;
+	}
+
+	get client(): Client | undefined {
+		return this._client;
+	}
+
+	set client(value: Client | undefined) {
+		this._client = value;
+	}
+
+	get walletClient(): WalletClient | undefined {
+		return this._walletClient;
+	}
+
+	set walletClient(value: WalletClient | undefined) {
+		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
+		this._walletClient = value;
+	}
+
+	@CheckPropsDefined(['_network'])
+	@ConnectClient()
 	public connectPK(privateKey: Hex) {
 		this._account = privateKeyToAccount(privateKey);
 		return this;
 	}
 
-	// Write properties (needs a signer)
+	@ConnectClient()
 	public setNetwork(network: SupportedNetworksType) {
 		this._network = network;
+
 		return this;
 	}
 }
