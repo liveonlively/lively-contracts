@@ -116,3 +116,19 @@ _Add a new payee to the contract._
 | -------- | ------- | ---------------------------------------- |
 | account  | address | The address of the payee to add.         |
 | shares\_ | uint256 | The number of shares owned by the payee. |
+
+### \_isPriceUSD
+
+```solidity
+function _isPriceUSD() internal view returns (bool)
+```
+
+Returns whether isPriceUsd is set to true or false
+
+### \_automaticUSDConversion
+
+```solidity
+function _automaticUSDConversion() internal view returns (bool)
+```
+
+Returns whether automaticUSDConversion is set to true or false

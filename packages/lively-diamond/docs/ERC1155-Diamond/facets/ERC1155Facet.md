@@ -239,7 +239,7 @@ _Converts a uint256 to its ASCII string decimal representation._
 function price(uint256 _id) public view returns (uint256)
 ```
 
-Get price for certain edition
+Get price (in nativt token) for certain edition
 
 ### setPrice
 
