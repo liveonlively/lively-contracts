@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { privateKeyToAccount } from 'viem/accounts';
 import { SupportedNetworks } from './types.js';
-import { custom, type Hex, http, createWalletClient, createPublicClient } from 'viem';
+import { custom, type Hex, http, createWalletClient, createPublicClient, type Chain } from 'viem';
 import { BROWSER } from 'esm-env';
 import type { LivelyDiamondSDK } from '../LivelyDiamondSDK.js';
 import 'reflect-metadata';
@@ -28,8 +28,8 @@ export function CheckPropsDefined(properties: string[]) {
 	};
 }
 
-export function isValidNetwork(network: keyof typeof SupportedNetworks): boolean {
-	return Object.keys(SupportedNetworks).includes(network) ? false : true;
+export function isValidNetwork(network: Chain): boolean {
+	return Object.values(SupportedNetworks).includes(network);
 }
 
 export function isValidPrivateKey(privateKey: Hex): boolean {
@@ -80,6 +80,24 @@ export function ConnectClient() {
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function SDKValidator<T extends { new (...args: any[]): {} }>(constructor: T) {
+	return class extends constructor {
+		constructor(...args: any[]) {
+			if (args[0] && !isValidNetwork(args[0])) {
+				console.log({ args });
+				throw new Error('Invalid network');
+			}
+
+			if (args[1]?.privateKey && !isValidPrivateKey(args[1]?.privateKey)) {
+				throw new Error('Invalid PK');
+			}
+			ConnectClient();
+			super(...args);
+		}
+	};
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function ContractValidator<T extends { new (...args: any[]): {} }>(constructor: T) {
 	return class extends constructor {
 		constructor(...args: any[]) {
 			if (args[0]?.network && !isValidNetwork(args[0])) {

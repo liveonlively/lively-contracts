@@ -21,22 +21,22 @@ describe('livelyDiamondSDK', () => {
 	describe('decorators', () => {
 		describe('isValidNetwork', () => {
 			it('should be false for invalid network', () => {
-				// @ts-expect-error This is testing an invalid network so it should throw an error
-				expect(() => isValidNetwork('mainnet2')).toBeFalsy;
+				// @ts-expect-error This is testing runtime errors and should have a TS error
+				expect(isValidNetwork('mainnet2')).toBe(false);
 			});
 
 			it('should not throw an error if a valid network is passed', () => {
-				expect(() => isValidNetwork('MAINNET')).toBeTruthy;
+				expect(isValidNetwork(SupportedNetworks.MAINNET)).toBe(true);
 			});
 		});
 
 		describe('isValidPrivateKey', () => {
 			it('should return false if an invalid private key is passed', () => {
-				expect(() => isValidPrivateKey('0x1234')).toBeFalsy;
+				expect(isValidPrivateKey('0x1234')).toBe(false);
 			});
 
 			it('should return true if a valid private key is passed', () => {
-				expect(() => isValidPrivateKey(validPK)).toBeTruthy;
+				expect(isValidPrivateKey(validPK)).toBe(true);
 			});
 		});
 	});
@@ -46,7 +46,6 @@ describe('livelyDiamondSDK', () => {
 			sdk = new LivelyDiamondSDK(SupportedNetworks.MAINNET);
 		});
 
-		// FAILING TEST
 		it('should create a new instance of the livelyDiamondSDK', () => {
 			expect(sdk).to.be.instanceOf(LivelyDiamondSDK);
 			expect(sdk.network).not.toBe(SupportedNetworks.MUMBAI);
@@ -70,7 +69,7 @@ describe('livelyDiamondSDK', () => {
 
 		it('should throw an error if an invalid network is passed', () => {
 			// @ts-expect-error This is testing an invalid network so it should throw an error
-			expect(() => new LivelyDiamondSDK({ network: 'mainnet2' })).toThrow();
+			expect(() => new LivelyDiamondSDK('mainnet2')).toThrow();
 		});
 	});
 

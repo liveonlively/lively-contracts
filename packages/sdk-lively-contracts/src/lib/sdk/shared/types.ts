@@ -1,9 +1,17 @@
 import type { Hex } from 'viem';
-import { mainnet, goerli, sepolia, polygonMumbai, polygon, localhost } from 'viem/chains';
+import {
+	mainnet,
+	goerli,
+	sepolia,
+	polygonMumbai,
+	polygon,
+	localhost,
+	type Chain
+} from 'viem/chains';
 
 type valueOf<T> = T[keyof T];
 
-export const SupportedNetworks = {
+export const SupportedNetworks: Record<string, Chain> = {
 	MAINNET: mainnet,
 	GOERLI: goerli,
 	SEPOLIA: sepolia,
