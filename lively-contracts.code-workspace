@@ -28,14 +28,22 @@
     "slither.solcPath": "",
     "slither.hiddenDetectors": [],
     "vitest.enable": true,
-    "vitest.commandLine": "pnpm vitest --",
+    "vitest.exclude": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/cypress/**",
+      "**/.{idea,git,cache,output,temp}/**",
+      "../packages/lively-diamond/**/*",
+      "../packages/eslint-config-custom/**/*"
+    ],
     "[svelte]": {
       "editor.defaultFormatter": "svelte.svelte-vscode",
       "editor.formatOnSave": true
     },
     "[solidity]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "cSpell.words": ["viem"]
   },
   "extensions": {
     "recommendations": [
@@ -45,7 +53,9 @@
       "nomicfoundation.hardhat-solidity",
       "svelte.svelte-vscode",
       "ardenivanov.svelte-intellisense",
-      "bradlc.vscode-tailwindcss"
+      "bradlc.vscode-tailwindcss",
+      "zixuanchen.vitest-explore",
+      "visualstudioexptteam.intellicode-api-usage-examples"
     ]
   }
 }
