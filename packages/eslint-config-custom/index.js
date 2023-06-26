@@ -3,7 +3,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:svelte/recommended",
-    "prettier",
+    "plugin:perfectionist/recommended-line-length",
+    "prettier"
   ],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],

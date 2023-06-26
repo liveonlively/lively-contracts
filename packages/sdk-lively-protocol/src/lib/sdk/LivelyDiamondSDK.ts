@@ -1,39 +1,53 @@
-import type { PrivateKeyAccount, Hex, PublicClient, WalletClient, Client, HDAccount } from 'viem';
-import { mnemonicToAccount, privateKeyToAccount } from 'viem/accounts';
-import { SDKValidator, CheckPropsDefined, ConnectClient } from './shared/decorators.js';
 import {
+	type PrivateKeyAccount,
+	createWalletClient,
+	createPublicClient,
+	type WalletClient,
+	type PublicClient,
+	type HDAccount,
+	type Hex,
+	http
+} from 'viem';
+import { privateKeyToAccount, mnemonicToAccount } from 'viem/accounts';
+
+import {
+	type LivelyDiamondSDKOptions,
 	type SupportedNetworksType,
-	SupportedNetworks,
-	type LivelyDiamondSDKOptions
+	SupportedNetworks
 } from './shared/types.js';
-import 'reflect-metadata';
+import { CheckPropsDefined, SDKValidator } from './shared/decorators.js';
 import { LivelyDiamondContract } from './LivelyDiamondContract.js';
 
-/**
- * LivelyDiamond SDK
- */
-
-const defaultOpts: LivelyDiamondSDKOptions = {
+const defaultConstructorOpts: LivelyDiamondSDKOptions = {
 	privateKey: undefined,
-	mnemonic: undefined,
-	contractAddress: undefined
+	mnemonic: undefined
+	// contractAddress: undefined
 };
 
-@SDKValidator
-export class LivelyDiamondSDK extends LivelyDiamondContract {
-	// protected _network: SupportedNetworksType | undefined;
-	protected _account: PrivateKeyAccount | HDAccount | undefined;
-	protected _publicClient: PublicClient | undefined;
-	protected _walletClient: WalletClient | undefined;
-	protected _contract: LivelyDiamondContract;
-	protected _client: Client | undefined;
-	public walletConnected = () => !!this._walletClient;
+const defaultWalletOpts = { network: SupportedNetworks.MAINNET };
 
-	// Constructor + Static Builers
-	constructor(network: SupportedNetworksType = SupportedNetworks.MAINNET, opts = defaultOpts) {
+@SDKValidator
+/**
+ * LivelyDiamond SDK
+ *
+ * This SDK will make it easier for the user to connect to their LivelyDiamond contract, deploy a ERC721 and ERC1155 contract, mint tokens,
+ * and interact with the contract in various ways.
+ */
+export class LivelyDiamondSDK extends LivelyDiamondContract {
+	protected _account: PrivateKeyAccount | HDAccount | undefined;
+	protected _network: SupportedNetworksType | undefined;
+	public walletConnected = () => !!this._walletClient;
+	protected _walletClient: WalletClient | undefined;
+	protected _publicClient: PublicClient | undefined;
+
+	// Constructor + Static Builders
+	constructor(
+		network: SupportedNetworksType = SupportedNetworks.MAINNET,
+		opts = defaultConstructorOpts
+	) {
 		super(opts.contractAddress);
 
-		this._contract = this.getLivelyDiamondContract();
+		// this._contract = this.getLivelyDiamondContract();
 		this._network = network;
 
 		if (opts.privateKey) {
@@ -42,27 +56,38 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 			this._account = mnemonicToAccount(opts.mnemonic);
 		}
 
-		this.connectClient();
+		this.createClients();
 	}
 
-	static fromPK(privateKey: Hex, opts = { network: SupportedNetworks.MAINNET }): LivelyDiamondSDK {
-		return new LivelyDiamondSDK(opts.network, { privateKey });
-	}
-
-	static fromMnemonic(
-		mnemonic: string,
-		opts = { network: SupportedNetworks.MAINNET }
-	): LivelyDiamondSDK {
+	static fromMnemonic(mnemonic: string, opts = defaultWalletOpts): LivelyDiamondSDK {
 		return new LivelyDiamondSDK(opts.network, { mnemonic });
 	}
 
-	/**
-	 * Creates a walletClient or a publicClient depending on the account
-	 */
-	@ConnectClient()
-	private connectClient() {
-		// Let decorator do the work
-		// FIXME: This feels wrong
+	static fromPK(privateKey: Hex, opts = defaultWalletOpts): LivelyDiamondSDK {
+		return new LivelyDiamondSDK(opts.network, { privateKey });
+	}
+
+	/** Creates a walletClient */
+	private createWalletClient(): void {
+		this._walletClient = createWalletClient({
+			account: this._account,
+			chain: this._network,
+			transport: http()
+		});
+	}
+
+	/** Creates a publicClient */
+	private createPublicClient() {
+		this._publicClient = createPublicClient({
+			chain: this._network,
+			transport: http()
+		});
+	}
+
+	/** Client public and/or private client */
+	private createClients(): void {
+		this.createPublicClient();
+		this.createWalletClient();
 	}
 
 	// // Getters/setters for protected properties that need to be read/written by decorator methods
@@ -70,12 +95,9 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 	// 	return this._network;
 	// }
 
-	get account(): typeof this._account {
-		return this._account;
-	}
-
-	get publicClient(): typeof this._publicClient {
-		return this._publicClient;
+	set walletClient(value: WalletClient | undefined) {
+		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
+		this._walletClient = value;
 	}
 
 	set publicClient(value: PublicClient | undefined) {
@@ -83,45 +105,37 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		this._publicClient = value;
 	}
 
-	get contract(): typeof this._contract {
-		return this._contract;
+	@CheckPropsDefined(['_network'])
+	public connectFromMnemonic(mnemonic: string) {
+		this._account = mnemonicToAccount(mnemonic);
+		return this;
 	}
 
-	get client(): typeof this._client {
-		return this._client;
+	@CheckPropsDefined(['_network'])
+	public connectPK(privateKey: Hex) {
+		this._account = privateKeyToAccount(privateKey);
+		return this;
 	}
 
-	set client(value: Client | undefined) {
-		this._client = value;
+	public setNetwork(network: SupportedNetworksType) {
+		this._network = network;
+
+		return this;
+	}
+
+	// get contract(): typeof this._contract {
+	// 	return this._contract;
+	// }
+
+	get publicClient(): typeof this._publicClient {
+		return this._publicClient;
 	}
 
 	get walletClient(): typeof this._walletClient {
 		return this._walletClient;
 	}
 
-	set walletClient(value: WalletClient | undefined) {
-		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
-		this._walletClient = value;
-	}
-
-	@CheckPropsDefined(['_network'])
-	@ConnectClient()
-	public connectPK(privateKey: Hex) {
-		this._account = privateKeyToAccount(privateKey);
-		return this;
-	}
-
-	@CheckPropsDefined(['_network'])
-	@ConnectClient()
-	public connectFromMnemonic(mnemonic: string) {
-		this._account = mnemonicToAccount(mnemonic);
-		return this;
-	}
-
-	@ConnectClient()
-	public setNetwork(network: SupportedNetworksType) {
-		this._network = network;
-
-		return this;
+	get account(): typeof this._account {
+		return this._account;
 	}
 }

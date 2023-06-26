@@ -1,29 +1,30 @@
 import type { Hex } from 'viem';
+
 import {
-	mainnet,
-	goerli,
-	sepolia,
 	polygonMumbai,
-	polygon,
+	type Chain,
 	localhost,
-	type Chain
+	polygon,
+	sepolia,
+	mainnet,
+	goerli
 } from 'viem/chains';
 
 type valueOf<T> = T[keyof T];
 
 export const SupportedNetworks: Record<string, Chain> = {
-	MAINNET: mainnet,
-	GOERLI: goerli,
-	SEPOLIA: sepolia,
 	MUMBAI: polygonMumbai,
+	LOCALHOST: localhost,
 	POLYGON: polygon,
-	LOCALHOST: localhost
+	SEPOLIA: sepolia,
+	MAINNET: mainnet,
+	GOERLI: goerli
 };
 
 export interface LivelyDiamondSDKOptions {
-	privateKey?: Hex;
-	mnemonic?: string;
 	contractAddress?: Hex;
+	mnemonic?: string;
+	privateKey?: Hex;
 }
 
 export type SupportedNetworksType = valueOf<typeof SupportedNetworks>;

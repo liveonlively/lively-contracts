@@ -1,16 +1,18 @@
-import { it, describe, expect, beforeEach } from 'vitest';
-import { generatePrivateKey } from 'viem/accounts';
 import {
-	type Address,
-	createWalletClient,
-	http,
 	createPublicClient,
-	type WalletClient
+	createWalletClient,
+	type WalletClient,
+	type Address,
+	http
 } from 'viem';
-import { LivelyDiamondSDK } from './LivelyDiamondSDK.js';
-import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
-import { SupportedNetworks } from './shared/types.js';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { generatePrivateKey } from 'viem/accounts';
 import { mainnet } from 'viem/chains';
+
+import { isValidPrivateKey, isValidNetwork } from './shared/decorators.js';
+import { LivelyDiamondSDK } from './LivelyDiamondSDK.js';
+import { SupportedNetworks } from './shared/types.js';
+// import { mainnet } from 'viem/chains';
 
 describe('livelyDiamondSDK', () => {
 	const validPK = generatePrivateKey();
@@ -51,11 +53,12 @@ describe('livelyDiamondSDK', () => {
 			sdk = new LivelyDiamondSDK(SupportedNetworks.MAINNET);
 		});
 
-		it('should create a new instance of the livelyDiamondSDK', () => {
+		it('should create a new instance of the livelyDiamondSDK', async () => {
 			expect(sdk).to.be.instanceOf(LivelyDiamondSDK);
 			expect(sdk.network).not.toBe(SupportedNetworks.MUMBAI);
 			expect(sdk.network).toBe(SupportedNetworks.MAINNET);
-			expect(sdk.walletConnected()).toBe(false);
+			expect(sdk.walletConnected()).toBe(true);
+			expect(sdk.walletClient?.account).toBeUndefined();
 			expect(sdk.account).toBeUndefined();
 		});
 
@@ -91,7 +94,7 @@ describe('livelyDiamondSDK', () => {
 			sdk = new LivelyDiamondSDK();
 		});
 
-		it('should have the correct getters for proptected properties', () => {
+		it('should have the correct getters for protected properties', () => {
 			for (const property of protectedProps) {
 				expect(sdk).toHaveProperty(property);
 			}
@@ -106,10 +109,10 @@ describe('livelyDiamondSDK', () => {
 
 		it('should not allow protected properties with setters to be assigned the wrong type', () => {
 			const walletClient: WalletClient = createWalletClient({
-				chain: mainnet,
-				transport: http()
+				transport: http(),
+				chain: mainnet
 			});
-			const publicClient = createPublicClient({ chain: mainnet, transport: http() });
+			const publicClient = createPublicClient({ transport: http(), chain: mainnet });
 
 			// @ts-expect-error This test should cause a TS error, but testing it's runtime behavior
 			expect(() => (sdk.publicClient = walletClient)).toThrow();
@@ -128,21 +131,13 @@ describe('livelyDiamondSDK', () => {
 		});
 
 		it('should automatically create appropriate client if PK is passed', () => {
-			expect(sdk?.client?.type).to.equal('publicClient');
-			sdk.connectPK(validPK);
-			expect(sdk?.client?.type).to.equal('walletClient');
+			// FIXME: Change this to something else now that I know we need both a publicClient and walletClient (local or RPC)
 		});
 	});
 
 	describe('privateKeys', () => {
 		beforeEach(() => {
 			sdk = new LivelyDiamondSDK(SupportedNetworks.MUMBAI);
-		});
-
-		it('should allow the SDK to switch networks on the publicClient', () => {
-			expect(sdk.walletConnected()).toBe(false);
-			sdk.connectPK(validPK);
-			expect(sdk.walletConnected()).toBe(true);
 		});
 
 		it('return account info if properly given private key', () => {
@@ -160,7 +155,7 @@ describe('livelyDiamondSDK', () => {
 
 		it('should allow a user to switch accounts of the SDK1', () => {
 			const privateKeys = [generatePrivateKey(), generatePrivateKey()];
-			const publicAddresses: (Address | undefined)[] = [];
+			const publicAddresses: (undefined | Address)[] = [];
 
 			expect(sdk.account).toBeUndefined();
 			expect(() => sdk.connectPK(privateKeys[0])).not.toThrow();
@@ -198,15 +193,12 @@ describe('livelyDiamondSDK', () => {
 			const sdk = LivelyDiamondSDK.fromMnemonic(testMnemonic);
 
 			expect(sdk.account?.address).to.equal(testPublicAddress);
-			expect(sdk.client).toBeDefined();
-			expect(sdk.client?.type).to.equal('walletClient');
-			expect(sdk.publicClient).toBeUndefined();
+			expect(sdk.publicClient).toBeDefined();
 			expect(sdk.walletClient).toBeDefined();
-			expect(sdk.walletClient).to.equal(sdk.client);
 		});
 	});
 
-	describe('Hardhard test network', () => {
+	describe('HardHat test network', () => {
 		it('should connect to network', () => {
 			// TODO: Fix this test after working contract class, maybe move ot Contract.test.ts
 		});

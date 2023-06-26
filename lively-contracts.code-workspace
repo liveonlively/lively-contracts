@@ -43,11 +43,11 @@
     "[solidity]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "cSpell.words": ["viem"]
+    "cSpell.words": ["liveonlively", "publint", "viem", "visualstudioexptteam"],
+    "testing.automaticallyOpenPeekView": "never"
   },
   "extensions": {
     "recommendations": [
-      "andys8.jest-snippets",
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
       "nomicfoundation.hardhat-solidity",
@@ -55,7 +55,11 @@
       "ardenivanov.svelte-intellisense",
       "bradlc.vscode-tailwindcss",
       "zixuanchen.vitest-explore",
-      "visualstudioexptteam.intellicode-api-usage-examples"
+      "visualstudioexptteam.intellicode-api-usage-examples",
+      "wix.vscode-import-cost",
+      "usernamehw.errorlens",
+      "zainchen.json",
+      "andys8.jest-snippets"
     ]
   }
 }

@@ -1,4 +1,7 @@
 module.exports = {
-	root: true,
-	extends: ['custom']
+	rules: {
+		'@typescript-eslint/adjacent-overload-signatures': 'off'
+	},
+	extends: ['custom'],
+	root: true
 };
