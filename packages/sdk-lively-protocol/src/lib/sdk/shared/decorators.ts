@@ -3,8 +3,6 @@ import type { Chain, Hex } from 'viem';
 
 import { privateKeyToAccount } from 'viem/accounts';
 
-import type { LivelyDiamondSDK } from '../LivelyDiamondSDK.js';
-
 import { SupportedNetworks } from './types.js';
 
 /**

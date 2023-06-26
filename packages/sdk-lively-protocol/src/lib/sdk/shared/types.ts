@@ -1,24 +1,24 @@
 import type { Hex } from 'viem';
 
 import {
-	polygonMumbai,
 	type Chain,
+	goerli,
 	localhost,
-	polygon,
-	sepolia,
 	mainnet,
-	goerli
+	polygon,
+	polygonMumbai,
+	sepolia
 } from 'viem/chains';
 
 type valueOf<T> = T[keyof T];
 
 export const SupportedNetworks: Record<string, Chain> = {
-	MUMBAI: polygonMumbai,
+	GOERLI: goerli,
 	LOCALHOST: localhost,
-	POLYGON: polygon,
-	SEPOLIA: sepolia,
 	MAINNET: mainnet,
-	GOERLI: goerli
+	MUMBAI: polygonMumbai,
+	POLYGON: polygon,
+	SEPOLIA: sepolia
 };
 
 export interface LivelyDiamondSDKOptions {

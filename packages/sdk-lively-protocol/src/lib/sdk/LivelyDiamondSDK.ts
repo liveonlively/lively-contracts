@@ -1,26 +1,26 @@
 import {
-	type PrivateKeyAccount,
-	createWalletClient,
-	createPublicClient,
-	type WalletClient,
-	type PublicClient,
 	type HDAccount,
 	type Hex,
+	type PrivateKeyAccount,
+	type PublicClient,
+	type WalletClient,
+	createPublicClient,
+	createWalletClient,
 	http
 } from 'viem';
-import { privateKeyToAccount, mnemonicToAccount } from 'viem/accounts';
+import { mnemonicToAccount, privateKeyToAccount } from 'viem/accounts';
 
+import { LivelyDiamondContract } from './LivelyDiamondContract.js';
+import { CheckPropsDefined, SDKValidator } from './shared/decorators.js';
 import {
 	type LivelyDiamondSDKOptions,
-	type SupportedNetworksType,
-	SupportedNetworks
+	SupportedNetworks,
+	type SupportedNetworksType
 } from './shared/types.js';
-import { CheckPropsDefined, SDKValidator } from './shared/decorators.js';
-import { LivelyDiamondContract } from './LivelyDiamondContract.js';
 
 const defaultConstructorOpts: LivelyDiamondSDKOptions = {
-	privateKey: undefined,
-	mnemonic: undefined
+	mnemonic: undefined,
+	privateKey: undefined
 	// contractAddress: undefined
 };
 
@@ -34,11 +34,11 @@ const defaultWalletOpts = { network: SupportedNetworks.MAINNET };
  * and interact with the contract in various ways.
  */
 export class LivelyDiamondSDK extends LivelyDiamondContract {
-	protected _account: PrivateKeyAccount | HDAccount | undefined;
+	protected _account: HDAccount | PrivateKeyAccount | undefined;
 	protected _network: SupportedNetworksType | undefined;
-	public walletConnected = () => !!this._walletClient;
-	protected _walletClient: WalletClient | undefined;
 	protected _publicClient: PublicClient | undefined;
+	protected _walletClient: WalletClient | undefined;
+	public walletConnected = () => !!this._walletClient;
 
 	// Constructor + Static Builders
 	constructor(
@@ -67,13 +67,10 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		return new LivelyDiamondSDK(opts.network, { privateKey });
 	}
 
-	/** Creates a walletClient */
-	private createWalletClient(): void {
-		this._walletClient = createWalletClient({
-			account: this._account,
-			chain: this._network,
-			transport: http()
-		});
+	/** Client public and/or private client */
+	private createClients(): void {
+		this.createPublicClient();
+		this.createWalletClient();
 	}
 
 	/** Creates a publicClient */
@@ -84,25 +81,17 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		});
 	}
 
-	/** Client public and/or private client */
-	private createClients(): void {
-		this.createPublicClient();
-		this.createWalletClient();
+	/** Creates a walletClient */
+	private createWalletClient(): void {
+		this._walletClient = createWalletClient({
+			account: this._account,
+			chain: this._network,
+			transport: http()
+		});
 	}
 
-	// // Getters/setters for protected properties that need to be read/written by decorator methods
-	// get network(): typeof this._network {
-	// 	return this._network;
-	// }
-
-	set walletClient(value: WalletClient | undefined) {
-		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
-		this._walletClient = value;
-	}
-
-	set publicClient(value: PublicClient | undefined) {
-		if (value && value?.type !== 'publicClient') throw new Error('Incorrect type for publicClient');
-		this._publicClient = value;
+	get account(): HDAccount | PrivateKeyAccount | undefined {
+		return this._account;
 	}
 
 	@CheckPropsDefined(['_network'])
@@ -117,25 +106,32 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		return this;
 	}
 
+	// // Getters/setters for protected properties that need to be read/written by decorator methods
+	get network(): SupportedNetworksType | undefined {
+		return this._network;
+	}
+
+	get publicClient(): PublicClient | undefined {
+		return this._publicClient;
+	}
+
+	set publicClient(value: PublicClient | undefined) {
+		if (value && value?.type !== 'publicClient') throw new Error('Incorrect type for publicClient');
+		this._publicClient = value;
+	}
+
 	public setNetwork(network: SupportedNetworksType) {
 		this._network = network;
 
 		return this;
 	}
 
-	// get contract(): typeof this._contract {
-	// 	return this._contract;
-	// }
-
-	get publicClient(): typeof this._publicClient {
-		return this._publicClient;
+	set walletClient(value: WalletClient | undefined) {
+		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
+		this._walletClient = value;
 	}
 
-	get walletClient(): typeof this._walletClient {
+	get walletClient(): WalletClient | undefined {
 		return this._walletClient;
-	}
-
-	get account(): typeof this._account {
-		return this._account;
 	}
 }

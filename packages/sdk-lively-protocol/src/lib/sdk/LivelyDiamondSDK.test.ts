@@ -1,16 +1,16 @@
 import {
+	type Address,
+	type WalletClient,
 	createPublicClient,
 	createWalletClient,
-	type WalletClient,
-	type Address,
 	http
 } from 'viem';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { generatePrivateKey } from 'viem/accounts';
 import { mainnet } from 'viem/chains';
+import { beforeEach, describe, expect, it } from 'vitest';
 
-import { isValidPrivateKey, isValidNetwork } from './shared/decorators.js';
 import { LivelyDiamondSDK } from './LivelyDiamondSDK.js';
+import { isValidNetwork, isValidPrivateKey } from './shared/decorators.js';
 import { SupportedNetworks } from './shared/types.js';
 // import { mainnet } from 'viem/chains';
 
@@ -109,10 +109,10 @@ describe('livelyDiamondSDK', () => {
 
 		it('should not allow protected properties with setters to be assigned the wrong type', () => {
 			const walletClient: WalletClient = createWalletClient({
-				transport: http(),
-				chain: mainnet
+				chain: mainnet,
+				transport: http()
 			});
-			const publicClient = createPublicClient({ transport: http(), chain: mainnet });
+			const publicClient = createPublicClient({ chain: mainnet, transport: http() });
 
 			// @ts-expect-error This test should cause a TS error, but testing it's runtime behavior
 			expect(() => (sdk.publicClient = walletClient)).toThrow();
@@ -155,7 +155,7 @@ describe('livelyDiamondSDK', () => {
 
 		it('should allow a user to switch accounts of the SDK1', () => {
 			const privateKeys = [generatePrivateKey(), generatePrivateKey()];
-			const publicAddresses: (undefined | Address)[] = [];
+			const publicAddresses: (Address | undefined)[] = [];
 
 			expect(sdk.account).toBeUndefined();
 			expect(() => sdk.connectPK(privateKeys[0])).not.toThrow();
