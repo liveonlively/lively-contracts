@@ -37,7 +37,7 @@ describe(`DiamondAirdrop Test`, function () {
     const contract = (await ethers.getContractAt(
       "DummyDiamond721Implementation",
       contractAddress,
-      owner,
+      owner
     )) as unknown as DummyDiamond721Implementation;
 
     const maxSupply = await contract["maxSupply()"]();

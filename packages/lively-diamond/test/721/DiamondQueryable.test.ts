@@ -94,8 +94,8 @@ describe(`DiamondQueryable Test`, function () {
             editionIndex,
             {
               value: 0,
-            },
-          ),
+            }
+          )
         );
       }
 
@@ -130,8 +130,8 @@ describe(`DiamondQueryable Test`, function () {
             editionIndex,
             {
               value: 0,
-            },
-          ),
+            }
+          )
         );
       }
 

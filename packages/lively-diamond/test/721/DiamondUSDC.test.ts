@@ -60,7 +60,7 @@ describe(`DiamondUSDC Test`, function () {
       await expect(
         contract["mint(address)"](addr1.address, {
           value: convertedPrice,
-        }),
+        })
       ).to.not.be.reverted;
       expect(await contract["balanceOf(address)"](addr1.address)).to.equal(1);
 

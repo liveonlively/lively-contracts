@@ -3,7 +3,7 @@ import {
 	type WalletClient,
 	createPublicClient,
 	createWalletClient,
-	http
+	http,
 } from 'viem';
 import { generatePrivateKey } from 'viem/accounts';
 import { mainnet } from 'viem/chains';
@@ -22,31 +22,7 @@ describe('livelyDiamondSDK', () => {
 		'south crazy loan indoor cause option evil settle feed recipe mushroom false';
 	const testPublicAddress = '0x0b3Ca3586327FAB688fd34feF784d586e3828153';
 	const protectedProps = ['network', 'account'] as const;
-
 	let sdk: LivelyDiamondSDK;
-
-	describe('decorators', () => {
-		describe('isValidNetwork', () => {
-			it('should be false for invalid network', () => {
-				// @ts-expect-error This is testing runtime errors and should have a TS error
-				expect(isValidNetwork('mainnet2')).toBe(false);
-			});
-
-			it('should not throw an error if a valid network is passed', () => {
-				expect(isValidNetwork(SupportedNetworks.MAINNET)).toBe(true);
-			});
-		});
-
-		describe('isValidPrivateKey', () => {
-			it('should return false if an invalid private key is passed', () => {
-				expect(isValidPrivateKey('0x1234')).toBe(false);
-			});
-
-			it('should return true if a valid private key is passed', () => {
-				expect(isValidPrivateKey(validPK)).toBe(true);
-			});
-		});
-	});
 
 	describe('constructor', () => {
 		beforeEach(() => {
@@ -89,6 +65,39 @@ describe('livelyDiamondSDK', () => {
 		});
 	});
 
+	describe('decorators', () => {
+		describe('isValidNetwork', () => {
+			it('should be false for invalid network', () => {
+				// @ts-expect-error This is testing runtime errors and should have a TS error
+				expect(isValidNetwork('mainnet2')).toBe(false);
+			});
+
+			it('should not throw an error if a valid network is passed', () => {
+				expect(isValidNetwork(SupportedNetworks.MAINNET)).toBe(true);
+			});
+		});
+
+		describe('isValidPrivateKey', () => {
+			it('should return false if an invalid private key is passed', () => {
+				expect(isValidPrivateKey('0x1234')).toBe(false);
+			});
+
+			it('should return true if a valid private key is passed', () => {
+				expect(isValidPrivateKey(validPK)).toBe(true);
+			});
+		});
+	});
+
+	describe('wallet client', () => {
+		beforeEach(() => {
+			sdk = new LivelyDiamondSDK(SupportedNetworks.MAINNET);
+		});
+
+		it('should be created without a signer if not provided a mnemonic or private key', () => {
+			expect(sdk.walletClient?.account).toBeUndefined();
+		});
+	});
+
 	describe('protected properties', () => {
 		beforeEach(() => {
 			sdk = new LivelyDiamondSDK();
@@ -110,7 +119,7 @@ describe('livelyDiamondSDK', () => {
 		it('should not allow protected properties with setters to be assigned the wrong type', () => {
 			const walletClient: WalletClient = createWalletClient({
 				chain: mainnet,
-				transport: http()
+				transport: http(),
 			});
 			const publicClient = createPublicClient({ chain: mainnet, transport: http() });
 

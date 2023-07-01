@@ -10,12 +10,12 @@ const config = {
 		adapter: adapter(),
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 		alias: {
-			$lib: 'src/lib'
-		}
+			$lib: 'src/lib',
+		},
 	},
 
 	// for more information about preprocessors
-	preprocess: vitePreprocess()
+	preprocess: vitePreprocess(),
 };
 
 export default config;

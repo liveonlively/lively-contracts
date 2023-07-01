@@ -77,7 +77,7 @@ describe(`DiamondPrice Test`, function () {
       await expect(
         contract["mint(address)"](addr1.address, {
           value: priceInWei / 2n,
-        }),
+        })
       ).to.be.reverted;
     });
 

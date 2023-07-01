@@ -12,6 +12,10 @@ export class LivelyDiamondContract {
 		return this;
 	}
 
+	get address(): Hex | undefined {
+		return this._address;
+	}
+
 	public deployContract() {
 		console.log('Deploying contract');
 		return 5;
@@ -22,7 +26,7 @@ export class LivelyDiamondContract {
 	}
 
 	// Getters/setters for protected properties that need to be read/written by decorator methods
-	get network(): typeof this._network {
+	get network(): SupportedNetworksType | undefined {
 		return this._network;
 	}
 }

@@ -1,3 +1,4 @@
+import { type Writable, get, writable } from 'svelte/store';
 import {
 	type HDAccount,
 	type Hex,
@@ -6,21 +7,20 @@ import {
 	type WalletClient,
 	createPublicClient,
 	createWalletClient,
-	http
+	http,
 } from 'viem';
 import { mnemonicToAccount, privateKeyToAccount } from 'viem/accounts';
 
-import { LivelyDiamondContract } from './LivelyDiamondContract.js';
 import { CheckPropsDefined, SDKValidator } from './shared/decorators.js';
 import {
 	type LivelyDiamondSDKOptions,
 	SupportedNetworks,
-	type SupportedNetworksType
+	type SupportedNetworksType,
 } from './shared/types.js';
 
 const defaultConstructorOpts: LivelyDiamondSDKOptions = {
 	mnemonic: undefined,
-	privateKey: undefined
+	privateKey: undefined,
 	// contractAddress: undefined
 };
 
@@ -33,11 +33,11 @@ const defaultWalletOpts = { network: SupportedNetworks.MAINNET };
  * This SDK will make it easier for the user to connect to their LivelyDiamond contract, deploy a ERC721 and ERC1155 contract, mint tokens,
  * and interact with the contract in various ways.
  */
-export class LivelyDiamondSDK extends LivelyDiamondContract {
+export class LivelyDiamondSDK {
 	protected _account: HDAccount | PrivateKeyAccount | undefined;
-	protected _network: SupportedNetworksType | undefined;
-	protected _publicClient: PublicClient | undefined;
-	protected _walletClient: WalletClient | undefined;
+	protected _network: SupportedNetworksType;
+	protected _publicClient!: PublicClient;
+	protected _walletClient!: Writable<WalletClient>;
 	public walletConnected = () => !!this._walletClient;
 
 	// Constructor + Static Builders
@@ -45,8 +45,6 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		network: SupportedNetworksType = SupportedNetworks.MAINNET,
 		opts = defaultConstructorOpts
 	) {
-		super(opts.contractAddress);
-
 		// this._contract = this.getLivelyDiamondContract();
 		this._network = network;
 
@@ -77,17 +75,19 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 	private createPublicClient() {
 		this._publicClient = createPublicClient({
 			chain: this._network,
-			transport: http()
+			transport: http(),
 		});
 	}
 
 	/** Creates a walletClient */
 	private createWalletClient(): void {
-		this._walletClient = createWalletClient({
-			account: this._account,
-			chain: this._network,
-			transport: http()
-		});
+		this._walletClient = writable(
+			createWalletClient({
+				account: this._account,
+				chain: this._network,
+				transport: http(),
+			})
+		);
 	}
 
 	get account(): HDAccount | PrivateKeyAccount | undefined {
@@ -115,7 +115,7 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		return this._publicClient;
 	}
 
-	set publicClient(value: PublicClient | undefined) {
+	set publicClient(value: PublicClient) {
 		if (value && value?.type !== 'publicClient') throw new Error('Incorrect type for publicClient');
 		this._publicClient = value;
 	}
@@ -126,12 +126,13 @@ export class LivelyDiamondSDK extends LivelyDiamondContract {
 		return this;
 	}
 
-	set walletClient(value: WalletClient | undefined) {
+	set walletClient(value: WalletClient) {
 		if (value && value?.type !== 'walletClient') throw new Error('Incorrect type for walletClient');
-		this._walletClient = value;
+		this._walletClient.set(value);
 	}
 
 	get walletClient(): WalletClient | undefined {
-		return this._walletClient;
+		if (!this._walletClient) return undefined;
+		return get(this._walletClient);
 	}
 }

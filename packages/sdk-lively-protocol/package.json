@@ -33,6 +33,7 @@
 		"svelte": "^3.54.0"
 	},
 	"devDependencies": {
+		"@ethersproject/providers": "^5.7.2",
 		"@liveonlively/lively-contracts": "workspace:*",
 		"@metamask/sdk": "^0.3.2",
 		"@playwright/test": "^1.28.1",
@@ -49,6 +50,7 @@
 		"esm-env": "^1.0.0",
 		"eventemitter3": "^5.0.1",
 		"jest": "^29.5.0",
+		"json-diff": "^1.0.6",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"publint": "^0.1.9",

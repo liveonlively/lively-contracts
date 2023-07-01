@@ -15,7 +15,7 @@ type GetContractStringParams = GenerateContractParams & {
 
 export const generateDummyContract = (
   facetList: Contract[],
-  { spdxIdentifier, solidityVersion, diamondAddress, network, contractName }: GenerateContractParams,
+  { spdxIdentifier, solidityVersion, diamondAddress, network, contractName }: GenerateContractParams
 ): string => {
   const structs = facetList
     .reduce((structsArr: any, contract) => {
@@ -73,7 +73,7 @@ const getFormattedSignatures = (facet: Contract) => {
   // const signatures = Object.keys(facet.interface.functions);
   console.log("------Inside getFormattedSignatures------");
   const signatures: FunctionFragment[] = Object.values(facet.interface.fragments).filter(
-    (fragment) => fragment.type === "function",
+    (fragment) => fragment.type === "function"
   ) as FunctionFragment[];
 
   console.log({ signatures: JSON.stringify(signatures, null, 2) });
@@ -176,7 +176,7 @@ const getFormattedStructs = (facet: Contract) => {
   console.log("Generating structs for facet: ", facet, "...");
 
   const funcs: FunctionFragment[] = Object.values(facet.interface.fragments).filter(
-    (fragment) => fragment.type === "function",
+    (fragment) => fragment.type === "function"
   ) as FunctionFragment[];
 
   console.log("Inside getFormattedStructs: ", { funcs });
@@ -220,7 +220,7 @@ const recursiveFormatStructs = (param: ParamType): string[] => {
   const structMembers = param.components.map(formatStructMember);
   const struct = `    struct ${getTupleName(param)} {${structMembers.reduce(
     (allMembers, member) => `${allMembers}${member}`,
-    "",
+    ""
   )}\n    }`;
 
   return [struct, ...otherStructs];

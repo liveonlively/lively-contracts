@@ -7,7 +7,7 @@ import {
 	mainnet,
 	polygon,
 	polygonMumbai,
-	sepolia
+	sepolia,
 } from 'viem/chains';
 
 type valueOf<T> = T[keyof T];
@@ -18,7 +18,7 @@ export const SupportedNetworks: Record<string, Chain> = {
 	MAINNET: mainnet,
 	MUMBAI: polygonMumbai,
 	POLYGON: polygon,
-	SEPOLIA: sepolia
+	SEPOLIA: sepolia,
 };
 
 export interface LivelyDiamondSDKOptions {

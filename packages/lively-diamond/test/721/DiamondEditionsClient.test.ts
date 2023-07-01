@@ -126,7 +126,7 @@ describe(`DiamondEditionsClient Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: incorrectPrice,
-        }),
+        })
       ).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 0
@@ -208,7 +208,7 @@ describe(`DiamondEditionsClient Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: defaultPrice,
-        }),
+        })
       ).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 0
@@ -290,7 +290,7 @@ describe(`DiamondEditionsClient Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: defaultPrice,
-        }),
+        })
       ).to.be.reverted;
     });
 
