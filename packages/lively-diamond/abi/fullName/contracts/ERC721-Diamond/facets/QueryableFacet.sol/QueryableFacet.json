@@ -1,0 +1,19 @@
+[
+  "error BalanceQueryForZeroAddress()",
+  "error EditionsDisabled()",
+  "error InvalidEditionIndex()",
+  "error InvalidQueryRange()",
+  "error OwnerQueryForNonexistentToken()",
+  "error OwnerQueryForNonexistentToken()",
+  "function explicitOwnershipOf(uint256 tokenId) view returns (tuple(address addr, uint64 startTimestamp, bool burned, uint24 extraData))",
+  "function explicitOwnershipsOf(uint256[] tokenIds) view returns (tuple(address addr, uint64 startTimestamp, bool burned, uint24 extraData)[])",
+  "function getEditionIndex(uint256 _tokenId) view returns (uint256)",
+  "function getEditionsByOwner(address _owner) view returns (uint256[])",
+  "function getOwners() view returns (address[])",
+  "function getOwners(uint256 _editionIndex) view returns (address[])",
+  "function getTokensByOwner(address _owner) view returns (uint256[])",
+  "function getTokensByOwner(address _owner, uint256 _editionIndex) view returns (uint256[])",
+  "function ownsEdition(address _owner, uint256 editionIndex) view returns (bool)",
+  "function tokensOfOwner(address owner) view returns (uint256[])",
+  "function tokensOfOwnerIn(address owner, uint256 start, uint256 stop) view returns (uint256[])"
+]

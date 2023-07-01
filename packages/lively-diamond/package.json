@@ -42,6 +42,7 @@
     "fs-extra": "^10.1.0",
     "glob": "^10.2.7",
     "hardhat": "^2.15.0",
+    "hardhat-abi-exporter": "^2.10.1",
     "hardhat-deploy": "^0.11.29",
     "hardhat-diamond-abi": "^3.0.1",
     "hardhat-gas-reporter": "^1.0.9",

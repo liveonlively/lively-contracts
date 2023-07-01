@@ -3,7 +3,8 @@ import { expect } from "chai";
 import { Wallet } from "ethers";
 import { ethers } from "hardhat";
 
-import { defaultArgs, deployDiamond, oneHourFromNowInSeconds } from "../../scripts/1155/deploy";
+import { defaultArgs, oneHourFromNowInSeconds } from "../../scripts/1155/defaultArgs";
+import { deployDiamond } from "../../scripts/1155/deploy";
 
 // TODO: Add non owner should not be able to mint test for airdrop
 

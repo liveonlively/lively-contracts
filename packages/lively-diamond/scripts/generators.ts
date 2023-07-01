@@ -162,7 +162,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     address: newlyDeployed.address,
   });
 
-  if (network.live) {
+  if (network.live && chainId !== "1337") {
     if (newlyDeployed.receipt) {
       console.log("Receipt found");
 

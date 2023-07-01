@@ -1,0 +1,9 @@
+[
+  "error ArrayLengthsDiffer()",
+  "error ExceedsMaxSupply()",
+  "error InvalidAmount()",
+  "error InvalidMaxSupply()",
+  "error InvalidMintType()",
+  "error InvalidTokenID()",
+  "event PaymentReceived(address from, uint256 amount)"
+]

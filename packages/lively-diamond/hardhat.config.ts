@@ -1,5 +1,6 @@
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
+import "hardhat-abi-exporter";
 import "hardhat-deploy";
 import "hardhat-diamond-abi";
 import "hardhat-gas-reporter";
@@ -11,8 +12,6 @@ import "solidity-docgen";
 import { erc721Facets, erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
 import "./tasks/generators";
-import "./tasks/greet";
-import "./tasks/taskDeploy";
 
 // FIXME: Generate dummy doesn't work with ethers v6. Figure out a workaround or use something else.
 
@@ -40,7 +39,7 @@ const chainIds = {
   "polygon-mainnet": 137,
   "polygon-mumbai": 80001,
   sepolia: 11155111,
-  ganache: 5777,
+  ganache: 1337,
 };
 
 function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
@@ -111,7 +110,7 @@ const config: HardhatUserConfig = {
         mnemonic,
       },
       chainId: chainIds.ganache,
-      url: "http://localhost:8545",
+      url: "http://127.0.0.1:8545",
     },
     arbitrum: getChainConfig("arbitrum-mainnet"),
     avalanche: getChainConfig("avalanche"),
@@ -164,6 +163,20 @@ const config: HardhatUserConfig = {
       name: "LivelyDiamondABI",
       include: [...erc721Facets, ...sharedFacets],
       strict: false,
+    },
+  ],
+  abiExporter: [
+    {
+      path: "./abi/json",
+      format: "json",
+    },
+    {
+      path: "./abi/minimal",
+      format: "minimal",
+    },
+    {
+      path: "./abi/fullName",
+      format: "fullName",
     },
   ],
 };
