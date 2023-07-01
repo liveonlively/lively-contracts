@@ -692,7 +692,7 @@ describe(`DiamondBase 1155 Test`, function () {
       expect(await diamondFacet["supportsInterface(bytes4)"]("0x01ffc9a7")).to.equal(true);
       // 0xd9b67a26 = ERC-1155
       expect(await diamondFacet["supportsInterface(bytes4)"]("0xd9b67a26")).to.equal(true);
-      // 0x1f931c1c = IDamondCut
+      // 0x1f931c1c = IDiamondCut
       expect(await diamondFacet["supportsInterface(bytes4)"]("0x1f931c1c")).to.equal(true);
       // 0x48e2b093 = IDiamondLoupe
       expect(await diamondFacet["supportsInterface(bytes4)"]("0x48e2b093")).to.equal(true);
@@ -709,7 +709,7 @@ describe(`DiamondBase 1155 Test`, function () {
   //     it("Should return basic metadata", async function () {
   //       const { signer1, signer2, signer3, metadataFacet } = await loadFixture(
   //         deployTokenFixture
-  //       );
+  //       );x
 
   //       // string description; // "Umphrey's McGee Nashville, TN 12/15/2020. Collection of all songs in the Lively NFT player and the ability to mint out all the songs into individual NFTs."
   //       // string external_url; // https://golive.ly

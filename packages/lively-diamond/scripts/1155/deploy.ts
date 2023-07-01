@@ -2,8 +2,8 @@ import { Hex, createPublicClient, createWalletClient, http } from "viem";
 import { mnemonicToAccount } from "viem/accounts";
 import { localhost } from "viem/chains";
 
-import * as abi from "../../abi/json/hardhat-diamond-abi/HardhatDiamondABI.sol/Lively1155DiamondABI.json";
-import { bytecode } from "../../artifacts/contracts/ERC721-Diamond/LivelyDiamond.sol/LivelyDiamond.json";
+// import * as abi from "../../abi/json/hardhat-diamond-abi/HardhatDiamondABI.sol/Lively1155DiamondABI.json";
+import { abi, bytecode } from "../../artifacts/contracts/ERC1155-Diamond/Lively1155Diamond.sol/Lively1155Diamond.json";
 import { defaultArgs } from "./defaultArgs";
 
 export const logger = (...args: unknown[]) => {
@@ -19,7 +19,7 @@ type Opts = {
 
 // type DeployAccount = PrivateKeyAccount | HDAccount;
 // async function deployDiamond(deployer: DeployAccount, livelyDev: DeployAccount, opts?: Opts): Promise<string> {
-async function deployDiamond(opts?: Opts): Promise<Hex> {
+export async function deployDiamond(opts?: Opts): Promise<Hex> {
   const deployer = mnemonicToAccount(process.env.MNEMONIC as string);
   const livelyDev = mnemonicToAccount(process.env.MNEMONIC as string, {
     accountIndex: 1,
@@ -47,8 +47,15 @@ async function deployDiamond(opts?: Opts): Promise<Hex> {
   });
 
   // Deploy DiamondInit
+  console.log("++++++++Deploying DiamondInit++++++++");
+  let abi2 = JSON.parse(JSON.stringify(abi));
+  if (abi2) {
+    abi2 = abi2 as object;
+    abi2 = JSON.parse(JSON.stringify(abi2));
+  }
+  console.log({ abi2 });
   const hash = await client.deployContract({
-    abi,
+    abi: abi2,
     args: [defaultArgs],
     bytecode: bytecode as Hex,
   });
