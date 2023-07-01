@@ -1,10 +1,6 @@
-import {
-  DeployFunction,
-  DeployOptions,
-  DeployResult,
-} from "hardhat-deploy/types";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction, DeployOptions, DeployResult } from "hardhat-deploy/types";
 import type { NomicLabsHardhatPluginError } from "hardhat/internal/core/errors";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts, getChainId, network } = hre;

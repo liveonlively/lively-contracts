@@ -60,18 +60,16 @@ export const optimizationEnabled = <const>[
   "contracts/shared/facets/AllowListFacet.sol",
 ];
 
-  export const erc721Facets = optimizationEnabled
-    .filter((path) => path.startsWith("contracts/ERC721-Diamond/facets/"))
-    .map((path) => path.replace("contracts/ERC721-Diamond/facets/", ""))
-    .concat(["DummyDiamond721Implementation.sol"]);
+export const erc721Facets = optimizationEnabled
+  .filter((path) => path.startsWith("contracts/ERC721-Diamond/facets/"))
+  .map((path) => path.replace("contracts/ERC721-Diamond/facets/", ""))
+  .concat(["DummyDiamond721Implementation.sol"]);
 
-  export const erc1155Facets = optimizationEnabled
-    .filter((path) => path.startsWith("contracts/ERC1155-Diamond/facets/"))
-    .map((path) => path.replace("contracts/ERC1155-Diamond/facets/", ""))
-    .concat(["DummyDiamond1155Implementation.sol"]);
+export const erc1155Facets = optimizationEnabled
+  .filter((path) => path.startsWith("contracts/ERC1155-Diamond/facets/"))
+  .map((path) => path.replace("contracts/ERC1155-Diamond/facets/", ""))
+  .concat(["DummyDiamond1155Implementation.sol"]);
 
-  export const sharedFacets = optimizationEnabled
-    .filter((path) => path.startsWith("contracts/shared/facets/"))
-    .map((path) => path.replace("contracts/shared/facets/", ""));
-
-  
+export const sharedFacets = optimizationEnabled
+  .filter((path) => path.startsWith("contracts/shared/facets/"))
+  .map((path) => path.replace("contracts/shared/facets/", ""));
