@@ -107,11 +107,11 @@ export class LivelyDiamondSDK {
 	}
 
 	// // Getters/setters for protected properties that need to be read/written by decorator methods
-	get network(): SupportedNetworksType | undefined {
+	get network(): SupportedNetworksType {
 		return this._network;
 	}
 
-	get publicClient(): PublicClient | undefined {
+	get publicClient(): PublicClient {
 		return this._publicClient;
 	}
 
@@ -131,8 +131,7 @@ export class LivelyDiamondSDK {
 		this._walletClient.set(value);
 	}
 
-	get walletClient(): WalletClient | undefined {
-		if (!this._walletClient) return undefined;
+	get walletClient(): WalletClient {
 		return get(this._walletClient);
 	}
 }

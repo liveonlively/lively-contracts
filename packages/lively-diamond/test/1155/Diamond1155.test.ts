@@ -4,7 +4,7 @@ import { Wallet } from "ethers";
 import { ethers } from "hardhat";
 
 import { defaultArgs, oneHourFromNowInSeconds } from "../../scripts/1155/defaultArgs";
-import { deployDiamond } from "../../scripts/1155/deploy";
+import { deployDiamond } from "../../scripts/1155/deployOld";
 
 // TODO: Add non owner should not be able to mint test for airdrop
 
@@ -12,7 +12,7 @@ describe(`DiamondBase 1155 Test`, function () {
   async function deployTokenFixture() {
     const [owner, livelyDev, signer1, signer2, signer3, ...signers] = await ethers.getSigners();
 
-    const diamondAddress = await deployDiamond(owner, livelyDev);
+    const diamondAddress = await deployDiamond();
     const diamondFacet = await ethers.getContractAt("Lively1155DiamondABI", diamondAddress);
 
     await diamondFacet["create((uint256,uint256,address,string,bool,uint256,bool))"]({
@@ -34,9 +34,7 @@ describe(`DiamondBase 1155 Test`, function () {
       creator: ethers.ZeroAddress,
     });
 
-    const diamondUSDAddress = await deployDiamond(owner, livelyDev, {
-      isPriceUSD: true,
-    });
+    const diamondUSDAddress = await deployDiamond(owner, livelyDev, { isPriceUSD: true });
     const diamondUSDFacet = await ethers.getContractAt("Lively1155DiamondABI", diamondUSDAddress);
 
     // Create a token with the price of $10.00 (tokenID 3)

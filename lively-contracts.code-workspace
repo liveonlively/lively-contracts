@@ -86,6 +86,7 @@
       "mikestead",
       "nomicfoundation",
       "nomiclabs",
+      "Pausable",
       "POLYGONSCAN",
       "publint",
       "rvest",
@@ -114,7 +115,8 @@
     "editor.formatOnSave": true, // optional
     "editor.formatOnSaveMode": "file", // required to format on save
     "files.autoSave": "off", // optional but recommended
-    "vs-code-prettier-eslint.prettierLast": true // set as "true" to run 'prettier' last not first
+    "vs-code-prettier-eslint.prettierLast": true, // set as "true" to run 'prettier' last not first,
+    "editor.codeLens": true
   },
   "extensions": {
     "recommendations": [

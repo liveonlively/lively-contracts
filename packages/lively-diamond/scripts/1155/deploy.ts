@@ -1,9 +1,10 @@
-import { Hex, createPublicClient, createWalletClient, http } from "viem";
+import { Abi, Hex, createPublicClient, createWalletClient, encodeFunctionData, http } from "viem";
 import { mnemonicToAccount } from "viem/accounts";
 import { localhost } from "viem/chains";
 
-// import * as abi from "../../abi/json/hardhat-diamond-abi/HardhatDiamondABI.sol/Lively1155DiamondABI.json";
 import { abi, bytecode } from "../../artifacts/contracts/ERC1155-Diamond/Lively1155Diamond.sol/Lively1155Diamond.json";
+import { abi as initAbi } from "../../artifacts/contracts/ERC1155-Diamond/upgradeInitializers/Diamond1155Init.sol/Diamond1155Init.json";
+import { cut1155, diamond1155Init } from "../../diamond-cut";
 import { defaultArgs } from "./defaultArgs";
 
 export const logger = (...args: unknown[]) => {
@@ -48,15 +49,27 @@ export async function deployDiamond(opts?: Opts): Promise<Hex> {
 
   // Deploy DiamondInit
   console.log("++++++++Deploying DiamondInit++++++++");
-  let abi2 = JSON.parse(JSON.stringify(abi));
-  if (abi2) {
-    abi2 = abi2 as object;
-    abi2 = JSON.parse(JSON.stringify(abi2));
-  }
+  const abi2 = JSON.parse(JSON.stringify(abi)) as Abi;
+  const initAbi2 = JSON.parse(JSON.stringify(initAbi)) as Abi;
+  // if (abi2) {
+  //   abi2 = abi2 as object;
+  //   abi2 = JSON.parse(JSON.stringify(abi2));
+  // }
+
+  // if (initAbi2) {
+  //   initAbi2 = initAbi2 as object;
+  //   initAbi2 = JSON.parse(JSON.stringify(initAbi2));
+  // }
+
   console.log({ abi2 });
+  const functionCallData = encodeFunctionData({
+    abi: initAbi2,
+    functionName: "init",
+    args: [defaultArgs],
+  });
   const hash = await client.deployContract({
     abi: abi2,
-    args: [defaultArgs],
+    args: [cut1155, diamond1155Init, functionCallData],
     bytecode: bytecode as Hex,
   });
 
