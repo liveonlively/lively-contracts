@@ -1,7 +1,0 @@
-{
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "nomicfoundation.hardhat-solidity",
-    "zixuanchen.vitest-explorer"
-  ]
-}

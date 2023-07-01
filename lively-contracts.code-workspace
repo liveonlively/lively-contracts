@@ -41,6 +41,7 @@
       "../packages/lively-diamond/**/*",
       "../packages/eslint-config-custom/**/*"
     ],
+    "vitest.commandLine": "pnpm vitest",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[typescript]": {
@@ -75,6 +76,7 @@
       "esbenp",
       "intellicode",
       "liveonlively",
+      "mikestead",
       "nomicfoundation",
       "publint",
       "sepolia",
@@ -100,7 +102,8 @@
       "wix.vscode-import-cost",
       "usernamehw.errorlens",
       "zainchen.json",
-      "andys8.jest-snippets"
+      "andys8.jest-snippets",
+      "mikestead.dotenv"
     ]
   }
 }
