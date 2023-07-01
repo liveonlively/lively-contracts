@@ -17,7 +17,7 @@ type GetContractStringParams = GenerateContractParams & {
 
 export const generateDummyContract = (
   facetList: Contract[],
-  { spdxIdentifier, solidityVersion, diamondAddress, network, contractName }: GenerateContractParams,
+  { spdxIdentifier, solidityVersion, diamondAddress, network, contractName }: GenerateContractParams
 ): string => {
   const structs = facetList
     .reduce((structsArr: any, contract) => {
@@ -192,7 +192,7 @@ const recursiveFormatStructs = (param: ParamType): string[] => {
   const structMembers = param.components.map(formatStructMember);
   const struct = `    struct ${getTupleName(param)} {${structMembers.reduce(
     (allMembers, member) => `${allMembers}${member}`,
-    "",
+    ""
   )}\n    }`;
 
   return [struct, ...otherStructs];

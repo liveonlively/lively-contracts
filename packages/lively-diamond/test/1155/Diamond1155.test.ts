@@ -102,14 +102,14 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1).packMint(signer1.address, 0, 1, {
           value: ethers.parseEther("0.00005"),
-        }),
+        })
       ).to.be.reverted;
 
       // Signer 1 should be able to buy the pack for 0.00006 ETH and have 1 of each token
       await expect(
         diamondFacet.connect(signer1).packMint(signer1.address, 0, 1, {
           value: newPackPrice,
-        }),
+        })
       ).to.not.be.reverted;
 
       // Confirm all 3 tokens have 0 supply
@@ -126,14 +126,14 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1).packMint(signer1.address, 0, 2, {
           value: newPackPrice,
-        }),
+        })
       ).to.be.reverted;
 
       // Signer 1 should be able to buy 2 packs for the price of 2 packs
       await expect(
         diamondFacet.connect(signer1).packMint(signer1.address, 0, 2, {
           value: newPackPrice * BigInt(2),
-        }),
+        })
       ).to.not.be.reverted;
 
       // Signer 1 should have a balance of 3 for all 3 tokens
@@ -146,7 +146,7 @@ describe(`DiamondBase 1155 Test`, function () {
   describe("PaymentSplitterUpdate", function () {
     it("Should allow the owner to update the payment splitter", async function () {
       const { diamondFacet, owner, livelyDev, signer1, signer2, diamondAddress } = await loadFixture(
-        deployTokenFixture,
+        deployTokenFixture
       );
 
       // Both owner and livelyDev should own 50 shares
@@ -211,7 +211,7 @@ describe(`DiamondBase 1155 Test`, function () {
       const contractInterface = new ethers.Interface(errorInterface);
 
       await expect(
-        diamondFacet.connect(signer1).updatePaymentSplitterAddress(signer2.address),
+        diamondFacet.connect(signer1).updatePaymentSplitterAddress(signer2.address)
       ).to.be.revertedWithCustomError({ interface: contractInterface }, "InvalidPayee");
     });
   });
@@ -249,7 +249,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet["mint(address,uint256,uint256)"](owner.address, 0, 2, {
           value: 0,
-        }),
+        })
       ).to.not.be.reverted;
     });
 
@@ -260,7 +260,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer3)["mint(address,uint256,uint256)"](owner.address, 0, 2, {
           value: defaultArgs._tokenData[0].price,
-        }),
+        })
       ).to.be.reverted;
     });
 
@@ -271,7 +271,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1)["mint(address,uint256,uint256)"](owner.address, 0, 2, {
           value: (defaultArgs._tokenData[0].price as bigint) * BigInt(2),
-        }),
+        })
       ).to.not.be.reverted;
     });
 
@@ -282,7 +282,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1)["mint(address,uint256,uint256)"](owner.address, 0, 2, {
           value: defaultArgs._tokenData[0].price,
-        }),
+        })
       ).to.be.reverted;
     });
 
@@ -302,7 +302,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1)["mint(address,uint256,uint256)"](owner.address, 0, 5, {
           value: 0,
-        }),
+        })
       ).to.be.revertedWithCustomError(diamondFacet, "InvalidAmount");
 
       expect(await diamondFacet["balanceOf(address,uint256)"](owner.address, 0)).to.equal(0);
@@ -419,7 +419,7 @@ describe(`DiamondBase 1155 Test`, function () {
           startTime: oneHourFromNowInSeconds,
           isCrossmintUSDC: false,
           creator: ethers.ZeroAddress,
-        }),
+        })
       ).to.be.reverted;
 
       expect(await diamondFacet.exists(5)).to.equal(false);
@@ -463,7 +463,7 @@ describe(`DiamondBase 1155 Test`, function () {
           startTime: oneHourFromNowInSeconds,
           isCrossmintUSDC: false,
           creator: ethers.ZeroAddress,
-        }),
+        })
       ).to.be.reverted;
 
       expect(await diamondFacet.exists(5)).to.equal(false);
@@ -560,7 +560,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet.connect(signer1)["mint(address,uint256,uint256)"](signer1.address, 2, 1, {
           value: 50,
-        }),
+        })
       ).to.be.reverted;
     });
 
@@ -570,7 +570,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet["mint(address,uint256,uint256)"](signer1.address, 2, 1, {
           value: 50,
-        }),
+        })
       ).to.not.be.reverted;
     });
 
@@ -602,7 +602,7 @@ describe(`DiamondBase 1155 Test`, function () {
       await expect(
         diamondFacet["mint(address,uint256,uint256)"](signer1.address, 2, 1, {
           value: 50,
-        }),
+        })
       ).to.not.be.reverted;
     });
   });

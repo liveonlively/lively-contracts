@@ -144,7 +144,7 @@ async function deployDiamond(owner?: Signer, livelyDev?: Signer, opts?: Opts): P
             functionSelectors: getSelectors(facet).remove(facetsToRemove),
           },
           null,
-          2,
+          2
         ),
       });
     }

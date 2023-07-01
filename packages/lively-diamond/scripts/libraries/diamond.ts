@@ -18,7 +18,7 @@ export interface SelectorsObj extends Array<string> {
 // Old type Contract | ContractFactory
 export function getSelectors(contract: ContractInput): SelectorsObj {
   const signatures: FunctionFragment[] = Object.values(contract.interface.fragments).filter(
-    (fragment) => fragment.type === "function",
+    (fragment) => fragment.type === "function"
   ) as FunctionFragment[];
 
   const selectors = signatures.reduce<string[]>((acc, val) => {

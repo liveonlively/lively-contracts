@@ -3,6 +3,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:svelte/recommended",
+    "plugin:perfectionist/recommended-natural",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
@@ -26,4 +27,23 @@ module.exports = {
       },
     },
   ],
+  rules: {
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+    "perfectionist/sort-classes": [
+      "error",
+      {
+        groups: [
+          "static-property",
+          "private-property",
+          "property",
+          "constructor",
+          "static-method",
+          "private-method",
+          "method",
+        ],
+        order: "asc",
+        type: "natural",
+      },
+    ],
+  },
 };

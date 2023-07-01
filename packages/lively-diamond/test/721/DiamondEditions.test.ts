@@ -125,7 +125,7 @@ describe(`DiamondEditions Test`, function () {
 
     it("Should allow non-owners to mint", async () => {
       const { addr1, owner, edition1Price, edition2Price, contract, baseTokenUri } = await loadFixture(
-        deployTokenFixture,
+        deployTokenFixture
       );
       // Non-owner mints
       contract.connect(addr1);
@@ -156,7 +156,7 @@ describe(`DiamondEditions Test`, function () {
 
     it("Should allow non-owners to mint and retain collection after transferring", async () => {
       const { addr1, owner, edition1Price, edition2Price, contract, baseTokenUri } = await loadFixture(
-        deployTokenFixture,
+        deployTokenFixture
       );
 
       await contract.connect(addr1)["mint(address,uint256,uint256)"](addr1.address, 2, 1, {
@@ -199,7 +199,7 @@ describe(`DiamondEditions Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: edition1Price / 2n,
-        }),
+        })
       ).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 0
@@ -213,7 +213,7 @@ describe(`DiamondEditions Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: edition2Price / 2n,
-        }),
+        })
       ).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 0
@@ -295,7 +295,7 @@ describe(`DiamondEditions Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: defaultPrice,
-        }),
+        })
       ).to.be.reverted;
 
       // Total supply/balance of for address 1 should be 0
@@ -364,7 +364,7 @@ describe(`DiamondEditions Test`, function () {
       await expect(
         contract["mint(address,uint256,uint256)"](addr1.address, 1, 0, {
           value: defaultPrice,
-        }),
+        })
       ).to.be.reverted;
     });
   });

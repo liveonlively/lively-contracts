@@ -1,4 +1,5 @@
 import type { Hex } from 'viem';
+
 import type { SupportedNetworksType } from './shared/types.js';
 
 export class LivelyDiamondContract {
@@ -11,17 +12,21 @@ export class LivelyDiamondContract {
 		return this;
 	}
 
-	// Getters/setters for protected properties that need to be read/written by decorator methods
-	get network(): typeof this._network {
-		return this._network;
+	get address(): Hex | undefined {
+		return this._address;
+	}
+
+	public deployContract() {
+		console.log('Deploying contract');
+		return 5;
 	}
 
 	protected getLivelyDiamondContract() {
 		return this;
 	}
 
-	public deployContract() {
-		console.log('Deploying contract');
-		return 5;
+	// Getters/setters for protected properties that need to be read/written by decorator methods
+	get network(): SupportedNetworksType | undefined {
+		return this._network;
 	}
 }

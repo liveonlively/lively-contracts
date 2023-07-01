@@ -22,30 +22,108 @@
     }
   ],
   "settings": {
-    "prettier.documentSelectors": ["**/*.sol", "**/*.svelte"],
+    "prettier.documentSelectors": [
+      "**/*.sol",
+      "**/*.svelte",
+      "**/*.js",
+      "**/*.ts"
+    ],
     "solidity.formatter": "prettier",
     "slither.scanningDirectories": "contracts-only",
     "slither.solcPath": "",
     "slither.hiddenDetectors": [],
     "vitest.enable": true,
-    "vitest.commandLine": "pnpm vitest --",
+    "vitest.exclude": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/cypress/**",
+      "**/.{idea,git,cache,output,temp}/**",
+      "../packages/lively-diamond/**/*",
+      "../packages/eslint-config-custom/**/*"
+    ],
+    "vitest.commandLine": "pnpm vitest",
+    "[typescript]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+      ]
+    },
+    "[javascript]": {
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+      ]
+    },
     "[svelte]": {
       "editor.defaultFormatter": "svelte.svelte-vscode",
       "editor.formatOnSave": true
     },
     "[solidity]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "cSpell.words": [
+      "andys",
+      "ardenivanov",
+      "bignumber",
+      "bradlc",
+      "chainlink",
+      "dbaeumer",
+      "docgen",
+      "errorlens",
+      "esbenp",
+      "ethersproject",
+      "intellicode",
+      "liveonlively",
+      "mikestead",
+      "nomicfoundation",
+      "nomiclabs",
+      "publint",
+      "rvest",
+      "sepolia",
+      "solcover",
+      "solcoverjs",
+      "solhint",
+      "solidstate",
+      "tailwindcss",
+      "testfiles",
+      "trivago",
+      "typechain",
+      "usernamehw",
+      "viem",
+      "visualstudioexptteam",
+      "zainchen",
+      "zixuanchen"
+    ],
+    "testing.automaticallyOpenPeekView": "never",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnPaste": false, // required
+    "editor.formatOnType": false, // required
+    "editor.formatOnSave": true, // optional
+    "editor.formatOnSaveMode": "file", // required to format on save
+    "files.autoSave": "off", // optional but recommended
+    "vs-code-prettier-eslint.prettierLast": true // set as "true" to run 'prettier' last not first
   },
   "extensions": {
     "recommendations": [
-      "andys8.jest-snippets",
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode",
       "nomicfoundation.hardhat-solidity",
       "svelte.svelte-vscode",
       "ardenivanov.svelte-intellisense",
-      "bradlc.vscode-tailwindcss"
+      "bradlc.vscode-tailwindcss",
+      "zixuanchen.vitest-explore",
+      "visualstudioexptteam.intellicode-api-usage-examples",
+      "wix.vscode-import-cost",
+      "usernamehw.errorlens",
+      "zainchen.json",
+      "andys8.jest-snippets",
+      "mikestead.dotenv",
+      "rvest.vs-code-prettier-eslint"
     ]
   }
 }
