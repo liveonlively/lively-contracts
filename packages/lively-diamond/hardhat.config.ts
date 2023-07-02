@@ -1,9 +1,10 @@
+import "hardhat-diamond-abi";
+
 import "@nomicfoundation/hardhat-toolbox";
 import "@solidstate/hardhat-bytecode-exporter";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-abi-exporter";
 import "hardhat-deploy";
-import "hardhat-diamond-abi";
 import "hardhat-gas-reporter";
 import { HardhatUserConfig, task } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
@@ -163,7 +164,7 @@ const config: HardhatUserConfig = {
     {
       name: "Lively1155DiamondABI",
       include: [...erc1155Facets, ...sharedFacets],
-      strict: false,
+      strict: true,
     },
     {
       name: "LivelyDiamondABI",
@@ -171,24 +172,24 @@ const config: HardhatUserConfig = {
       strict: false,
     },
   ],
-  abiExporter: [
-    {
-      path: "./abi/json",
-      format: "json",
-    },
-    {
-      path: "./abi/minimal",
-      format: "minimal",
-    },
-    {
-      path: "./abi/fullName",
-      format: "fullName",
-    },
-  ],
-  bytecodeExporter: {
-    runOnCompile: true,
-    clear: true,
-  },
+  // abiExporter: [
+  //   {
+  //     path: "./abi/json",
+  //     format: "json",
+  //   },
+  //   {
+  //     path: "./abi/minimal",
+  //     format: "minimal",
+  //   },
+  //   {
+  //     path: "./abi/fullName",
+  //     format: "fullName",
+  //   },
+  // ],
+  // bytecodeExporter: {
+  //   runOnCompile: true,
+  //   clear: true,
+  // },
 };
 
 export default config;
