@@ -20,6 +20,7 @@
     "@openzeppelin/contracts": "^4.9.1",
     "@openzeppelin/contracts-upgradeable": "^4.9.1",
     "@solidstate/contracts": "^0.0.57",
+    "@solidstate/hardhat-bytecode-exporter": "^1.1.1",
     "@solidstate/spec": "^0.0.57",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@typechain/ethers-v6": "^0.4.0",

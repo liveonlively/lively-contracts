@@ -1,10 +1,11 @@
 import "@nomicfoundation/hardhat-toolbox";
+import "@solidstate/hardhat-bytecode-exporter";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-abi-exporter";
 import "hardhat-deploy";
 import "hardhat-diamond-abi";
 import "hardhat-gas-reporter";
-import type { HardhatUserConfig } from "hardhat/config";
+import { HardhatUserConfig, task } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
@@ -12,6 +13,11 @@ import "solidity-docgen";
 import { erc721Facets, erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
 import "./tasks/generators";
+
+task("export-bytecode").setAction(async function (args, hre, runSuper) {
+  await runSuper(args);
+  console.log("Just ran");
+});
 
 // FIXME: Generate dummy doesn't work with ethers v6. Figure out a workaround or use something else.
 
@@ -39,7 +45,7 @@ const chainIds = {
   "polygon-mainnet": 137,
   "polygon-mumbai": 80001,
   sepolia: 11155111,
-  ganache: 1337,
+  ganache: 5777,
 };
 
 function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
@@ -109,7 +115,7 @@ const config: HardhatUserConfig = {
       accounts: {
         mnemonic,
       },
-      chainId: chainIds.ganache,
+      chainId: 5777,
       url: "http://127.0.0.1:8545",
     },
     arbitrum: getChainConfig("arbitrum-mainnet"),
@@ -179,6 +185,10 @@ const config: HardhatUserConfig = {
       format: "fullName",
     },
   ],
+  bytecodeExporter: {
+    runOnCompile: true,
+    clear: true,
+  },
 };
 
 export default config;

@@ -96,6 +96,7 @@
       "solcoverjs",
       "solhint",
       "solidstate",
+      "Soulbound",
       "tailwindcss",
       "testfiles",
       "trivago",
@@ -108,7 +109,7 @@
       "zixuanchen"
     ],
     "testing.automaticallyOpenPeekView": "never",
-    "typescript.tsdk": "./node_modules/typescript/lib",
+    "typescript.tsdk": "🌳 root/node_modules/typescript/lib",
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
     "editor.formatOnPaste": false, // required
     "editor.formatOnType": false, // required

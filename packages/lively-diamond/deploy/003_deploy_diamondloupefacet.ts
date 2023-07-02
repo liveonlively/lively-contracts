@@ -40,7 +40,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     address: newlyDeployed.address,
   });
 
-  if (network.live && chainId !== "1337") {
+  if (network.live && chainId !== "1337" && chainId !== "5777") {
     if (newlyDeployed.receipt) {
       console.log("Receipt found");
 
@@ -61,7 +61,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
       console.log(`Waiting for ${waitTime} confirmations...`);
 
-      await tx.wait(waitTime);
+      await tx?.wait(waitTime);
     }
 
     console.log("Verifying DiamondLoupeFacet...");

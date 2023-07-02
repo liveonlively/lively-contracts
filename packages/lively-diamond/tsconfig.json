@@ -24,5 +24,13 @@
 
   "exclude": ["node_modules"],
   "files": ["./hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "./scripts/1155/deploy.ts"],
-  "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*", "scripts/**/*"]
+  "include": [
+    "src/**/*",
+    "tasks/**/*",
+    "test/**/*",
+    "deploy/**/*",
+    "scripts/**/*",
+    "bytecode/**/*",
+    "abi-bytecode/**/*"
+  ]
 }

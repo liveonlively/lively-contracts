@@ -98,6 +98,9 @@ importers:
       '@solidstate/contracts':
         specifier: ^0.0.57
         version: 0.0.57
+      '@solidstate/hardhat-bytecode-exporter':
+        specifier: ^1.1.1
+        version: 1.1.1(hardhat@2.15.0)
       '@solidstate/spec':
         specifier: ^0.0.57
         version: 0.0.57
@@ -3989,6 +3992,16 @@ packages:
 
   /@solidstate/contracts@0.0.57:
     resolution: {integrity: sha512-eDH8gVrbt2eayVYL9aqqOYbsAaXv2MNECNwiLOBuahtacTVsaArFE9bAKRAL3gDc6Gc3RuOQqWTm3OA6e7YAPw==}
+    dev: true
+
+  /@solidstate/hardhat-bytecode-exporter@1.1.1(hardhat@2.15.0):
+    resolution: {integrity: sha512-/gJevnOMXSoVLMeUifqgUFDQ1mFIcr4BYrmZ4KrpMGc2Ynv2Q5TZcgDvkkzEe4Ub15c/TkCqZBrMPaC0P5LHAQ==}
+    engines: {node: '>=14.14.0'}
+    peerDependencies:
+      hardhat: ^2.0.0
+    dependencies:
+      delete-empty: 3.0.0
+      hardhat: 2.15.0(ts-node@10.9.1)(typescript@5.0.4)
     dev: true
 
   /@solidstate/library@0.0.57:
