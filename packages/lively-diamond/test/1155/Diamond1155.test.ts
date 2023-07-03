@@ -5,17 +5,23 @@ import { ethers } from "hardhat";
 
 import { defaultArgs, oneHourFromNowInSeconds } from "../../scripts/1155/defaultArgs";
 import { deployDiamond } from "../../scripts/1155/deployOld";
+import { AllowListFacet, ERC1155Facet, OwnableFacet, PaymentSplitterFacet, RoyaltyFacet } from "../../types";
 
 // TODO: Add non owner should not be able to mint test for airdrop
-
 describe(`DiamondBase 1155 Test`, function () {
   async function deployTokenFixture() {
     const [owner, livelyDev, signer1, signer2, signer3, ...signers] = await ethers.getSigners();
 
     const diamondAddress = await deployDiamond();
-    const diamondFacet = await ethers.getContractAt("Lively1155DiamondABI", diamondAddress);
+    const diamondContract = await ethers.getContractAt("ERC1155Facet", diamondAddress);
 
-    await diamondFacet["create((uint256,uint256,address,string,bool,uint256,bool))"]({
+    // Typed Facets
+    const diamondFacet = diamondContract as unknown as ERC1155Facet;
+    const royaltyFacet = diamondContract as unknown as RoyaltyFacet;
+    const allowListFacet = diamondContract as unknown as AllowListFacet;
+    const paymentSplitterFacet = diamondContract as unknown as PaymentSplitterFacet;
+
+    await diamondFacet.create({
       maxSupply: 100,
       price: 50,
       tokenUri: "",
@@ -24,7 +30,7 @@ describe(`DiamondBase 1155 Test`, function () {
       isCrossmintUSDC: false,
       creator: ethers.ZeroAddress,
     });
-    await diamondFacet["create((uint256,uint256,address,string,bool,uint256,bool))"]({
+    await diamondFacet.create({
       maxSupply: 100,
       price: 200,
       tokenUri: "",
@@ -35,7 +41,7 @@ describe(`DiamondBase 1155 Test`, function () {
     });
 
     const diamondUSDAddress = await deployDiamond(owner, livelyDev, { isPriceUSD: true });
-    const diamondUSDFacet = await ethers.getContractAt("Lively1155DiamondABI", diamondUSDAddress);
+    const diamondUSDFacet = await ethers.getContractAt("ERC1155Facet", diamondUSDAddress);
 
     // Create a token with the price of $10.00 (tokenID 3)
     const testUSDPrice = 1000; // $10.00
@@ -52,7 +58,6 @@ describe(`DiamondBase 1155 Test`, function () {
     // Used for testing USD values
     const PriceMock = await ethers.getContractFactory("PriceMock");
     const priceMock = await PriceMock.deploy();
-    // await priceMock.deployed();
 
     return {
       owner,
@@ -67,6 +72,9 @@ describe(`DiamondBase 1155 Test`, function () {
       diamondUSDFacet,
       testUSDPrice,
       priceMock,
+      royaltyFacet,
+      allowListFacet,
+      paymentSplitterFacet,
     };
   }
 
@@ -82,20 +90,18 @@ describe(`DiamondBase 1155 Test`, function () {
       const newPackPrice = priceForAllTokens / BigInt(2); // Half off!
 
       // Owner should be able to create pack
-      await expect(diamondFacet["packCreate(uint256[],uint256,uint256)"]([0, 1, 2], newPackPrice, 0)).to.not.be
-        .reverted;
+      await expect(diamondFacet.packCreate([0, 1, 2], newPackPrice, 0)).to.not.be.reverted;
 
       // Signer1 should not be able to create pack
-      await expect(diamondFacet.connect(signer1)["packCreate(uint256[],uint256,uint256)"]([0, 1, 2], newPackPrice, 0))
-        .to.be.reverted;
+      await expect(diamondFacet.connect(signer1).packCreate([0, 1, 2], newPackPrice, 0)).to.be.reverted;
 
       // Confirm all 3 tokens have 0 supply
       // expect(
       //   await (diamondFacet as unknown as ERC1155Facet).totalSupply(0)
       // ).to.equal(0);
-      expect(await diamondFacet["totalSupply(uint256)"](0)).to.equal(0);
-      expect(await diamondFacet["totalSupply(uint256)"](1)).to.equal(0);
-      expect(await diamondFacet["totalSupply(uint256)"](2)).to.equal(0);
+      expect(await diamondFacet.totalSupply(0)).to.equal(0);
+      expect(await diamondFacet.totalSupply(1)).to.equal(0);
+      expect(await diamondFacet.totalSupply(2)).to.equal(0);
 
       // Signer 1 should fail to buy the pack for 0.00005 ETH
       await expect(
@@ -112,14 +118,15 @@ describe(`DiamondBase 1155 Test`, function () {
       ).to.not.be.reverted;
 
       // Confirm all 3 tokens have 0 supply
-      expect(await diamondFacet["totalSupply(uint256)"](0)).to.equal(1);
-      expect(await diamondFacet["totalSupply(uint256)"](1)).to.equal(1);
-      expect(await diamondFacet["totalSupply(uint256)"](2)).to.equal(1);
+      // expect(await diamondFacet.totalSupply(0)).to.equal(1);
+      expect(await diamondFacet.totalSupply(0)).to.equal(1);
+      expect(await diamondFacet.totalSupply(1)).to.equal(1);
+      expect(await diamondFacet.totalSupply(2)).to.equal(1);
 
       // Signer 1 should have a balance of 1 for all 3 tokens
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(1);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 1)).to.equal(1);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 2)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer1.address, 1)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer1.address, 2)).to.equal(1);
 
       // Signer 1 should fail to buy 2 packs for the price of 1 pack
       await expect(
@@ -136,22 +143,22 @@ describe(`DiamondBase 1155 Test`, function () {
       ).to.not.be.reverted;
 
       // Signer 1 should have a balance of 3 for all 3 tokens
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(3);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 1)).to.equal(3);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 2)).to.equal(3);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(3);
+      expect(await diamondFacet.balanceOf(signer1.address, 1)).to.equal(3);
+      expect(await diamondFacet.balanceOf(signer1.address, 2)).to.equal(3);
     });
   });
 
   describe("PaymentSplitterUpdate", function () {
     it("Should allow the owner to update the payment splitter", async function () {
-      const { diamondFacet, owner, livelyDev, signer1, signer2, diamondAddress } = await loadFixture(
+      const { paymentSplitterFacet, owner, livelyDev, signer1, signer2, diamondAddress } = await loadFixture(
         deployTokenFixture
       );
 
       // Both owner and livelyDev should own 50 shares
-      expect(await diamondFacet.shares(owner.address)).to.equal(50);
-      expect(await diamondFacet.shares(livelyDev.address)).to.equal(50);
-      expect(await diamondFacet.shares(signer1.address)).to.equal(0);
+      expect(await paymentSplitterFacet.shares(owner.address)).to.equal(50);
+      expect(await paymentSplitterFacet.shares(livelyDev.address)).to.equal(50);
+      expect(await paymentSplitterFacet.shares(signer1.address)).to.equal(0);
 
       // Send 2 ether to the contract
       const tx = {
@@ -161,27 +168,27 @@ describe(`DiamondBase 1155 Test`, function () {
       await signer2.sendTransaction(tx);
 
       // Both owner and livelyDev should have 1 ether
-      expect(await diamondFacet["releasable(address)"](owner.address)).to.equal(ethers.parseEther("1"));
-      expect(await diamondFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1"));
-      expect(await diamondFacet["released(address)"](signer1.address)).to.equal(0);
+      expect(await paymentSplitterFacet["releasable(address)"](owner.address)).to.equal(ethers.parseEther("1"));
+      expect(await paymentSplitterFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1"));
+      expect(await paymentSplitterFacet["released(address)"](signer1.address)).to.equal(0);
 
       // Owner should be able to update the payment splitter to signer 1. Owner should now own 0 shares.
-      await diamondFacet.updatePaymentSplitterAddress(signer1.address);
-      expect(await diamondFacet.shares(owner.address)).to.equal(0);
-      expect(await diamondFacet.shares(signer1.address)).to.equal(50);
-      expect(await diamondFacet.shares(livelyDev.address)).to.equal(50);
+      await paymentSplitterFacet.updatePaymentSplitterAddress(signer1.address);
+      expect(await paymentSplitterFacet.shares(owner.address)).to.equal(0);
+      expect(await paymentSplitterFacet.shares(signer1.address)).to.equal(50);
+      expect(await paymentSplitterFacet.shares(livelyDev.address)).to.equal(50);
 
       // LivelyDev and Signer1 should have 1 ether releasable, Owner should have 0 ether releasable
-      expect(await diamondFacet["releasable(address)"](owner.address)).to.equal(0);
-      expect(await diamondFacet["releasable(address)"](signer1.address)).to.equal(ethers.parseEther("1"));
-      expect(await diamondFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1"));
+      expect(await paymentSplitterFacet["releasable(address)"](owner.address)).to.equal(0);
+      expect(await paymentSplitterFacet["releasable(address)"](signer1.address)).to.equal(ethers.parseEther("1"));
+      expect(await paymentSplitterFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1"));
 
       // Have signer1 release their funds
-      await diamondFacet.connect(signer1)["release(address)"](signer1.address);
+      await paymentSplitterFacet.connect(signer1)["release(address)"](signer1.address);
 
       // Signer1 should have 0 ether releasable and 1 ether released
-      expect(await diamondFacet["releasable(address)"](signer1.address)).to.equal(0);
-      expect(await diamondFacet["released(address)"](signer1.address)).to.equal(ethers.parseEther("1"));
+      expect(await paymentSplitterFacet["releasable(address)"](signer1.address)).to.equal(0);
+      expect(await paymentSplitterFacet["released(address)"](signer1.address)).to.equal(ethers.parseEther("1"));
 
       // Owner should send 1 ether to the contract
       const tx2 = {
@@ -190,14 +197,14 @@ describe(`DiamondBase 1155 Test`, function () {
       };
       await owner.sendTransaction(tx2);
 
-      // LivelyDev should have 1.5 ether releaseable, Signer1 should have 0.5 ether releasable, Owner should have 0 ether releasable
-      expect(await diamondFacet["releasable(address)"](owner.address)).to.equal(0);
-      expect(await diamondFacet["releasable(address)"](signer1.address)).to.equal(ethers.parseEther("0.5"));
-      expect(await diamondFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1.5"));
+      // LivelyDev should have 1.5 ether releasable, Signer1 should have 0.5 ether releasable, Owner should have 0 ether releasable
+      expect(await paymentSplitterFacet["releasable(address)"](owner.address)).to.equal(0);
+      expect(await paymentSplitterFacet["releasable(address)"](signer1.address)).to.equal(ethers.parseEther("0.5"));
+      expect(await paymentSplitterFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1.5"));
     });
 
     it("Should revert if the caller isn't a payee", async function () {
-      const { diamondFacet, signer1, signer2 } = await loadFixture(deployTokenFixture);
+      const { paymentSplitterFacet, signer1, signer2 } = await loadFixture(deployTokenFixture);
 
       // Ethers interface with InvalidPayee() error
       const errorInterface = [
@@ -210,7 +217,7 @@ describe(`DiamondBase 1155 Test`, function () {
       const contractInterface = new ethers.Interface(errorInterface);
 
       await expect(
-        diamondFacet.connect(signer1).updatePaymentSplitterAddress(signer2.address)
+        paymentSplitterFacet.connect(signer1).updatePaymentSplitterAddress(signer2.address)
       ).to.be.revertedWithCustomError({ interface: contractInterface }, "InvalidPayee");
     });
   });
@@ -223,7 +230,7 @@ describe(`DiamondBase 1155 Test`, function () {
 
     it("Diamond should have the correct owner", async function () {
       const { owner, diamondFacet } = await loadFixture(deployTokenFixture);
-      expect(await diamondFacet.owner()).to.equal(owner.address);
+      expect(await (diamondFacet as unknown as OwnableFacet).owner()).to.equal(owner.address);
     });
 
     it("Diamond should mint correctly", async function () {
@@ -232,7 +239,7 @@ describe(`DiamondBase 1155 Test`, function () {
         value: 50,
       });
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](owner.address, 0)).to.equal(1);
+      expect(await diamondFacet.balanceOf(owner.address, 0)).to.equal(1);
     });
 
     it("Diamond should fail to mint if price is incorrect (and not owner)", async function () {
@@ -292,7 +299,7 @@ describe(`DiamondBase 1155 Test`, function () {
         value: 0,
       });
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](owner.address, 0)).to.equal(5);
+      expect(await diamondFacet.balanceOf(owner.address, 0)).to.equal(5);
     });
 
     it("Diamond should not allow the signer1 to mint for free", async function () {
@@ -304,13 +311,13 @@ describe(`DiamondBase 1155 Test`, function () {
         })
       ).to.be.revertedWithCustomError(diamondFacet, "InvalidAmount");
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](owner.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(owner.address, 0)).to.equal(0);
     });
 
     it("Diamond should get the token metadata", async function () {
       const { diamondFacet } = await loadFixture(deployTokenFixture);
-      expect(await diamondFacet["uri(uint256)"](0)).to.equal("https://golive.ly/web3/meta/something/0");
-      expect(await diamondFacet["uri(uint256)"](1)).to.equal("https://golive.ly/web3/meta/something/1");
+      expect(await diamondFacet.uri(0)).to.equal("https://golive.ly/web3/meta/something/0");
+      expect(await diamondFacet.uri(1)).to.equal("https://golive.ly/web3/meta/something/1");
     });
 
     it("Diamond should allow the owner to airdrop a token by passing in an array of addresses", async function () {
@@ -322,16 +329,16 @@ describe(`DiamondBase 1155 Test`, function () {
         randomWalletsAddresses.push(Wallet.createRandom().address);
       }
 
-      // Check all random wallets have a blanceOf 0 for token 2
+      // Check all random wallets have a balanceOf 0 for token 2
       for (const wallet of randomWalletsAddresses) {
-        expect(await diamondFacet["balanceOf(address,uint256)"](wallet, 2)).to.equal(0);
+        expect(await diamondFacet.balanceOf(wallet, 2)).to.equal(0);
       }
 
       await diamondFacet["mint(address[],uint256,uint256)"](randomWalletsAddresses, 2, 1, { gasLimit: 30000000 });
 
-      // Check all random wallets have a blanceOf 1 for token 2
+      // Check all random wallets have a balanceOf 1 for token 2
       for (const wallet of randomWalletsAddresses) {
-        expect(await diamondFacet["balanceOf(address,uint256)"](wallet, 2)).to.equal(1);
+        expect(await diamondFacet.balanceOf(wallet, 2)).to.equal(1);
       }
     });
 
@@ -340,15 +347,15 @@ describe(`DiamondBase 1155 Test`, function () {
 
       const recipients = [signer1.address, signer2.address, signer3.address];
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer2.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer3.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer2.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer3.address, 0)).to.equal(0);
 
       await diamondFacet["mint(address[],uint256,uint256)"](recipients, 0, 1);
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(1);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer2.address, 0)).to.equal(1);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer3.address, 0)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer2.address, 0)).to.equal(1);
+      expect(await diamondFacet.balanceOf(signer3.address, 0)).to.equal(1);
     });
 
     it("Diamond should not allow a random user to airdrop to multiple multiple for free", async function () {
@@ -356,15 +363,15 @@ describe(`DiamondBase 1155 Test`, function () {
 
       const recipients = [signer1.address, signer2.address, signer3.address];
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer2.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer3.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer2.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer3.address, 0)).to.equal(0);
 
       await expect(diamondFacet.connect(signer1)["mint(address[],uint256,uint256)"](recipients, 0, 1)).to.be.reverted;
 
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer1.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer2.address, 0)).to.equal(0);
-      expect(await diamondFacet["balanceOf(address,uint256)"](signer3.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer1.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer2.address, 0)).to.equal(0);
+      expect(await diamondFacet.balanceOf(signer3.address, 0)).to.equal(0);
     });
 
     it("Diamond should get the token metadata", async function () {
@@ -375,14 +382,14 @@ describe(`DiamondBase 1155 Test`, function () {
       await diamondFacet["mint(address,uint256,uint256)"](owner.address, tokenId, 1, { value: 50 });
 
       // await tx.wait();
-      const metadataUri = await diamondFacet["uri(uint256)"](tokenId);
+      const metadataUri = await diamondFacet.uri(tokenId);
 
       expect(metadataUri).to.equal(`${defaultArgs._baseURI}${tokenId}`);
     });
   });
 
   describe("Create token function", function () {
-    // * @param _maxSupply Maxmium amount of new token.
+    // * @param _maxSupply Maximum amount of new token.
     // * @param _price Price of new token.
     // * @param _tokenUri Optional, baseUri is set in ERC1155MetadataStorage (https://sample.com/{id}.json) would be valid)
     // * @param _allowListEnabled Whether or not the token is on the allow list.
@@ -521,9 +528,9 @@ describe(`DiamondBase 1155 Test`, function () {
 
         // Special case for tokenUri 6 (third in array)
         if (newTokenData[i].tokenUri) {
-          expect(await diamondFacet["uri(uint256)"](i)).to.equal(newTokenData[i].tokenUri);
+          expect(await diamondFacet.uri(i)).to.equal(newTokenData[i].tokenUri);
         } else {
-          expect(await diamondFacet["uri(uint256)"](i)).to.equal(`${defaultArgs._baseURI}${i}`);
+          expect(await diamondFacet.uri(i)).to.equal(`${defaultArgs._baseURI}${i}`);
         }
       }
     });
@@ -608,24 +615,24 @@ describe(`DiamondBase 1155 Test`, function () {
 
   describe("Allow list", function () {
     it("Should allow the allow list to be enabled and addresses added", async function () {
-      const { signer1, diamondFacet } = await loadFixture(deployTokenFixture);
+      const { signer1, allowListFacet } = await loadFixture(deployTokenFixture);
 
       // Allow list should be disabled by default
-      expect(await diamondFacet.allowListEnabled(0)).to.equal(false);
+      expect(await allowListFacet.allowListEnabled(0)).to.equal(false);
 
       // Enabling should fail is not owner
-      await expect(diamondFacet.connect(signer1).enableAllowList(0)).to.be.reverted;
+      await expect(allowListFacet.connect(signer1).enableAllowList(0)).to.be.reverted;
 
       // Enable the allow list
-      await diamondFacet.enableAllowList(0);
-      expect(await diamondFacet.allowListEnabled(0)).to.equal(true);
+      await allowListFacet.enableAllowList(0);
+      expect(await allowListFacet.allowListEnabled(0)).to.equal(true);
 
       // Initial allow list should be
-      const initialAllowList = await diamondFacet.allowList(0);
+      const initialAllowList = await allowListFacet.allowList(0);
       expect(initialAllowList.length).to.equal(0);
 
       // Adding to allow list with non-owner should fail
-      await expect(diamondFacet.connect(signer1)["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2)).to
+      await expect(allowListFacet.connect(signer1)["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2)).to
         .be.reverted;
 
       // const tx = diamondFacet["addToAllowList(uint256,address,uint256)"](0, signer1.address, 2);
@@ -650,22 +657,22 @@ describe(`DiamondBase 1155 Test`, function () {
 
   describe("EIP-165", function () {
     it("Should return the correct EIP-165 Standard Interface Detection", async function () {
-      const { diamondFacet } = await loadFixture(deployTokenFixture);
+      const { royaltyFacet } = await loadFixture(deployTokenFixture);
 
       // 0x01ffc9a7 = ERC-165
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x01ffc9a7")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x01ffc9a7")).to.equal(true);
       // 0xd9b67a26 = ERC-1155
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0xd9b67a26")).to.equal(true);
-      // 0x1f931c1c = IDamondCut
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x1f931c1c")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0xd9b67a26")).to.equal(true);
+      // 0x1f931c1c = IDiamondCut
+      expect(await royaltyFacet.supportsInterface("0x1f931c1c")).to.equal(true);
       // 0x48e2b093 = IDiamondLoupe
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x48e2b093")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x48e2b093")).to.equal(true);
       // 0x7f5828d0 = IERC173
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x7f5828d0")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x7f5828d0")).to.equal(true);
       // 0x0e89341c = IERC1155Metadata
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x0e89341c")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x0e89341c")).to.equal(true);
       // 0x2a55205a = IERC2981
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x2a55205a")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x2a55205a")).to.equal(true);
     });
   });
 
@@ -684,22 +691,22 @@ describe(`DiamondBase 1155 Test`, function () {
 
   describe("Batch Creates", function () {
     it("Batch create test...", async function () {
-      const { diamondFacet } = await loadFixture(deployTokenFixture);
+      const { royaltyFacet } = await loadFixture(deployTokenFixture);
 
       // 0x01ffc9a7 = ERC-165
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x01ffc9a7")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x01ffc9a7")).to.equal(true);
       // 0xd9b67a26 = ERC-1155
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0xd9b67a26")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0xd9b67a26")).to.equal(true);
       // 0x1f931c1c = IDiamondCut
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x1f931c1c")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x1f931c1c")).to.equal(true);
       // 0x48e2b093 = IDiamondLoupe
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x48e2b093")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x48e2b093")).to.equal(true);
       // 0x7f5828d0 = IERC173
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x7f5828d0")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x7f5828d0")).to.equal(true);
       // 0x0e89341c = IERC1155Metadata
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x0e89341c")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x0e89341c")).to.equal(true);
       // 0x2a55205a = IERC2981
-      expect(await diamondFacet["supportsInterface(bytes4)"]("0x2a55205a")).to.equal(true);
+      expect(await royaltyFacet.supportsInterface("0x2a55205a")).to.equal(true);
     });
   });
 
