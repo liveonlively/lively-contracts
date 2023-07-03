@@ -23,7 +23,7 @@
   },
 
   "exclude": ["node_modules"],
-  "files": ["./hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "./scripts/1155/deploy.ts"],
+  "files": ["hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "scripts/1155/deploy.ts", "global.d.ts"],
   "include": [
     "src/**/*",
     "tasks/**/*",

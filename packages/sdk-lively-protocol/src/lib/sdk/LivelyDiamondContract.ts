@@ -1,7 +1,7 @@
 import type { Diamond1155Init } from '@liveonlively/lively-contracts/types';
 import type { Hex } from 'viem';
 
-import { abi, bytecode } from '@liveonlively/lively-contracts/abi-bytecode/Lively1155Diamond.js';
+import { abi, byteCode } from '@liveonlively/lively-contracts';
 import { parseEther } from 'viem';
 
 import type { LivelyDiamondContractOptions } from './shared/types.js';

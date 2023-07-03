@@ -4,7 +4,7 @@ import { task } from "hardhat/config";
 import { join } from "path";
 
 import { erc721Facets, erc1155Facets, sharedFacets } from "../optimizationEnabled";
-import { generateContractList, generateFacetDeploys } from "../scripts/generators";
+import { generateContractList, generateFacetDeploys } from "../scripts/generatorsHelpers";
 import { FacetCutAction, SelectorsObj, getSelectors } from "../scripts/libraries/diamond";
 
 task("generate:contract:list", "Generate the new contract list").setAction(async () => {

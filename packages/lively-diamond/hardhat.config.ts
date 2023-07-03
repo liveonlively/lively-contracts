@@ -13,7 +13,7 @@ import "solidity-docgen";
 
 import { erc721Facets, erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
-import "./tasks/generators";
+import "./tasks/taskGenerators";
 
 task("export-bytecode").setAction(async function (args, hre, runSuper) {
   await runSuper(args);
@@ -164,7 +164,7 @@ const config: HardhatUserConfig = {
     {
       name: "Lively1155DiamondABI",
       include: [...erc1155Facets, ...sharedFacets],
-      strict: true,
+      strict: false,
     },
     {
       name: "LivelyDiamondABI",

@@ -1,7 +1,8 @@
 {
   "name": "@liveonlively/lively-contracts",
-  "description": "",
+  "description": "Golively Smart Contract Diamond Protocol for music NFTs",
   "version": "0.0.1",
+  "main": "./scripts/index.ts",
   "author": {
     "name": "Josh Hubbard && Lively Team",
     "url": "https://github.com/liveonlively/lively-contracts"
@@ -92,8 +93,8 @@
     "lint:sol:write": "solhint --fix \"contracts/**/*.sol\"",
     "format": "pnpm prettier:write",
     "check": "solhint -f table contracts/**/*.sol",
-    "generate:cut": "hh compile && hh generate:facet:cuts && prettier --plugin-search-dir ./node_modules --write ./diamond-cut.ts",
-    "generate:contract:list": "hh run scripts/generateContractList.ts && prettier --plugin-search-dir ./node_modules --write ./optimizationEnabled.ts",
+    "generate:cut": "hh compile && hh generate:facet:cuts && pnpm prettier --write ./diamond-cut.ts",
+    "generate:contract:list": "hh run scripts/generateContractList.ts && prettier --write ./optimizationEnabled.ts",
     "generate:dummy": "hh run ./scripts/runGenerateDummy.ts && pnpm format",
     "generate:deploys": "hh generate:deploy:facets && pnpm format",
     "generate:documents": "hh docgen && pnpm format",

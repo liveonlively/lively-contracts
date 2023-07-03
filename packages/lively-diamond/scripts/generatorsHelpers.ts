@@ -8,13 +8,6 @@ import { join } from "path";
  * the list that we use in hardhat.config.ts so that each contract has it's own artifact.
  */
 export const generateContractList = async () => {
-  // const directoryPath721 = join(__dirname, "..", "contracts", "ERC721-Diamond");
-  // console.log({ directoryPath721 });
-
-  // const directoryPath1155 = join(__dirname, "..", "contracts", "ERC1155-Diamond");
-  // const directoryPathShared = join(__dirname, "..", "contracts", "shared");
-  // // const contractsPathDummy = join(__dirname, "..", "contracts", "dummy");
-
   let fileData = "";
   fileData += `export const optimizationEnabled = <const>[\n`;
   const files = globSync("**/*.sol", { cwd: "contracts/ERC721-Diamond" });
