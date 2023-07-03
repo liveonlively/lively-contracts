@@ -18,7 +18,9 @@
     "paths": {
       "$artifacts/*": ["./artifacts/*"],
       "$utils/*": ["./utils/*"],
-      "$scripts/*": ["./scripts/*"]
+      "$scripts/*": ["./scripts/*"],
+      "$abi/*": ["./abi/*"],
+      "$bytecode/*": ["./bytecode/*"]
     }
   },
 
