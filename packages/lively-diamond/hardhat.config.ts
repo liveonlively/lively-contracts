@@ -8,6 +8,7 @@ import { HardhatUserConfig, task } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
+import "tsconfig-paths/register";
 
 import "./tasks/accounts";
 import "./tasks/taskGenerators";

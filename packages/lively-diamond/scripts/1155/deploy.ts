@@ -1,9 +1,9 @@
+import { abi, bytecode } from "$artifacts/contracts/ERC1155-Diamond/Lively1155Diamond.sol/Lively1155Diamond.json";
+import { abi as initAbi } from "$artifacts/contracts/ERC1155-Diamond/upgradeInitializers/Diamond1155Init.sol/Diamond1155Init.json";
 import { Abi, Hex, createPublicClient, createWalletClient, encodeFunctionData, http } from "viem";
 import { mnemonicToAccount } from "viem/accounts";
 import { localhost } from "viem/chains";
 
-import { abi, bytecode } from "../../artifacts/contracts/ERC1155-Diamond/Lively1155Diamond.sol/Lively1155Diamond.json";
-import { abi as initAbi } from "../../artifacts/contracts/ERC1155-Diamond/upgradeInitializers/Diamond1155Init.sol/Diamond1155Init.json";
 import { cut1155, diamond1155Init } from "../../diamond-cut";
 import { defaultArgs } from "./defaultArgs";
 

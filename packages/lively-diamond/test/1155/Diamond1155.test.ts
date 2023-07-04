@@ -150,6 +150,7 @@ describe(`DiamondBase 1155 Test`, function () {
   });
 
   describe("PaymentSplitterUpdate", function () {
+    // FIXME: This test is failing
     it("Should allow the owner to update the payment splitter", async function () {
       const { paymentSplitterFacet, owner, livelyDev, signer1, signer2, diamondAddress } = await loadFixture(
         deployTokenFixture
@@ -203,6 +204,7 @@ describe(`DiamondBase 1155 Test`, function () {
       expect(await paymentSplitterFacet["releasable(address)"](livelyDev.address)).to.equal(ethers.parseEther("1.5"));
     });
 
+    // FIXME: This test is failing
     it("Should revert if the caller isn't a payee", async function () {
       const { paymentSplitterFacet, signer1, signer2 } = await loadFixture(deployTokenFixture);
 
@@ -228,6 +230,7 @@ describe(`DiamondBase 1155 Test`, function () {
       expect(await diamondFacet.exists(0)).to.equal(true);
     });
 
+    // FIXME: This test is failing
     it("Diamond should have the correct owner", async function () {
       const { owner, diamondFacet } = await loadFixture(deployTokenFixture);
       expect(await (diamondFacet as unknown as OwnableFacet).owner()).to.equal(owner.address);
@@ -614,6 +617,7 @@ describe(`DiamondBase 1155 Test`, function () {
   });
 
   describe("Allow list", function () {
+    // FIXME: This test is failing
     it("Should allow the allow list to be enabled and addresses added", async function () {
       const { signer1, allowListFacet } = await loadFixture(deployTokenFixture);
 

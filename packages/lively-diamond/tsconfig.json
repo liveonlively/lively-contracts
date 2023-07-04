@@ -16,23 +16,24 @@
     "strict": true,
     "target": "ESNext",
     "paths": {
+      "$artifact": ["./artifacts"],
       "$artifacts/*": ["./artifacts/*"],
+
+      "$utils": ["./utils"],
       "$utils/*": ["./utils/*"],
+
+      "$scripts": ["./scripts"],
       "$scripts/*": ["./scripts/*"],
+
+      "$abi": ["./abi"],
       "$abi/*": ["./abi/*"],
+
+      "$bytecode": ["./bytecode"],
       "$bytecode/*": ["./bytecode/*"]
     }
   },
 
   "exclude": ["node_modules"],
-  "files": ["hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "scripts/1155/deploy.ts", "global.d.ts"],
-  "include": [
-    "src/**/*",
-    "tasks/**/*",
-    "test/**/*",
-    "deploy/**/*",
-    "scripts/**/*",
-    "bytecode/**/*",
-    "abi-bytecode/**/*"
-  ]
+  "files": ["hardhat.config.ts", "optimizationEnabled.ts", "diamond-cut.ts", "global.d.ts"],
+  "include": ["src/**/*", "tasks/**/*", "test/**/*", "deploy/**/*", "scripts/**/*", "bytecode/**/*"]
 }
