@@ -1,5 +1,6 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
+	"root": true,
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
@@ -14,9 +15,19 @@
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"esModuleInterop": true,
-		"module": "NodeNext"
+		"module": "NodeNext",
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"],
+			"$artifacts/*": ["../lively-diamond/artifacts/*"],
+			"$utils/*": ["../lively-diamond/utils/*"],
+			"$scripts/*": ["../lively-diamond/scripts/*"],
+			"$abi/*": ["../lively-diamond/abi/*"],
+			"$bytecode/*": ["../lively-diamond/bytecode/*"]
+		}
 	},
 	"ts-node": {
 		"esm": true
-	}
+	},
+	"exclude": ["**/lively-diamond/**/*", "packages/lively-diamond/**/*"]
 }

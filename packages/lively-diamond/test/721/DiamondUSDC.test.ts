@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 
 import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { deployAndWait } from "../../scripts/utils/deployHelpers";
-import { LivelyDiamondABI, USDCMock } from "../../types";
+import { USDCMock } from "../../types";
 
 const USDC_ADDRESS = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48";
 
@@ -24,7 +24,8 @@ describe(`DiamondUSDC Test`, function () {
 
     const contractAddress = await deploy(defaultArgs, { verify: false });
 
-    const contract = (await ethers.getContractAt("LivelyDiamondABI", contractAddress)) as unknown as LivelyDiamondABI;
+    // const contract = (await ethers.getContractAt("LivelyDiamondABI", contractAddress)) as unknown as LivelyDiamondABI;
+    const contract = await ethers.getContractAt("LivelyDiamond", contractAddress);
 
     const maxSupply = await contract["maxSupply()"]();
 

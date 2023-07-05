@@ -1,7 +1,0 @@
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.snippetSuggestions": "top",
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true
-}

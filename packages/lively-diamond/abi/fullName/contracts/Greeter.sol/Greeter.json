@@ -1,0 +1,8 @@
+[
+  "constructor(string _greeting)",
+  "error GreeterError()",
+  "function greet() view returns (string)",
+  "function greeting() view returns (string)",
+  "function setGreeting(string _greeting)",
+  "function throwError() pure"
+]

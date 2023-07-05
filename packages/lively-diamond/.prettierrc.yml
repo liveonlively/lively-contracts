@@ -21,3 +21,9 @@ overrides:
       importOrderSeparation: true
       importOrderSortSpecifiers: true
       parser: "typescript"
+  - files: "hardhat.config.ts"
+    options:
+      importOrder: ["hardhat-diamond-abi", "<THIRD_PARTY_MODULES>", "^[./]"]
+      importOrderSeparation: true
+      importOrderSortSpecifiers: true
+      parser: "typescript"

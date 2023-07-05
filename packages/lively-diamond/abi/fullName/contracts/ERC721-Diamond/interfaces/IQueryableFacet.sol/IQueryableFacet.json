@@ -1,0 +1,11 @@
+[
+  "error EditionsDisabled()",
+  "error InvalidEditionIndex()",
+  "function getEditionIndex(uint256 _tokenId) view returns (uint256)",
+  "function getEditionsByOwner(address _owner) view returns (uint256[])",
+  "function getOwners() view returns (address[])",
+  "function getOwners(uint256 _editionIndex) view returns (address[])",
+  "function getTokensByOwner(address _owner) view returns (uint256[])",
+  "function getTokensByOwner(address _owner, uint256 _editionIndex) view returns (uint256[])",
+  "function ownsEdition(address _owner, uint256 editionIndex) view returns (bool)"
+]

@@ -13,9 +13,6 @@ export type DeployWaitType = ReturnType<typeof deployAndWait>;
  * @returns A type of BaseContract
  */
 export const deployAndWait = async (contractName: string, waitTime = 1, ...args: unknown[]) => {
-  // console.log("Getting all types...");
-  // console.log({ AllTypes });
-  // TODO: Fix this check with a better TypeScript guard.
   if (
     optimizationEnabled.findIndex((contractQualifiedAddress) => contractQualifiedAddress.includes(contractName)) === -1
   ) {

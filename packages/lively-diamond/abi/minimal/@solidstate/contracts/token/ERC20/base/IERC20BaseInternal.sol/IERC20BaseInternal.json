@@ -1,0 +1,13 @@
+[
+  "error ERC20Base__ApproveFromZeroAddress()",
+  "error ERC20Base__ApproveToZeroAddress()",
+  "error ERC20Base__BurnExceedsBalance()",
+  "error ERC20Base__BurnFromZeroAddress()",
+  "error ERC20Base__InsufficientAllowance()",
+  "error ERC20Base__MintToZeroAddress()",
+  "error ERC20Base__TransferExceedsBalance()",
+  "error ERC20Base__TransferFromZeroAddress()",
+  "error ERC20Base__TransferToZeroAddress()",
+  "event Approval(address indexed,address indexed,uint256)",
+  "event Transfer(address indexed,address indexed,uint256)"
+]

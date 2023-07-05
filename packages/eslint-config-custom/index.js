@@ -27,23 +27,4 @@ module.exports = {
       },
     },
   ],
-  rules: {
-    "@typescript-eslint/adjacent-overload-signatures": "error",
-    "perfectionist/sort-classes": [
-      "error",
-      {
-        groups: [
-          "static-property",
-          "private-property",
-          "property",
-          "constructor",
-          "static-method",
-          "private-method",
-          "method",
-        ],
-        order: "asc",
-        type: "natural",
-      },
-    ],
-  },
 };

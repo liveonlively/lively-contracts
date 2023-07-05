@@ -193,6 +193,8 @@ describe('livelyDiamondSDK', () => {
 			const account2 = sdk.account;
 			expect(sdk.account).toBeDefined();
 
+			expect(sdk.walletClient?.account).toBeDefined();
+
 			expect(account1).to.not.equal(account2);
 		});
 	});

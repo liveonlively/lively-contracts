@@ -1,0 +1,7 @@
+[
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "function implementation() view returns (address)",
+  "function setDummyImplementation(address)"
+]

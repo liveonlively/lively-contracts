@@ -1,0 +1,5 @@
+[
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "event OwnershipTransferred(address indexed,address indexed)"
+]

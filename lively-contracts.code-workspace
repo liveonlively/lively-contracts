@@ -43,7 +43,7 @@
     ],
     "vitest.commandLine": "pnpm vitest",
     "[typescript]": {
-      "editor.formatOnSave": false,
+      "editor.formatOnSave": true,
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": [
         "source.formatDocument",
@@ -51,7 +51,7 @@
       ]
     },
     "[javascript]": {
-      "editor.formatOnSave": false,
+      "editor.formatOnSave": true,
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": [
         "source.formatDocument",
@@ -60,38 +60,62 @@
     },
     "[svelte]": {
       "editor.defaultFormatter": "svelte.svelte-vscode",
-      "editor.formatOnSave": true
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+      ]
     },
     "[solidity]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+      ]
     },
     "cSpell.words": [
       "andys",
+      "ARBISCAN",
+      "arbitrum",
       "ardenivanov",
       "bignumber",
       "bradlc",
+      "BSCSCAN",
       "chainlink",
+      "Crossmint",
       "dbaeumer",
       "docgen",
       "errorlens",
       "esbenp",
       "ethersproject",
+      "Golively",
+      "IERC",
       "intellicode",
+      "IWETH",
       "liveonlively",
+      "Merkle",
       "mikestead",
+      "Mudgen",
       "nomicfoundation",
       "nomiclabs",
+      "Pausability",
+      "Pausable",
+      "POLYGONSCAN",
       "publint",
       "rvest",
       "sepolia",
+      "SNOWTRACE",
       "solcover",
       "solcoverjs",
       "solhint",
       "solidstate",
+      "Soulbound",
       "tailwindcss",
       "testfiles",
       "trivago",
       "typechain",
+      "Umphrey's",
       "usernamehw",
       "viem",
       "visualstudioexptteam",
@@ -99,14 +123,9 @@
       "zixuanchen"
     ],
     "testing.automaticallyOpenPeekView": "never",
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-    "editor.formatOnPaste": false, // required
-    "editor.formatOnType": false, // required
     "editor.formatOnSave": true, // optional
-    "editor.formatOnSaveMode": "file", // required to format on save
-    "files.autoSave": "off", // optional but recommended
-    "vs-code-prettier-eslint.prettierLast": true // set as "true" to run 'prettier' last not first
+    "eslint.lintTask.enable": true,
+    "editor.codeLens": true
   },
   "extensions": {
     "recommendations": [
