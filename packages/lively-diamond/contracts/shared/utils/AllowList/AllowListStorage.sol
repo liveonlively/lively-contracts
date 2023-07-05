@@ -9,7 +9,7 @@ library AllowListStorage {
 
     using EnumerableSet for EnumerableSet.AddressSet;
     /**
-     * @dev Before protocal publication we can remove these deprecated items but for upgradeability we need to keep them
+     * @dev Before protocol publication we can remove these deprecated items but for upgradeability we need to keep them
      */
     struct Layout {
         mapping(uint256 => bool) allowListEnabled;
