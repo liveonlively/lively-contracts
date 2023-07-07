@@ -7,6 +7,8 @@ description: >-
 
 # 💎 LivelyDiamond Protocol
 
+## NOTE?: Do we want to require users to "register" for an API key from us before using the SDK?
+
 ## LivelyDiamond's Goal
 
 Here is where we explain why we started creating our contracts. We wanted there to be an easy, affordable, modular way for artists to use NFTs to engage with their fans. This can be as technical or light as needed.
@@ -40,8 +42,8 @@ DEV NOTE (JSH): We need to think about how we want to list all our features bett
 [deploy-your-contract.md](quick-start/deploy-your-contract.md)
 {% endcontent-ref %}
 
-{% content-ref url="quick-start/contract-addresses.md" %}
-[contract-addresses.md](quick-start/contract-addresses.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ## Get Started
