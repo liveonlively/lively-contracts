@@ -16,6 +16,8 @@
 
 ***
 
+* [💻 SDK Docs](sdk-docs/README.md)
+  * [sdk](sdk-docs/sdk.md)
 * [🏗 Contract Extensions](contract-extensions/README.md)
   * [💰 Royalties](contract-extensions/royalties.md)
   * [❌ AllowLists](contract-extensions/allowlists.md)
