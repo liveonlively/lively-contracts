@@ -1,0 +1,8 @@
+[
+  "error InitializationFunctionReverted(address _initializationContractAddress, bytes _calldata)",
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "event DiamondCut(tuple(address facetAddress, uint8 action, bytes4[] functionSelectors)[] _diamondCut, address _init, bytes _calldata)",
+  "event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)",
+  "function diamondCut(tuple(address facetAddress, uint8 action, bytes4[] functionSelectors)[] _diamondCut, address _init, bytes _calldata)"
+]

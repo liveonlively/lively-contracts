@@ -30,7 +30,7 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^3.54.0"
+		"svelte": "^4.0.1"
 	},
 	"devDependencies": {
 		"@ethersproject/providers": "^5.7.2",
@@ -55,8 +55,8 @@
 		"prettier-plugin-svelte": "^2.10.1",
 		"publint": "^0.1.9",
 		"reflect-metadata": "^0.1.13",
-		"svelte": "^4.0.0",
-		"svelte-check": "^3.4.3",
+		"svelte": "^4.0.1",
+		"svelte-check": "^3.4.4",
 		"tslib": "^2.4.1",
 		"vite": "^4.3.0",
 		"vitest": "^0.32.2",

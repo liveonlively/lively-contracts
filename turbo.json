@@ -1,9 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".svelte-kit/**", ".vercel/**", "dist/**", "artifacts"]
+      "outputs": [".svelte-kit/**", ".vercel/**", "dist/**"]
     },
     "lint": {},
     "format": {},
@@ -13,9 +14,12 @@
     },
     "typechain": {},
     "coverage": {},
-    "test": {},
+    "test": {
+      "dependsOn": ["^build"]
+    },
     "compile": {
-      "outputs": ["artifacts"]
+      "outputs": ["artifacts", "types", "abi", "bytecode"],
+      "inputs": ["contracts/**/*"]
     }
   }
 }

@@ -22,9 +22,13 @@ export const SupportedNetworks: Record<string, Chain> = {
 };
 
 export interface LivelyDiamondSDKOptions {
-	contractAddress?: Hex;
 	mnemonic?: string;
 	privateKey?: Hex;
+}
+
+export interface LivelyDiamondContractOptions extends LivelyDiamondSDKOptions {
+	address?: Hex;
+	network?: SupportedNetworksType;
 }
 
 export type SupportedNetworksType = valueOf<typeof SupportedNetworks>;

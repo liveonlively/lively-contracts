@@ -1,0 +1,20 @@
+[
+  "error AccountAlreadyAllowListed()",
+  "error AccountNotAllowListed()",
+  "error AllowListAmountExceeded()",
+  "error AllowListDisabled()",
+  "error AllowListEnabled()",
+  "error AllowListMintUnopened()",
+  "error MintNotOpen()",
+  "error NotOnAllowList()",
+  "event AllowListAdded(address,uint256)",
+  "event AllowListAdded(address[],uint256)",
+  "event AllowListAdded(uint256,address,uint256)",
+  "event AllowListAdded(uint256,address[],uint256)",
+  "event AllowListRemoved(address)",
+  "event AllowListRemoved(address[])",
+  "event AllowListRemoved(uint256,address)",
+  "event AllowListRemoved(uint256,address[])",
+  "event AllowListStatus(bool)",
+  "event AllowListStatus(uint256,bool)"
+]

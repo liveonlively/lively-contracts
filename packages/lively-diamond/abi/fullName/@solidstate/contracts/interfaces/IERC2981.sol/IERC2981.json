@@ -1,0 +1,4 @@
+[
+  "function royaltyInfo(uint256 tokenId, uint256 salePrice) view returns (address receiever, uint256 royaltyAmount)",
+  "function supportsInterface(bytes4 interfaceId) view returns (bool)"
+]

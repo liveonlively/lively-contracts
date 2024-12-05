@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 
 import { defaultArgs, deploy } from "../../scripts/deployDiamondVerify";
 import { deployAndWait } from "../../scripts/utils/deployHelpers";
-import { LivelyDiamondABI, PriceMock } from "../../types";
+import { PriceMock } from "../../types";
 
 describe(`DiamondPrice Test`, function () {
   async function deployTokenFixture() {
@@ -22,7 +22,8 @@ describe(`DiamondPrice Test`, function () {
 
     const contractAddress = await deploy(defaultArgs, { verify: false });
 
-    const contract = (await ethers.getContractAt("LivelyDiamondABI", contractAddress)) as unknown as LivelyDiamondABI;
+    // const contract = (await ethers.getContractAt("LivelyDiamondABI", contractAddress)) as unknown as LivelyDiamondABI;
+    const contract = await ethers.getContractAt("LivelyDiamond", contractAddress);
 
     const maxSupply = await contract["maxSupply()"]();
 

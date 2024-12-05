@@ -1,0 +1,5 @@
+[
+  "error AddressUtils__InsufficientBalance()",
+  "error AddressUtils__NotContract()",
+  "error AddressUtils__SendValueFailed()"
+]

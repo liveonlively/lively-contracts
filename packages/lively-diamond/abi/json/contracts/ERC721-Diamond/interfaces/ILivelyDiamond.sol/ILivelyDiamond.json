@@ -1,0 +1,12 @@
+[
+  {
+    "inputs": [],
+    "name": "PaymentSplitterMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PaymentSplitterNoPayees",
+    "type": "error"
+  }
+]

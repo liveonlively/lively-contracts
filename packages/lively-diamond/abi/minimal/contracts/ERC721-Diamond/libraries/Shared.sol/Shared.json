@@ -1,0 +1,11 @@
+[
+  "error EditionsDisabled()",
+  "error NameRequired()",
+  "error PaymentSplitterAccountAddressZero()",
+  "error PaymentSplitterAccountHasShares()",
+  "error PaymentSplitterSharesZero()",
+  "event EditionCreate(uint256,string,uint256,uint256)",
+  "event PayeeAdded(address,uint256)",
+  "event PaymentReceived(address,uint256)",
+  "event RoleGranted(bytes32 indexed,address indexed,address indexed)"
+]

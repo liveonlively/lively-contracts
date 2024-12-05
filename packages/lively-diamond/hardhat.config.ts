@@ -1,18 +1,22 @@
 import "@nomicfoundation/hardhat-toolbox";
+import "@solidstate/hardhat-bytecode-exporter";
 import { config as dotenvConfig } from "dotenv";
+import "hardhat-abi-exporter";
 import "hardhat-deploy";
-import "hardhat-diamond-abi";
 import "hardhat-gas-reporter";
-import type { HardhatUserConfig } from "hardhat/config";
+import { HardhatUserConfig, task } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
 import "solidity-docgen";
+import "tsconfig-paths/register";
 
-import { erc721Facets, erc1155Facets, sharedFacets } from "./optimizationEnabled";
 import "./tasks/accounts";
-import "./tasks/generators";
-import "./tasks/greet";
-import "./tasks/taskDeploy";
+import "./tasks/taskGenerators";
+
+task("export-bytecode").setAction(async function (args, hre, runSuper) {
+  await runSuper(args);
+  console.log("Just ran");
+});
 
 // FIXME: Generate dummy doesn't work with ethers v6. Figure out a workaround or use something else.
 
@@ -110,8 +114,8 @@ const config: HardhatUserConfig = {
       accounts: {
         mnemonic,
       },
-      chainId: chainIds.ganache,
-      url: "http://localhost:8545",
+      chainId: 5777,
+      url: "http://127.0.0.1:8545",
     },
     arbitrum: getChainConfig("arbitrum-mainnet"),
     avalanche: getChainConfig("avalanche"),
@@ -154,18 +158,24 @@ const config: HardhatUserConfig = {
     pageExtension: ".md",
     templates: "docgen-templates",
   },
-  diamondAbi: [
+  abiExporter: [
     {
-      name: "Lively1155DiamondABI",
-      include: [...erc1155Facets, ...sharedFacets],
-      strict: false,
+      path: "./abi/json",
+      format: "json",
     },
     {
-      name: "LivelyDiamondABI",
-      include: [...erc721Facets, ...sharedFacets],
-      strict: false,
+      path: "./abi/minimal",
+      format: "minimal",
+    },
+    {
+      path: "./abi/fullName",
+      format: "fullName",
     },
   ],
+  bytecodeExporter: {
+    runOnCompile: true,
+    clear: true,
+  },
 };
 
 export default config;

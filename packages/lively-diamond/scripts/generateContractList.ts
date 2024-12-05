@@ -1,4 +1,4 @@
-import { generateContractList } from "./generators";
+import { generateContractList } from "./generatorsHelpers";
 
 /**
  * This is a helper script to generate the list of contracts to be compiled.

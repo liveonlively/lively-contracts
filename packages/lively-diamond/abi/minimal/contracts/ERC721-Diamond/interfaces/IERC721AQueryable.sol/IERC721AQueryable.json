@@ -1,0 +1,9 @@
+[
+  "error BalanceQueryForZeroAddress()",
+  "error InvalidQueryRange()",
+  "error OwnerQueryForNonexistentToken()",
+  "function explicitOwnershipOf(uint256) view returns (tuple(address,uint64,bool,uint24))",
+  "function explicitOwnershipsOf(uint256[]) view returns (tuple(address,uint64,bool,uint24)[])",
+  "function tokensOfOwner(address) view returns (uint256[])",
+  "function tokensOfOwnerIn(address,uint256,uint256) view returns (uint256[])"
+]

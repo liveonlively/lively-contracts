@@ -1,0 +1,12 @@
+[
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "error Pausable__NotPaused()",
+  "error Pausable__Paused()",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "event Paused(address)",
+  "event Unpaused(address)",
+  "function pause()",
+  "function paused() view returns (bool)",
+  "function unpause()"
+]

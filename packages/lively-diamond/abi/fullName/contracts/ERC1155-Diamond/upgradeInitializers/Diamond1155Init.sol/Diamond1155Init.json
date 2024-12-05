@@ -1,0 +1,20 @@
+[
+  "error InvalidPayee()",
+  "error NotOwner()",
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "error PayeeNotSender()",
+  "error PaymentSplitterAlreadyHasShares()",
+  "error PaymentSplitterMismatch()",
+  "error PaymentSplitterNoPayees()",
+  "error PaymentSplitterZeroAddress()",
+  "error PaymentSplitterZeroFundsDue()",
+  "error PaymentSplitterZeroShares()",
+  "event ERC20PaymentReleased(address indexed token, address to, uint256 amount)",
+  "event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)",
+  "event PayeeAdded(address account, uint256 shares)",
+  "event PaymentReceived(address from, uint256 amount)",
+  "event PaymentReleased(address to, uint256 amount)",
+  "event URI(string _value, uint256 indexed _id)",
+  "function init(tuple(address[] _payees, uint256[] _shares, address _secondaryPayee, uint16 _secondaryShare, bool _airdrop, string _name, string _symbol, string _contractURI, string _baseURI, tuple(uint256 maxSupply, uint256 price, address creator, string tokenUri, bool allowListEnabled, uint256 startTime, bool isCrossmintUSDC)[] _tokenData, bool _isPriceUSD, bool _automaticUSDConversion) _args)"
+]

@@ -1,0 +1,9 @@
+[
+  "error Ownable__NotOwner()",
+  "error Ownable__NotTransitiveOwner()",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "function contractURI() view returns (string)",
+  "function royaltyInfo(uint256,uint256) view returns (address, uint256)",
+  "function setDefaultRoyalty(uint16,address)",
+  "function supportsInterface(bytes4) view returns (bool)"
+]
